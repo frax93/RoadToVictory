@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import com.lynden.gmapsfx.GoogleMapView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.control.*?>
+
+<?import javafx.scene.image.ImageView?>
+
+<AnchorPane id="AnchorPane" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lynden.example.latlong.Partita">
+
+<GoogleMapView fx:id="googleMapView"/>
+
+
+<Label fx:id="label" layoutX="126" layoutY="120" minHeight="16" minWidth="69" />
+<children>
+    <AnchorPane prefHeight="500.0" prefWidth="130.0" style="-fx-background-color: #778899;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <children>
+            <Label fx:id="GiocatoreName" layoutX="22.0" layoutY="31.0" text="" />
+            <Button fx:id="dadoButton" layoutX="20.0" layoutY="80.0" mnemonicParsing="false" text="Lancia Dado" onAction="#LanciaDado"/>
+
+            <Button fx:id="Dado" layoutX="18.0" layoutY="110.0">
+                <graphic>
+                    <ImageView fx:id="DadoImage"  fitHeight="80.0" fitWidth="80.0" preserveRatio="true" pickOnBounds="true">  <image> </image></ImageView>
+                </graphic>
+            </Button>
+
+            <Label fx:id="ErroreDado" layoutX="18.0" layoutY="200.0" text="" />
+            <Label fx:id="NumeroMezzo" layoutX="50.0" layoutY="310.0" text=""/>
+
+            <Label fx:id="CartaObiettivo" layoutX="2.0" layoutY="400.0" text="" />
+
+            <Label fx:id="CartaPercorsoPartenza" layoutX="2.0" layoutY="450.0" text="" />
+            <Label fx:id="CartaPercorsoArrivo" layoutX="2.0" layoutY="500.0" text="" />
+
+
+
+<Button fx:id="Vagone" layoutX="3.0" layoutY="300.0">
+        <graphic>
+           <ImageView fx:id="BoxImage"  fitHeight="20.0" fitWidth="22.0" preserveRatio="true" pickOnBounds="true"> </ImageView>
+        </graphic>
+</Button>
+
+            <Button fx:id="TurnoButton" layoutX="28.0" layoutY="580.0" mnemonicParsing="false" text="Fine Turno" visible="false"/>
+        </children>
+    </AnchorPane>
+</children>
+
+</AnchorPane>
+
+
+
+

@@ -1,0 +1,76 @@
+.button {
+    -fx-font-weight: bold;
+}
+
+
+#AnchorPane{
+   -fx-stroke-weight: 2000;
+}
+
+#googleMapView{
+    -fx-background-color: blue;
+    -fx-border-radius: 20;
+    -fx-background-radius: 20;
+    -fx-stroke-weight: 20000;
+    -fx-padding: 5;
+    }
+
+
+#GiocatoreName{
+
+    -fx-background-color: white;
+    -fx-border-radius: 20;
+    -fx-border-color: blue;
+    -fx-background-radius: 20;
+    -fx-padding: 5;
+}
+
+
+#dadoButton{
+    -fx-padding: 5;
+    -fx-border-color: blue;
+
+}
+
+#NumeroMezzo{
+    -fx-background-color: white;
+    -fx-weight: 1000;
+    -fx-background-radius: 50;
+    -fx-border-radius: 20;
+    -fx-border-color: blue;
+    -fx-background-radius: 20;
+    -fx-padding: 5;
+}
+
+#ErroreDado{
+
+    -fx-background-color: white;
+}
+
+
+#Vagone{
+    -fx-border-radius: 20;
+    -fx-background-color: transparent;
+    -fx-background-image: url("http://oi63.tinypic.com/10fe6vk.jpg");
+}
+
+#Dado{
+    -fx-border-radius: 20;
+    -fx-background-color: transparent;
+}
+
+Label#CartaObiettivo,Label#CartaPercorsoPartenza,Label#CartaPercorsoArrivo{
+    -fx-background-color: white;
+        -fx-weight: 1000;
+        -fx-background-radius: 50;
+        -fx-border-radius: 20;
+        -fx-border-color: blue;
+        -fx-background-radius: 20;
+        -fx-padding: 5;
+}
+
+#TurnoButton{
+    -fx-padding: 5;
+    -fx-border-color: red;
+}
+
