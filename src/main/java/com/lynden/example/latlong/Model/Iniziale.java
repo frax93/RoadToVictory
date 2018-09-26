@@ -5,19 +5,20 @@ import java.io.IOException;
 import java.util.*;
 
 public class Iniziale implements State_Turno {
+	private FMappa mappa;
 	@Override
-	public void InizioTurno(ArrayList<Giocatore> g,Giocatore g1, String nomeMappa, Turno t)throws FileNotFoundException,IOException{
+	public ArrayList<Giocatore> InizioTurno(ArrayList<Giocatore> g, Giocatore g1, String nomeMappa, Turno t, Stato_Giocatore gioca)throws FileNotFoundException,IOException{
 
-			FMappa m= new FMappa(g,nomeMappa);
+		this.mappa=new FMappa(g,nomeMappa);
 		MazzoPercorso m1=new MazzoPercorso();
-		m1=m1.getIstance(m.DammiPercorsi());
+		m1=m1.getIstance(mappa.DammiPercorsi());
 		MazzoObiettivo m2 = new MazzoObiettivo();
-		m2=m2.getIstance(m.getCitta());
+		m2=m2.getIstance(mappa.getCitta());
 		for(int i=0;i<g.size();i++)
 			g.get(i).PescaDueCarte();
-		m.PopolaMappa(g);
+		mappa.PopolaMappa(g);
 		t.setState(this);
-		this.Fineturno(g1);
+		return g;
 
 	}
 	@Override
@@ -28,7 +29,9 @@ public class Iniziale implements State_Turno {
 	public ArrayList<Giocatore> OrdinaGiocatori(ArrayList<Giocatore> g) {
 		Collections.sort(g);
 		return g;
-
 	}
 
+	public FMappa getMappa() {
+		return mappa;
+	}
 }

@@ -8,12 +8,13 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class Generale implements State_Turno {
+	private Giocatore giocatore;
 	@Override
-	public void InizioTurno(ArrayList<Giocatore> g, Giocatore g1,String NomeMappa, Turno t) throws FileNotFoundException,IOException {
-		Gioca gioca=new Gioca();
+	public ArrayList<Giocatore> InizioTurno(ArrayList<Giocatore> g, Giocatore g1,String NomeMappa, Turno t,Stato_Giocatore gioca) throws FileNotFoundException,IOException {
 		g1.setState(gioca);
 		t.setState(this);
-		this.Fineturno(g1);
+		this.giocatore=g1;
+		return g;
 
 
 
@@ -25,7 +26,6 @@ public class Generale implements State_Turno {
 	}
 	@Override
 	public  ArrayList<Giocatore> OrdinaGiocatori(ArrayList<Giocatore> g){
-		// TO Implement
 		return g;
 	}
 

@@ -12,7 +12,7 @@ import java.util.concurrent.Executors;
 
 public interface State_Turno {
 
-	public abstract void InizioTurno(ArrayList<Giocatore> g, Giocatore g1,String nomeMappa, Turno t) throws Exception;
+	public abstract ArrayList<Giocatore> InizioTurno(ArrayList<Giocatore> g, Giocatore g1, String nomeMappa, Turno t, Stato_Giocatore gioca) throws Exception;
 	public abstract void Fineturno(Giocatore g);
 	public abstract ArrayList<Giocatore> OrdinaGiocatori(ArrayList<Giocatore> g);
 
