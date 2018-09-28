@@ -1,14 +1,10 @@
 package com.lynden.example.latlong;
 
-import java.util.Random;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import com.google.gson.JsonArray;
 import com.lynden.gmapsfx.javascript.object.LatLong;
-import com.sun.org.apache.xalan.internal.xsltc.trax.TemplatesHandlerImpl;
-import netscape.javascript.JSObject;
 
-import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
@@ -24,13 +20,13 @@ public class FMappa {
 
 		ArrayList<Citta> c = this.CreaMappa();
 
-
-
 		for (int i=0;i<c.size();i++)
-			for(int j=i+1;j<=i+1&&j<10;j++){
+			for(int j=i+1;j<=i+1&&j<c.size();j++){
 				Percorso p;
-				p=new Percorso(i*i+j*j,c.get(i),c.get(j));
-				this.AddPercorso(p);
+				if(c.get(i).getDistanza()-c.get(j).getDistanza()<1500){
+					p=new Percorso(i*i+j*j,c.get(i),c.get(j));
+					this.AddPercorso(p);
+				}
 			}
 
 

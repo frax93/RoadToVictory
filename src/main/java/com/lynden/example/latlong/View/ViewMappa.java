@@ -33,21 +33,22 @@ public class ViewMappa {
     private Label CartaPercorsoArrivo;
     private Label GiocatoreName;
     private Button TurnoButton;
-    private ArrayList<Casella> Stato_attuale = new ArrayList<>();
+    private Label NumeroMezzo;
 
-    public ViewMappa(GoogleMap map, GoogleMapView googleMapView, Label CartaObiettivo,Label CartapercorsoPartenza, Label CartapercorsoArrivo, Label GiocatoreName) {
+    public ViewMappa(GoogleMap map, GoogleMapView googleMapView, Label CartaObiettivo,Label CartapercorsoPartenza, Label CartapercorsoArrivo, Label GiocatoreName, Button TurnoButton,Label NumeroMezzo) {
         this.googleMapView = googleMapView;
         this.map = map;
         this.GiocatoreName=GiocatoreName;
         this.CartaObiettivo=CartaObiettivo;
         this.CartaPercorsoArrivo=CartapercorsoArrivo;
         this.CartaPercorsoPartenza=CartapercorsoPartenza;
+        this.TurnoButton=TurnoButton;
+        this.NumeroMezzo=NumeroMezzo;
 
     }
 
     public void Creamappa(ArrayList<Giocatore> giocatoreArrayList, FMappa mappa, Partita p) throws FileNotFoundException, IOException {
-        this.GiocatoreName.setText(giocatoreArrayList.get(0).getUsername());
-        this.GiocatoreName.setTextFill(Color.web("red"));
+        this.setGiocatoreName(giocatoreArrayList.get(0));
         final Polyline[] polyline = {null};
         MapOptions mapOptions = new MapOptions();
         mapOptions.center(new LatLong(45.70618, 10.01953))
@@ -63,13 +64,9 @@ public class ViewMappa {
                 .rotateControl(false)
                 .scaleControl(false);
         this.map = this.googleMapView.createMap(mapOptions, false);
-
+        this.setCarte(giocatoreArrayList);
         CartaObiettivo CartaObbGioc1 = giocatoreArrayList.get(0).ChiediCartaObiettivo();
         CartaPercorso CartaPercGioc1 = giocatoreArrayList.get(0).ChiediCartaPercorso();
-
-        this.CartaObiettivo.setText("Città obiettivo: " + CartaObbGioc1.getCittaObiettivo().getNome());
-        this.CartaPercorsoPartenza.setText("Partenza:" + CartaPercGioc1.getCittaPartenza().getNome());
-        this.CartaPercorsoArrivo.setText("Arrivo:" + CartaPercGioc1.getCittaArrivo().getNome());
 
         ArrayList<Percorso> percorsi = new ArrayList<>();
         percorsi = mappa.DammiPercorsi();
@@ -78,15 +75,15 @@ public class ViewMappa {
 
         Percorso pe = null;
         this.setMarker(giocatoreArrayList,mappa);
-        for (int j = 0; j < percorsi.size(); j++) {
-            pe = percorsi.get(j);
-            ArrayList<Casella> caselle = pe.getCaselle();
-            for (int cont = 0; cont < caselle.size(); cont++) {
-                Polyline finalPolyline = polyline[0];
-                if (CartaPercGioc1.getCittaPartenza().getCoordinate().getLatitude() == caselle.get(cont).getInizio().getLatitude()
-                        &&
-                        CartaPercGioc1.getCittaPartenza().getCoordinate().getLongitude() == caselle.get(cont).getInizio().getLongitude()) {
-                    LatLong[] Prova1 = {caselle.get(cont).getInizio(), caselle.get(cont).getFine()};
+        for(int a=0;a<giocatoreArrayList.size();a++){
+            for (int j = 0; j < percorsi.size(); j++) {
+                pe = percorsi.get(j);
+                ArrayList<Casella> caselle = pe.getCaselle();
+                for (int cont = 0; cont < caselle.size(); cont++) {
+                    Polyline finalPolyline = polyline[0];
+                    if (giocatoreArrayList.get(a).ChiediCartaPercorso().getCittaPartenza().getCoordinate().getLatitude() == caselle.get(cont).getInizio().getLatitude()
+                        && giocatoreArrayList.get(a).ChiediCartaPercorso().getCittaPartenza().getCoordinate().getLongitude() == caselle.get(cont).getInizio().getLongitude()) {
+                        LatLong[] Prova1 = {caselle.get(cont).getInizio(), caselle.get(cont).getFine()};
 
                     PolylineOptions pippo1 = new PolylineOptions();
                     pippo1.path(new MVCArray(Prova1))
@@ -98,76 +95,96 @@ public class ViewMappa {
                     polyline[0] = new Polyline(pippo1);
                     map.addMapShape(polyline[0]);
                     finalPolyline = polyline[0];
-                    giocatoreArrayList.get(0).setMezzo(1);
-                    giocatoreArrayList.get(0).PosizionaMezzo(caselle.get(cont));
-                    this.Stato_attuale.add(pe.CalcolaCaselleVicine(caselle.get(cont)));
+                    giocatoreArrayList.get(a).setMezzo(1);
+                    giocatoreArrayList.get(a).PosizionaMezzo(caselle.get(cont));
+                    giocatoreArrayList.get(a).setMossa(pe.CalcolaCaselleVicine(caselle.get(cont)));
                     ArrayList<Percorso> percorsi_vicini = new ArrayList<>();
-                    if (caselle.get(cont).getId() == mappa.getPercorsoByCasella(caselle.get(cont)).getCasellaPartenza().getId())
-                        percorsi_vicini = mappa.getViciniPercorsoPartenza(mappa.getPercorsoByCasella(caselle.get(cont)));
+                    if (caselle.get(cont).getId() == mappa.getPercorsoByCasella(caselle.get(cont)).getCasellaPartenza().getId()){
+                        percorsi_vicini = mappa.getViciniPercorsoPartenza(mappa.getPercorsoByCasella(caselle.get(cont)));}
 
-                    else if (caselle.get(cont).getId() == mappa.getPercorsoByCasella(caselle.get(cont)).getCasellaArrivo().getId())
-                        percorsi_vicini = mappa.getViciniPercorsoArrivo(mappa.getPercorsoByCasella(caselle.get(cont)));
+                    else if (caselle.get(cont).getId() == mappa.getPercorsoByCasella(caselle.get(cont)).getCasellaArrivo().getId()){
+                        percorsi_vicini = mappa.getViciniPercorsoArrivo(mappa.getPercorsoByCasella(caselle.get(cont)));}
 
                     if (percorsi_vicini.size() == 0) ;
                     else {
                         ArrayList<Casella> casellaArrayList = mappa.getCaselleVicinePercorsi(percorsi_vicini, caselle.get(cont));
                         casellaArrayList.remove(null);
-                        this.Stato_attuale.addAll(casellaArrayList);
+                        giocatoreArrayList.get(a).setMosse(casellaArrayList);
                     }
-                } else {
-
-                    LatLong[] Prova = {caselle.get(cont).getInizio(), caselle.get(cont).getFine()};
-                    PolylineOptions pippo = new PolylineOptions();
-                    pippo.path(new MVCArray(Prova))
-                            .clickable(true)
-                            .draggable(false)
-                            .strokeColor("gray")
-                            .strokeWeight(6)
-                            .visible(true);
-                    polyline[0] = new Polyline(pippo);
-                    map.addMapShape(polyline[0]);
-                    finalPolyline = polyline[0];
-                    int finalI = cont;
-                    Polyline finalPolyline1 = finalPolyline;
-                    Polyline finalPolyline2 = finalPolyline;
-                    map.addUIEventHandler(polyline[0], UIEventType.click, (JSObject obj) -> {
-                        try{
-                            p.PosizionaMezzo(finalPolyline1, pippo,finalI,this.Stato_attuale,caselle);
-                        }
-                       catch (Exception f){
-                            System.out.println(f);
-                       }
-
-                    });
                 }
+
+            }
             }
         }
-    }
+        for (int j = 0; j < percorsi.size(); j++) {
+            pe = percorsi.get(j);
+            ArrayList<Casella> caselle = pe.getCaselle();
+            for (int cont = 0; cont < caselle.size(); cont++) {
+                Polyline finalPolyline = polyline[0];
+                LatLong[] Prova = {caselle.get(cont).getInizio(), caselle.get(cont).getFine()};
+                PolylineOptions pippo = new PolylineOptions();
+                pippo.path(new MVCArray(Prova))
+                    .clickable(true)
+                    .draggable(false)
+                    .strokeColor("gray")
+                    .strokeWeight(6)
+                    .visible(true);
+            polyline[0] = new Polyline(pippo);
+            map.addMapShape(polyline[0]);
+            finalPolyline = polyline[0];
+            int finalI = cont;
+            Polyline finalPolyline1 = finalPolyline;
+            Polyline finalPolyline2 = finalPolyline;
+            map.addUIEventHandler(polyline[0], UIEventType.click, (JSObject obj) -> {
+                try{
+                    p.PosizionaMezzo(finalPolyline1, pippo,finalI,caselle);
+                }
+                catch (Exception f){
+                    System.out.println(f);
+                }
+
+            });
+            }
+        }
+        }
+
 
 
 
 
     public void PosizionaMezzo(int n,Polyline finalPolyline1, PolylineOptions pippo, ArrayList<Giocatore> giocatoreArrayList){
                     giocatoreArrayList.get(0).setMezzo(n);
-                    if (giocatoreArrayList.get(0).getMezzi() == null) {
-                        pippo.strokeColor("red");
-                        finalPolyline1.setVisible(false);
-                        Polyline polyline1 = new Polyline(pippo);
-                        this.map.addMapShape(polyline1);
-                        TurnoButton.setVisible(true);
-                    } else if (giocatoreArrayList.get(0).getMezzi().size() > 0) {
-                        pippo.strokeColor("red");
+                    if (giocatoreArrayList.get(0).getMezzi().size() > 0) {
+                        this.NumeroMezzo.setText(String.valueOf(giocatoreArrayList.get(0).getMezzi().size()));
+                        pippo.strokeColor(giocatoreArrayList.get(0).getColor());
                         finalPolyline1.setVisible(false);
                         Polyline polyline1 = new Polyline(pippo);
                         map.addMapShape(polyline1);
                     }
+                    else if (giocatoreArrayList.get(0).getMezzi().size() == 0) {
+                        this.NumeroMezzo.setText(String.valueOf(0));
+                        pippo.strokeColor(giocatoreArrayList.get(0).getColor());
+                        finalPolyline1.setVisible(false);
+                        Polyline polyline1 = new Polyline(pippo);
+                        this.map.addMapShape(polyline1);
+                        this.TurnoButton.setVisible(true);
 
+    }
     }
 
 
+    public void setTurnoButton(Boolean button){
+        this.TurnoButton.setVisible(button);
+    }
 
+    public void setCarte(ArrayList<com.lynden.example.latlong.Giocatore> giocatoreArrayList){
+        CartaObiettivo CartaObbGioc1 = giocatoreArrayList.get(0).ChiediCartaObiettivo();
+        CartaPercorso CartaPercGioc1 = giocatoreArrayList.get(0).ChiediCartaPercorso();
 
-
+        this.CartaObiettivo.setText("Città obiettivo: " + CartaObbGioc1.getCittaObiettivo().getNome());
+        this.CartaPercorsoPartenza.setText("Partenza:" + CartaPercGioc1.getCittaPartenza().getNome());
+        this.CartaPercorsoArrivo.setText("Arrivo:" + CartaPercGioc1.getCittaArrivo().getNome());
+    }
 
     public void setMarker(ArrayList<com.lynden.example.latlong.Giocatore> giocatores, FMappa mappa){
         ArrayList<Marker> markers= new ArrayList<>();
@@ -180,19 +197,15 @@ public class ViewMappa {
                     FMezzo fMezzo=new FMezzo();
                     Mezzo mezGioc1= fMezzo.CreaVagone(giocatores.get(i));
                     mappa.getCitta().get(j).setMezzo(mezGioc1);
-
-                    //Per settare che la città sia occupata
                     c.getCittaPartenza().setOccupata(true);
-
                     MarkerOptions MarkerPartenza = new MarkerOptions();
                     MarkerPartenza.position(coorPartenza);
                     MarkerPartenza.visible(Boolean.TRUE);
+                    String nome_giocatore=giocatores.get(i).getUsername().substring(0,1);
+                    MarkerPartenza.label(nome_giocatore.concat(giocatores.get(i).getUsername().substring(giocatores.get(i).getUsername().length()-1)));
                     Marker m1 = new Marker(MarkerPartenza);
                     markers.add(m1);
                     map.addMarkers(markers);
-
-
-
 
                 }
             }
@@ -201,6 +214,7 @@ public class ViewMappa {
 
     public void setGiocatoreName(Giocatore g){
         this.GiocatoreName.setText(g.getUsername());
+        this.GiocatoreName.setTextFill(Color.web("red"));
 
     }
 }

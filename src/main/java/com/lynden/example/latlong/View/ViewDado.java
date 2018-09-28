@@ -58,5 +58,7 @@ public class ViewDado {
         this.dadoButton.setDisable(true);
     }
 
-
+    public void setDadoButton() {
+        this.dadoButton.setDisable(false);
+    }
 }

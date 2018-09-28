@@ -43,7 +43,6 @@ public class Partita implements Initializable,MapComponentInitializedListener{
     @FXML
     private GoogleMapView googleMapView;
     private GoogleMap map;
-    private Giocatore giocatore =new Giocatore(1,"Giocatore1");
     public Button dadoButton;
     public Label NumberDado;
     public Label NumeroMezzo;
@@ -53,9 +52,11 @@ public class Partita implements Initializable,MapComponentInitializedListener{
     public Label CartaPercorsoPartenza;
     public Label CartaPercorsoArrivo;
     public Label GiocatoreName;
+    public Button TurnoButton;
     private ArrayList<Giocatore> Giocatori=new ArrayList<>();
     private FMappa mappa;
     private ViewMappa viewMappa;
+    private ViewDado viewDado;
     private Generale general;
     private Gioca gioca=new Gioca();
     private ArrayList<Casella> Stato_attuale = new ArrayList<>();
@@ -71,9 +72,12 @@ public class Partita implements Initializable,MapComponentInitializedListener{
     @Override
     public void mapInitialized(){
         ArrayList<Giocatore> giocatoreArrayList = new ArrayList<Giocatore>();
-        Giocatore giocatore1=new Giocatore(3,"Giocatore2");
+        Giocatore giocatore1=new Giocatore(3,"Giocatore2","red");
+        Giocatore giocatore2=new Giocatore(4,"Giocatore3","yellow");
+        Giocatore giocatore =new Giocatore(1,"Giocatore1","orange");
         this.Giocatori.add(giocatore);
         this.Giocatori.add(giocatore1);
+        this.Giocatori.add(giocatore2);
         this.AvviaPartita("Europa");
 
 
@@ -89,8 +93,9 @@ public class Partita implements Initializable,MapComponentInitializedListener{
             giocatori_ordinati=i.InizioTurno(giocatori_ordinati,giocatori_ordinati.get(0),Nome_mappa,t, (Stato_Giocatore) attesa);
             this.Giocatori=giocatori_ordinati;
             this.mappa=i.getMappa();
-            this.viewMappa=new ViewMappa(map,googleMapView,CartaObiettivo,CartaPercorsoPartenza,CartaPercorsoArrivo,GiocatoreName);
+            this.viewMappa=new ViewMappa(map,googleMapView,CartaObiettivo,CartaPercorsoPartenza,CartaPercorsoArrivo,GiocatoreName,TurnoButton,NumeroMezzo);
             this.viewMappa.Creamappa(this.Giocatori,this.mappa,this);
+            this.general=new Generale();
             this.Giocatori=this.general.InizioTurno(giocatori_ordinati,giocatori_ordinati.get(0),Nome_mappa,t,(Stato_Giocatore) this.gioca);
 
         }
@@ -110,47 +115,32 @@ public class Partita implements Initializable,MapComponentInitializedListener{
         event.consume();
        int n = this.Giocatori.get(0).LanciaDado();
        this.Giocatori.get(0).setMezzo(n);
-       ViewDado viewDado =new ViewDado(dadoButton, NumeroMezzo,NumberDado,DadoImage,n);
+       this.viewDado =new ViewDado(dadoButton, NumeroMezzo,NumberDado,DadoImage,n);
 
     }
 
-    public void PosizionaMezzo(Polyline finalPolyline1, PolylineOptions pippo, int finalI, ArrayList<Casella> casellas,ArrayList<Casella> caselle) throws FileNotFoundException,IOException{
-        if(this.Giocatori.get(0).getMezzi()==null){
-            Turno t= new Turno();
-            Giocatore giocatore_backup=this.Giocatori.get(0);
-            System.out.println(this.Giocatori.get(0));
-            this.Giocatori.remove(giocatore_backup);
-            System.out.println(this.Giocatori.get(0));
-            this.Giocatori.add(this.Giocatori.size()-1,giocatore_backup);
-            this.general.InizioTurno(this.Giocatori,this.Giocatori.get(0),"Europa",t,this.gioca);
-            //this.viewMappa.setGiocatoreName(this.Giocatori.get(0));
-        }
-        else{
-        this.Stato_attuale=casellas;
-        this.viewMappa.setGiocatoreName(this.Giocatori.get(0));
-        MVCArray path = finalPolyline1.getPath();
-        pippo.path(path);
-        String coordinata = String.valueOf(path.getAt(0));
-        String[] LatLinea = coordinata.split(",");
-        double Lat = Double.valueOf(LatLinea[0].replace("(", ""));
-        double Long = Double.valueOf(LatLinea[1].replace(")", ""));
-        LatLong LongCasellaInizio = caselle.get(finalI).getInizio();
-        LatLong LongCasellaFine = caselle.get(finalI).getFine();
-        Casella Casella_premuta = caselle.get(finalI);
+    public void PosizionaMezzo(Polyline finalPolyline1, PolylineOptions pippo, int finalI,ArrayList<Casella> caselle) throws FileNotFoundException,IOException {
 
+            this.viewMappa.setGiocatoreName(this.Giocatori.get(0));
+            MVCArray path = finalPolyline1.getPath();
+            pippo.path(path);
+            String coordinata = String.valueOf(path.getAt(0));
+            String[] LatLinea = coordinata.split(",");
+            double Lat = Double.valueOf(LatLinea[0].replace("(", ""));
+            double Long = Double.valueOf(LatLinea[1].replace(")", ""));
+            LatLong LongCasellaInizio = caselle.get(finalI).getInizio();
+            LatLong LongCasellaFine = caselle.get(finalI).getFine();
+            Casella Casella_premuta = caselle.get(finalI);
 
-        if ((LongCasellaInizio.getLatitude() == Lat && LongCasellaInizio.getLongitude() == Long) ||
-                (LongCasellaFine.getLatitude() == Lat && LongCasellaFine.getLongitude() == Long)) {
+            if ((LongCasellaInizio.getLatitude() == Lat && LongCasellaInizio.getLongitude() == Long) ||
+                    (LongCasellaFine.getLatitude() == Lat && LongCasellaFine.getLongitude() == Long)) {
 
-
-            Percorso PercorsoPremuto = null;
-            PercorsoPremuto = this.mappa.getPercorsoByCasella(Casella_premuta);
-
-            for (int d = 0; d < this.Stato_attuale.size(); d++) {
-
-                if (Casella_premuta.getId() == this.Stato_attuale.get(d).getId()) {
-                    this.Stato_attuale.add(PercorsoPremuto.CalcolaCaselleVicine(Casella_premuta));
-                    this.Stato_attuale.remove(Casella_premuta);
+                Percorso PercorsoPremuto = null;
+                PercorsoPremuto = this.mappa.getPercorsoByCasella(Casella_premuta);
+                for (int d = 0; d < this.Giocatori.get(0).getMosse().size(); d++) {
+               if (Casella_premuta.getId() == this.Giocatori.get(0).getMosse().get(d).getId()) {
+                    this.Giocatori.get(0).setMossa(PercorsoPremuto.CalcolaCaselleVicine(Casella_premuta));
+                    this.Giocatori.get(0).removeMossa(Casella_premuta);
                     ArrayList<Percorso> percorsi_vicini = new ArrayList<>();
                     if (Casella_premuta.getId() == PercorsoPremuto.getCasellaPartenza().getId())
                         percorsi_vicini = this.mappa.getViciniPercorsoPartenza(PercorsoPremuto);
@@ -162,34 +152,38 @@ public class Partita implements Initializable,MapComponentInitializedListener{
                     else {
                         ArrayList<Casella> casellaArrayList = this.mappa.getCaselleVicinePercorsi(percorsi_vicini, Casella_premuta);
                         casellaArrayList.remove(null);
-                        this.Stato_attuale.addAll(casellaArrayList);
+                        this.Giocatori.get(0).setMosse(casellaArrayList);
                     }
+
                     this.Giocatori.get(0).PosizionaMezzo(Casella_premuta);
                     this.viewMappa.PosizionaMezzo(this.Giocatori.get(0).getMezzi().size(),finalPolyline1, pippo, this.Giocatori);
                     }
                 }
-            }
+                }
+
         }
-    }
+
 
 
 
     /**********   Funzione calcolo randomico della Carta Obiettivo del Giocatore   ************/
     @FXML
-    private void CartaObiettivo(final ActionEvent event) {
-        /*event.consume();
-        Random run = new Random();
-        int n = run.nextInt(3)+1;
-        if(n==1) {
-            CartaObiettivo.setText("Città Obiettivo: Roma");
-        }
-        else if (n==2){
-            CartaObiettivo.setText("Città Obiettivo: Parigi");
-        }
-        else if (n==3){
-            CartaObiettivo.setText("Città Obiettivo: Milano");
-        }
-        CartaObiettivo.setTextFill(Color.web("white"));*/
+    private void FineTurno(final ActionEvent event) {
+            try{
+                Turno t = new Turno();
+                Giocatore giocatore_backup = this.Giocatori.get(0);
+                this.Giocatori.remove(giocatore_backup);
+                this.Giocatori.add(this.Giocatori.size(), giocatore_backup);
+                this.viewDado.setDadoButton();
+                this.general.InizioTurno(this.Giocatori, this.Giocatori.get(0), "Europa", t, this.gioca);
+                this.viewMappa.setCarte(this.Giocatori);
+                this.viewMappa.setTurnoButton(false);
+                this.viewMappa.setGiocatoreName(this.Giocatori.get(0));
+            }
+            catch (Exception e){
+                System.out.println(e);
+            }
+
 
     }
 

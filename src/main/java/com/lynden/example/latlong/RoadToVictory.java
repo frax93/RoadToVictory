@@ -84,8 +84,8 @@ public class RoadToVictory extends Application{
 
 
         Scene scene = new Scene(root);
-        //GoogleMapView googleMapView = (GoogleMapView)  scene.lookup("#googleMapView");
-        //googleMapView.autosize();
+        GoogleMapView googleMapView = (GoogleMapView)  scene.lookup("#googleMapView");
+        googleMapView.autosize();
         scene.getStylesheets().add("Styles.css");
         stage.setTitle("Road To Victory Europa");
         stage.setScene(scene);

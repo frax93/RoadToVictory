@@ -2,6 +2,8 @@ package com.lynden.example.latlong;
 
 import com.lynden.example.latlong.FMezzo;
 import com.lynden.example.latlong.Mezzo;
+import javafx.scene.paint.Color;
+
 
 import java.util.ArrayList;
 
@@ -12,6 +14,8 @@ public class Giocatore implements Comparable<Giocatore>,Runnable {
 	private CartaObiettivo c1=null;
 	private ArrayList<Mezzo> mezzo=null;
 	private Stato_Giocatore stato_giocatore;
+	private String color;
+	private ArrayList<Casella> mosse=new ArrayList<>();
 
 	public void setState(Stato_Giocatore state){
 		this.stato_giocatore = state;
@@ -29,14 +33,17 @@ public class Giocatore implements Comparable<Giocatore>,Runnable {
 	public void run(){
 		//this.Posizionamezzo();
 	}
-	public Giocatore(int id, String u){
+	public Giocatore(int id, String u,String color1){
+		this.color=color1;
 		this.id=id;
 		this.username=u;
 		Attesa attesa=new Attesa();
 		attesa.Ruolo(this);
 
 	}
-
+	public String getColor(){
+		return this.color;
+	}
 	public int getId(){
 		return this.id;
 	}
@@ -47,6 +54,20 @@ public class Giocatore implements Comparable<Giocatore>,Runnable {
 
 	public String getUsername(){
 		return this.username;
+	}
+
+	public void setMossa(Casella mossa) {
+		this.mosse.add(mossa);
+	}
+	public void setMosse(ArrayList<Casella> mosse) {
+		this.mosse.addAll(mosse);
+	}
+	public void removeMossa(Casella mossa) {
+		this.mosse.remove(mossa);
+	}
+
+	public ArrayList<Casella> getMosse() {
+		return this.mosse;
 	}
 
 	public int LanciaDado() {
@@ -102,8 +123,7 @@ public class Giocatore implements Comparable<Giocatore>,Runnable {
 
 		int pos=this.mezzo.size()-1;
 		c.PosizionaGiocatore(this);
-		if(pos==0) this.mezzo=null;
-		else this.mezzo.remove(pos);
+		this.mezzo.remove(pos);
 
 
 	}
