@@ -76,8 +76,8 @@ public class Partita implements Initializable,MapComponentInitializedListener{
         Giocatore giocatore2=new Giocatore(4,"Giocatore3","yellow");
         Giocatore giocatore =new Giocatore(1,"Giocatore1","orange");
         this.Giocatori.add(giocatore);
-        this.Giocatori.add(giocatore1);
-        this.Giocatori.add(giocatore2);
+        //this.Giocatori.add(giocatore1);
+        //this.Giocatori.add(giocatore2);
         this.AvviaPartita("Europa");
 
 
@@ -137,10 +137,42 @@ public class Partita implements Initializable,MapComponentInitializedListener{
 
                 Percorso PercorsoPremuto = null;
                 PercorsoPremuto = this.mappa.getPercorsoByCasella(Casella_premuta);
+
+                //CODICE per scovare ed occupare le caselle gemelle
+                ArrayList<Percorso> AllPercorsi= this.mappa.DammiPercorsi();
+                for(int g=0;g<AllPercorsi.size();g++){
+                    ArrayList<Casella> CasellePercorsi= AllPercorsi.get(g).getCaselle();
+                    for(int g1=0;g1<CasellePercorsi.size();g1++){
+
+                        if(Math.abs(Casella_premuta.getInizio().getLatitude()- CasellePercorsi.get(g1).getInizio().getLatitude())<0.0005 && Math.abs(Casella_premuta.getInizio().getLatitude()-CasellePercorsi.get(g1).getInizio().getLatitude())>=0
+                                && Math.abs(Casella_premuta.getInizio().getLongitude()- CasellePercorsi.get(g1).getInizio().getLongitude())<0.0005 && Math.abs(Casella_premuta.getInizio().getLongitude()-CasellePercorsi.get(g1).getInizio().getLongitude())>=0
+                                && CasellePercorsi.get(g1).getId() != Casella_premuta.getId())
+                        {
+                            for (int g2 = 0; g2 < this.Giocatori.get(0).getMosse().size(); g2++) {
+                                //PROBABILMENTE qui bisogna modificare perchè con 3 percorsi in alcuni casi raddoppia il numero di mezzi messi e persiste il problema (solo nel caso 3 percorsi se no va bene)
+                                if(Casella_premuta.getId()==this.Giocatori.get(0).getMosse().get(g2).getId()){
+                                    this.Giocatori.get(0).setMossa(AllPercorsi.get(g).CalcolaCaselleVicine(CasellePercorsi.get(g1)));
+                                    this.Giocatori.get(0).PosizionaMezzo(CasellePercorsi.get(g1));
+                                    CasellePercorsi.get(g1).PosizionaGiocatore(this.Giocatori.get(0));
+                                    this.viewMappa.PosizionaMezzo(this.Giocatori.get(0).getMezzi().size(), finalPolyline1, pippo, this.Giocatori);
+                                }
+                                if (CasellePercorsi.get(g1).getId() == this.Giocatori.get(0).getMosse().get(g2).getId()) {
+                                    this.Giocatori.get(0).setMossa(PercorsoPremuto.CalcolaCaselleVicine(Casella_premuta));
+                                    Casella_premuta.PosizionaGiocatore(this.Giocatori.get(0));
+                                    this.Giocatori.get(0).PosizionaMezzo(Casella_premuta);
+                                    this.viewMappa.PosizionaMezzo(this.Giocatori.get(0).getMezzi().size(), finalPolyline1, pippo, this.Giocatori);
+                                }
+                            }
+
+                        }
+
+                    }
+                }
+
+                System.out.println(Casella_premuta.getInizio().getLatitude());
                 for (int d = 0; d < this.Giocatori.get(0).getMosse().size(); d++) {
                if (Casella_premuta.getId() == this.Giocatori.get(0).getMosse().get(d).getId()) {
                     this.Giocatori.get(0).setMossa(PercorsoPremuto.CalcolaCaselleVicine(Casella_premuta));
-                    this.Giocatori.get(0).removeMossa(Casella_premuta);
                     ArrayList<Percorso> percorsi_vicini = new ArrayList<>();
                     if (Casella_premuta.getId() == PercorsoPremuto.getCasellaPartenza().getId())
                         percorsi_vicini = this.mappa.getViciniPercorsoPartenza(PercorsoPremuto);
@@ -157,7 +189,8 @@ public class Partita implements Initializable,MapComponentInitializedListener{
 
                     this.Giocatori.get(0).PosizionaMezzo(Casella_premuta);
                     this.viewMappa.PosizionaMezzo(this.Giocatori.get(0).getMezzi().size(),finalPolyline1, pippo, this.Giocatori);
-                    }
+                    this.Giocatori.get(0).removeMossa(Casella_premuta);
+               }
                 }
                 }
 

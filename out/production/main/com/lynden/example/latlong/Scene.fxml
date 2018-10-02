@@ -39,7 +39,7 @@
         </graphic>
 </Button>
 
-            <Button fx:id="TurnoButton" layoutX="28.0" layoutY="580.0" mnemonicParsing="false" text="Fine Turno" visible="false"/>
+            <Button fx:id="TurnoButton" layoutX="28.0" layoutY="580.0" mnemonicParsing="false" text="Fine Turno" visible="false" onAction="#FineTurno"/>
         </children>
     </AnchorPane>
 </children>
