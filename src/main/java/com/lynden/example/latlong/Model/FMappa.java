@@ -19,14 +19,16 @@ public class FMappa {
 		this.Nome = NomeMappa;
 
 		ArrayList<Citta> c = this.CreaMappa();
+		int q1=100,q2=0;
+		for (int i=1;i<c.size();i++){
+			int j=i-1;
+			Percorso p;
+			Percorso p1;
+			p=new Percorso(q1,c.get(j),c.get(i));
+			this.AddPercorso(p);
+			q1--;
+			q2++;
 
-		for (int i=0;i<c.size();i++)
-			for(int j=i+1;j<=i+3&&j<c.size();j++){
-				Percorso p;
-				if(c.get(i).getDistanza()-c.get(j).getDistanza()<1500){
-					p=new Percorso(i*i+j*j,c.get(i),c.get(j));
-					this.AddPercorso(p);
-				}
 			}
 
 

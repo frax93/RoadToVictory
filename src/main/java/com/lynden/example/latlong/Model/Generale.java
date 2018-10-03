@@ -10,10 +10,10 @@ import java.util.ArrayList;
 public class Generale implements State_Turno {
 	private Giocatore giocatore;
 	@Override
-	public ArrayList<Giocatore> InizioTurno(ArrayList<Giocatore> g, Giocatore g1,String NomeMappa, Turno t,Stato_Giocatore gioca) throws FileNotFoundException,IOException {
-		g1.setState(gioca);
+	public ArrayList<Giocatore> InizioTurno(ArrayList<Giocatore> g,String NomeMappa, Turno t,Stato_Giocatore gioca) throws FileNotFoundException,IOException {
+		g.get(0).setState(gioca);
 		t.setState(this);
-		this.giocatore=g1;
+		this.giocatore=g.get(0);
 		return g;
 
 

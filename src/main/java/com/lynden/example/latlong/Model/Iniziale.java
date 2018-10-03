@@ -7,7 +7,7 @@ import java.util.*;
 public class Iniziale implements State_Turno {
 	private FMappa mappa;
 	@Override
-	public ArrayList<Giocatore> InizioTurno(ArrayList<Giocatore> g, Giocatore g1, String nomeMappa, Turno t, Stato_Giocatore gioca)throws FileNotFoundException,IOException{
+	public ArrayList<Giocatore> InizioTurno(ArrayList<Giocatore> g, String nomeMappa, Turno t, Stato_Giocatore gioca)throws FileNotFoundException,IOException{
 
 		this.mappa=new FMappa(g,nomeMappa);
 		MazzoPercorso m1=new MazzoPercorso();

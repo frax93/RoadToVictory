@@ -81,10 +81,11 @@ public class ViewMappa {
                 ArrayList<Casella> caselle = pe.getCaselle();
                 for (int cont = 0; cont < caselle.size(); cont++) {
                     Polyline finalPolyline = polyline[0];
-                    if (giocatoreArrayList.get(a).ChiediCartaPercorso().getCittaPartenza().getCoordinate().getLatitude() == caselle.get(cont).getInizio().getLatitude()
-                        && giocatoreArrayList.get(a).ChiediCartaPercorso().getCittaPartenza().getCoordinate().getLongitude() == caselle.get(cont).getInizio().getLongitude()) {
+                    if (Math.abs(giocatoreArrayList.get(a).ChiediCartaPercorso().getCittaPartenza().getCoordinate().getLatitude() - caselle.get(cont).getInizio().getLatitude())<0.5 &&
+                            Math.abs(giocatoreArrayList.get(a).ChiediCartaPercorso().getCittaPartenza().getCoordinate().getLatitude() - caselle.get(cont).getInizio().getLatitude())>=0 && Math.abs(giocatoreArrayList.get(a).ChiediCartaPercorso().getCittaPartenza().getCoordinate().getLongitude() - caselle.get(cont).getInizio().getLongitude())<0.5 &&
+                            Math.abs(giocatoreArrayList.get(a).ChiediCartaPercorso().getCittaPartenza().getCoordinate().getLongitude() - caselle.get(cont).getInizio().getLongitude())>=0
+                    )  {
                         LatLong[] Prova1 = {caselle.get(cont).getInizio(), caselle.get(cont).getFine()};
-
                     PolylineOptions pippo1 = new PolylineOptions();
                     pippo1.path(new MVCArray(Prova1))
                             .clickable(true)
@@ -111,6 +112,9 @@ public class ViewMappa {
                         casellaArrayList.remove(null);
                         giocatoreArrayList.get(a).setMosse(casellaArrayList);
                     }
+
+
+
                 }
 
             }
@@ -186,7 +190,7 @@ public class ViewMappa {
         this.CartaPercorsoArrivo.setText("Arrivo:" + CartaPercGioc1.getCittaArrivo().getNome());
     }
 
-    public void setMarker(ArrayList<com.lynden.example.latlong.Giocatore> giocatores, FMappa mappa){
+    public void setMarker(ArrayList<Giocatore> giocatores, FMappa mappa){
         ArrayList<Marker> markers= new ArrayList<>();
         for(int i=0; i<giocatores.size();i++){
             CartaPercorso c= giocatores.get(i).ChiediCartaPercorso();

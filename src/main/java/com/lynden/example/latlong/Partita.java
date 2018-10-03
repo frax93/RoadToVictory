@@ -90,19 +90,13 @@ public class Partita implements Initializable,MapComponentInitializedListener{
             Iniziale i=new Iniziale();
             ArrayList<Giocatore> giocatori_ordinati=i.OrdinaGiocatori(this.Giocatori);
             Attesa attesa=new Attesa();
-            giocatori_ordinati=i.InizioTurno(giocatori_ordinati,giocatori_ordinati.get(0),Nome_mappa,t, (Stato_Giocatore) attesa);
+            giocatori_ordinati=i.InizioTurno(giocatori_ordinati,Nome_mappa,t, (Stato_Giocatore) attesa);
             this.Giocatori=giocatori_ordinati;
             this.mappa=i.getMappa();
             this.viewMappa=new ViewMappa(map,googleMapView,CartaObiettivo,CartaPercorsoPartenza,CartaPercorsoArrivo,GiocatoreName,TurnoButton,NumeroMezzo);
             this.viewMappa.Creamappa(this.Giocatori,this.mappa,this);
             this.general=new Generale();
-            this.Giocatori=this.general.InizioTurno(giocatori_ordinati,giocatori_ordinati.get(0),Nome_mappa,t,(Stato_Giocatore) this.gioca);
-            for(int o=0;o<giocatori_ordinati.size();o++){
-                System.out.println("Giocatore: "+ giocatori_ordinati.get(o).getUsername());
-                System.out.println("Citta obiettivo: "+giocatori_ordinati.get(o).ChiediCartaObiettivo().getCittaObiettivo().getNome());
-                System.out.println("Citta partenza: "+giocatori_ordinati.get(o).ChiediCartaPercorso().getCittaPartenza().getNome());
-                System.out.println("Citta Arrivo: "+giocatori_ordinati.get(o).ChiediCartaPercorso().getCittaArrivo().getNome()+"\n");
-            }
+            this.Giocatori=this.general.InizioTurno(giocatori_ordinati,Nome_mappa,t,(Stato_Giocatore) this.gioca);
         }
         catch (Exception e) {
             System.out.println(e);
@@ -212,13 +206,13 @@ public class Partita implements Initializable,MapComponentInitializedListener{
                 this.Giocatori.remove(giocatore_backup);
                 this.Giocatori.add(this.Giocatori.size(), giocatore_backup);
                 this.viewDado.setDadoButton();
-                this.general.InizioTurno(this.Giocatori, this.Giocatori.get(0), "Europa", t, this.gioca);
+                this.general.InizioTurno(this.Giocatori, "Europa", t, this.gioca);
                 this.viewMappa.setCarte(this.Giocatori);
                 this.viewMappa.setTurnoButton(false);
                 this.viewMappa.setGiocatoreName(this.Giocatori.get(0));
             }
             catch (Exception e){
-                System.out.println(e);
+                System.out.println("Eccezione FineTurno");
             }
 
 
