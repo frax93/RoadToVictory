@@ -21,7 +21,7 @@ public class FMappa {
 		ArrayList<Citta> c = this.CreaMappa();
 
 		for (int i=0;i<c.size();i++)
-			for(int j=i+1;j<=i+1&&j<c.size();j++){
+			for(int j=i+1;j<=i+3&&j<c.size();j++){
 				Percorso p;
 				if(c.get(i).getDistanza()-c.get(j).getDistanza()<1500){
 					p=new Percorso(i*i+j*j,c.get(i),c.get(j));

@@ -76,8 +76,8 @@ public class Partita implements Initializable,MapComponentInitializedListener{
         Giocatore giocatore2=new Giocatore(4,"Giocatore3","yellow");
         Giocatore giocatore =new Giocatore(1,"Giocatore1","orange");
         this.Giocatori.add(giocatore);
-        //this.Giocatori.add(giocatore1);
-        //this.Giocatori.add(giocatore2);
+        this.Giocatori.add(giocatore1);
+        this.Giocatori.add(giocatore2);
         this.AvviaPartita("Europa");
 
 
@@ -97,7 +97,12 @@ public class Partita implements Initializable,MapComponentInitializedListener{
             this.viewMappa.Creamappa(this.Giocatori,this.mappa,this);
             this.general=new Generale();
             this.Giocatori=this.general.InizioTurno(giocatori_ordinati,giocatori_ordinati.get(0),Nome_mappa,t,(Stato_Giocatore) this.gioca);
-
+            for(int o=0;o<giocatori_ordinati.size();o++){
+                System.out.println("Giocatore: "+ giocatori_ordinati.get(o).getUsername());
+                System.out.println("Citta obiettivo: "+giocatori_ordinati.get(o).ChiediCartaObiettivo().getCittaObiettivo().getNome());
+                System.out.println("Citta partenza: "+giocatori_ordinati.get(o).ChiediCartaPercorso().getCittaPartenza().getNome());
+                System.out.println("Citta Arrivo: "+giocatori_ordinati.get(o).ChiediCartaPercorso().getCittaArrivo().getNome()+"\n");
+            }
         }
         catch (Exception e) {
             System.out.println(e);
@@ -169,7 +174,6 @@ public class Partita implements Initializable,MapComponentInitializedListener{
                     }
                 }
 
-                System.out.println(Casella_premuta.getInizio().getLatitude());
                 for (int d = 0; d < this.Giocatori.get(0).getMosse().size(); d++) {
                if (Casella_premuta.getId() == this.Giocatori.get(0).getMosse().get(d).getId()) {
                     this.Giocatori.get(0).setMossa(PercorsoPremuto.CalcolaCaselleVicine(Casella_premuta));
