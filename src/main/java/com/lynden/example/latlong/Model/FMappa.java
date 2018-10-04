@@ -19,17 +19,61 @@ public class FMappa {
 		this.Nome = NomeMappa;
 
 		ArrayList<Citta> c = this.CreaMappa();
-		int q1=100,q2=0;
+		/*int q1=100;
 		for (int i=1;i<c.size();i++){
 			int j=i-1;
+			System.out.println(c.get(i).getNome());
 			Percorso p;
-			Percorso p1;
 			p=new Percorso(q1,c.get(j),c.get(i));
 			this.AddPercorso(p);
 			q1--;
-			q2++;
 
-			}
+			}*/
+		Percorso p;
+		p=new Percorso(1,c.get(13),c.get(11));
+		this.AddPercorso(p);
+		p=new Percorso(2,c.get(13),c.get(2));
+		this.AddPercorso(p);
+		p=new Percorso(3,c.get(3),c.get(12));
+		this.AddPercorso(p);
+		p=new Percorso(4,c.get(2),c.get(1));
+		this.AddPercorso(p);
+		p=new Percorso(5,c.get(15),c.get(3));
+		this.AddPercorso(p);
+		p=new Percorso(6,c.get(10),c.get(15));
+		this.AddPercorso(p);
+		p=new Percorso(7,c.get(7),c.get(10));
+		this.AddPercorso(p);
+		p=new Percorso(8,c.get(4),c.get(7));
+		this.AddPercorso(p);
+		p=new Percorso(9,c.get(14),c.get(4));
+		this.AddPercorso(p);
+		p=new Percorso(11,c.get(11),c.get(14));
+		this.AddPercorso(p);
+		p=new Percorso(13,c.get(0),c.get(6));
+		this.AddPercorso(p);
+		p=new Percorso(14,c.get(8),c.get(0));
+		this.AddPercorso(p);
+		p=new Percorso(15,c.get(5),c.get(9));
+		this.AddPercorso(p);
+		p=new Percorso(16,c.get(9),c.get(8));
+		this.AddPercorso(p);
+		p=new Percorso(17,c.get(2),c.get(6));
+		this.AddPercorso(p);
+		p=new Percorso(18,c.get(13),c.get(2));
+		this.AddPercorso(p);
+		p=new Percorso(19,c.get(10),c.get(9));
+		this.AddPercorso(p);
+		p=new Percorso(21,c.get(1),c.get(0));
+		this.AddPercorso(p);
+		p=new Percorso(22,c.get(11),c.get(8));
+		this.AddPercorso(p);
+		p=new Percorso(23,c.get(12),c.get(15));
+		this.AddPercorso(p);
+		p=new Percorso(24,c.get(3),c.get(13));
+		this.AddPercorso(p);
+		p=new Percorso(24,c.get(5),c.get(8));
+		this.AddPercorso(p);
 
 
 
