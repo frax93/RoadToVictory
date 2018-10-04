@@ -142,6 +142,7 @@ public class Partita implements Initializable,MapComponentInitializedListener{
 
                 //CODICE per scovare ed occupare le caselle gemelle
                 if (Casella_premuta.getId() == PercorsoPremuto.getCasellaArrivo().getId() || Casella_premuta.getId() == PercorsoPremuto.getCasellaPartenza().getId()) {
+                    Boolean trovata=false;
                     ArrayList<Percorso> AllPercorsi = this.mappa.DammiPercorsi();
                     for (int g = 0; g < AllPercorsi.size(); g++) {
                         ArrayList<Casella> CasellePercorsi = AllPercorsi.get(g).getCaselle();
@@ -150,19 +151,24 @@ public class Partita implements Initializable,MapComponentInitializedListener{
                             if (Math.abs(Casella_premuta.getInizio().getLatitude() - CasellePercorsi.get(g1).getInizio().getLatitude()) < 0.0005 && Math.abs(Casella_premuta.getInizio().getLatitude() - CasellePercorsi.get(g1).getInizio().getLatitude()) >= 0
                                     && Math.abs(Casella_premuta.getInizio().getLongitude() - CasellePercorsi.get(g1).getInizio().getLongitude()) < 0.0005 && Math.abs(Casella_premuta.getInizio().getLongitude() - CasellePercorsi.get(g1).getInizio().getLongitude()) >= 0
                                     && CasellePercorsi.get(g1).getId() != Casella_premuta.getId()) {
+                                trovata=true;
                                 for (int g2 = 0; g2 < this.Giocatori.get(0).getMosse().size(); g2++) {
                                     //PROBABILMENTE qui bisogna modificare perchè con 3 percorsi in alcuni casi raddoppia il numero di mezzi messi e persiste il problema (solo nel caso 3 percorsi se no va bene)
                                     if (Casella_premuta.getId() == this.Giocatori.get(0).getMosse().get(g2).getId() || CasellePercorsi.get(g1).getId() == this.Giocatori.get(0).getMosse().get(g2).getId()) {
                                         this.Giocatori.get(0).setMossa(AllPercorsi.get(g).CalcolaCaselleVicine(CasellePercorsi.get(g1)));
-                                        this.viewMappa.PosizionaMezzo(this.Giocatori.get(0).getMezzi().size(), finalPolyline1, pippo, this.Giocatori);
                                         this.Giocatori.get(0).setMossa(PercorsoPremuto.CalcolaCaselleVicine(Casella_premuta));
-                                        this.viewMappa.PosizionaMezzo(this.Giocatori.get(0).getMezzi().size(), finalPolyline1, pippo, this.Giocatori);
-                                        Casella_premuta.PosizionaGiocatore(this.Giocatori.get(0));
                                         CasellePercorsi.get(g1).PosizionaGiocatore(this.Giocatori.get(0));
+                                        this.viewMappa.PosizionaMezzo(this.Giocatori.get(0).getMezzi().size(), finalPolyline1, pippo, this.Giocatori);
                                         this.Giocatori.get(0).PosizionaMezzo(Casella_premuta);
                                     }
                                 }
 
+                            } else
+                                for(int g3 = 0; g3 < this.Giocatori.get(0).getMosse().size(); g3++)
+                                if (trovata==false && Casella_premuta.getId() == this.Giocatori.get(0).getMosse().get(g3).getId()) {
+                                this.Giocatori.get(0).setMossa(PercorsoPremuto.CalcolaCaselleVicine(Casella_premuta));
+                                this.viewMappa.PosizionaMezzo(this.Giocatori.get(0).getMezzi().size(), finalPolyline1, pippo, this.Giocatori);
+                                this.Giocatori.get(0).PosizionaMezzo(Casella_premuta);
                             }
 
                         }
@@ -192,8 +198,8 @@ public class Partita implements Initializable,MapComponentInitializedListener{
                     }
                 }
             }
+            }
 
-        }
 
 
 
