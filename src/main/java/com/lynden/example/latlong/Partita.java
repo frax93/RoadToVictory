@@ -148,8 +148,9 @@ public class Partita implements Initializable,MapComponentInitializedListener{
                     ArrayList<Percorso> AllPercorsi = this.mappa.DammiPercorsi();
                     for (int g = 0; g < AllPercorsi.size(); g++) {
                         ArrayList<Casella> CasellePercorsi = AllPercorsi.get(g).getCaselle();
+                        boolean vista2=false;
                         for (int g1 = 0; g1 < CasellePercorsi.size(); g1++) {
-                            boolean vista2=false;
+
                             if (Math.abs(Casella_premuta.getInizio().getLatitude() - CasellePercorsi.get(g1).getInizio().getLatitude()) < 0.0005
                                     && Math.abs(Casella_premuta.getInizio().getLongitude() - CasellePercorsi.get(g1).getInizio().getLongitude()) < 0.05
                                     && CasellePercorsi.get(g1).getId() != Casella_premuta.getId()) {
@@ -176,9 +177,12 @@ public class Partita implements Initializable,MapComponentInitializedListener{
                                         this.Giocatori.get(0).setMossa(AllPercorsi.get(g).CalcolaCaselleVicine(CasellePercorsi.get(g1)));
                                         this.Giocatori.get(0).setMossa(PercorsoPremuto.CalcolaCaselleVicine(Casella_premuta));
                                         CasellePercorsi.get(g1).PosizionaGiocatore(this.Giocatori.get(0));
+                                        Casella_premuta.PosizionaGiocatore(this.Giocatori.get(0));
                                         System.out.println("gemelli");
                                         this.Giocatori.get(0).PosizionaMezzo(Casella_premuta);
+                                        this.Giocatori.get(0).PosizionaMezzo(CasellePercorsi.get(g1));
                                         this.viewMappa.PosizionaMezzo(this.Giocatori.get(0).getMezzi().size(), finalPolyline1, pippo, this.Giocatori);
+                                        this.Giocatori.get(0).removeMossa(Casella_premuta);
                                         vista=true;
 
                                     }  //problema da risolvere: nelle citta con 2 caselle devi cliccare 2 volte.
@@ -199,10 +203,12 @@ public class Partita implements Initializable,MapComponentInitializedListener{
                                         this.Giocatori.get(0).setMossa(AllPercorsi.get(g).CalcolaCaselleVicine(CasellePercorsi.get(g1)));
 
                                             CasellePercorsi.get(g1).PosizionaGiocatore(this.Giocatori.get(0));
+                                        this.Giocatori.get(0).removeMossa(CasellePercorsi.get(g1));
                                             System.out.println("gemelli else if");
 
 
                                             if(vista==false){
+                                                this.Giocatori.get(0).setMezzo(this.Giocatori.get(0).getMezzi().size()+1);
                                                 this.Giocatori.get(0).PosizionaMezzo(CasellePercorsi.get(g1));
                                            // this.viewMappa.PosizionaMezzo(this.Giocatori.get(0).getMezzi().size(), finalPolyline1, pippo, this.Giocatori);
                                                 vista=true;
@@ -235,6 +241,7 @@ public class Partita implements Initializable,MapComponentInitializedListener{
                                     this.Giocatori.get(0).setMossa(PercorsoPremuto.CalcolaCaselleVicine(Casella_premuta));
                                     this.Giocatori.get(0).PosizionaMezzo(Casella_premuta);
                                     this.viewMappa.PosizionaMezzo(this.Giocatori.get(0).getMezzi().size(), finalPolyline1, pippo, this.Giocatori);
+                                    this.Giocatori.get(0).removeMossa(Casella_premuta);
                                     System.out.println("mezzo messo");
                                     vista=true;
 
