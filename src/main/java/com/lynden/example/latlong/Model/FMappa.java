@@ -32,8 +32,6 @@ public class FMappa {
 		Percorso p;
 		p=new Percorso(1,c.get(13),c.get(11));
 		this.AddPercorso(p);
-		p=new Percorso(2,c.get(13),c.get(2));
-		this.AddPercorso(p);
 		p=new Percorso(3,c.get(3),c.get(12));
 		this.AddPercorso(p);
 		p=new Percorso(4,c.get(2),c.get(1));
@@ -56,9 +54,7 @@ public class FMappa {
 		this.AddPercorso(p);
 		p=new Percorso(16,c.get(9),c.get(8));
 		this.AddPercorso(p);
-		p=new Percorso(17,c.get(2),c.get(6));
-		this.AddPercorso(p);
-		p=new Percorso(18,c.get(13),c.get(2));
+		p=new Percorso(17,c.get(6),c.get(2));
 		this.AddPercorso(p);
 		p=new Percorso(19,c.get(10),c.get(9));
 		this.AddPercorso(p);

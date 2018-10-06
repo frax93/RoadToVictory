@@ -297,9 +297,8 @@ public class Percorso {
 		if(Math.abs(distCittaPartenza-distCasella0)<= Math.abs(distCittaPartenza-distCasellaN)){
 			casellaPartenza= this.getCaselle().get(0);
 		}
-		else if(Math.abs(distCittaPartenza-distCasella0)> Math.abs(distCittaPartenza-distCasellaN)){
-			casellaPartenza= this.getCaselle().get(this.getCaselle().size()-1);
-		}
+		else casellaPartenza= this.getCaselle().get(this.getCaselle().size()-1);
+
 		//System.out.println(distCittaPartenza);
 		//System.out.println(distCasella0);
 		//System.out.println(distCasellaN);
@@ -323,9 +322,9 @@ public class Percorso {
 		if(Math.abs(distCasella_iniziale-distCasella0)<= Math.abs(distCasella_iniziale-distCasellaN)){
 			casella_vicina= this.getCaselle().get(0);
 		}
-		else if(Math.abs(distCasella_iniziale-distCasella0)> Math.abs(distCasella_iniziale-distCasellaN)){
+		else
 			casella_vicina= this.getCaselle().get(this.getCaselle().size()-1);
-		}
+
 		//System.out.println(distCittaPartenza);
 		//System.out.println(distCasella0);
 		//System.out.println(distCasellaN);
