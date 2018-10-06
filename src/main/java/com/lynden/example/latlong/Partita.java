@@ -182,6 +182,7 @@ public class Partita implements Initializable,MapComponentInitializedListener{
                                         this.Giocatori.get(0).PosizionaMezzo(Casella_premuta);
                                         this.Giocatori.get(0).PosizionaMezzo(CasellePercorsi.get(g1));
                                         this.viewMappa.PosizionaMezzo(this.Giocatori.get(0).getMezzi().size(), finalPolyline1, pippo, this.Giocatori);
+                                        this.Giocatori.get(0).setMezzo(this.Giocatori.get(0).getMezzi().size()+1);
                                         this.Giocatori.get(0).removeMossa(Casella_premuta);
                                         vista=true;
 
@@ -209,10 +210,12 @@ public class Partita implements Initializable,MapComponentInitializedListener{
 
                                             if(vista==false){
                                                 this.Giocatori.get(0).setMezzo(this.Giocatori.get(0).getMezzi().size()+1);
-                                                this.Giocatori.get(0).PosizionaMezzo(CasellePercorsi.get(g1));
+                                                this.Giocatori.get(0).PosizionaMezzo(Casella_premuta);
                                            // this.viewMappa.PosizionaMezzo(this.Giocatori.get(0).getMezzi().size(), finalPolyline1, pippo, this.Giocatori);
                                                 vista=true;
                                             }
+
+                                        this.viewMappa.PosizionaMezzo(this.Giocatori.get(0).getMezzi().size(), finalPolyline1, pippo, this.Giocatori);
 
                                         vista2=true;
 
