@@ -218,7 +218,7 @@ public class Percorso {
 	public ArrayList<Casella> getCaselle(){
 		return this.caselle;
 	}
-	public void removeCasella(com.lynden.example.latlong.Casella casella){
+	public void removeCasella(Casella casella){
 		this.caselle.remove(casella);
 	}
 
