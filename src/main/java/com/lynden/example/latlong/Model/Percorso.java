@@ -218,6 +218,9 @@ public class Percorso {
 	public ArrayList<Casella> getCaselle(){
 		return this.caselle;
 	}
+	public void removeCasella(com.lynden.example.latlong.Casella casella){
+		this.caselle.remove(casella);
+	}
 
 
 	//FUNZIONE CHE DEVE RESTITUIRE 2 CASELLE, UNA INIZIALE E UNA FINALE DEL PERCORSO IN QUESTIONE

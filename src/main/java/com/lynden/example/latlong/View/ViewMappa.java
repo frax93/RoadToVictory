@@ -1,5 +1,6 @@
 package com.lynden.example.latlong;
 
+import com.lynden.example.latlong.Percorso;
 import com.lynden.gmapsfx.GoogleMapView;
 import com.lynden.gmapsfx.javascript.event.EventHandlers;
 import com.lynden.gmapsfx.javascript.event.GFXEventHandler;
@@ -120,6 +121,8 @@ public class ViewMappa {
             }
             }
         }
+
+        percorsi=mappa.RimuoviDuplicati(percorsi);
         for (int j = 0; j < percorsi.size(); j++) {
             pe = percorsi.get(j);
             ArrayList<Casella> caselle = pe.getCaselle();
@@ -150,6 +153,7 @@ public class ViewMappa {
             });
             }
         }
+
         }
 
 
