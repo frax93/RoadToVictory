@@ -74,6 +74,20 @@ public class FMappa {
 		this.AddPercorso(p);
 		p=new Percorso(28,c.get(3),c.get(1));
 		this.AddPercorso(p);
+		p=new Percorso(29,c.get(14),c.get(9));
+		this.AddPercorso(p);
+		p=new Percorso(30,c.get(4),c.get(9));
+		this.AddPercorso(p);
+		p=new Percorso(31,c.get(2),c.get(3));
+		this.AddPercorso(p);
+		p=new Percorso(32,c.get(8),c.get(14));
+		this.AddPercorso(p);
+		p=new Percorso(33,c.get(5),c.get(15));
+		this.AddPercorso(p);
+		p=new Percorso(34,c.get(0),c.get(2));
+		this.AddPercorso(p);
+		p=new Percorso(35,c.get(2),c.get(13));
+		this.AddPercorso(p);
 
 
 
@@ -118,7 +132,7 @@ public class FMappa {
 			for (Map.Entry entry : maplat.entrySet()){
 				String nome=(String) entry.getKey();
 				String[] nome1 = nome.split(",");
-				Citta p= new Citta((String) nome1[0].replace("\"",""),0);
+				Citta p= new Citta((String) nome1[0].replace("\"",""));
 				p.ImpostaCoordinate((LatLong) entry.getValue());
 				c1.add(p);
 			}

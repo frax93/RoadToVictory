@@ -18,12 +18,14 @@ public class Percorso {
 	private Citta Cittapartenza=new Citta();
 	private Citta CittaArrivo=new Citta();
 	public static int identificativo=0;
+	private double distanza;
 	ArrayList<Casella> caselle=new ArrayList<Casella>();
 
 	public Percorso(int num, Citta Cp, Citta Ca){
 		this.id=num;
 		this.CittaArrivo=Ca;
 		this.Cittapartenza=Cp;
+		this.calcolaDistanza();
 		this.setCaselle();
 
 	}
@@ -31,9 +33,11 @@ public class Percorso {
 		//Valori utilizzati per coordinate casella
 		double err=0.1;
 		double spezzata =0.2;
-		double dist= Math.abs(this.Cittapartenza.getDistanza()-this.CittaArrivo.getDistanza());
+		double dist= this.distanza;
 		LatLong partenza=this.Cittapartenza.getCoordinate();
 		LatLong arrivo=this.CittaArrivo.getCoordinate();
+		System.out.println(this.Cittapartenza.getNome()+" "+this.CittaArrivo.getNome());
+		System.out.println(dist);
 
 		if(arrivo.getLatitude()>partenza.getLatitude()&&arrivo.getLongitude()<partenza.getLongitude()){
 			double x=partenza.getLatitude();
@@ -359,6 +363,19 @@ public class Percorso {
 		//System.out.println(distCasella0);
 		//System.out.println(distCasellaN);
 		return casellaArrivo;
+
+	}
+	public void calcolaDistanza(){
+
+		/**** Algoritmo per calcolare la distanza tra le Città **********/
+		double R = 6372.795477598;  //Con errore dello 0.3%
+
+		double k= 2* 3.14/360;
+
+		this.distanza = R* Math.acos(Math.sin(this.Cittapartenza.getCoordinate().getLatitude()*k) * Math.sin(this.CittaArrivo.getCoordinate().getLatitude()*k) +
+				Math.cos(this.Cittapartenza.getCoordinate().getLatitude()*k) * Math.cos(this.CittaArrivo.getCoordinate().getLatitude()*k) * Math.cos(this.Cittapartenza.getCoordinate().getLongitude()*k-(this.CittaArrivo.getCoordinate().getLongitude()*k)));
+
+
 
 	}
 
