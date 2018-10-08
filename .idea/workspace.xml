@@ -3,13 +3,17 @@
   <component name="ChangeListManager">
     <list default="true" id="5bff287a-25d9-4017-a4b2-a81f7a424148" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/main/com/lynden/example/latlong/Citta.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/main/com/lynden/example/latlong/Citta.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/main/com/lynden/example/latlong/FMappa.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/main/com/lynden/example/latlong/FMappa.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/main/com/lynden/example/latlong/Giocatore.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/main/com/lynden/example/latlong/Giocatore.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/main/com/lynden/example/latlong/Partita.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/main/com/lynden/example/latlong/Partita.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/main/com/lynden/example/latlong/Percorso.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/main/com/lynden/example/latlong/Percorso.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Model/Citta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Model/Citta.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Model/FMappa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Model/FMappa.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Model/Giocatore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Model/Giocatore.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Model/Percorso.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Model/Percorso.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Partita.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Partita.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Scene.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Scene.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/View/ViewMappa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/View/ViewMappa.java" afterDir="false" />
     </list>
+    <ignored path="$PROJECT_DIR$/out/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -19,54 +23,44 @@
     <session id="1077742841">
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="399" />
+          <entry key="fxml" value="128" />
+          <entry key="java" value="1231" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="399" />
+          <entry key="JAVA" value="1231" />
+          <entry key="XML" value="128" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="java" value="2" />
-          <entry key="json" value="1" />
+          <entry key="fxml" value="1" />
+          <entry key="java" value="9" />
+          <entry key="json" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="2" />
-          <entry key="JSON" value="1" />
+          <entry key="JAVA" value="9" />
+          <entry key="JSON" value="2" />
+          <entry key="XML" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="1" />
+          <entry key="project.open.time.26" value="1" />
+          <entry key="project.opened" value="1" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Model/FMappa.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="320">
-              <caret line="88" column="43" selection-start-line="88" selection-start-column="43" selection-end-line="88" selection-end-column="43" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/citta.json">
           <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Model/Casella.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="33" column="31" selection-start-line="33" selection-start-column="31" selection-end-line="33" selection-end-column="31" />
-            </state>
-          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
@@ -74,6 +68,25 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="170">
               <caret line="10" column="37" selection-start-line="10" selection-start-column="37" selection-end-line="10" selection-end-column="37" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Model/Giocatore.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="468">
+              <caret line="143" column="5" lean-forward="true" selection-start-line="143" selection-start-column="5" selection-end-line="143" selection-end-column="5" />
+              <folding>
+                <element signature="e#2694#2695#0" expanded="true" />
+                <element signature="e#2717#2718#0" expanded="true" />
+                <element signature="e#2751#2752#0" expanded="true" />
+                <element signature="e#2774#2775#0" expanded="true" />
+                <element signature="e#2852#2853#0" expanded="true" />
+                <element signature="e#2875#2876#0" expanded="true" />
+                <element signature="e#2893#2894#0" expanded="true" />
+                <element signature="e#2919#2920#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -88,55 +101,72 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Model/Percorso.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-4284">
+              <caret line="39" column="10" selection-start-line="39" selection-start-column="10" selection-end-line="39" selection-end-column="10" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Model/Iniziale.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="595">
+            <state relative-caret-position="357">
               <caret line="37" selection-start-line="37" selection-end-line="37" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Model/Giocatore.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Partita.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="833">
-              <caret line="74" column="14" selection-start-line="74" selection-start-column="14" selection-end-line="74" selection-end-column="14" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Model/MazzoPercorso.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Model/Percorso.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="27" column="31" selection-start-line="27" selection-start-column="31" selection-end-line="27" selection-end-column="31" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Model/Citta.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="401">
-              <caret line="69" lean-forward="true" selection-start-line="69" selection-end-line="69" />
+            <state relative-caret-position="201">
+              <caret line="168" column="86" selection-start-line="168" selection-start-column="86" selection-end-line="168" selection-end-column="86" />
               <folding>
-                <element signature="e#868#869#0" expanded="true" />
-                <element signature="e#892#893#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Model/Turno.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/View/ViewMappa.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="159">
+              <caret line="183" column="47" selection-start-line="183" selection-start-column="47" selection-end-line="183" selection-end-column="47" />
+              <folding>
+                <element signature="e#8537#8538#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Scene.fxml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="378">
+              <caret line="30" column="86" selection-start-line="30" selection-start-column="86" selection-end-line="30" selection-end-column="86" />
+            </state>
+          </provider>
+          <provider editor-type-id="JavaFX-Scene-Builder" />
+        </entry>
+      </file>
     </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>goo</find>
+    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -145,8 +175,12 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Model/Citta.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Model/Percorso.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Model/FMappa.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Model/Percorso.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Model/Giocatore.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Partita.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Scene.fxml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/View/ViewMappa.java" />
       </list>
     </option>
   </component>
@@ -156,12 +190,18 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="y" value="23" />
+    <option name="width" value="1440" />
+    <option name="height" value="825" />
+  </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -199,8 +239,11 @@
         </subPane>
       </pane>
       <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -319,7 +362,7 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="9b74c9ab-ce5b-40ec-a2e2-33b56d976521" name="Default Changelist" comment="" />
+      <changelist id="5bff287a-25d9-4017-a4b2-a81f7a424148" name="Default Changelist" comment="" />
       <created>1537885743600</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -338,17 +381,18 @@
       <workItem from="1538919294116" duration="6376000" />
       <workItem from="1538926540954" duration="341000" />
       <workItem from="1538926904202" duration="83000" />
+      <workItem from="1539001684694" duration="6342000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3519000" />
+    <option name="totallyTimeSpent" value="9916000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25266525" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Nl-Palette" order="3" />
@@ -358,7 +402,7 @@
       <window_info id="UI Designer" order="7" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.2611111" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.2611111" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -366,7 +410,7 @@
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.32777777" />
+      <window_info active="true" anchor="bottom" id="Messages" order="10" visible="true" weight="0.32777777" />
       <window_info anchor="bottom" id="Database Changes" order="11" show_stripe_button="false" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -380,10 +424,23 @@
       <window_info anchor="right" id="Database" order="9" />
     </layout>
   </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Model/FMappa.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="88" column="43" selection-start-line="88" selection-start-column="43" selection-end-line="88" selection-end-column="43" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Model/Casella.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="442">
@@ -391,30 +448,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Partita.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Model/MazzoPercorso.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2193">
-          <caret line="164" column="40" selection-start-line="164" selection-start-column="40" selection-end-line="164" selection-end-column="40" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="68">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/View/ViewMappa.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Model/CartaObiettivo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="122" column="9" selection-start-line="122" selection-start-column="9" selection-end-line="122" selection-end-column="9" />
+        <state relative-caret-position="187">
+          <caret line="11" column="40" selection-start-line="11" selection-start-column="21" selection-end-line="11" selection-end-column="40" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/citta.json">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Model/Citta.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="401">
-          <caret line="69" lean-forward="true" selection-start-line="69" selection-end-line="69" />
+        <state relative-caret-position="384">
+          <caret line="66" column="34" selection-start-line="66" selection-start-column="19" selection-end-line="66" selection-end-column="34" />
           <folding>
             <element signature="e#868#869#0" expanded="true" />
             <element signature="e#892#893#0" expanded="true" />
@@ -422,19 +473,85 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Model/Percorso.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Model/CartaPercorso.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="27" column="31" selection-start-line="27" selection-start-column="31" selection-end-line="27" selection-end-column="31" />
+        <state relative-caret-position="170">
+          <caret line="10" column="37" selection-start-line="10" selection-start-column="37" selection-end-line="10" selection-end-column="37" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Model/FMappa.java">
+    <entry file="file://$PROJECT_DIR$/citta.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Model/Giocatore.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="88" column="43" selection-start-line="88" selection-start-column="43" selection-end-line="88" selection-end-column="43" />
+        <state relative-caret-position="468">
+          <caret line="143" column="5" lean-forward="true" selection-start-line="143" selection-start-column="5" selection-end-line="143" selection-end-column="5" />
+          <folding>
+            <element signature="e#2694#2695#0" expanded="true" />
+            <element signature="e#2717#2718#0" expanded="true" />
+            <element signature="e#2751#2752#0" expanded="true" />
+            <element signature="e#2774#2775#0" expanded="true" />
+            <element signature="e#2852#2853#0" expanded="true" />
+            <element signature="e#2875#2876#0" expanded="true" />
+            <element signature="e#2893#2894#0" expanded="true" />
+            <element signature="e#2919#2920#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Model/Percorso.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4284">
+          <caret line="39" column="10" selection-start-line="39" selection-start-column="10" selection-end-line="39" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Model/Generale.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="15" column="32" selection-start-line="15" selection-start-column="32" selection-end-line="15" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Model/Iniziale.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="37" selection-start-line="37" selection-end-line="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Model/Turno.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Partita.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="201">
+          <caret line="168" column="86" selection-start-line="168" selection-start-column="86" selection-end-line="168" selection-end-column="86" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Scene.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="30" column="86" selection-start-line="30" selection-start-column="86" selection-end-line="30" selection-end-column="86" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/View/ViewMappa.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="159">
+          <caret line="183" column="47" selection-start-line="183" selection-start-column="47" selection-end-line="183" selection-end-column="47" />
+          <folding>
+            <element signature="e#8537#8538#0" expanded="true" />
           </folding>
         </state>
       </provider>

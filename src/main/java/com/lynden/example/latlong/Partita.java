@@ -133,14 +133,16 @@ public class Partita implements Initializable,MapComponentInitializedListener{
             LatLong LongCasellaInizio = caselle.get(finalI).getInizio();
             LatLong LongCasellaFine = caselle.get(finalI).getFine();
             Casella Casella_premuta = caselle.get(finalI);
+
+        //System.out.println(Casella_premuta.getInizio().getLatitude());
             if ((LongCasellaInizio.getLatitude() == Lat && LongCasellaInizio.getLongitude() == Long) ||
                     (LongCasellaFine.getLatitude() == Lat && LongCasellaFine.getLongitude() == Long)) {
 
                 Percorso PercorsoPremuto = null;
                 PercorsoPremuto = this.mappa.getPercorsoByCasella(Casella_premuta);
-                System.out.println("Id casella Arrivo: "+PercorsoPremuto.getCasellaArrivo().getId());
-                System.out.println("Id casella Partenza: "+PercorsoPremuto.getCasellaPartenza().getId());
-                System.out.println("Casella premuta: "+Casella_premuta.getId());
+                //System.out.println("Id casella Arrivo: "+PercorsoPremuto.getCasellaArrivo().getId());
+                //System.out.println("Id casella Partenza: "+PercorsoPremuto.getCasellaPartenza().getId());
+                //System.out.println("Casella premuta: "+Casella_premuta.getId());
 
                                 for (int g2 = 0; g2 < this.Giocatori.get(0).getMosse().size(); g2++) {
                                     //aggiungi caselle dei percorsi vicini
@@ -162,6 +164,18 @@ public class Partita implements Initializable,MapComponentInitializedListener{
                                         this.Giocatori.get(0).PosizionaMezzo(Casella_premuta);
                                         this.viewMappa.PosizionaMezzo(this.Giocatori.get(0).getMezzi().size(), finalPolyline1, pippo, this.Giocatori);
                                         this.Giocatori.get(0).removeMossa(Casella_premuta);
+                                        if(Math.abs(Casella_premuta.getInizio().getLatitude()-this.Giocatori.get(0).ChiediCartaObiettivo().getCittaObiettivo().getCoordinate().getLatitude())<0.005){
+                                            this.Giocatori.get(0).Obiettivoraggiunto();
+                                            this.viewMappa.setObiettivo(this.Giocatori);
+                                        }
+                                        else if(Math.abs(Casella_premuta.getInizio().getLatitude()-this.Giocatori.get(0).ChiediCartaPercorso().getCittaArrivo().getCoordinate().getLatitude())<0.005) this.Giocatori.get(0).Arrivoraggiunto();
+
+
+                                        if(this.Giocatori.get(0).getObiettivo()==false && this.Giocatori.get(0).getArrivo()==true) {
+                                            System.out.println("Città Arrivo raggiunta senza obiettivo!");
+                                        }
+                                        else if(this.Giocatori.get(0).getObiettivo()==true && this.Giocatori.get(0).getArrivo()==true) System.out.println("Hai vinto!!!!!!!");
+                                        System.out.println(this.Giocatori.get(0).getObiettivo());
                                         break;
 
 
@@ -199,6 +213,7 @@ public class Partita implements Initializable,MapComponentInitializedListener{
                 this.viewDado.setDadoButton();
                 this.general.InizioTurno(this.Giocatori, "Europa", t, this.gioca);
                 this.viewMappa.setCarte(this.Giocatori);
+                this.viewMappa.setObiettivo(this.Giocatori);
                 this.viewMappa.setTurnoButton(false);
                 this.viewMappa.setGiocatoreName(this.Giocatori.get(0));
             }

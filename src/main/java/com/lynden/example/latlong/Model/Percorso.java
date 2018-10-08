@@ -36,8 +36,8 @@ public class Percorso {
 		double dist= this.distanza;
 		LatLong partenza=this.Cittapartenza.getCoordinate();
 		LatLong arrivo=this.CittaArrivo.getCoordinate();
-		System.out.println(this.Cittapartenza.getNome()+" "+this.CittaArrivo.getNome());
-		System.out.println(dist);
+		//System.out.println(this.Cittapartenza.getNome()+" "+this.CittaArrivo.getNome());
+		//System.out.println(dist);
 
 		if(arrivo.getLatitude()>partenza.getLatitude()&&arrivo.getLongitude()<partenza.getLongitude()){
 			double x=partenza.getLatitude();

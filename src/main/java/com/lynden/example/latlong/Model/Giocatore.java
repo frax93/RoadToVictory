@@ -16,6 +16,8 @@ public class Giocatore implements Comparable<Giocatore>,Runnable {
 	private Stato_Giocatore stato_giocatore;
 	private String color;
 	private ArrayList<Casella> mosse=new ArrayList<>();
+	private boolean Obiettivo=false;
+	private boolean Arrivo=false;
 
 	public void setState(Stato_Giocatore state){
 		this.stato_giocatore = state;
@@ -126,5 +128,18 @@ public class Giocatore implements Comparable<Giocatore>,Runnable {
 		this.mezzo.remove(pos);
 
 
+	}
+
+	public boolean getObiettivo() {
+		return this.Obiettivo;
+	}
+	public void Obiettivoraggiunto() {
+		this.Obiettivo=true;
+	}
+	public boolean getArrivo() {
+		return this.Arrivo;
+	}
+	public void Arrivoraggiunto() {
+		this.Arrivo=true;
 	}
 }

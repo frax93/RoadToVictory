@@ -26,9 +26,9 @@
             <Label fx:id="ErroreDado" layoutX="18.0" layoutY="200.0" text="" />
             <Label fx:id="NumeroMezzo" layoutX="50.0" layoutY="310.0" text=""/>
 
-            <Label fx:id="CartaObiettivo" layoutX="2.0" layoutY="400.0" text="" />
+            <Label fx:id="CartaObiettivo" layoutX="2.0" layoutY="400.0" text="" textFill="black"  />
 
-            <Label fx:id="CartaPercorsoPartenza" layoutX="2.0" layoutY="450.0" text="" />
+            <Label fx:id="CartaPercorsoPartenza" layoutX="2.0" layoutY="450.0" text=""/>
             <Label fx:id="CartaPercorsoArrivo" layoutX="2.0" layoutY="500.0" text="" />
 
 

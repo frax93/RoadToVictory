@@ -222,7 +222,13 @@ public class ViewMappa {
 
     public void setGiocatoreName(Giocatore g){
         this.GiocatoreName.setText(g.getUsername());
-        this.GiocatoreName.setTextFill(Color.web("red"));
+        this.GiocatoreName.setTextFill(Color.web(g.getColor()));
 
+    }
+    public void setObiettivo(ArrayList<com.lynden.example.latlong.Giocatore> giocatoreArrayList){
+        if(giocatoreArrayList.get(0).getObiettivo()==true) {
+            this.CartaObiettivo.setTextFill(Color.web("green"));
+        }
+        else this.CartaObiettivo.setTextFill(Color.web("black"));
     }
 }
