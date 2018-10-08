@@ -52,6 +52,7 @@ public class Partita implements Initializable,MapComponentInitializedListener{
     public Label CartaPercorsoPartenza;
     public Label CartaPercorsoArrivo;
     public Label GiocatoreName;
+    public Label FinePartita;
     public Button TurnoButton;
     private ArrayList<Giocatore> Giocatori=new ArrayList<>();
     private FMappa mappa;
@@ -96,7 +97,7 @@ public class Partita implements Initializable,MapComponentInitializedListener{
                 System.out.println("Giocatore: "+giocatori_ordinati.get(g)+" Citta obiettivo: "+giocatori_ordinati.get(g).ChiediCartaObiettivo().getCittaObiettivo().getNome()+" Citta Partenza: "+ giocatori_ordinati.get(g).ChiediCartaPercorso().getCittaPartenza().getNome()+" Citta Arrivo: "+giocatori_ordinati.get(g).ChiediCartaPercorso().getCittaArrivo().getNome());
             }*/
             this.mappa=i.getMappa();
-            this.viewMappa=new ViewMappa(map,googleMapView,CartaObiettivo,CartaPercorsoPartenza,CartaPercorsoArrivo,GiocatoreName,TurnoButton,NumeroMezzo);
+            this.viewMappa=new ViewMappa(map,googleMapView,CartaObiettivo,CartaPercorsoPartenza,CartaPercorsoArrivo,GiocatoreName,TurnoButton,NumeroMezzo,FinePartita);
             this.viewMappa.Creamappa(this.Giocatori,this.mappa,this);
             this.general=new Generale();
             this.Giocatori=this.general.InizioTurno(giocatori_ordinati,Nome_mappa,t,(Stato_Giocatore) this.gioca);
@@ -174,7 +175,7 @@ public class Partita implements Initializable,MapComponentInitializedListener{
                                         if(this.Giocatori.get(0).getObiettivo()==false && this.Giocatori.get(0).getArrivo()==true) {
                                             System.out.println("Città Arrivo raggiunta senza obiettivo!");
                                         }
-                                        else if(this.Giocatori.get(0).getObiettivo()==true && this.Giocatori.get(0).getArrivo()==true) System.out.println("Hai vinto!!!!!!!");
+                                        else if(this.Giocatori.get(0).getObiettivo()==true && this.Giocatori.get(0).getArrivo()==true) this.viewMappa.FinePartita(this.Giocatori.get(0));
                                         System.out.println(this.Giocatori.get(0).getObiettivo());
                                         break;
 

@@ -33,10 +33,11 @@ public class ViewMappa {
     private Label CartaPercorsoPartenza;
     private Label CartaPercorsoArrivo;
     private Label GiocatoreName;
+    private Label FinePartita;
     private Button TurnoButton;
     private Label NumeroMezzo;
 
-    public ViewMappa(GoogleMap map, GoogleMapView googleMapView, Label CartaObiettivo,Label CartapercorsoPartenza, Label CartapercorsoArrivo, Label GiocatoreName, Button TurnoButton,Label NumeroMezzo) {
+    public ViewMappa(GoogleMap map, GoogleMapView googleMapView, Label CartaObiettivo,Label CartapercorsoPartenza, Label CartapercorsoArrivo, Label GiocatoreName, Button TurnoButton,Label NumeroMezzo,Label FinePartita) {
         this.googleMapView = googleMapView;
         this.map = map;
         this.GiocatoreName=GiocatoreName;
@@ -44,6 +45,7 @@ public class ViewMappa {
         this.CartaPercorsoArrivo=CartapercorsoArrivo;
         this.CartaPercorsoPartenza=CartapercorsoPartenza;
         this.TurnoButton=TurnoButton;
+        this.FinePartita=FinePartita;
         this.NumeroMezzo=NumeroMezzo;
 
     }
@@ -230,5 +232,11 @@ public class ViewMappa {
             this.CartaObiettivo.setTextFill(Color.web("green"));
         }
         else this.CartaObiettivo.setTextFill(Color.web("black"));
+    }
+
+    public void FinePartita(com.lynden.example.latlong.Giocatore g){
+        this.FinePartita.setVisible(true);
+        this.FinePartita.setText(g.getUsername()+" HAI VINTO LA PARTITA!!!!!!");
+        this.FinePartita.setTextFill(Color.web(g.getColor()));
     }
 }

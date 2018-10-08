@@ -61,7 +61,7 @@
 
 Label#CartaObiettivo,Label#CartaPercorsoPartenza,Label#CartaPercorsoArrivo{
     -fx-background-color: white;
-        -fx-weight: 1000;
+    -fx-weight: 1000;
         -fx-background-radius: 50;
         -fx-border-radius: 20;
         -fx-border-color: blue;
@@ -73,4 +73,14 @@ Label#CartaObiettivo,Label#CartaPercorsoPartenza,Label#CartaPercorsoArrivo{
     -fx-padding: 5;
     -fx-border-color: red;
 }
+#FinePartita {
+    -fx-background-color: black;
+    -fx-font-weight: 900;
+    -fx-alignment: center-left bottom-left;
+    -fx-label-padding: 100;
+    -fx-border-color: red;
+    -fx-padding: 5;
+
+}
+
 
