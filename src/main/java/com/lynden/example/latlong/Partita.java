@@ -2,6 +2,7 @@ package com.lynden.example.latlong;
 /****** TUTTO STO COSO DIVENTA PARTITA E FACCIAMO UNA VIEW SEPARATA *****/
 import com.lynden.example.latlong.Gioca;
 import com.lynden.example.latlong.Giocatore;
+import com.lynden.example.latlong.Model.Vincente;
 import com.lynden.example.latlong.Percorso;
 
 import com.lynden.example.latlong.State_Turno;
@@ -60,6 +61,7 @@ public class Partita implements Initializable,MapComponentInitializedListener{
     private ViewDado viewDado;
     private Generale general;
     private Gioca gioca=new Gioca();
+    private Vincente vince= new Vincente();
     private ArrayList<Casella> Stato_attuale = new ArrayList<>();
 
 
@@ -169,14 +171,16 @@ public class Partita implements Initializable,MapComponentInitializedListener{
                                             this.Giocatori.get(0).Obiettivoraggiunto();
                                             this.viewMappa.setObiettivo(this.Giocatori);
                                         }
-                                        else if(Math.abs(Casella_premuta.getInizio().getLatitude()-this.Giocatori.get(0).ChiediCartaPercorso().getCittaArrivo().getCoordinate().getLatitude())<0.005) this.Giocatori.get(0).Arrivoraggiunto();
+                                        if(Math.abs(Casella_premuta.getInizio().getLatitude()-this.Giocatori.get(0).ChiediCartaPercorso().getCittaArrivo().getCoordinate().getLatitude())<0.005) this.Giocatori.get(0).Arrivoraggiunto();
 
 
                                         if(this.Giocatori.get(0).getObiettivo()==false && this.Giocatori.get(0).getArrivo()==true) {
                                             System.out.println("Città Arrivo raggiunta senza obiettivo!");
                                         }
-                                        else if(this.Giocatori.get(0).getObiettivo()==true && this.Giocatori.get(0).getArrivo()==true) this.viewMappa.FinePartita(this.Giocatori.get(0));
-                                        System.out.println(this.Giocatori.get(0).getObiettivo());
+                                        else if(this.Giocatori.get(0).getObiettivo()==true && this.Giocatori.get(0).getArrivo()==true) {
+                                            this.Giocatori.get(0).setState(vince);
+                                            this.viewMappa.FinePartita(this.Giocatori.get(0));
+                                        }
                                         break;
 
 
