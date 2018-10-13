@@ -52,6 +52,7 @@ public class Partita implements Initializable,MapComponentInitializedListener{
     public Button Due;
     public Button Tre;
     public Button Quattro;
+    public Label InizioPartita;
     public Button dadoButton;
     public Label NumberDado;
     public Label NumeroMezzo;
@@ -155,7 +156,7 @@ public class Partita implements Initializable,MapComponentInitializedListener{
         int n=1;
         this.setNumeroGiocatori(n);
         this.mapInitialized();
-        this.ngioc=new NumeroGiocatori(SceltaGiocatori,Uno,Due,Tre,Quattro);
+        this.ngioc=new NumeroGiocatori(SceltaGiocatori,Uno,Due,Tre,Quattro,InizioPartita);
     }
     @FXML
     private void N2(final ActionEvent event) {
@@ -163,21 +164,21 @@ public class Partita implements Initializable,MapComponentInitializedListener{
         int n=2;
         this.setNumeroGiocatori(n);
         this.mapInitialized();
-        this.ngioc=new NumeroGiocatori(SceltaGiocatori,Uno,Due,Tre,Quattro);
+        this.ngioc=new NumeroGiocatori(SceltaGiocatori,Uno,Due,Tre,Quattro,InizioPartita);
     } @FXML
     private void N3(final ActionEvent event) {
         event.consume();
         int n=3;
         this.setNumeroGiocatori(n);
         this.mapInitialized();
-        this.ngioc=new NumeroGiocatori(SceltaGiocatori,Uno,Due,Tre,Quattro);
+        this.ngioc=new NumeroGiocatori(SceltaGiocatori,Uno,Due,Tre,Quattro,InizioPartita);
     } @FXML
     private void N4(final ActionEvent event) {
         event.consume();
         int n=4;
         this.setNumeroGiocatori(n);
         this.mapInitialized();
-        this.ngioc=new NumeroGiocatori(SceltaGiocatori,Uno,Due,Tre,Quattro);
+        this.ngioc=new NumeroGiocatori(SceltaGiocatori,Uno,Due,Tre,Quattro,InizioPartita);
     }
 
     /**********   Funzione per lanciare il Dado    ************/

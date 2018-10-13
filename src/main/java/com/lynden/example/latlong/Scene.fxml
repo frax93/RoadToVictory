@@ -5,15 +5,19 @@
 
 <?import javafx.scene.image.ImageView?>
 
+<?import javafx.scene.shape.Box?>
 <AnchorPane id="AnchorPane" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lynden.example.latlong.Partita">
 
 <GoogleMapView fx:id="googleMapView"/>
-    <Label fx:id="SceltaGiocatori" layoutX="300.0" layoutY="150.0" text="Scegli quanti giocatori devono giocare"/>
+
+    <Label fx:id="InizioPartita" layoutX="380.0" layoutY="100.0" mnemonicParsing="false" text="Inizia la tua Partita"/>
+
+    <Label fx:id="SceltaGiocatori" layoutX="250.0" layoutY="150.0" text="Scegli Numero Giocatori Partita:"/>
   <children>
-        <Button fx:id="Uno" mnemonicParsing="false" layoutX="320.0" layoutY="175.0" text="1" onAction="#N1" visible="true"></Button>
-        <Button fx:id="Due" layoutX="340.0" layoutY="175.0" text="2" onAction="#N2"></Button>
-        <Button fx:id="Tre" layoutX="360.0" layoutY="175.0" text="3" onAction="#N3"></Button>
-        <Button fx:id="Quattro" layoutX="380.0" layoutY="175.0" text="4" onAction="#N4"></Button>
+        <Button fx:id="Uno" layoutX="380.0" layoutY="300.0" text="1" onAction="#N1" visible="true"></Button>
+        <Button fx:id="Due" layoutX="420.0" layoutY="300.0" text="2" onAction="#N2"></Button>
+        <Button fx:id="Tre" layoutX="460.0" layoutY="300.0" text="3" onAction="#N3"></Button>
+        <Button fx:id="Quattro" layoutX="500.0" layoutY="300.0" text="4" onAction="#N4"></Button>
     </children>
 <Label fx:id="label" layoutX="126" layoutY="120" minHeight="16" minWidth="69" />
     <Label fx:id="FinePartita"  layoutX="300.0" layoutY="150.0" text="" visible="false"/>
