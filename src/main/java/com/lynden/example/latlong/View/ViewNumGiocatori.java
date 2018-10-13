@@ -5,7 +5,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 
 
-public class NumeroGiocatori {
+public class ViewNumGiocatori {
     private Label SceltaGiocatori;
     private Button Uno;
     private Button Due;
@@ -18,7 +18,7 @@ public class NumeroGiocatori {
 
 
 
-    public NumeroGiocatori( Label SceltaGiocatori,Button Uno,Button Due,Button Tre,Button Quattro, Label InizioPartita, AnchorPane menu){
+    public ViewNumGiocatori(Label SceltaGiocatori, Button Uno, Button Due, Button Tre, Button Quattro, Label InizioPartita, AnchorPane menu){
         this.SceltaGiocatori=SceltaGiocatori;
         this.Uno=Uno;
         this.Due=Due;
