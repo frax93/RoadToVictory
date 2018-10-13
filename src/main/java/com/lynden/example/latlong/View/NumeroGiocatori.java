@@ -2,10 +2,7 @@ package com.lynden.example.latlong;
 
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 
-import java.awt.event.ActionEvent;
 
 public class NumeroGiocatori {
     private Label SceltaGiocatori;
@@ -24,9 +21,16 @@ public class NumeroGiocatori {
         this.Due=Due;
         this.Tre=Tre;
         this.Quattro=Quattro;
-        this.Scegli();
+        this.Uno.setVisible(false);
+        this.Due.setVisible(false);
+        this.Tre.setVisible(false);
+        this.Quattro.setVisible(false);
+        this.SceltaGiocatori.setVisible(false);
+
+
+
+
     }
     public void Scegli(){
-      
         }
 }

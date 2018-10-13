@@ -10,7 +10,7 @@
 <GoogleMapView fx:id="googleMapView"/>
     <Label fx:id="SceltaGiocatori" layoutX="300.0" layoutY="150.0" text="Scegli quanti giocatori devono giocare"/>
   <children>
-        <Button fx:id="Uno" layoutX="320.0" layoutY="175.0" text="1" onAction="#N1"></Button>
+        <Button fx:id="Uno" mnemonicParsing="false" layoutX="310.0" layoutY="175.0" text="1" onAction="#N1" visible="true"></Button>
         <Button fx:id="Due" layoutX="340.0" layoutY="175.0" text="2" onAction="#N2"></Button>
         <Button fx:id="Tre" layoutX="360.0" layoutY="175.0" text="3" onAction="#N3"></Button>
         <Button fx:id="Quattro" layoutX="380.0" layoutY="175.0" text="4" onAction="#N4"></Button>

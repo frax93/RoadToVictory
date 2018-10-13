@@ -44,11 +44,11 @@ public class Partita implements Initializable,MapComponentInitializedListener{
     @FXML
     private GoogleMapView googleMapView;
     private GoogleMap map;
-    private Label SceltaGiocatori;
-    private Button Uno;
-    private Button Due;
-    private Button Tre;
-    private Button Quattro;
+    public Label SceltaGiocatori;
+    public Button Uno;
+    public Button Due;
+    public Button Tre;
+    public Button Quattro;
     public Button dadoButton;
     public Label NumberDado;
     public Label NumeroMezzo;
@@ -105,15 +105,16 @@ public class Partita implements Initializable,MapComponentInitializedListener{
             Giocatore giocatore1=new Giocatore(1,"Giocatore1","red");
             Giocatore giocatore2=new Giocatore(2,"Giocatore2","purple");
             Giocatore giocatore3 =new Giocatore(3,"Giocatore3","orange");
-            Giocatore giocatore4 =new Giocatore(3,"Giocatore4","pink");
+            Giocatore giocatore4 =new Giocatore(4,"Giocatore4","pink");
             this.Giocatori.add(giocatore1);
             this.Giocatori.add(giocatore2);
             this.Giocatori.add(giocatore3);
             this.Giocatori.add(giocatore4);
 
         }
-        this.AvviaPartita("Europa");
 
+
+        this.AvviaPartita("Europa");
 
     }
 
