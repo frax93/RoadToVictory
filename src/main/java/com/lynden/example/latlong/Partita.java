@@ -4,7 +4,6 @@ import com.lynden.example.latlong.Gioca;
 import com.lynden.example.latlong.Giocatore;
 import com.lynden.example.latlong.Model.Vincente;
 import com.lynden.example.latlong.Percorso;
-
 import com.lynden.example.latlong.State_Turno;
 import com.lynden.gmapsfx.GoogleMapView;
 import com.lynden.gmapsfx.MapComponentInitializedListener;
@@ -14,6 +13,9 @@ import com.lynden.gmapsfx.javascript.object.*;
 import java.io.IOException;
 import java.net.URL;
 
+import java.sql.Date;
+import java.text.SimpleDateFormat;
+import java.sql.Timestamp;
 import java.util.*;
 
 import com.lynden.gmapsfx.service.geocoding.GeocodingService;
@@ -32,6 +34,7 @@ import javafx.event.*;
 import javafx.scene.paint.Color;
 import javafx.scene.image.*;
 import netscape.javascript.JSObject;
+import sun.util.calendar.BaseCalendar;
 //import sun.tools.tree.BooleanExpression;
 
 
@@ -70,6 +73,7 @@ public class Partita implements Initializable,MapComponentInitializedListener{
     private ArrayList<Casella> Stato_attuale = new ArrayList<>();
     private NumeroGiocatori ngioc;
     private int Numero;
+    private Timestamp timestamp;
 
 
     @Override
@@ -115,6 +119,8 @@ public class Partita implements Initializable,MapComponentInitializedListener{
 
 
         this.AvviaPartita("Europa");
+        //this.wait(1000);
+        //this.viewMappa.setTurnoButton(false);
 
     }
 
@@ -144,10 +150,10 @@ public class Partita implements Initializable,MapComponentInitializedListener{
 
     }
     @FXML
-    private void N1(final ActionEvent event) {
+    private void N1(final ActionEvent event){
         event.consume();
         int n=1;
-        this.setNumero(n);
+        this.setNumeroGiocatori(n);
         this.mapInitialized();
         this.ngioc=new NumeroGiocatori(SceltaGiocatori,Uno,Due,Tre,Quattro);
     }
@@ -155,21 +161,21 @@ public class Partita implements Initializable,MapComponentInitializedListener{
     private void N2(final ActionEvent event) {
         event.consume();
         int n=2;
-        this.setNumero(n);
+        this.setNumeroGiocatori(n);
         this.mapInitialized();
         this.ngioc=new NumeroGiocatori(SceltaGiocatori,Uno,Due,Tre,Quattro);
     } @FXML
     private void N3(final ActionEvent event) {
         event.consume();
         int n=3;
-        this.setNumero(n);
+        this.setNumeroGiocatori(n);
         this.mapInitialized();
         this.ngioc=new NumeroGiocatori(SceltaGiocatori,Uno,Due,Tre,Quattro);
     } @FXML
     private void N4(final ActionEvent event) {
         event.consume();
         int n=4;
-        this.setNumero(n);
+        this.setNumeroGiocatori(n);
         this.mapInitialized();
         this.ngioc=new NumeroGiocatori(SceltaGiocatori,Uno,Due,Tre,Quattro);
     }
@@ -181,11 +187,14 @@ public class Partita implements Initializable,MapComponentInitializedListener{
        int n = this.Giocatori.get(0).LanciaDado();
        this.Giocatori.get(0).setMezzo(n);
        this.viewDado =new ViewDado(dadoButton, NumeroMezzo,NumberDado,DadoImage,n);
+        this.timestamp = new Timestamp(System.currentTimeMillis());
 
     }
 
     public void PosizionaMezzo(Polyline finalPolyline1, PolylineOptions pippo, int finalI,ArrayList<Casella> caselle) throws FileNotFoundException,IOException {
-
+System.out.println("Aspettiamo: "+System.currentTimeMillis());
+//possibilità di fare il controllo sul tempo ma va ovviamente sistemato perchè serve un coontrollo sulle mosse finite e sul tempo di inattività
+//if(System.currentTimeMillis() - this.timestamp.getTime()>1000){this.viewMappa.setTurnoButton(true);}
             this.viewMappa.setGiocatoreName(this.Giocatori.get(0));
             MVCArray path = finalPolyline1.getPath();
             pippo.path(path);
@@ -288,7 +297,9 @@ public class Partita implements Initializable,MapComponentInitializedListener{
 
 
     }
-    public void setNumero(int u){
+
+    //Setta il numero di giocatori
+    public void setNumeroGiocatori(int u){
         this.Numero=u;
     }
 
