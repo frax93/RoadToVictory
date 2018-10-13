@@ -31,6 +31,7 @@ import java.lang.*;
 
 import javafx.scene.control.*;
 import javafx.event.*;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.image.*;
 import netscape.javascript.JSObject;
@@ -53,6 +54,7 @@ public class Partita implements Initializable,MapComponentInitializedListener{
     public Button Tre;
     public Button Quattro;
     public Label InizioPartita;
+    public AnchorPane menu;
     public Button dadoButton;
     public Label NumberDado;
     public Label NumeroMezzo;
@@ -156,7 +158,7 @@ public class Partita implements Initializable,MapComponentInitializedListener{
         int n=1;
         this.setNumeroGiocatori(n);
         this.mapInitialized();
-        this.ngioc=new NumeroGiocatori(SceltaGiocatori,Uno,Due,Tre,Quattro,InizioPartita);
+        this.ngioc=new NumeroGiocatori(SceltaGiocatori,Uno,Due,Tre,Quattro,InizioPartita,menu);
     }
     @FXML
     private void N2(final ActionEvent event) {
@@ -164,21 +166,21 @@ public class Partita implements Initializable,MapComponentInitializedListener{
         int n=2;
         this.setNumeroGiocatori(n);
         this.mapInitialized();
-        this.ngioc=new NumeroGiocatori(SceltaGiocatori,Uno,Due,Tre,Quattro,InizioPartita);
+        this.ngioc=new NumeroGiocatori(SceltaGiocatori,Uno,Due,Tre,Quattro,InizioPartita,menu);
     } @FXML
     private void N3(final ActionEvent event) {
         event.consume();
         int n=3;
         this.setNumeroGiocatori(n);
         this.mapInitialized();
-        this.ngioc=new NumeroGiocatori(SceltaGiocatori,Uno,Due,Tre,Quattro,InizioPartita);
+        this.ngioc=new NumeroGiocatori(SceltaGiocatori,Uno,Due,Tre,Quattro,InizioPartita,menu);
     } @FXML
     private void N4(final ActionEvent event) {
         event.consume();
         int n=4;
         this.setNumeroGiocatori(n);
         this.mapInitialized();
-        this.ngioc=new NumeroGiocatori(SceltaGiocatori,Uno,Due,Tre,Quattro,InizioPartita);
+        this.ngioc=new NumeroGiocatori(SceltaGiocatori,Uno,Due,Tre,Quattro,InizioPartita,menu);
     }
 
     /**********   Funzione per lanciare il Dado    ************/
