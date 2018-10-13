@@ -184,7 +184,7 @@ public class ViewMappa {
 
 
     public void setTurnoButton(Boolean button){
-        this.TurnoButton.setVisible(button);
+         this.TurnoButton.setVisible(button);
     }
 
     public void setCarte(ArrayList<com.lynden.example.latlong.Giocatore> giocatoreArrayList){
@@ -240,3 +240,4 @@ public class ViewMappa {
         this.FinePartita.setTextFill(Color.web(g.getColor()));
     }
 }
+

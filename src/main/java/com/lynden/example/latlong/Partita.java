@@ -44,6 +44,11 @@ public class Partita implements Initializable,MapComponentInitializedListener{
     @FXML
     private GoogleMapView googleMapView;
     private GoogleMap map;
+    private Label SceltaGiocatori;
+    private Button Uno;
+    private Button Due;
+    private Button Tre;
+    private Button Quattro;
     public Button dadoButton;
     public Label NumberDado;
     public Label NumeroMezzo;
@@ -63,6 +68,8 @@ public class Partita implements Initializable,MapComponentInitializedListener{
     private Gioca gioca=new Gioca();
     private Vincente vince= new Vincente();
     private ArrayList<Casella> Stato_attuale = new ArrayList<>();
+    private NumeroGiocatori ngioc;
+    private int Numero;
 
 
     @Override
@@ -74,13 +81,37 @@ public class Partita implements Initializable,MapComponentInitializedListener{
     }
     @Override
     public void mapInitialized(){
-        ArrayList<Giocatore> giocatoreArrayList = new ArrayList<Giocatore>();
-        Giocatore giocatore1=new Giocatore(3,"Giocatore2","red");
-        Giocatore giocatore2=new Giocatore(4,"Giocatore3","yellow");
-        Giocatore giocatore =new Giocatore(1,"Giocatore1","orange");
-        this.Giocatori.add(giocatore);
-        this.Giocatori.add(giocatore1);
-        //this.Giocatori.add(giocatore2);
+        System.out.println(this.Numero);
+        if(this.Numero==1){
+            Giocatore giocatore1=new Giocatore(1,"Giocatore1","red");
+            this.Giocatori.add(giocatore1);
+
+        }
+        if(this.Numero==2){
+            Giocatore giocatore1=new Giocatore(1,"Giocatore1","red");
+            Giocatore giocatore2=new Giocatore(2,"Giocatore2","purple");
+            this.Giocatori.add(giocatore1);
+            this.Giocatori.add(giocatore2);
+        }
+        if(this.Numero==3){
+            Giocatore giocatore1=new Giocatore(1,"Giocatore1","red");
+            Giocatore giocatore2=new Giocatore(2,"Giocatore2","purple");
+            Giocatore giocatore3 =new Giocatore(3,"Giocatore3","orange");
+            this.Giocatori.add(giocatore1);
+            this.Giocatori.add(giocatore2);
+            this.Giocatori.add(giocatore3);
+        }
+        if(this.Numero==4){
+            Giocatore giocatore1=new Giocatore(1,"Giocatore1","red");
+            Giocatore giocatore2=new Giocatore(2,"Giocatore2","purple");
+            Giocatore giocatore3 =new Giocatore(3,"Giocatore3","orange");
+            Giocatore giocatore4 =new Giocatore(3,"Giocatore4","pink");
+            this.Giocatori.add(giocatore1);
+            this.Giocatori.add(giocatore2);
+            this.Giocatori.add(giocatore3);
+            this.Giocatori.add(giocatore4);
+
+        }
         this.AvviaPartita("Europa");
 
 
@@ -111,8 +142,36 @@ public class Partita implements Initializable,MapComponentInitializedListener{
 
 
     }
-
-
+    @FXML
+    private void N1(final ActionEvent event) {
+        event.consume();
+        int n=1;
+        this.setNumero(n);
+        this.mapInitialized();
+        this.ngioc=new NumeroGiocatori(SceltaGiocatori,Uno,Due,Tre,Quattro);
+    }
+    @FXML
+    private void N2(final ActionEvent event) {
+        event.consume();
+        int n=2;
+        this.setNumero(n);
+        this.mapInitialized();
+        this.ngioc=new NumeroGiocatori(SceltaGiocatori,Uno,Due,Tre,Quattro);
+    } @FXML
+    private void N3(final ActionEvent event) {
+        event.consume();
+        int n=3;
+        this.setNumero(n);
+        this.mapInitialized();
+        this.ngioc=new NumeroGiocatori(SceltaGiocatori,Uno,Due,Tre,Quattro);
+    } @FXML
+    private void N4(final ActionEvent event) {
+        event.consume();
+        int n=4;
+        this.setNumero(n);
+        this.mapInitialized();
+        this.ngioc=new NumeroGiocatori(SceltaGiocatori,Uno,Due,Tre,Quattro);
+    }
 
     /**********   Funzione per lanciare il Dado    ************/
     @FXML
@@ -223,11 +282,16 @@ public class Partita implements Initializable,MapComponentInitializedListener{
                 this.viewMappa.setGiocatoreName(this.Giocatori.get(0));
             }
             catch (Exception e){
-                System.out.println("Eccezione FineTurno");
+                System.out.println(e);
             }
 
 
     }
+    public void setNumero(int u){
+        this.Numero=u;
+    }
+
+
 
 
 
