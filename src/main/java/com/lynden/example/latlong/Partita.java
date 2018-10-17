@@ -89,13 +89,13 @@ public class Partita implements Initializable,MapComponentInitializedListener{
         }
         if(this.Numero==2){
             Giocatore giocatore1=new Giocatore(1,"Giocatore1","red");
-            Giocatore giocatore2=new Giocatore(2,"Giocatore2","purple");
+            Giocatore giocatore2=new Giocatore(2,"Giocatore2","aqua");
             this.Giocatori.add(giocatore1);
             this.Giocatori.add(giocatore2);
         }
         if(this.Numero==3){
             Giocatore giocatore1=new Giocatore(1,"Giocatore1","red");
-            Giocatore giocatore2=new Giocatore(2,"Giocatore2","purple");
+            Giocatore giocatore2=new Giocatore(2,"Giocatore2","aqua");
             Giocatore giocatore3 =new Giocatore(3,"Giocatore3","orange");
             this.Giocatori.add(giocatore1);
             this.Giocatori.add(giocatore2);
@@ -103,7 +103,7 @@ public class Partita implements Initializable,MapComponentInitializedListener{
         }
         if(this.Numero==4){
             Giocatore giocatore1=new Giocatore(1,"Giocatore1","red");
-            Giocatore giocatore2=new Giocatore(2,"Giocatore2","purple");
+            Giocatore giocatore2=new Giocatore(2,"Giocatore2","aqua");
             Giocatore giocatore3 =new Giocatore(3,"Giocatore3","orange");
             Giocatore giocatore4 =new Giocatore(4,"Giocatore4","pink");
             this.Giocatori.add(giocatore1);

@@ -1,5 +1,6 @@
 package com.lynden.example.latlong;
 
+import com.lynden.example.latlong.Model.Utility;
 import com.lynden.example.latlong.Percorso;
 import com.lynden.gmapsfx.GoogleMapView;
 import com.lynden.gmapsfx.javascript.event.EventHandlers;
@@ -18,6 +19,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.Background;
 import javafx.scene.paint.Color;
 import netscape.javascript.JSObject;
+import sun.jvm.hotspot.oops.Mark;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -197,6 +199,8 @@ public class ViewMappa {
         this.CartaPercorsoArrivo.setText("Arrivo:" + CartaPercGioc1.getCittaArrivo().getNome());
     }
 
+
+
     public void setMarker(ArrayList<Giocatore> giocatores, FMappa mappa){
         ArrayList<Marker> markers= new ArrayList<>();
         for(int i=0; i<giocatores.size();i++){
@@ -206,10 +210,11 @@ public class ViewMappa {
                 LatLong coorPartenza = mappa.getCitta().get(j).getCoordinate();
                 if (mappa.getCitta().get(j).getNome().equals(c.getCittaPartenza().getNome())) {
                     FMezzo fMezzo=new FMezzo();
-                    Mezzo mezGioc1= fMezzo.CreaVagone(giocatores.get(i));
+                    com.lynden.example.latlong.Mezzo mezGioc1= fMezzo.CreaVagone(giocatores.get(i));
                     mappa.getCitta().get(j).setMezzo(mezGioc1);
                     c.getCittaPartenza().setOccupata(true);
                     MarkerOptions MarkerPartenza = new MarkerOptions();
+                   // MarkerPartenza.icon("http://oi64.tinypic.com/2vifno1.jpg");
                     MarkerPartenza.position(coorPartenza);
                     MarkerPartenza.visible(Boolean.TRUE);
                     String nome_giocatore=giocatores.get(i).getUsername().substring(0,1);
@@ -225,20 +230,24 @@ public class ViewMappa {
 
     public void setGiocatoreName(Giocatore g){
         this.GiocatoreName.setText(g.getUsername());
-        this.GiocatoreName.setTextFill(Color.web(g.getColor()));
+        String color= Utility.ColorToRgba(g.getColor());
+        String style = "-fx-background-color:"+color;
+        this.GiocatoreName.setStyle(style);
+       // this.GiocatoreName.setTextFill(Color.web(g.getColor()));
 
     }
 
     public void setObiettivo(ArrayList<com.lynden.example.latlong.Giocatore> giocatoreArrayList){
+        String color=null;
         if(giocatoreArrayList.get(0).getObiettivo()==true) {
             //this.CartaObiettivo.setTextFill(Color.web("green"));   Per settare testo della label
            // this.CartaObiettivo.setBackground(Background.EMPTY);   Nel caso si voglia riportare il background invisibile, alla mossa successiva
-            String style = "-fx-background-color: rgba(45,255,13,1);";
+            String style = "-fx-background-color:" + Utility.ColorToRgba("green");
             this.CartaObiettivo.setStyle(style);
         }
         else {
             this.CartaObiettivo.setTextFill(Color.web("black"));
-            String style = "-fx-background-color: rgba(255,255,255,1);";
+            String style = "-fx-background-color:"+Utility.ColorToRgba("black");
             this.CartaObiettivo.setStyle(style);
         }
 
@@ -247,12 +256,12 @@ public class ViewMappa {
 
     public void setArrivo(ArrayList<com.lynden.example.latlong.Giocatore> giocatoreArrayList){
         if(giocatoreArrayList.get(0).getArrivo()==true) {
-            String style = "-fx-background-color: rgba(45,255,13,1);";
+            String style = "-fx-background-color:" +Utility.ColorToRgba("green");
             this.CartaPercorsoArrivo.setStyle(style);
         }
         else {
             this.CartaObiettivo.setTextFill(Color.web("black"));
-            String style = "-fx-background-color: rgba(255,255,255,1);";
+            String style = "-fx-background-color:"+Utility.ColorToRgba("black");
             this.CartaPercorsoArrivo.setStyle(style);
         }
 
@@ -261,9 +270,12 @@ public class ViewMappa {
     public void FinePartita(com.lynden.example.latlong.Giocatore g){
         this.FinePartita.setVisible(true);
         this.FinePartita.setText(g.getUsername()+" HAI VINTO LA PARTITA!!!!!!");
-        String style = "-fx-background-color: rgba(45,255,13,1);";
+        
+
+        String colore = null;
+        String color= Utility.ColorToRgba(g.getColor());
+        String style = "-fx-background-color:"+ color;
         this.FinePartita.setStyle(style);
-       this.FinePartita.setTextFill(Color.web(g.getColor()));
     }
 }
 
