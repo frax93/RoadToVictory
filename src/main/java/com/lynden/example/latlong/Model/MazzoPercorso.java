@@ -24,7 +24,7 @@ public class MazzoPercorso extends Mazzo {
         }
         return istance;
     }
-    protected MazzoPercorso(){
+    public MazzoPercorso(){
 
     }
         @Override 

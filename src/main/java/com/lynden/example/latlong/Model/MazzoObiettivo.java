@@ -25,7 +25,7 @@ public class MazzoObiettivo extends Mazzo {
     public static MazzoObiettivo getIstance1(){
         return istance;
     }
-    protected MazzoObiettivo(){
+    public MazzoObiettivo(){
 
     }
         @Override

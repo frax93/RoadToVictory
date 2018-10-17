@@ -1,6 +1,9 @@
 package com.lynden.example.latlong;
 
 
+import com.lynden.example.latlong.Model.FactoryMezzo.Aereo;
+import com.lynden.example.latlong.Model.FactoryMezzo.Vagone;
+
 public class FMezzo {
 
 

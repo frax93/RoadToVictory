@@ -1,27 +1,24 @@
 package com.lynden.example.latlong;
+
 /****** TUTTO STO COSO DIVENTA PARTITA E FACCIAMO UNA VIEW SEPARATA *****/
-import com.lynden.example.latlong.Gioca;
-import com.lynden.example.latlong.Giocatore;
-import com.lynden.example.latlong.Model.Vincente;
-import com.lynden.example.latlong.Percorso;
-import com.lynden.example.latlong.State_Turno;
+import com.lynden.example.latlong.Model.StatoGiocatore.Attesa;
+import com.lynden.example.latlong.Model.StatoGiocatore.Gioca;
+import com.lynden.example.latlong.Model.StatoGiocatore.Stato_Giocatore;
+import com.lynden.example.latlong.Model.StatoGiocatore.Vincente;
+import com.lynden.example.latlong.Model.StatoTurno.Generale;
+import com.lynden.example.latlong.Model.StatoTurno.Iniziale;
 import com.lynden.gmapsfx.GoogleMapView;
 import com.lynden.gmapsfx.MapComponentInitializedListener;
-import com.lynden.gmapsfx.javascript.event.UIEventType;
 import com.lynden.gmapsfx.javascript.object.*;
 
 import java.io.IOException;
 import java.net.URL;
 
-import java.sql.Date;
-import java.text.SimpleDateFormat;
 import java.sql.Timestamp;
 import java.util.*;
 
-import com.lynden.gmapsfx.service.geocoding.GeocodingService;
 import com.lynden.gmapsfx.shapes.Polyline;
 import com.lynden.gmapsfx.shapes.PolylineOptions;
-import com.lynden.gmapsfx.service.geocoding.*;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 
@@ -32,14 +29,10 @@ import java.lang.*;
 import javafx.scene.control.*;
 import javafx.event.*;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.paint.Color;
 import javafx.scene.image.*;
-import netscape.javascript.JSObject;
-import sun.util.calendar.BaseCalendar;
 //import sun.tools.tree.BooleanExpression;
 
 
-import javax.swing.plaf.nimbus.State;
 import java.io.*;
 
 public class Partita implements Initializable,MapComponentInitializedListener{
@@ -88,7 +81,7 @@ public class Partita implements Initializable,MapComponentInitializedListener{
     }
     @Override
     public void mapInitialized(){
-        System.out.println(this.Numero);
+        System.out.println("Ready :) " );
         if(this.Numero==1){
             Giocatore giocatore1=new Giocatore(1,"Giocatore1","red");
             this.Giocatori.add(giocatore1);
@@ -243,7 +236,10 @@ System.out.println("Aspettiamo: "+System.currentTimeMillis());
                                             this.Giocatori.get(0).Obiettivoraggiunto();
                                             this.viewMappa.setObiettivo(this.Giocatori);
                                         }
-                                        if(Math.abs(Casella_premuta.getInizio().getLatitude()-this.Giocatori.get(0).ChiediCartaPercorso().getCittaArrivo().getCoordinate().getLatitude())<0.005) this.Giocatori.get(0).Arrivoraggiunto();
+                                        if(Math.abs(Casella_premuta.getInizio().getLatitude()-this.Giocatori.get(0).ChiediCartaPercorso().getCittaArrivo().getCoordinate().getLatitude())<0.005){
+                                            this.Giocatori.get(0).Arrivoraggiunto();
+                                            this.viewMappa.setArrivo(this.Giocatori);
+                                        }
 
 
                                         if(this.Giocatori.get(0).getObiettivo()==false && this.Giocatori.get(0).getArrivo()==true) {
@@ -291,6 +287,7 @@ System.out.println("Aspettiamo: "+System.currentTimeMillis());
                 this.general.InizioTurno(this.Giocatori, "Europa", t, this.gioca);
                 this.viewMappa.setCarte(this.Giocatori);
                 this.viewMappa.setObiettivo(this.Giocatori);
+                this.viewMappa.setArrivo(this.Giocatori);
                 this.viewMappa.setTurnoButton(false);
                 this.viewMappa.setGiocatoreName(this.Giocatori.get(0));
             }

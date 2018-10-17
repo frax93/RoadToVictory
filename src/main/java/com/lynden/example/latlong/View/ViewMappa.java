@@ -15,6 +15,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Background;
 import javafx.scene.paint.Color;
 import netscape.javascript.JSObject;
 
@@ -227,17 +228,42 @@ public class ViewMappa {
         this.GiocatoreName.setTextFill(Color.web(g.getColor()));
 
     }
+
     public void setObiettivo(ArrayList<com.lynden.example.latlong.Giocatore> giocatoreArrayList){
         if(giocatoreArrayList.get(0).getObiettivo()==true) {
-            this.CartaObiettivo.setTextFill(Color.web("green"));
+            //this.CartaObiettivo.setTextFill(Color.web("green"));   Per settare testo della label
+           // this.CartaObiettivo.setBackground(Background.EMPTY);   Nel caso si voglia riportare il background invisibile, alla mossa successiva
+            String style = "-fx-background-color: rgba(45,255,13,1);";
+            this.CartaObiettivo.setStyle(style);
         }
-        else this.CartaObiettivo.setTextFill(Color.web("black"));
+        else {
+            this.CartaObiettivo.setTextFill(Color.web("black"));
+            String style = "-fx-background-color: rgba(255,255,255,1);";
+            this.CartaObiettivo.setStyle(style);
+        }
+
+    }
+
+
+    public void setArrivo(ArrayList<com.lynden.example.latlong.Giocatore> giocatoreArrayList){
+        if(giocatoreArrayList.get(0).getArrivo()==true) {
+            String style = "-fx-background-color: rgba(45,255,13,1);";
+            this.CartaPercorsoArrivo.setStyle(style);
+        }
+        else {
+            this.CartaObiettivo.setTextFill(Color.web("black"));
+            String style = "-fx-background-color: rgba(255,255,255,1);";
+            this.CartaPercorsoArrivo.setStyle(style);
+        }
+
     }
 
     public void FinePartita(com.lynden.example.latlong.Giocatore g){
         this.FinePartita.setVisible(true);
         this.FinePartita.setText(g.getUsername()+" HAI VINTO LA PARTITA!!!!!!");
-        this.FinePartita.setTextFill(Color.web(g.getColor()));
+        String style = "-fx-background-color: rgba(45,255,13,1);";
+        this.FinePartita.setStyle(style);
+       this.FinePartita.setTextFill(Color.web(g.getColor()));
     }
 }
 

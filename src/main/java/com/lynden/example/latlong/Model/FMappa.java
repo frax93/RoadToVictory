@@ -3,6 +3,7 @@ package com.lynden.example.latlong;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import com.google.gson.JsonArray;
+import com.lynden.example.latlong.Model.FactoryMezzo.Vagone;
 import com.lynden.gmapsfx.javascript.object.LatLong;
 
 import java.io.FileNotFoundException;

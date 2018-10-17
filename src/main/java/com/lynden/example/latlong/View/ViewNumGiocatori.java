@@ -33,11 +33,8 @@ public class ViewNumGiocatori {
         this.SceltaGiocatori.setVisible(false);
         this.InizioPartita.setVisible(false);
         this.menu.setVisible(true);
-
-
-
-
     }
+
     public void Scegli(){
         }
 }

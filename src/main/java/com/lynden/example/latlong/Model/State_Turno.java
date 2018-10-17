@@ -1,5 +1,6 @@
 package com.lynden.example.latlong;
 
+
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.*;
@@ -7,6 +8,7 @@ import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import com.lynden.example.latlong.Model.StatoGiocatore.Stato_Giocatore;
 //import java.Time;
 
 

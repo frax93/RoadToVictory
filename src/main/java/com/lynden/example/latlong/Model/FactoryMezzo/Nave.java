@@ -1,4 +1,6 @@
-package com.lynden.example.latlong;
+package com.lynden.example.latlong.Model.FactoryMezzo;
+
+import com.lynden.example.latlong.FMezzo;
 
 public class Nave extends FMezzo {
 

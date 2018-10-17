@@ -1,8 +1,7 @@
 package com.lynden.example.latlong;
 
-import com.lynden.example.latlong.FMezzo;
-import com.lynden.example.latlong.Mezzo;
-import javafx.scene.paint.Color;
+import com.lynden.example.latlong.Model.StatoGiocatore.Attesa;
+import com.lynden.example.latlong.Model.StatoGiocatore.Stato_Giocatore;
 
 
 import java.util.ArrayList;
