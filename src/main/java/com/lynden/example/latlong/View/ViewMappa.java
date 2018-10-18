@@ -1,32 +1,22 @@
 package com.lynden.example.latlong;
 
-import com.lynden.example.latlong.Model.Utility;
-import com.lynden.example.latlong.Percorso;
+import com.lynden.example.latlong.Controller.Partita;
+import com.lynden.example.latlong.Model.FactoryMezzo.Mezzo;
+import com.lynden.example.latlong.Utlity.Utility;
 import com.lynden.gmapsfx.GoogleMapView;
-import com.lynden.gmapsfx.javascript.event.EventHandlers;
-import com.lynden.gmapsfx.javascript.event.GFXEventHandler;
-import com.lynden.gmapsfx.javascript.event.UIEventHandler;
 import com.lynden.gmapsfx.javascript.event.UIEventType;
 import com.lynden.gmapsfx.javascript.object.*;
 import com.lynden.gmapsfx.shapes.Polyline;
 import com.lynden.gmapsfx.shapes.PolylineOptions;
-import javafx.event.Event;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.Background;
 import javafx.scene.paint.Color;
 import netscape.javascript.JSObject;
-import sun.jvm.hotspot.oops.Mark;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.net.URL;
 import java.util.ArrayList;
-import java.util.Random;
-import java.util.ResourceBundle;
 
 public class ViewMappa {
     @FXML
@@ -152,7 +142,7 @@ public class ViewMappa {
                     p.PosizionaMezzo(finalPolyline1, pippo,finalI,caselle);
                 }
                 catch (Exception f){
-                    System.out.println(f);
+                    f.printStackTrace();
                 }
 
             });
@@ -210,7 +200,7 @@ public class ViewMappa {
                 LatLong coorPartenza = mappa.getCitta().get(j).getCoordinate();
                 if (mappa.getCitta().get(j).getNome().equals(c.getCittaPartenza().getNome())) {
                     FMezzo fMezzo=new FMezzo();
-                    com.lynden.example.latlong.Mezzo mezGioc1= fMezzo.CreaVagone(giocatores.get(i));
+                    Mezzo mezGioc1= fMezzo.CreaVagone(giocatores.get(i));
                     mappa.getCitta().get(j).setMezzo(mezGioc1);
                     c.getCittaPartenza().setOccupata(true);
                     MarkerOptions MarkerPartenza = new MarkerOptions();

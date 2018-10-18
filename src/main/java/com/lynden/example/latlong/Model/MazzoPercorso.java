@@ -1,5 +1,7 @@
 package com.lynden.example.latlong;
 
+import com.lynden.example.latlong.Model.FactoryCitta.Citta;
+
 import java.util.ArrayList;
 import java.util.Random;
 

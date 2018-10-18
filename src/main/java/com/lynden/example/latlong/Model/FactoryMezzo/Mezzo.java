@@ -1,4 +1,4 @@
-package com.lynden.example.latlong;
+package com.lynden.example.latlong.Model.FactoryMezzo;
 
 
 public interface  Mezzo {

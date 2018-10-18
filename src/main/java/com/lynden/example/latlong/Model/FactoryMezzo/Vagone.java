@@ -2,7 +2,6 @@ package com.lynden.example.latlong.Model.FactoryMezzo;
 
 
 import com.lynden.example.latlong.Giocatore;
-import com.lynden.example.latlong.Mezzo;
 
 public class Vagone implements Mezzo {
 		private int id;

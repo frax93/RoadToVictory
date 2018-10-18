@@ -5,7 +5,6 @@ import com.lynden.example.latlong.FMappa;
 import com.lynden.example.latlong.Giocatore;
 import com.lynden.example.latlong.MazzoPercorso;
 import com.lynden.example.latlong.Model.StatoGiocatore.Stato_Giocatore;
-import com.lynden.example.latlong.State_Turno;
 import com.lynden.example.latlong.Turno;
 
 import java.io.FileNotFoundException;

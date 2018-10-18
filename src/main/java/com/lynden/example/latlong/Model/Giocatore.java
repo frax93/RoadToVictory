@@ -1,5 +1,6 @@
 package com.lynden.example.latlong;
 
+import com.lynden.example.latlong.Model.FactoryMezzo.Mezzo;
 import com.lynden.example.latlong.Model.StatoGiocatore.Attesa;
 import com.lynden.example.latlong.Model.StatoGiocatore.Stato_Giocatore;
 

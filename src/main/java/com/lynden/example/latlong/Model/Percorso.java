@@ -1,17 +1,9 @@
 package com.lynden.example.latlong;
 
-import com.lynden.gmapsfx.javascript.event.UIEventType;
+import com.lynden.example.latlong.Model.FactoryCitta.Citta;
 import com.lynden.gmapsfx.javascript.object.LatLong;
-import com.lynden.gmapsfx.javascript.object.MVCArray;
-import com.lynden.gmapsfx.shapes.Polyline;
-import com.lynden.gmapsfx.shapes.PolylineOptions;
-import netscape.javascript.JSObject;
 
 import java.util.ArrayList;
-import com.lynden.gmapsfx.javascript.object.LatLong;
-import com.sun.org.apache.bcel.internal.generic.FLOAD;
-import java.util.Calendar;
-import java.util.Random;
 
 public class Percorso {
 	private int id;

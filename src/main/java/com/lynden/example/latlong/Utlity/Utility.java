@@ -1,10 +1,12 @@
-package com.lynden.example.latlong.Model;
+package com.lynden.example.latlong.Utlity;
 
 import java.awt.*;
 
 /**
  * Created by micheletaranta on 17/10/18.
  */
+
+//Classe di utilità per funzioni di supporto al gioco RTV
 public class Utility {
 
     public static String ColorToRgba(String colore){

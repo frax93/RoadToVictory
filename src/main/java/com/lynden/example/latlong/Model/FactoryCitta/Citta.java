@@ -1,7 +1,9 @@
-package com.lynden.example.latlong;
+package com.lynden.example.latlong.Model.FactoryCitta;
 
+import com.lynden.example.latlong.FMezzo;
+import com.lynden.example.latlong.Giocatore;
+import com.lynden.example.latlong.Model.FactoryMezzo.Mezzo;
 import com.lynden.gmapsfx.javascript.object.LatLong;
-import com.sun.org.apache.bcel.internal.generic.FLOAD;
 
 
 public class Citta {
@@ -9,7 +11,7 @@ public class Citta {
 	private String Nome;
 	private LatLong coordinate;
 	private boolean occupata;
-	private com.lynden.example.latlong.Mezzo mezzo=null;
+	private Mezzo mezzo=null;
         public Citta() {
            this.Nome="";
            this.coordinate=null;

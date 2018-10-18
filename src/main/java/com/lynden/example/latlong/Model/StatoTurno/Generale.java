@@ -6,7 +6,6 @@ package com.lynden.example.latlong.Model.StatoTurno;
 import com.lynden.example.latlong.Giocatore;
 import com.lynden.example.latlong.Model.StatoGiocatore.Attesa;
 import com.lynden.example.latlong.Model.StatoGiocatore.Stato_Giocatore;
-import com.lynden.example.latlong.State_Turno;
 import com.lynden.example.latlong.Turno;
 
 import java.io.FileNotFoundException;

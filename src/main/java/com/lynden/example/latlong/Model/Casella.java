@@ -1,8 +1,6 @@
 package com.lynden.example.latlong;
-import com.lynden.example.latlong.Percorso;
+import com.lynden.example.latlong.Model.FactoryMezzo.Mezzo;
 import com.lynden.gmapsfx.javascript.object.LatLong;
-
-import java.util.ArrayList;
 
 public class Casella {
     

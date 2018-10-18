@@ -1,4 +1,4 @@
-package com.lynden.example.latlong;
+package com.lynden.example.latlong.Model.FactoryCitta;
 
 public class Rifornimento extends Citta {
 

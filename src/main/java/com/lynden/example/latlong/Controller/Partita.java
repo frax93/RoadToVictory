@@ -1,12 +1,17 @@
-package com.lynden.example.latlong;
+package com.lynden.example.latlong.Controller;
 
 /****** TUTTO STO COSO DIVENTA PARTITA E FACCIAMO UNA VIEW SEPARATA *****/
+import com.lynden.example.latlong.*;
+import com.lynden.example.latlong.FMappa;
+import com.lynden.example.latlong.Giocatore;
 import com.lynden.example.latlong.Model.StatoGiocatore.Attesa;
 import com.lynden.example.latlong.Model.StatoGiocatore.Gioca;
 import com.lynden.example.latlong.Model.StatoGiocatore.Stato_Giocatore;
 import com.lynden.example.latlong.Model.StatoGiocatore.Vincente;
 import com.lynden.example.latlong.Model.StatoTurno.Generale;
 import com.lynden.example.latlong.Model.StatoTurno.Iniziale;
+import com.lynden.example.latlong.ViewDado;
+import com.lynden.example.latlong.ViewMappa;
 import com.lynden.gmapsfx.GoogleMapView;
 import com.lynden.gmapsfx.MapComponentInitializedListener;
 import com.lynden.gmapsfx.javascript.object.*;
@@ -66,7 +71,7 @@ public class Partita implements Initializable,MapComponentInitializedListener{
     private Generale general;
     private Gioca gioca=new Gioca();
     private Vincente vince= new Vincente();
-    private ArrayList<Casella> Stato_attuale = new ArrayList<>();
+    private ArrayList<com.lynden.example.latlong.Casella> Stato_attuale = new ArrayList<>();
     private ViewNumGiocatori ngioc;
     private int Numero;
     private Timestamp timestamp;
@@ -139,7 +144,7 @@ public class Partita implements Initializable,MapComponentInitializedListener{
             this.Giocatori=this.general.InizioTurno(giocatori_ordinati,Nome_mappa,t,(Stato_Giocatore) this.gioca);
         }
         catch (Exception e) {
-            System.out.println(e);
+            e.printStackTrace();
         }
 
 
@@ -240,12 +245,7 @@ System.out.println("Aspettiamo: "+System.currentTimeMillis());
                                             this.Giocatori.get(0).Arrivoraggiunto();
                                             this.viewMappa.setArrivo(this.Giocatori);
                                         }
-
-
-                                        if(this.Giocatori.get(0).getObiettivo()==false && this.Giocatori.get(0).getArrivo()==true) {
-                                            System.out.println("Città Arrivo raggiunta senza obiettivo!");
-                                        }
-                                        else if(this.Giocatori.get(0).getObiettivo()==true && this.Giocatori.get(0).getArrivo()==true) {
+                                        if(this.Giocatori.get(0).getObiettivo()==true && this.Giocatori.get(0).getArrivo()==true) {
                                             this.Giocatori.get(0).setState(vince);
                                             this.viewMappa.FinePartita(this.Giocatori.get(0));
                                         }
@@ -292,7 +292,7 @@ System.out.println("Aspettiamo: "+System.currentTimeMillis());
                 this.viewMappa.setGiocatoreName(this.Giocatori.get(0));
             }
             catch (Exception e){
-                System.out.println(e);
+                e.printStackTrace();
             }
 
 

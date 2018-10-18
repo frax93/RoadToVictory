@@ -1,6 +1,6 @@
 package com.lynden.example.latlong;
 
-import com.lynden.example.latlong.State_Turno;
+import com.lynden.example.latlong.Model.StatoTurno.State_Turno;
 
 public class Turno {
     private State_Turno s;
