@@ -86,15 +86,16 @@ public class Partita implements Initializable,MapComponentInitializedListener{
 
     @Override
     public void initialize(URL url, ResourceBundle rb){
-        googleMapView.addMapInializedListener(this);
+        //googleMapView.addMapInializedListener(this);
 
 
 
     }
     @Override
     public void mapInitialized(){
+        System.out.println("entrato");
+
         if(this.Numero!=0) {
-            System.out.println("entrato");
             if (this.Numero == 1) {
                 Giocatore giocatore1 = new Giocatore(1, "Giocatore1", "red");
                 this.Giocatori.add(giocatore1);

@@ -1,5 +1,7 @@
 package com.lynden.example.latlong;
 
+import com.lynden.example.latlong.MazzoObiettivo;
+import com.lynden.example.latlong.MazzoPercorso;
 import com.lynden.example.latlong.Model.FactoryMezzo.Mezzo;
 import com.lynden.example.latlong.Model.StatoGiocatore.Attesa;
 import com.lynden.example.latlong.Model.StatoGiocatore.Stato_Giocatore;
@@ -100,6 +102,16 @@ public class Giocatore implements Comparable<Giocatore>,Runnable {
 		m1=m1.getIstance1();
 		this.c=(CartaPercorso)m1.PescaCarta();
 
+	}
+
+	public void RestituisciCarte(){
+		MazzoObiettivo mo= new MazzoObiettivo();
+		mo=mo.getIstance1();
+		MazzoPercorso mp= new MazzoPercorso();
+		mp=mp.getIstance1();
+		this.ChiediCartaPercorso().getCittaPartenza();
+		mo.ReinserisciCarta(this.ChiediCartaObiettivo());
+		mp.ReinserisciCarta(this.ChiediCartaPercorso());
 	}
 
 

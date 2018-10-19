@@ -41,6 +41,9 @@ public class MazzoPercorso extends Mazzo {
                 this.Carte.remove(num1);
                 return c;
         }
+        public void ReinserisciCarta(CartaPercorso c){
+            this.Carte.add(c);
+        }
         
         @Override
 	    public int MischiaMazzo() {

@@ -42,10 +42,17 @@ public class MazzoObiettivo extends Mazzo {
                 return c;
                
 	    }
+
+	    public void ReinserisciCarta(CartaObiettivo c){
+            this.Carte.add(c);
+        }
         @Override
 	    public int MischiaMazzo() {
                Random r= new Random();
-               int num= r.nextInt(this.Carte.size());
+               int num=0;
+               int n=this.Carte.size();
+            System.out.println("Questo è n: "+n);
+               if(n!=0)num= r.nextInt(n);
                return num;
 	    }
 	    public int getCarte(){return this.Carte.size();}
