@@ -12,6 +12,8 @@ import com.lynden.example.latlong.Model.StatoTurno.Generale;
 import com.lynden.example.latlong.Model.StatoTurno.Iniziale;
 import com.lynden.example.latlong.ViewDado;
 import com.lynden.example.latlong.ViewMappa;
+import com.lynden.example.latlong.ViewNumGiocatori;
+import com.lynden.example.latlong.ViewSceltaMappa;
 import com.lynden.gmapsfx.GoogleMapView;
 import com.lynden.gmapsfx.MapComponentInitializedListener;
 import com.lynden.gmapsfx.javascript.object.*;
@@ -47,6 +49,10 @@ public class Partita implements Initializable,MapComponentInitializedListener{
     private GoogleMapView googleMapView;
     private GoogleMap map;
     public Label SceltaGiocatori;
+    public Label SceltaMappa;
+    public Button Europa;
+    public Button America;
+    private String nomemappa;
     public Button Uno;
     public Button Due;
     public Button Tre;
@@ -73,7 +79,8 @@ public class Partita implements Initializable,MapComponentInitializedListener{
     private Vincente vince= new Vincente();
     private ArrayList<com.lynden.example.latlong.Casella> Stato_attuale = new ArrayList<>();
     private ViewNumGiocatori ngioc;
-    private int Numero;
+    private ViewSceltaMappa scmapp;
+    private int Numero=0;
     private Timestamp timestamp;
 
 
@@ -86,40 +93,42 @@ public class Partita implements Initializable,MapComponentInitializedListener{
     }
     @Override
     public void mapInitialized(){
-        System.out.println("Ready :) " );
-        if(this.Numero==1){
-            Giocatore giocatore1=new Giocatore(1,"Giocatore1","red");
-            this.Giocatori.add(giocatore1);
+        if(this.Numero!=0) {
+            System.out.println("entrato");
+            if (this.Numero == 1) {
+                Giocatore giocatore1 = new Giocatore(1, "Giocatore1", "red");
+                this.Giocatori.add(giocatore1);
 
-        }
-        if(this.Numero==2){
-            Giocatore giocatore1=new Giocatore(1,"Giocatore1","red");
-            Giocatore giocatore2=new Giocatore(2,"Giocatore2","aqua");
-            this.Giocatori.add(giocatore1);
-            this.Giocatori.add(giocatore2);
-        }
-        if(this.Numero==3){
-            Giocatore giocatore1=new Giocatore(1,"Giocatore1","red");
-            Giocatore giocatore2=new Giocatore(2,"Giocatore2","aqua");
-            Giocatore giocatore3 =new Giocatore(3,"Giocatore3","orange");
-            this.Giocatori.add(giocatore1);
-            this.Giocatori.add(giocatore2);
-            this.Giocatori.add(giocatore3);
-        }
-        if(this.Numero==4){
-            Giocatore giocatore1=new Giocatore(1,"Giocatore1","red");
-            Giocatore giocatore2=new Giocatore(2,"Giocatore2","aqua");
-            Giocatore giocatore3 =new Giocatore(3,"Giocatore3","orange");
-            Giocatore giocatore4 =new Giocatore(4,"Giocatore4","pink");
-            this.Giocatori.add(giocatore1);
-            this.Giocatori.add(giocatore2);
-            this.Giocatori.add(giocatore3);
-            this.Giocatori.add(giocatore4);
+            }
+            if (this.Numero == 2) {
+                Giocatore giocatore1 = new Giocatore(1, "Giocatore1", "red");
+                Giocatore giocatore2 = new Giocatore(2, "Giocatore2", "aqua");
+                this.Giocatori.add(giocatore1);
+                this.Giocatori.add(giocatore2);
+            }
+            if (this.Numero == 3) {
+                Giocatore giocatore1 = new Giocatore(1, "Giocatore1", "red");
+                Giocatore giocatore2 = new Giocatore(2, "Giocatore2", "aqua");
+                Giocatore giocatore3 = new Giocatore(3, "Giocatore3", "orange");
+                this.Giocatori.add(giocatore1);
+                this.Giocatori.add(giocatore2);
+                this.Giocatori.add(giocatore3);
+            }
+            if (this.Numero == 4) {
+                System.out.println("sono 4");
+                Giocatore giocatore1 = new Giocatore(1, "Giocatore1", "red");
+                Giocatore giocatore2 = new Giocatore(2, "Giocatore2", "aqua");
+                Giocatore giocatore3 = new Giocatore(3, "Giocatore3", "orange");
+                Giocatore giocatore4 = new Giocatore(4, "Giocatore4", "pink");
+                this.Giocatori.add(giocatore1);
+                this.Giocatori.add(giocatore2);
+                this.Giocatori.add(giocatore3);
+                this.Giocatori.add(giocatore4);
 
+            }
         }
-
-
-        this.AvviaPartita("Europa");
+        if(this.nomemappa!=null){
+        this.AvviaPartita(nomemappa);}
         //this.wait(1000);
         //this.viewMappa.setTurnoButton(false);
 
@@ -139,7 +148,7 @@ public class Partita implements Initializable,MapComponentInitializedListener{
             }*/
             this.mappa=i.getMappa();
             this.viewMappa=new ViewMappa(map,googleMapView,CartaObiettivo,CartaPercorsoPartenza,CartaPercorsoArrivo,GiocatoreName,TurnoButton,NumeroMezzo,FinePartita);
-            this.viewMappa.Creamappa(this.Giocatori,this.mappa,this);
+            this.viewMappa.Creamappa(this.Giocatori,this.mappa,this,nomemappa);
             this.general=new Generale();
             this.Giocatori=this.general.InizioTurno(giocatori_ordinati,Nome_mappa,t,(Stato_Giocatore) this.gioca);
         }
@@ -150,35 +159,42 @@ public class Partita implements Initializable,MapComponentInitializedListener{
 
 
     }
+
+    @FXML
+    private void Europa(final ActionEvent event){
+        event.consume();
+        this.nomemappa="Europa";
+        this.mapInitialized();
+        this.scmapp=new ViewSceltaMappa(SceltaMappa,Europa,America,SceltaGiocatori,InizioPartita,menu);
+    }
+    @FXML
+    private void America(final ActionEvent event){
+        event.consume();
+        this.nomemappa="America";
+        this.mapInitialized();
+        this.scmapp=new ViewSceltaMappa(SceltaMappa,Europa,America,SceltaGiocatori,InizioPartita,menu);
+    }
     @FXML
     private void N1(final ActionEvent event){
         event.consume();
-        int n=1;
-        this.setNumeroGiocatori(n);
-        this.mapInitialized();
-        this.ngioc=new ViewNumGiocatori(SceltaGiocatori,Uno,Due,Tre,Quattro,InizioPartita,menu);
+        this.Numero=1;
+        this.ngioc=new ViewNumGiocatori(SceltaGiocatori,Uno,Due,Tre,Quattro,InizioPartita,menu,SceltaMappa,Europa,America);
     }
     @FXML
     private void N2(final ActionEvent event) {
         event.consume();
-        int n=2;
-        this.setNumeroGiocatori(n);
-        this.mapInitialized();
-        this.ngioc=new ViewNumGiocatori(SceltaGiocatori,Uno,Due,Tre,Quattro,InizioPartita,menu);
+        this.Numero=2;
+        this.ngioc=new ViewNumGiocatori(SceltaGiocatori,Uno,Due,Tre,Quattro,InizioPartita,menu,SceltaMappa,Europa,America);
     } @FXML
     private void N3(final ActionEvent event) {
         event.consume();
-        int n=3;
-        this.setNumeroGiocatori(n);
-        this.mapInitialized();
-        this.ngioc=new ViewNumGiocatori(SceltaGiocatori,Uno,Due,Tre,Quattro,InizioPartita,menu);
+        this.Numero=3;
+        this.ngioc=new ViewNumGiocatori(SceltaGiocatori,Uno,Due,Tre,Quattro,InizioPartita,menu,SceltaMappa,Europa,America);
     } @FXML
     private void N4(final ActionEvent event) {
         event.consume();
-        int n=4;
-        this.setNumeroGiocatori(n);
-        this.mapInitialized();
-        this.ngioc=new ViewNumGiocatori(SceltaGiocatori,Uno,Due,Tre,Quattro,InizioPartita,menu);
+        this.Numero=4;
+        this.ngioc=new ViewNumGiocatori(SceltaGiocatori,Uno,Due,Tre,Quattro,InizioPartita,menu,SceltaMappa,Europa,America);
     }
 
     /**********   Funzione per lanciare il Dado    ************/
@@ -296,11 +312,6 @@ System.out.println("Aspettiamo: "+System.currentTimeMillis());
             }
 
 
-    }
-
-    //Setta il numero di giocatori
-    public void setNumeroGiocatori(int u){
-        this.Numero=u;
     }
 
 

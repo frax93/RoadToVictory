@@ -12,9 +12,15 @@
 
     <Label fx:id="InizioPartita" layoutX="330.0" layoutY="100.0" mnemonicParsing="false" text="Inizia la tua Partita"/>
 
+    <Label fx:id="SceltaMappa" layoutX="200.0" layoutY="150.0" text="Scegli la Mappa per la tua Partita:" visible="false"/>
+    <children>
+        <Button fx:id="Europa" layoutX="330.0" layoutY="300.0" text="Europa" onAction="#Europa"></Button>
+        <Button fx:id="America" layoutX="390.0" layoutY="300.0" text="America" onAction="#America"></Button>
+    </children>
+
     <Label fx:id="SceltaGiocatori" layoutX="200.0" layoutY="150.0" text="Scegli Numero Giocatori Partita:"/>
   <children>
-        <Button fx:id="Uno" layoutX="340.0" layoutY="300.0" text="1" onAction="#N1" visible="true"></Button>
+        <Button fx:id="Uno" layoutX="340.0" layoutY="300.0" text="1" onAction="#N1"></Button>
         <Button fx:id="Due" layoutX="380.0" layoutY="300.0" text="2" onAction="#N2"></Button>
         <Button fx:id="Tre" layoutX="420.0" layoutY="300.0" text="3" onAction="#N3"></Button>
         <Button fx:id="Quattro" layoutX="460.0" layoutY="300.0" text="4" onAction="#N4"></Button>

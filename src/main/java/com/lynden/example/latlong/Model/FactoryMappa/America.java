@@ -23,7 +23,7 @@ public class America implements IMappa {
     public America() throws IOException {
 
         ArrayList<Citta> c = this.CreaMappa();
-        for(int i=0;i<c.size();i++) System.out.println("C: "+c.get(i).getNome());
+        /*for(int i=0;i<c.size();i++) System.out.println("C: "+c.get(i).getNome());*/
         Percorso p;
         p=new Percorso(1,c.get(10),c.get(5));
         this.AddPercorso(p);
@@ -37,13 +37,11 @@ public class America implements IMappa {
         this.AddPercorso(p);
         p=new Percorso(6,c.get(7),c.get(14));
         this.AddPercorso(p);
-        p=new Percorso(7,c.get(14),c.get(2));
+        p=new Percorso(7,c.get(3),c.get(2));
         this.AddPercorso(p);
         p=new Percorso(8,c.get(7),c.get(6));
         this.AddPercorso(p);
         p=new Percorso(9,c.get(6),c.get(2));
-        this.AddPercorso(p);
-        p=new Percorso(11,c.get(14),c.get(6));
         this.AddPercorso(p);
         p=new Percorso(13,c.get(5),c.get(14));
         this.AddPercorso(p);
@@ -65,7 +63,6 @@ public class America implements IMappa {
         this.AddPercorso(p);
         p=new Percorso(25,c.get(2),c.get(12));
         this.AddPercorso(p);
-
         p=new Percorso(26,c.get(4),c.get(8));
         this.AddPercorso(p);
         p=new Percorso(27,c.get(4),c.get(2));
@@ -88,6 +85,13 @@ public class America implements IMappa {
         this.AddPercorso(p);
         p=new Percorso(36,c.get(15),c.get(14));
         this.AddPercorso(p);
+        p=new Percorso(37,c.get(3),c.get(14));
+        this.AddPercorso(p);
+        p=new Percorso(38,c.get(7),c.get(3));
+        this.AddPercorso(p);
+        p=new Percorso(39,c.get(3),c.get(6));
+        this.AddPercorso(p);
+
 
 
 

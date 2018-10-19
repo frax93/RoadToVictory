@@ -19,11 +19,14 @@ public class FMappa {
 	private String Nome;
 	private ArrayList<com.lynden.example.latlong.Percorso> p=new ArrayList<com.lynden.example.latlong.Percorso>();
 
-	public FMappa() throws FileNotFoundException,IOException {
-		//America america=new America();
-		//this.p=america.getP();
-		Europa europa=new Europa();
-		this.p=europa.getP();
+	public FMappa(String nomeMappa) throws FileNotFoundException,IOException {
+		if(nomeMappa=="America"){America america=new America();
+		this.p=america.getP();
+			}
+		if(nomeMappa=="Europa"){
+			Europa europa=new Europa();
+			this.p=europa.getP();
+		}
 	}
 
 	/**
@@ -225,9 +228,8 @@ public class FMappa {
 		lat=(lat_max+lat_min)/2;
 		longi=(long_max+long_min)/2;
 		l=new LatLong(lat,longi);
-		System.out.println("lat funzione media"+l.getLatitude());
-
-		System.out.println("long funzione media"+l.getLongitude());
+		//System.out.println("lat funzione media"+l.getLatitude());
+		//System.out.println("long funzione media"+l.getLongitude());
 		return l;
 	}
 

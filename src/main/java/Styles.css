@@ -102,7 +102,14 @@ Label#CartaObiettivo,Label#CartaPercorsoArrivo{
     -fx-padding: 5;
 
 }
+#SceltaMappa {
+    -fx-background-color: grey;
+    -fx-alignment: center-left bottom-left;
+    -fx-label-padding: 100;
+    -fx-border-color: black;
+    -fx-padding: 5;
 
+}
 Button#Uno,Button#Due,Button#Tre,Button#Quattro{
     -fx-background-color: white;
     -fx-weight: 1000;

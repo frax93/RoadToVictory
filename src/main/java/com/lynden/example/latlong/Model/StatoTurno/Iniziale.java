@@ -16,7 +16,7 @@ public class Iniziale implements State_Turno {
 	@Override
 	public ArrayList<Giocatore> InizioTurno(ArrayList<Giocatore> g, String nomeMappa, Turno t, Stato_Giocatore gioca)throws FileNotFoundException,IOException{
 
-		this.mappa=new FMappa();
+		this.mappa=new FMappa(nomeMappa);
 		MazzoPercorso m1=new MazzoPercorso();
 		m1=m1.getIstance(mappa.DammiPercorsi());
 		MazzoObiettivo m2 = new MazzoObiettivo();
@@ -24,7 +24,8 @@ public class Iniziale implements State_Turno {
 		m2=m2.getIstance(mappa.getCitta());
 		for(int i=0;i<g.size();i++){
 			g.get(i).PescaDueCarte();
-			if(g.get(i).ChiediCartaObiettivo().getCittaObiettivo().getNome().equals(g.get(i).ChiediCartaPercorso().getCittaPartenza().getNome())||g.get(i).ChiediCartaObiettivo().getCittaObiettivo().getNome().equals(g.get(i).ChiediCartaPercorso().getCittaArrivo().getNome())){
+			System.out.println(g.size());
+			while(g.get(i).ChiediCartaObiettivo().getCittaObiettivo().getNome().equals(g.get(i).ChiediCartaPercorso().getCittaPartenza().getNome())||g.get(i).ChiediCartaObiettivo().getCittaObiettivo().getNome().equals(g.get(i).ChiediCartaPercorso().getCittaArrivo().getNome())){
 				g.get(i).PescaDueCarte();
 			}
 			for(int c=0;c<CittaUsate.size();c++){

@@ -45,14 +45,13 @@ public class ViewMappa {
 
     }
 
-    public void Creamappa(ArrayList<Giocatore> giocatoreArrayList, FMappa mappa, Partita p) throws FileNotFoundException, IOException {
+    public void Creamappa(ArrayList<Giocatore> giocatoreArrayList, FMappa mappa, Partita p,String nomemappa) throws FileNotFoundException, IOException {
         this.setGiocatoreName(giocatoreArrayList.get(0));
         final Polyline[] polyline = {null};
         MapOptions mapOptions = new MapOptions();
-        FMappa fMappa=new FMappa();
-        System.out.println("LAT MEDIA"+fMappa.CalcolaCentro().getLatitude());
-
-        System.out.println("LONG MEDIA"+fMappa.CalcolaCentro().getLongitude());
+        FMappa fMappa=new FMappa(nomemappa);
+       // System.out.println("LAT MEDIA"+fMappa.CalcolaCentro().getLatitude());
+        //System.out.println("LONG MEDIA"+fMappa.CalcolaCentro().getLongitude());
         mapOptions.center(new LatLong(fMappa.CalcolaCentro().getLatitude(), fMappa.CalcolaCentro().getLongitude()))
                 .mapType(MapTypeIdEnum.ROADMAP)
                 .zoom(4)
