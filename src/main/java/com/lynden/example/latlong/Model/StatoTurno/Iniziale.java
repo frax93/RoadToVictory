@@ -16,7 +16,7 @@ public class Iniziale implements State_Turno {
 	@Override
 	public ArrayList<Giocatore> InizioTurno(ArrayList<Giocatore> g, String nomeMappa, Turno t, Stato_Giocatore gioca)throws FileNotFoundException,IOException{
 
-		this.mappa=new FMappa(g,nomeMappa);
+		this.mappa=new FMappa();
 		MazzoPercorso m1=new MazzoPercorso();
 		m1=m1.getIstance(mappa.DammiPercorsi());
 		MazzoObiettivo m2 = new MazzoObiettivo();
