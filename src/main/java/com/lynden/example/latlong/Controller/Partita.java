@@ -53,12 +53,14 @@ public class Partita implements Initializable,MapComponentInitializedListener{
     public Button Europa;
     public Button America;
     private String nomemappa;
-    public Button Uno;
+    public Button Sei;
     public Button Due;
     public Button Tre;
     public Button Quattro;
+    public Button Cinque;
     public Label InizioPartita;
     public AnchorPane menu;
+    public Label ScrittaGiocatori;
     public Button dadoButton;
     public Label NumberDado;
     public Label NumeroMezzo;
@@ -166,36 +168,42 @@ public class Partita implements Initializable,MapComponentInitializedListener{
         event.consume();
         this.nomemappa="Europa";
         this.mapInitialized();
-        this.scmapp=new ViewSceltaMappa(SceltaMappa,Europa,America,SceltaGiocatori,InizioPartita,menu);
+        this.scmapp=new ViewSceltaMappa(SceltaMappa,Europa,America,SceltaGiocatori,InizioPartita,menu,ScrittaGiocatori);
     }
     @FXML
     private void America(final ActionEvent event){
         event.consume();
         this.nomemappa="America";
         this.mapInitialized();
-        this.scmapp=new ViewSceltaMappa(SceltaMappa,Europa,America,SceltaGiocatori,InizioPartita,menu);
+        this.scmapp=new ViewSceltaMappa(SceltaMappa,Europa,America,SceltaGiocatori,InizioPartita,menu,ScrittaGiocatori);
     }
     @FXML
-    private void N1(final ActionEvent event){
-        event.consume();
-        this.Numero=1;
-        this.ngioc=new ViewNumGiocatori(SceltaGiocatori,Uno,Due,Tre,Quattro,InizioPartita,menu,SceltaMappa,Europa,America);
-    }
-    @FXML
-    private void N2(final ActionEvent event) {
+    private void N2(final ActionEvent event){
         event.consume();
         this.Numero=2;
-        this.ngioc=new ViewNumGiocatori(SceltaGiocatori,Uno,Due,Tre,Quattro,InizioPartita,menu,SceltaMappa,Europa,America);
-    } @FXML
+        this.ngioc=new ViewNumGiocatori(SceltaGiocatori,Due,Tre,Quattro,Cinque,Sei,InizioPartita,menu,SceltaMappa,Europa,America,ScrittaGiocatori);
+    }
+    @FXML
     private void N3(final ActionEvent event) {
         event.consume();
         this.Numero=3;
-        this.ngioc=new ViewNumGiocatori(SceltaGiocatori,Uno,Due,Tre,Quattro,InizioPartita,menu,SceltaMappa,Europa,America);
+        this.ngioc=new ViewNumGiocatori(SceltaGiocatori,Due,Tre,Quattro,Cinque,Sei,InizioPartita,menu,SceltaMappa,Europa,America,ScrittaGiocatori);
     } @FXML
     private void N4(final ActionEvent event) {
         event.consume();
         this.Numero=4;
-        this.ngioc=new ViewNumGiocatori(SceltaGiocatori,Uno,Due,Tre,Quattro,InizioPartita,menu,SceltaMappa,Europa,America);
+        this.ngioc=new ViewNumGiocatori(SceltaGiocatori,Due,Tre,Quattro,Cinque,Sei,InizioPartita,menu,SceltaMappa,Europa,America,ScrittaGiocatori);
+    } @FXML
+    private void N5(final ActionEvent event) {
+        event.consume();
+        this.Numero=5;
+        this.ngioc=new ViewNumGiocatori(SceltaGiocatori,Due,Tre,Quattro,Cinque,Sei,InizioPartita,menu,SceltaMappa,Europa,America,ScrittaGiocatori);
+    }
+    @FXML
+    private void N6(final ActionEvent event) {
+        event.consume();
+        this.Numero=6;
+        this.ngioc=new ViewNumGiocatori(SceltaGiocatori,Due,Tre,Quattro,Cinque,Sei,InizioPartita,menu,SceltaMappa,Europa,America,ScrittaGiocatori);
     }
 
     /**********   Funzione per lanciare il Dado    ************/

@@ -5,6 +5,7 @@
 
 #AnchorPane{
    -fx-stroke-weight: 2000;
+
 }
 
 #googleMapView{
@@ -95,24 +96,83 @@ Label#CartaObiettivo,Label#CartaPercorsoArrivo{
 }
 
 #SceltaGiocatori {
-    -fx-background-color: yellow;
-    -fx-alignment: center-left bottom-left;
+    -fx-background-color: url('mondo.jpg');
+    -fx-alignment: center up-center;
     -fx-label-padding: 100;
+    -fx-border-radius:8;
     -fx-border-color: red;
     -fx-padding: 5;
 
 }
+
+
+#ScrittaGiocatori{
+      -fx-background-color: #e0ffff;
+      -fx-weight: 50;
+      -fx-background-radius: 50;
+      -fx-border-radius: 20;
+      -fx-border-color: blue;
+      -fx-background-radius: 20;
+      -fx-padding: 5;
+}
+
+
 #SceltaMappa {
-    -fx-background-color: grey;
-    -fx-alignment: center-left bottom-left;
+    -fx-background-image: url('Immagini/mondo.jpg');
+    -fx-alignment: center up-center;
+    -fx-border-radius:8;
     -fx-label-padding: 100;
     -fx-border-color: black;
     -fx-padding: 5;
 
 }
-Button#Uno,Button#Due,Button#Tre,Button#Quattro{
-    -fx-background-color: white;
+
+
+
+Button#Due{
+
+      -fx-background-image: url('Immagini/2.jpeg');
     -fx-weight: 1000;
+        -fx-background-radius: 50;
+        -fx-border-radius: 20;
+        -fx-border-color: red;
+        -fx-background-radius: 20;
+        -fx-padding: 5;
+}
+
+Button#Tre{
+      -fx-background-image: url('Immagini/3.jpeg');
+       -fx-weight: 1000;
+        -fx-background-radius: 50;
+        -fx-border-radius: 20;
+        -fx-border-color: red;
+        -fx-background-radius: 20;
+        -fx-padding: 5;
+}
+Button#Quattro{
+
+      -fx-background-image: url('Immagini/4.jpeg');
+    -fx-weight: 1000;
+        -fx-background-radius: 50;
+        -fx-border-radius: 20;
+        -fx-border-color: red;
+        -fx-background-radius: 20;
+        -fx-padding: 5;
+}
+
+Button#Cinque{
+      -fx-background-image: url('Immagini/5.jpeg');
+       -fx-weight: 1000;
+        -fx-background-radius: 50;
+        -fx-border-radius: 20;
+        -fx-border-color: red;
+        -fx-background-radius: 20;
+        -fx-padding: 5;
+}
+
+Button#Sei{
+      -fx-background-image: url('Immagini/6.jpeg');
+       -fx-weight: 1000;
         -fx-background-radius: 50;
         -fx-border-radius: 20;
         -fx-border-color: red;
@@ -129,6 +189,20 @@ Button#Uno,Button#Due,Button#Tre,Button#Quattro{
             -fx-background-radius: 20;
             -fx-padding: 5;
 
+}
+
+
+
+Button#Europa,Button#America{
+    -fx-background-color: white;
+    -fx-weight: 1000;
+    width:100px;
+    height:200px;
+        -fx-background-radius: 50;
+        -fx-border-radius: 20;
+        -fx-border-color: red;
+        -fx-background-radius: 20;
+        -fx-padding: 5;
 }
 
 
