@@ -1,6 +1,8 @@
 package com.lynden.example.latlong;
 
 import com.lynden.example.latlong.Controller.Partita;
+import com.lynden.example.latlong.FMappa;
+import com.lynden.example.latlong.Model.FactoryMappa.Europa;
 import com.lynden.example.latlong.Model.FactoryMezzo.Mezzo;
 import com.lynden.example.latlong.Utlity.Utility;
 import com.lynden.gmapsfx.GoogleMapView;
@@ -47,7 +49,11 @@ public class ViewMappa {
         this.setGiocatoreName(giocatoreArrayList.get(0));
         final Polyline[] polyline = {null};
         MapOptions mapOptions = new MapOptions();
-        mapOptions.center(new LatLong(45.70618, 10.01953))
+        FMappa fMappa=new FMappa();
+        System.out.println("LAT MEDIA"+fMappa.CalcolaCentro().getLatitude());
+
+        System.out.println("LONG MEDIA"+fMappa.CalcolaCentro().getLongitude());
+        mapOptions.center(new LatLong(fMappa.CalcolaCentro().getLatitude(), fMappa.CalcolaCentro().getLongitude()))
                 .mapType(MapTypeIdEnum.ROADMAP)
                 .zoom(4)
                 .scrollWheel(false)

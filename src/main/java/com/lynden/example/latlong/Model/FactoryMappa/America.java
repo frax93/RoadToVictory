@@ -84,6 +84,11 @@ public class America implements IMappa {
         this.AddPercorso(p);
         p=new Percorso(34,c.get(7),c.get(13));
         this.AddPercorso(p);
+        p=new Percorso(35,c.get(5),c.get(15));
+        this.AddPercorso(p);
+        p=new Percorso(36,c.get(15),c.get(14));
+        this.AddPercorso(p);
+
 
 
     }

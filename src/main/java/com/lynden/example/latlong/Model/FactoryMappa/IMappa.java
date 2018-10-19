@@ -2,6 +2,7 @@ package com.lynden.example.latlong.Model.FactoryMappa;
 
 import com.lynden.example.latlong.Model.FactoryCitta.Citta;
 import com.lynden.example.latlong.Percorso;
+import com.lynden.gmapsfx.javascript.object.LatLong;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;

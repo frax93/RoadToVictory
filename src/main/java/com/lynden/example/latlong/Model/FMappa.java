@@ -20,10 +20,10 @@ public class FMappa {
 	private ArrayList<com.lynden.example.latlong.Percorso> p=new ArrayList<com.lynden.example.latlong.Percorso>();
 
 	public FMappa() throws FileNotFoundException,IOException {
-		America america=new America();
-		this.p=america.getP();
-		//Europa europa=new Europa();
-		//this.p=europa.getP();
+		//America america=new America();
+		//this.p=america.getP();
+		Europa europa=new Europa();
+		this.p=europa.getP();
 	}
 
 	/**
@@ -202,6 +202,33 @@ public class FMappa {
 		}
 		return percorso_no_s;
 
+	}
+
+
+	//Funzione che calcola il centro della mappa, che viene utilizzato per posizionare la mappa in modo giusto
+	public LatLong CalcolaCentro(){
+		ArrayList<Citta> cittas=new ArrayList<Citta>();
+		cittas=this.getCitta();
+
+		LatLong l=null;
+		double inizioLat=cittas.get(0).getCoordinate().getLatitude();
+		double inizioLong=cittas.get(0).getCoordinate().getLongitude();
+		double lat_min=inizioLat,lat_max=inizioLat,long_min=inizioLong, long_max=inizioLong, lat, longi;
+
+		for (int i=1; i<cittas.size();i++){
+			System.out.println(cittas.get(i).getNome());
+			if(cittas.get(i).getCoordinate().getLatitude()>lat_max) lat_max=cittas.get(i).getCoordinate().getLatitude();
+			if(cittas.get(i).getCoordinate().getLatitude()<lat_min) lat_min=cittas.get(i).getCoordinate().getLatitude();
+			if(cittas.get(i).getCoordinate().getLongitude()>long_max) long_max=cittas.get(i).getCoordinate().getLongitude();
+			if(cittas.get(i).getCoordinate().getLongitude()<long_min) long_min=cittas.get(i).getCoordinate().getLongitude();
+		}
+		lat=(lat_max+lat_min)/2;
+		longi=(long_max+long_min)/2;
+		l=new LatLong(lat,longi);
+		System.out.println("lat funzione media"+l.getLatitude());
+
+		System.out.println("long funzione media"+l.getLongitude());
+		return l;
 	}
 
 

@@ -7,6 +7,7 @@ import com.lynden.example.latlong.Giocatore;
 import com.lynden.example.latlong.Model.FactoryCitta.Citta;
 import com.lynden.example.latlong.Percorso;
 import com.lynden.gmapsfx.javascript.object.LatLong;
+import org.omg.CORBA.PUBLIC_MEMBER;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -133,4 +134,6 @@ public class Europa implements IMappa {
     public ArrayList<Percorso> getP() {
         return p;
     }
+
+
 }
