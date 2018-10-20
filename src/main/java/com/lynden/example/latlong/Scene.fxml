@@ -5,7 +5,6 @@
 
 <?import javafx.scene.image.ImageView?>
 
-<?import javafx.scene.shape.Box?>
 <AnchorPane id="AnchorPane" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lynden.example.latlong.Controller.Partita" >
 
 <GoogleMapView fx:id="googleMapView"/>
@@ -29,6 +28,8 @@
     </children>
 <Label fx:id="label" layoutX="126" layoutY="120" minHeight="16" minWidth="69" />
     <Label fx:id="FinePartita"  layoutX="300.0" layoutY="150.0" text="" visible="false"/>
+    
+
 <children>
     <AnchorPane fx:id="menu" prefHeight="500.0" prefWidth="130.0" style="-fx-background-color: #778899;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" visible="false">
         <children>

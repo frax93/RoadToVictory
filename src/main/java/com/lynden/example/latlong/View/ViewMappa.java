@@ -2,8 +2,9 @@ package com.lynden.example.latlong.View;
 
 import com.lynden.example.latlong.Controller.Partita;
 import com.lynden.example.latlong.Model.*;
+import com.lynden.example.latlong.Model.FactoryMappa.IMappa;
 import com.lynden.example.latlong.Model.FactoryMezzo.Mezzo;
-import com.lynden.example.latlong.Utlity.Utility;
+import com.lynden.example.latlong.Utility.Utility;
 import com.lynden.gmapsfx.GoogleMapView;
 import com.lynden.gmapsfx.javascript.event.UIEventType;
 import com.lynden.gmapsfx.javascript.object.*;
@@ -44,14 +45,13 @@ public class ViewMappa {
 
     }
 
-    public void Creamappa(ArrayList<Giocatore> giocatoreArrayList, FMappa mappa, Partita p, String nomemappa) throws FileNotFoundException, IOException {
+    public void Creamappa(ArrayList<Giocatore> giocatoreArrayList, IMappa mappa, Partita p) throws FileNotFoundException, IOException {
         this.setGiocatoreName(giocatoreArrayList.get(0));
         final Polyline[] polyline = {null};
         MapOptions mapOptions = new MapOptions();
-        FMappa fMappa=new FMappa(nomemappa);
-       // System.out.println("LAT MEDIA"+fMappa.CalcolaCentro().getLatitude());
-        //System.out.println("LONG MEDIA"+fMappa.CalcolaCentro().getLongitude());
-        mapOptions.center(new LatLong(fMappa.CalcolaCentro().getLatitude(), fMappa.CalcolaCentro().getLongitude()))
+
+
+        mapOptions.center(new LatLong(mappa.CalcolaCentro().getLatitude(), mappa.CalcolaCentro().getLongitude()))
                 .mapType(MapTypeIdEnum.ROADMAP)
                 .zoom(4)
                 .scrollWheel(false)
@@ -65,8 +65,8 @@ public class ViewMappa {
                 .scaleControl(false);
         this.map = this.googleMapView.createMap(mapOptions, false);
         this.setCarte(giocatoreArrayList);
-        com.lynden.example.latlong.Model.CartaObiettivo CartaObbGioc1 = giocatoreArrayList.get(0).ChiediCartaObiettivo();
-        CartaPercorso CartaPercGioc1 = giocatoreArrayList.get(0).ChiediCartaPercorso();
+        //CartaObiettivo CartaObbGioc1 = giocatoreArrayList.get(0).ChiediCartaObiettivo();
+        //CartaPercorso CartaPercGioc1 = giocatoreArrayList.get(0).ChiediCartaPercorso();
 
         ArrayList<Percorso> percorsi = new ArrayList<>();
         percorsi = mappa.DammiPercorsi();
@@ -80,7 +80,6 @@ public class ViewMappa {
                 pe = percorsi.get(j);
                 ArrayList<Casella> caselle = pe.getCaselle();
                 for (int cont = 0; cont < caselle.size(); cont++) {
-                    Polyline finalPolyline = polyline[0];
                     if (Math.abs(giocatoreArrayList.get(a).ChiediCartaPercorso().getCittaPartenza().getCoordinate().getLatitude() - caselle.get(cont).getInizio().getLatitude())<0.5 &&
                             Math.abs(giocatoreArrayList.get(a).ChiediCartaPercorso().getCittaPartenza().getCoordinate().getLatitude() - caselle.get(cont).getInizio().getLatitude())>=0 && Math.abs(giocatoreArrayList.get(a).ChiediCartaPercorso().getCittaPartenza().getCoordinate().getLongitude() - caselle.get(cont).getInizio().getLongitude())<0.5 &&
                             Math.abs(giocatoreArrayList.get(a).ChiediCartaPercorso().getCittaPartenza().getCoordinate().getLongitude() - caselle.get(cont).getInizio().getLongitude())>=0
@@ -95,7 +94,6 @@ public class ViewMappa {
                             .visible(true);
                     polyline[0] = new Polyline(pippo1);
                     map.addMapShape(polyline[0]);
-                    finalPolyline = polyline[0];
                     giocatoreArrayList.get(a).setMezzo(1);
                     giocatoreArrayList.get(a).PosizionaMezzo(caselle.get(cont));
                     giocatoreArrayList.get(a).setMossa(pe.CalcolaCaselleVicine(caselle.get(cont)));
@@ -126,7 +124,7 @@ public class ViewMappa {
             pe = percorsi.get(j);
             ArrayList<Casella> caselle = pe.getCaselle();
             for (int cont = 0; cont < caselle.size(); cont++) {
-                Polyline finalPolyline = polyline[0];
+                Polyline finalPolyline = null;
                 LatLong[] Prova = {caselle.get(cont).getInizio(), caselle.get(cont).getFine()};
                 PolylineOptions pippo = new PolylineOptions();
                 pippo.path(new MVCArray(Prova))
@@ -140,7 +138,6 @@ public class ViewMappa {
             finalPolyline = polyline[0];
             int finalI = cont;
             Polyline finalPolyline1 = finalPolyline;
-            Polyline finalPolyline2 = finalPolyline;
             map.addUIEventHandler(polyline[0], UIEventType.click, (JSObject obj) -> {
                 try{
                     p.PosizionaMezzo(finalPolyline1, pippo,finalI,caselle);
@@ -195,7 +192,7 @@ public class ViewMappa {
 
 
 
-    public void setMarker(ArrayList<Giocatore> giocatores, FMappa mappa){
+    public void setMarker(ArrayList<Giocatore> giocatores, IMappa mappa){
         ArrayList<Marker> markers= new ArrayList<>();
         for(int i=0; i<giocatores.size();i++){
             CartaPercorso c= giocatores.get(i).ChiediCartaPercorso();
@@ -232,7 +229,6 @@ public class ViewMappa {
     }
 
     public void setObiettivo(ArrayList<Giocatore> giocatoreArrayList){
-        String color=null;
         if(giocatoreArrayList.get(0).getObiettivo()==true) {
             //this.CartaObiettivo.setTextFill(Color.web("green"));   Per settare testo della label
            // this.CartaObiettivo.setBackground(Background.EMPTY);   Nel caso si voglia riportare il background invisibile, alla mossa successiva
@@ -264,9 +260,6 @@ public class ViewMappa {
     public void FinePartita(Giocatore g){
         this.FinePartita.setVisible(true);
         this.FinePartita.setText(g.getUsername()+" HAI VINTO LA PARTITA!!!!!!");
-        
-
-        String colore = null;
         String color= Utility.ColorToRgba(g.getColor());
         String style = "-fx-background-color:"+ color;
         this.FinePartita.setStyle(style);

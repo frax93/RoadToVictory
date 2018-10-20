@@ -1,14 +1,11 @@
 package com.lynden.example.latlong.Controller;
 
-/****** TUTTO STO COSO DIVENTA PARTITA E FACCIAMO UNA VIEW SEPARATA *****/
-import com.lynden.example.latlong.*;
 import com.lynden.example.latlong.Model.Casella;
-import com.lynden.example.latlong.Model.FMappa;
+import com.lynden.example.latlong.Model.FactoryMappa.IMappa;
 import com.lynden.example.latlong.Model.Giocatore;
 import com.lynden.example.latlong.Model.Percorso;
 import com.lynden.example.latlong.Model.StatoGiocatore.Attesa;
 import com.lynden.example.latlong.Model.StatoGiocatore.Gioca;
-import com.lynden.example.latlong.Model.StatoGiocatore.Stato_Giocatore;
 import com.lynden.example.latlong.Model.StatoGiocatore.Vincente;
 import com.lynden.example.latlong.Model.StatoTurno.Generale;
 import com.lynden.example.latlong.Model.StatoTurno.Iniziale;
@@ -40,7 +37,6 @@ import javafx.scene.control.*;
 import javafx.event.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.image.*;
-//import sun.tools.tree.BooleanExpression;
 
 
 import java.io.*;
@@ -76,13 +72,13 @@ public class Partita implements Initializable,MapComponentInitializedListener{
     public Label FinePartita;
     public Button TurnoButton;
     private ArrayList<Giocatore> Giocatori=new ArrayList<>();
-    private FMappa mappa;
     private ViewMappa viewMappa;
     private ViewDado viewDado;
+    private IMappa mappa;
     private Generale general;
     private Gioca gioca=new Gioca();
     private Vincente vince= new Vincente();
-    private ArrayList<Casella> Stato_attuale = new ArrayList<>();
+    //private ArrayList<Casella> Stato_attuale = new ArrayList<>();
     private ViewNumGiocatori ngioc;
     private ViewSceltaMappa scmapp;
     private int Numero=0;
@@ -147,16 +143,13 @@ public class Partita implements Initializable,MapComponentInitializedListener{
             Iniziale i=new Iniziale();
             ArrayList<Giocatore> giocatori_ordinati=i.OrdinaGiocatori(this.Giocatori);
             Attesa attesa=new Attesa();
-            giocatori_ordinati=i.InizioTurno(giocatori_ordinati,Nome_mappa,t, (Stato_Giocatore) attesa);
+            giocatori_ordinati=i.InizioTurno(giocatori_ordinati,Nome_mappa,t, attesa);
             this.Giocatori=giocatori_ordinati;
-            /*for(int g=0;g<giocatori_ordinati.size();g++){
-                System.out.println("Giocatore: "+giocatori_ordinati.get(g)+" ICitta obiettivo: "+giocatori_ordinati.get(g).ChiediCartaObiettivo().getCittaObiettivo().getNome()+" ICitta Partenza: "+ giocatori_ordinati.get(g).ChiediCartaPercorso().getCittaPartenza().getNome()+" ICitta Arrivo: "+giocatori_ordinati.get(g).ChiediCartaPercorso().getCittaArrivo().getNome());
-            }*/
             this.mappa=i.getMappa();
             this.viewMappa=new ViewMappa(map,googleMapView,CartaObiettivo,CartaPercorsoPartenza,CartaPercorsoArrivo,GiocatoreName,TurnoButton,NumeroMezzo,FinePartita);
-            this.viewMappa.Creamappa(this.Giocatori,this.mappa,this,nomemappa);
+            this.viewMappa.Creamappa(this.Giocatori,this.mappa,this);
             this.general=new Generale();
-            this.Giocatori=this.general.InizioTurno(giocatori_ordinati,Nome_mappa,t,(Stato_Giocatore) this.gioca);
+            this.Giocatori=this.general.InizioTurno(giocatori_ordinati,Nome_mappa,t, this.gioca);
         }
         catch (Exception e) {
             e.printStackTrace();
@@ -216,7 +209,7 @@ public class Partita implements Initializable,MapComponentInitializedListener{
        int n = this.Giocatori.get(0).LanciaDado();
        this.Giocatori.get(0).setMezzo(n);
        this.viewDado =new ViewDado(dadoButton, NumeroMezzo,NumberDado,DadoImage,n);
-        this.timestamp = new Timestamp(System.currentTimeMillis());
+       //this.timestamp = new Timestamp(System.currentTimeMillis());
 
     }
 
@@ -240,7 +233,7 @@ System.out.println("Aspettiamo: "+System.currentTimeMillis());
                     (LongCasellaFine.getLatitude() == Lat && LongCasellaFine.getLongitude() == Long)) {
 
                 Percorso PercorsoPremuto = null;
-                PercorsoPremuto = this.mappa.getPercorsoByCasella(Casella_premuta);
+                PercorsoPremuto = mappa.getPercorsoByCasella(Casella_premuta);
                 //System.out.println("Id casella Arrivo: "+PercorsoPremuto.getCasellaArrivo().getId());
                 //System.out.println("Id casella Partenza: "+PercorsoPremuto.getCasellaPartenza().getId());
                 //System.out.println("Casella premuta: "+Casella_premuta.getId());
@@ -312,7 +305,8 @@ System.out.println("Aspettiamo: "+System.currentTimeMillis());
                 this.Giocatori.remove(giocatore_backup);
                 this.Giocatori.add(this.Giocatori.size(), giocatore_backup);
                 this.viewDado.setDadoButton();
-                this.general.InizioTurno(this.Giocatori, "Europa", t, this.gioca);
+                this.general.InizioTurno(this.Giocatori, this.mappa.getNome(), t, this.gioca);
+                this.general.Fineturno(this.Giocatori.get(0));
                 this.viewMappa.setCarte(this.Giocatori);
                 this.viewMappa.setObiettivo(this.Giocatori);
                 this.viewMappa.setArrivo(this.Giocatori);

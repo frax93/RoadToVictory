@@ -1,6 +1,7 @@
 package com.lynden.example.latlong.Model.StatoTurno;
 
 import com.lynden.example.latlong.Model.FMappa;
+import com.lynden.example.latlong.Model.FactoryMappa.IMappa;
 import com.lynden.example.latlong.Model.Giocatore;
 import com.lynden.example.latlong.Model.MazzoObiettivo;
 import com.lynden.example.latlong.Model.MazzoPercorso;
@@ -12,11 +13,11 @@ import java.io.IOException;
 import java.util.*;
 
 public class Iniziale implements State_Turno {
-	private FMappa mappa;
+	private IMappa mappa;
 	@Override
 	public ArrayList<Giocatore> InizioTurno(ArrayList<Giocatore> g, String nomeMappa, Turno t, Stato_Giocatore gioca)throws FileNotFoundException,IOException{
 
-		this.mappa=new FMappa(nomeMappa);
+		this.mappa=FMappa.getMappa(nomeMappa);
 		MazzoPercorso m1=new MazzoPercorso();
 		m1=m1.getIstance(mappa.DammiPercorsi());
 		MazzoObiettivo m2 = new MazzoObiettivo();
@@ -24,12 +25,11 @@ public class Iniziale implements State_Turno {
 		m2=m2.getIstance(mappa.getCitta());
 		for(int i=0;i<g.size();i++){
 			g.get(i).PescaDueCarte();
-			System.out.println(g.size());
 			for(int c=0;c<CittaUsate.size();c++){
 				if(g.get(i).ChiediCartaObiettivo().getCittaObiettivo().getNome().equals(CittaUsate.get(c))||g.get(i).ChiediCartaPercorso().getCittaPartenza().getNome().equals(CittaUsate.get(c))||g.get(i).ChiediCartaPercorso().getCittaArrivo().getNome().equals(CittaUsate.get(c))){
 					g.get(i).RestituisciCarte();
 					g.get(i).PescaDueCarte();
-					c=-1;
+					break;
 				}
 
 			}
@@ -53,7 +53,7 @@ public class Iniziale implements State_Turno {
 		return g;
 	}
 
-	public FMappa getMappa() {
+	public IMappa getMappa() {
 		return mappa;
 	}
 }

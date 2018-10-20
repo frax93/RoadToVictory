@@ -1,4 +1,4 @@
-package com.lynden.example.latlong.Utlity;
+package com.lynden.example.latlong.Utility;
 
 
 /**
