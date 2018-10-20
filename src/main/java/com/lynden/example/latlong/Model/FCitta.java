@@ -12,14 +12,14 @@ import com.lynden.example.latlong.Model.FactoryCitta.Oscura;
 
 public class FCitta {
 
-    public static ICitta getCitta(String criteria)
+    public static ICitta getCitta(String criteria, String nomeCitta )
     {
         if ( criteria.equals("Normale") )
-            return new Normale();
+            return new Normale(nomeCitta);
         else if ( criteria.equals("Oscura") )
-            return new Oscura();
+            return new Oscura(nomeCitta);
         else if ( criteria.equals("Rifornimento") )
-            return new Rifornimento();
+            return new Rifornimento(nomeCitta);
         else
             return null;
     }

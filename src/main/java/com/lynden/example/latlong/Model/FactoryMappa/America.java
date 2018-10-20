@@ -2,6 +2,7 @@ package com.lynden.example.latlong.Model.FactoryMappa;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.JsonArray;
+import com.lynden.example.latlong.Model.FCitta;
 import com.lynden.example.latlong.Model.FactoryCitta.ICitta;
 
 import com.lynden.example.latlong.Model.FactoryCitta.Normale;
@@ -141,7 +142,8 @@ public class America implements IMappa {
             for (Map.Entry entry : maplat.entrySet()){
                 String nome=(String) entry.getKey();
                 String[] nome1 = nome.split(",");
-                Normale p= new Normale((String) nome1[0].replace("\"",""));
+                //Logica per città oscure e rifornimento oltre a quelle normali
+                ICitta p = FCitta.getCitta("Normale",(String) nome1[0].replace("\"",""));
                 p.ImpostaCoordinate((LatLong) entry.getValue());
                 c1.add(p);
             }
