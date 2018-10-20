@@ -94,43 +94,57 @@ public class Partita implements Initializable,MapComponentInitializedListener{
     }
     @Override
     public void mapInitialized(){
-        System.out.println("entrato");
-
-        if(this.Numero!=0) {
-            if (this.Numero == 1) {
-                Giocatore giocatore1 = new Giocatore(1, "Giocatore1", "red");
-                this.Giocatori.add(giocatore1);
-
-            }
-            if (this.Numero == 2) {
-                Giocatore giocatore1 = new Giocatore(1, "Giocatore1", "red");
-                Giocatore giocatore2 = new Giocatore(2, "Giocatore2", "aqua");
-                this.Giocatori.add(giocatore1);
-                this.Giocatori.add(giocatore2);
-            }
-            if (this.Numero == 3) {
-                Giocatore giocatore1 = new Giocatore(1, "Giocatore1", "red");
-                Giocatore giocatore2 = new Giocatore(2, "Giocatore2", "aqua");
-                Giocatore giocatore3 = new Giocatore(3, "Giocatore3", "orange");
-                this.Giocatori.add(giocatore1);
-                this.Giocatori.add(giocatore2);
-                this.Giocatori.add(giocatore3);
-            }
-            if (this.Numero == 4) {
-                System.out.println("sono 4");
-                Giocatore giocatore1 = new Giocatore(1, "Giocatore1", "red");
-                Giocatore giocatore2 = new Giocatore(2, "Giocatore2", "aqua");
-                Giocatore giocatore3 = new Giocatore(3, "Giocatore3", "orange");
-                Giocatore giocatore4 = new Giocatore(4, "Giocatore4", "pink");
-                this.Giocatori.add(giocatore1);
-                this.Giocatori.add(giocatore2);
-                this.Giocatori.add(giocatore3);
-                this.Giocatori.add(giocatore4);
-
+        if(this.Numero!=0){
+            switch(this.Numero){
+                case 2:
+                    Giocatore giocatore1 = new Giocatore(1, "Giocatore1", "red");
+                    Giocatore giocatore2 = new Giocatore(2, "Giocatore2", "aqua");
+                    this.Giocatori.add(giocatore1);
+                    this.Giocatori.add(giocatore2);
+                case 3:
+                    giocatore1 = new Giocatore(1, "Giocatore1", "red");
+                    giocatore2 = new Giocatore(2, "Giocatore2", "aqua");
+                    Giocatore giocatore3 = new Giocatore(3, "Giocatore3", "orange");
+                    this.Giocatori.add(giocatore1);
+                    this.Giocatori.add(giocatore2);
+                    this.Giocatori.add(giocatore3);
+                case 4:
+                    giocatore1 = new Giocatore(1, "Giocatore1", "red");
+                    giocatore2 = new Giocatore(2, "Giocatore2", "aqua");
+                    giocatore3 = new Giocatore(3, "Giocatore3", "orange");
+                    Giocatore giocatore4 = new Giocatore(4, "Giocatore4", "pink");
+                    this.Giocatori.add(giocatore1);
+                    this.Giocatori.add(giocatore2);
+                    this.Giocatori.add(giocatore3);
+                    this.Giocatori.add(giocatore4);
+                case 5:
+                    giocatore1 = new Giocatore(1, "Giocatore1", "red");
+                    giocatore2 = new Giocatore(2, "Giocatore2", "aqua");
+                    giocatore3 = new Giocatore(3, "Giocatore3", "orange");
+                    giocatore4 = new Giocatore(4, "Giocatore4", "pink");
+                    Giocatore giocatore5 = new Giocatore(5, "Giocatore5", "teal");
+                    this.Giocatori.add(giocatore1);
+                    this.Giocatori.add(giocatore2);
+                    this.Giocatori.add(giocatore3);
+                    this.Giocatori.add(giocatore4);
+                    this.Giocatori.add(giocatore5);
+                case 6:
+                    giocatore1 = new Giocatore(1, "Giocatore1", "red");
+                    giocatore2 = new Giocatore(2, "Giocatore2", "aqua");
+                    giocatore3 = new Giocatore(3, "Giocatore3", "orange");
+                    giocatore4 = new Giocatore(4, "Giocatore4", "pink");
+                    giocatore5 = new Giocatore(5, "Giocatore5", "teal");
+                    Giocatore giocatore6 = new Giocatore(6, "Giocatore6", "black");
+                    this.Giocatori.add(giocatore1);
+                    this.Giocatori.add(giocatore2);
+                    this.Giocatori.add(giocatore3);
+                    this.Giocatori.add(giocatore4);
+                    this.Giocatori.add(giocatore5);
+                    this.Giocatori.add(giocatore6);
             }
         }
         if(this.nomemappa!=null){
-        this.AvviaPartita(nomemappa);}
+            this.AvviaPartita(nomemappa);}
         //this.wait(1000);
         //this.viewMappa.setTurnoButton(false);
 
