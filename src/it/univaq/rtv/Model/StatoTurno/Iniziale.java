@@ -26,9 +26,10 @@ public class Iniziale implements State_Turno {
 		for(int i=0;i<g.size();i++){
 			g.get(i).PescaDueCarte();
 			for(int c=0;c<CittaUsate.size();c++){
-				if(g.get(i).ChiediCartaObiettivo().getCittaObiettivo().getNome().equals(CittaUsate.get(c))||g.get(i).ChiediCartaPercorso().getCittaPartenza().getNome().equals(CittaUsate.get(c))||g.get(i).ChiediCartaPercorso().getCittaArrivo().getNome().equals(CittaUsate.get(c))){
+				while(g.get(i).ChiediCartaObiettivo().getCittaObiettivo().getNome().equals(CittaUsate.get(c))||g.get(i).ChiediCartaPercorso().getCittaPartenza().getNome().equals(CittaUsate.get(c))||g.get(i).ChiediCartaPercorso().getCittaArrivo().getNome().equals(CittaUsate.get(c))){
 					g.get(i).RestituisciCarte();
 					g.get(i).PescaDueCarte();
+					c=-1;
 					break;
 				}
 

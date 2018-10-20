@@ -52,7 +52,7 @@ public class Partita implements Initializable,MapComponentInitializedListener{
     public Button Europa;
     public Button America;
     private String nomemappa;
-    public Button Sei;
+    public Button Uno;
     public Button Due;
     public Button Tre;
     public Button Quattro;
@@ -132,19 +132,9 @@ public class Partita implements Initializable,MapComponentInitializedListener{
                     this.Giocatori.add(giocatore4);
                     this.Giocatori.add(giocatore5);
                     break;
-                case 6:
+                case 1:
                     giocatore1 = new Giocatore(1, "Giocatore1", "red");
-                    giocatore2 = new Giocatore(2, "Giocatore2", "aqua");
-                    giocatore3 = new Giocatore(3, "Giocatore3", "orange");
-                    giocatore4 = new Giocatore(4, "Giocatore4", "pink");
-                    giocatore5 = new Giocatore(5, "Giocatore5", "teal");
-                    Giocatore giocatore6 = new Giocatore(6, "Giocatore6", "black");
                     this.Giocatori.add(giocatore1);
-                    this.Giocatori.add(giocatore2);
-                    this.Giocatori.add(giocatore3);
-                    this.Giocatori.add(giocatore4);
-                    this.Giocatori.add(giocatore5);
-                    this.Giocatori.add(giocatore6);
                     break;
             }
         }
@@ -196,29 +186,29 @@ public class Partita implements Initializable,MapComponentInitializedListener{
     private void N2(final ActionEvent event){
         event.consume();
         this.Numero=2;
-        this.ngioc=new ViewNumGiocatori(SceltaGiocatori,Due,Tre,Quattro,Cinque,Sei,InizioPartita,menu,SceltaMappa,Europa,America,ScrittaGiocatori);
+        this.ngioc=new ViewNumGiocatori(SceltaGiocatori,Uno,Due,Tre,Quattro,Cinque,InizioPartita,menu,SceltaMappa,Europa,America,ScrittaGiocatori);
     }
     @FXML
     private void N3(final ActionEvent event) {
         event.consume();
         this.Numero=3;
-        this.ngioc=new ViewNumGiocatori(SceltaGiocatori,Due,Tre,Quattro,Cinque,Sei,InizioPartita,menu,SceltaMappa,Europa,America,ScrittaGiocatori);
+        this.ngioc=new ViewNumGiocatori(SceltaGiocatori,Uno,Due,Tre,Quattro,Cinque,InizioPartita,menu,SceltaMappa,Europa,America,ScrittaGiocatori);
     } @FXML
     private void N4(final ActionEvent event) {
         event.consume();
         this.Numero=4;
-        this.ngioc=new ViewNumGiocatori(SceltaGiocatori,Due,Tre,Quattro,Cinque,Sei,InizioPartita,menu,SceltaMappa,Europa,America,ScrittaGiocatori);
+        this.ngioc=new ViewNumGiocatori(SceltaGiocatori,Uno,Due,Tre,Quattro,Cinque,InizioPartita,menu,SceltaMappa,Europa,America,ScrittaGiocatori);
     } @FXML
     private void N5(final ActionEvent event) {
         event.consume();
         this.Numero=5;
-        this.ngioc=new ViewNumGiocatori(SceltaGiocatori,Due,Tre,Quattro,Cinque,Sei,InizioPartita,menu,SceltaMappa,Europa,America,ScrittaGiocatori);
+        this.ngioc=new ViewNumGiocatori(SceltaGiocatori,Uno,Due,Tre,Quattro,Cinque,InizioPartita,menu,SceltaMappa,Europa,America,ScrittaGiocatori);
     }
     @FXML
-    private void N6(final ActionEvent event) {
+    private void N1(final ActionEvent event) {
         event.consume();
-        this.Numero=6;
-        this.ngioc=new ViewNumGiocatori(SceltaGiocatori,Due,Tre,Quattro,Cinque,Sei,InizioPartita,menu,SceltaMappa,Europa,America,ScrittaGiocatori);
+        this.Numero=1;
+        this.ngioc=new ViewNumGiocatori(SceltaGiocatori,Uno,Due,Tre,Quattro,Cinque,InizioPartita,menu,SceltaMappa,Europa,America,ScrittaGiocatori);
     }
 
     /**********   Funzione per lanciare il Dado    ************/

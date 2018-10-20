@@ -40,7 +40,6 @@ public class RoadToVictory extends Application{
     @Override
     public void start(Stage stage) throws Exception, FileNotFoundException,IOException {
 
-
         Parent root = FXMLLoader.load(getClass().getResource("Scene.fxml"));
         
          /*********    DADO  3D  ******************************/
