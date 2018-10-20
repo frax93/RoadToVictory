@@ -3,26 +3,52 @@
   <component name="ChangeListManager">
     <list default="true" id="5bff287a-25d9-4017-a4b2-a81f7a424148" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/main/com/lynden/example/latlong/Controller/Partita.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/main/com/lynden/example/latlong/Controller/Partita.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/main/com/lynden/example/latlong/Model/FMappa.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/main/com/lynden/example/latlong/Model/FMappa.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/main/com/lynden/example/latlong/Model/FactoryMappa/America.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/main/com/lynden/example/latlong/Model/FactoryMappa/America.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/main/com/lynden/example/latlong/Model/FactoryMappa/Europa.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/main/com/lynden/example/latlong/Model/FactoryMappa/Europa.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/main/com/lynden/example/latlong/Model/FactoryMappa/IMappa.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/main/com/lynden/example/latlong/Model/FactoryMappa/IMappa.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/main/com/lynden/example/latlong/Model/StatoTurno/Generale.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/main/com/lynden/example/latlong/Model/StatoTurno/Generale.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/main/com/lynden/example/latlong/Model/StatoTurno/Iniziale.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/main/com/lynden/example/latlong/Model/StatoTurno/Iniziale.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/main/com/lynden/example/latlong/Utlity/Utility.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/main/com/lynden/example/latlong/View/ViewMappa.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/main/com/lynden/example/latlong/View/ViewMappa.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Controller/Partita.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Controller/Partita.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Model/FMappa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Model/FMappa.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Model/FactoryMappa/America.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Model/FactoryMappa/America.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Model/FactoryMappa/Europa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Model/FactoryMappa/Europa.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Model/FactoryMappa/IMappa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Model/FactoryMappa/IMappa.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Model/StatoTurno/Generale.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Model/StatoTurno/Generale.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Model/StatoTurno/Iniziale.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Model/StatoTurno/Iniziale.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Model/StatoTurno/State_Turno.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Model/StatoTurno/State_Turno.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Scene.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Scene.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Utlity/Utility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Utility/Utility.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/View/ViewMappa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/View/ViewMappa.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Controller/Partita.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/rtv/Controller/Partita.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Dado/dado-1.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/rtv/Dado/dado-1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Dado/dado-2.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/rtv/Dado/dado-2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Dado/dado-3.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/rtv/Dado/dado-3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Dado/dado-4.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/rtv/Dado/dado-4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Dado/dado-5.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/rtv/Dado/dado-5.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Dado/dado-6.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/rtv/Dado/dado-6.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Model/Carta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/Carta.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Model/CartaObiettivo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/CartaObiettivo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Model/CartaPercorso.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/CartaPercorso.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Model/Casella.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/Casella.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Model/FCitta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/FCitta.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Model/FMappa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/FMappa.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Model/FMezzo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/FMezzo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Model/FactoryCitta/ICitta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/FactoryCitta/ICitta.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Model/FactoryCitta/Normale.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/FactoryCitta/Normale.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Model/FactoryCitta/Oscura.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/FactoryCitta/Oscura.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Model/FactoryCitta/Rifornimento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/FactoryCitta/Rifornimento.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Model/FactoryMappa/America.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/FactoryMappa/America.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Model/FactoryMappa/Europa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/FactoryMappa/Europa.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Model/FactoryMappa/IMappa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/FactoryMappa/IMappa.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Model/FactoryMezzo/Aereo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/FactoryMezzo/Aereo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Model/FactoryMezzo/Mezzo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/FactoryMezzo/Mezzo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Model/FactoryMezzo/Nave.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/FactoryMezzo/Nave.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Model/FactoryMezzo/Vagone.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/FactoryMezzo/Vagone.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Model/Giocatore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/Giocatore.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Model/Mazzo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/Mazzo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Model/MazzoObiettivo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/MazzoObiettivo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Model/MazzoPercorso.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/MazzoPercorso.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Model/Percorso.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/Percorso.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Model/SDado.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/SDado.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Model/StatoGiocatore/Attesa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/StatoGiocatore/Attesa.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Model/StatoGiocatore/Gioca.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/StatoGiocatore/Gioca.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Model/StatoGiocatore/Stato_Giocatore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/StatoGiocatore/Stato_Giocatore.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Model/StatoGiocatore/Vincente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/StatoGiocatore/Vincente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Model/StatoTurno/Generale.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/StatoTurno/Generale.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Model/StatoTurno/Iniziale.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/StatoTurno/Iniziale.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Model/StatoTurno/State_Turno.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/StatoTurno/State_Turno.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Model/Turno.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/Turno.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/RoadToVictory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/rtv/RoadToVictory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Scene.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/rtv/Scene.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Utility/Utility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/rtv/Utility/Utility.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/View/ViewDado.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/rtv/View/ViewDado.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/View/ViewMappa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/rtv/View/ViewMappa.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/View/ViewNumGiocatori.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/rtv/View/ViewNumGiocatori.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/View/ViewSceltaMappa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/rtv/View/ViewSceltaMappa.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -96,13 +122,13 @@
         <counts>
           <entry key="class" value="1" />
           <entry key="fxml" value="1" />
-          <entry key="java" value="98" />
+          <entry key="java" value="102" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CLASS" value="1" />
-          <entry key="JAVA" value="98" />
+          <entry key="JAVA" value="102" />
           <entry key="XML" value="1" />
         </counts>
       </usages-collector>
@@ -110,12 +136,12 @@
         <counts>
           <entry key="dummy" value="6" />
           <entry key="fxml" value="4" />
-          <entry key="java" value="1201" />
+          <entry key="java" value="1203" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="1201" />
+          <entry key="JAVA" value="1203" />
           <entry key="PLAIN_TEXT" value="6" />
           <entry key="XML" value="4" />
         </counts>
@@ -125,20 +151,28 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Scene.fxml">
-          <provider editor-type-id="JavaFX-Scene-Builder" />
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/FactoryMappa/Europa.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="30" column="4" selection-start-line="30" selection-start-column="4" selection-end-line="30" selection-end-column="4" />
+            <state relative-caret-position="60">
+              <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/FactoryMappa/America.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="45">
+              <caret line="3" column="33" selection-start-line="3" selection-start-column="33" selection-end-line="3" selection-end-column="33" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Model/StatoTurno/Iniziale.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/StatoTurno/Iniziale.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="284">
+            <state relative-caret-position="256">
               <caret line="26" column="37" selection-start-line="26" selection-start-column="37" selection-end-line="26" selection-end-column="37" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -148,10 +182,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Model/StatoTurno/State_Turno.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/it/univaq/rtv/Controller/Partita.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="15" column="18" selection-start-line="15" selection-start-column="9" selection-end-line="15" selection-end-column="18" />
+            <state relative-caret-position="645">
+              <caret line="43" column="13" selection-start-line="43" selection-start-column="13" selection-end-line="43" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -160,10 +194,19 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/View/ViewMappa.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/it/univaq/rtv/View/ViewMappa.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3526">
-              <caret line="261" column="80" selection-start-line="261" selection-start-column="80" selection-end-line="261" selection-end-column="80" />
+            <state relative-caret-position="45">
+              <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/FactoryMappa/IMappa.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="30">
+              <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -172,21 +215,9 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Controller/Partita.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/it/univaq/rtv/View/ViewDado.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="55">
-              <caret line="66" column="21" lean-forward="true" selection-start-line="66" selection-start-column="21" selection-end-line="66" selection-end-column="21" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/View/ViewDado.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-35">
+            <state relative-caret-position="105">
               <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -239,11 +270,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Model/Stato_Giocatore.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Model/Generale.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Model/Iniziale.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Model/Normale.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Model/Oscura.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Model/Utility.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Partita.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Model/FactoryMezzo/Mezzo.java" />
@@ -290,6 +316,11 @@
         <option value="$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/View/ViewMappa.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Controller/Partita.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Scene.fxml" />
+        <option value="$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/StatoTurno/Iniziale.java" />
+        <option value="$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/FactoryMappa/IMappa.java" />
+        <option value="$PROJECT_DIR$/src/main/java/it/univaq/rtv/View/ViewMappa.java" />
+        <option value="$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/FactoryMappa/Europa.java" />
+        <option value="$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/FactoryMappa/America.java" />
       </list>
     </option>
   </component>
@@ -329,21 +360,14 @@
               <item name="RoadToVictory" type="b2602c69:ProjectViewProjectNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="latlong" type="462c0819:PsiDirectoryNode" />
+              <item name="rtv" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="RoadToVictory" type="b2602c69:ProjectViewProjectNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="latlong" type="462c0819:PsiDirectoryNode" />
+              <item name="rtv" type="462c0819:PsiDirectoryNode" />
               <item name="Controller" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="RoadToVictory" type="b2602c69:ProjectViewProjectNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="latlong" type="462c0819:PsiDirectoryNode" />
-              <item name="View" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -355,7 +379,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1540050286643" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1540050965504" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
   </component>
@@ -416,7 +440,7 @@
     </configuration>
     <configuration name="main" type="Application" factoryName="Application">
       <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
-      <option name="MAIN_CLASS_NAME" value="com.lynden.example.latlong.RoadToVictory" />
+      <option name="MAIN_CLASS_NAME" value="it.univaq.rtv.RoadToVictory" />
       <module name="main" />
       <extension name="coverage">
         <pattern>
@@ -520,7 +544,7 @@
     <frame x="21" y="22" width="1440" height="828" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2532189" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2532189" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Nl-Palette" order="3" />
@@ -532,7 +556,7 @@
       <window_info anchor="bottom" id="Inspection Results" weight="0.32880434" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32880434" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32744566" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32744566" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39945653" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -540,7 +564,7 @@
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.32744566" />
+      <window_info active="true" anchor="bottom" id="Messages" order="10" visible="true" weight="0.32744566" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -565,7 +589,7 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Model/FactoryMappa/America.java</url>
+          <url>file://$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/FactoryMappa/America.java</url>
           <line>26</line>
           <properties />
           <option name="timeStamp" value="4" />
@@ -627,35 +651,35 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Model/StatoGiocatore/Stato_Giocatore.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/StatoGiocatore/Stato_Giocatore.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Model/StatoGiocatore/Gioca.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/StatoGiocatore/Gioca.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
           <caret line="2" column="39" selection-start-line="2" selection-start-column="39" selection-end-line="2" selection-end-column="39" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Model/StatoGiocatore/Vincente.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/StatoGiocatore/Vincente.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
           <caret line="3" column="33" selection-start-line="3" selection-start-column="33" selection-end-line="3" selection-end-column="33" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Model/StatoGiocatore/Attesa.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/StatoGiocatore/Attesa.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="4" column="31" selection-start-line="4" selection-start-column="31" selection-end-line="4" selection-end-column="31" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Model/FactoryCitta/Rifornimento.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/FactoryCitta/Rifornimento.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="299">
           <caret line="42" column="5" selection-start-line="42" selection-start-column="5" selection-end-line="42" selection-end-column="5" />
@@ -665,14 +689,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Model/FactoryCitta/Normale.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/FactoryCitta/Normale.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="4" column="41" lean-forward="true" selection-start-line="4" selection-start-column="41" selection-end-line="4" selection-end-column="41" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Model/FMezzo.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/FMezzo.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
@@ -682,56 +706,56 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Model/FactoryMezzo/Mezzo.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/FactoryMezzo/Mezzo.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
           <caret line="3" column="18" selection-start-line="3" selection-start-column="18" selection-end-line="3" selection-end-column="18" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Model/FactoryMezzo/Vagone.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/FactoryMezzo/Vagone.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
           <caret line="20" column="8" selection-start-line="20" selection-start-column="8" selection-end-line="20" selection-end-column="8" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Model/FactoryMezzo/Nave.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/FactoryMezzo/Nave.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
           <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Model/FactoryMezzo/Aereo.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/FactoryMezzo/Aereo.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Model/Carta.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/Carta.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
           <caret line="2" column="22" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Model/CartaObiettivo.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/CartaObiettivo.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="16" selection-start-line="16" selection-end-line="16" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Model/CartaPercorso.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/CartaPercorso.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Model/Casella.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/Casella.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
@@ -741,7 +765,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Model/Giocatore.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/Giocatore.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="494">
           <caret line="130" lean-forward="true" selection-start-line="130" selection-end-line="130" />
@@ -751,14 +775,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Model/Mazzo.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/Mazzo.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
           <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Model/MazzoObiettivo.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/MazzoObiettivo.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="8" column="30" lean-forward="true" selection-start-line="8" selection-start-column="30" selection-end-line="8" selection-end-column="30" />
@@ -769,7 +793,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Model/MazzoPercorso.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/MazzoPercorso.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
           <caret line="19" column="13" lean-forward="true" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
@@ -784,7 +808,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Model/Percorso.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/Percorso.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-4876">
           <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
@@ -794,21 +818,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Model/SDado.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/SDado.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
           <caret line="3" column="13" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Model/Turno.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/Turno.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="4" column="17" lean-forward="true" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/View/ViewSceltaMappa.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/univaq/rtv/View/ViewSceltaMappa.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="104">
           <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
@@ -818,7 +842,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/View/ViewNumGiocatori.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/univaq/rtv/View/ViewNumGiocatori.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
@@ -828,21 +852,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Model/FactoryCitta/Oscura.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/FactoryCitta/Oscura.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
           <caret line="3" column="39" selection-start-line="3" selection-start-column="39" selection-end-line="3" selection-end-column="39" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/RoadToVictory.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/univaq/rtv/RoadToVictory.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
           <caret line="36" column="13" selection-start-line="36" selection-start-column="13" selection-end-line="36" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Model/FactoryCitta/ICitta.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/FactoryCitta/ICitta.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="95">
           <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
@@ -852,7 +876,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Model/FCitta.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/FCitta.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
           <caret line="24" column="5" lean-forward="true" selection-start-line="14" selection-start-column="4" selection-end-line="24" selection-end-column="5" />
@@ -862,56 +886,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Utility/Utility.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/univaq/rtv/Utility/Utility.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Model/StatoTurno/Iniziale.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="284">
-          <caret line="26" column="37" selection-start-line="26" selection-start-column="37" selection-end-line="26" selection-end-column="37" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Model/StatoTurno/State_Turno.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="18" selection-start-line="15" selection-start-column="9" selection-end-line="15" selection-end-column="18" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Model/FactoryMappa/IMappa.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="103">
-          <caret line="12" column="16" selection-start-line="12" selection-start-column="7" selection-end-line="12" selection-end-column="16" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Model/FactoryMappa/Europa.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="94" column="24" selection-start-line="94" selection-start-column="24" selection-end-line="94" selection-end-column="24" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#3255#3256#0" expanded="true" />
-            <element signature="e#3282#3283#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Model/FMappa.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/FMappa.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
           <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
@@ -921,19 +903,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Model/FactoryMappa/America.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="403">
-          <caret line="116" column="24" selection-start-line="116" selection-start-column="24" selection-end-line="116" selection-end-column="24" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#3984#3985#0" expanded="true" />
-            <element signature="e#4011#4012#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Model/StatoTurno/Generale.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/StatoTurno/Generale.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="148">
           <caret line="18" column="118" selection-start-line="18" selection-start-column="118" selection-end-line="18" selection-end-column="118" />
@@ -943,9 +913,47 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/View/ViewDado.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/univaq/rtv/Scene.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-35">
+        <state relative-caret-position="270">
+          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/StatoTurno/State_Turno.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="18" selection-start-line="15" selection-start-column="9" selection-end-line="15" selection-end-column="18" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/StatoTurno/Iniziale.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="256">
+          <caret line="26" column="37" selection-start-line="26" selection-start-column="37" selection-end-line="26" selection-end-column="37" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/FactoryMappa/IMappa.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/univaq/rtv/View/ViewDado.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
           <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -953,31 +961,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/View/ViewMappa.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/univaq/rtv/Controller/Partita.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3526">
-          <caret line="261" column="80" selection-start-line="261" selection-start-column="80" selection-end-line="261" selection-end-column="80" />
+        <state relative-caret-position="645">
+          <caret line="43" column="13" selection-start-line="43" selection-start-column="13" selection-end-line="43" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Controller/Partita.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/univaq/rtv/View/ViewMappa.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="55">
-          <caret line="66" column="21" lean-forward="true" selection-start-line="66" selection-start-column="21" selection-end-line="66" selection-end-column="21" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="45">
+          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lynden/example/latlong/Scene.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/FactoryMappa/Europa.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="30" column="4" selection-start-line="30" selection-start-column="4" selection-end-line="30" selection-end-column="4" />
+        <state relative-caret-position="60">
+          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/FactoryMappa/America.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="33" selection-start-line="3" selection-start-column="33" selection-end-line="3" selection-end-column="33" />
         </state>
       </provider>
     </entry>
