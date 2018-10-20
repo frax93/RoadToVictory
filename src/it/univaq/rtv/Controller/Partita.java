@@ -101,6 +101,7 @@ public class Partita implements Initializable,MapComponentInitializedListener{
                     Giocatore giocatore2 = new Giocatore(2, "Giocatore2", "aqua");
                     this.Giocatori.add(giocatore1);
                     this.Giocatori.add(giocatore2);
+                    break;
                 case 3:
                     giocatore1 = new Giocatore(1, "Giocatore1", "red");
                     giocatore2 = new Giocatore(2, "Giocatore2", "aqua");
@@ -108,6 +109,7 @@ public class Partita implements Initializable,MapComponentInitializedListener{
                     this.Giocatori.add(giocatore1);
                     this.Giocatori.add(giocatore2);
                     this.Giocatori.add(giocatore3);
+                    break;
                 case 4:
                     giocatore1 = new Giocatore(1, "Giocatore1", "red");
                     giocatore2 = new Giocatore(2, "Giocatore2", "aqua");
@@ -117,6 +119,7 @@ public class Partita implements Initializable,MapComponentInitializedListener{
                     this.Giocatori.add(giocatore2);
                     this.Giocatori.add(giocatore3);
                     this.Giocatori.add(giocatore4);
+                    break;
                 case 5:
                     giocatore1 = new Giocatore(1, "Giocatore1", "red");
                     giocatore2 = new Giocatore(2, "Giocatore2", "aqua");
@@ -128,6 +131,7 @@ public class Partita implements Initializable,MapComponentInitializedListener{
                     this.Giocatori.add(giocatore3);
                     this.Giocatori.add(giocatore4);
                     this.Giocatori.add(giocatore5);
+                    break;
                 case 6:
                     giocatore1 = new Giocatore(1, "Giocatore1", "red");
                     giocatore2 = new Giocatore(2, "Giocatore2", "aqua");
@@ -141,6 +145,7 @@ public class Partita implements Initializable,MapComponentInitializedListener{
                     this.Giocatori.add(giocatore4);
                     this.Giocatori.add(giocatore5);
                     this.Giocatori.add(giocatore6);
+                    break;
             }
         }
         if(this.nomemappa!=null){
