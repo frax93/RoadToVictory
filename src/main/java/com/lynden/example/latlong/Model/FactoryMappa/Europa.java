@@ -2,12 +2,11 @@ package com.lynden.example.latlong.Model.FactoryMappa;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.JsonArray;
-import com.lynden.example.latlong.FMappa;
-import com.lynden.example.latlong.Giocatore;
-import com.lynden.example.latlong.Model.FactoryCitta.Citta;
-import com.lynden.example.latlong.Percorso;
+
+import com.lynden.example.latlong.Model.FactoryCitta.ICitta;
+import com.lynden.example.latlong.Model.FactoryCitta.Normale;
+import com.lynden.example.latlong.Model.Percorso;
 import com.lynden.gmapsfx.javascript.object.LatLong;
-import org.omg.CORBA.PUBLIC_MEMBER;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -24,7 +23,7 @@ public class Europa implements IMappa {
     private ArrayList<Percorso> p=new ArrayList<Percorso>();
     public Europa() throws IOException {
 
-        ArrayList<Citta> c = this.CreaMappa();
+        ArrayList<ICitta> c = this.CreaMappa();
 
         for(int i=0;i<c.size();i++) System.out.println("C: "+c.get(i).getNome());
         Percorso p;
@@ -88,13 +87,14 @@ public class Europa implements IMappa {
         this.AddPercorso(p);
 
     }
-
+    @Override
     public void AddPercorso(Percorso p1){
         this.p.add(p1);
     }
 
-    public ArrayList<Citta> CreaMappa()throws FileNotFoundException,IOException{
-        ArrayList<Citta> c1=new ArrayList<Citta>();
+    @Override
+    public ArrayList<ICitta> CreaMappa()throws FileNotFoundException,IOException{
+        ArrayList<ICitta> c1=new ArrayList<ICitta>();
         try {
 
             FileReader fw = new FileReader("citta.json");
@@ -119,7 +119,7 @@ public class Europa implements IMappa {
             for (Map.Entry entry : maplat.entrySet()){
                 String nome=(String) entry.getKey();
                 String[] nome1 = nome.split(",");
-                Citta p= new Citta((String) nome1[0].replace("\"",""));
+                ICitta p= new Normale((String) nome1[0].replace("\"",""));
                 p.ImpostaCoordinate((LatLong) entry.getValue());
                 c1.add(p);
             }
@@ -131,7 +131,6 @@ public class Europa implements IMappa {
         }
 
     }
-
     public ArrayList<Percorso> getP() {
         return p;
     }

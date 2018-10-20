@@ -2,18 +2,21 @@ package com.lynden.example.latlong.Controller;
 
 /****** TUTTO STO COSO DIVENTA PARTITA E FACCIAMO UNA VIEW SEPARATA *****/
 import com.lynden.example.latlong.*;
-import com.lynden.example.latlong.FMappa;
-import com.lynden.example.latlong.Giocatore;
+import com.lynden.example.latlong.Model.Casella;
+import com.lynden.example.latlong.Model.FMappa;
+import com.lynden.example.latlong.Model.Giocatore;
+import com.lynden.example.latlong.Model.Percorso;
 import com.lynden.example.latlong.Model.StatoGiocatore.Attesa;
 import com.lynden.example.latlong.Model.StatoGiocatore.Gioca;
 import com.lynden.example.latlong.Model.StatoGiocatore.Stato_Giocatore;
 import com.lynden.example.latlong.Model.StatoGiocatore.Vincente;
 import com.lynden.example.latlong.Model.StatoTurno.Generale;
 import com.lynden.example.latlong.Model.StatoTurno.Iniziale;
-import com.lynden.example.latlong.ViewDado;
-import com.lynden.example.latlong.ViewMappa;
-import com.lynden.example.latlong.ViewNumGiocatori;
-import com.lynden.example.latlong.ViewSceltaMappa;
+import com.lynden.example.latlong.Model.Turno;
+import com.lynden.example.latlong.View.ViewDado;
+import com.lynden.example.latlong.View.ViewMappa;
+import com.lynden.example.latlong.View.ViewNumGiocatori;
+import com.lynden.example.latlong.View.ViewSceltaMappa;
 import com.lynden.gmapsfx.GoogleMapView;
 import com.lynden.gmapsfx.MapComponentInitializedListener;
 import com.lynden.gmapsfx.javascript.object.*;
@@ -79,7 +82,7 @@ public class Partita implements Initializable,MapComponentInitializedListener{
     private Generale general;
     private Gioca gioca=new Gioca();
     private Vincente vince= new Vincente();
-    private ArrayList<com.lynden.example.latlong.Casella> Stato_attuale = new ArrayList<>();
+    private ArrayList<Casella> Stato_attuale = new ArrayList<>();
     private ViewNumGiocatori ngioc;
     private ViewSceltaMappa scmapp;
     private int Numero=0;
@@ -147,7 +150,7 @@ public class Partita implements Initializable,MapComponentInitializedListener{
             giocatori_ordinati=i.InizioTurno(giocatori_ordinati,Nome_mappa,t, (Stato_Giocatore) attesa);
             this.Giocatori=giocatori_ordinati;
             /*for(int g=0;g<giocatori_ordinati.size();g++){
-                System.out.println("Giocatore: "+giocatori_ordinati.get(g)+" Citta obiettivo: "+giocatori_ordinati.get(g).ChiediCartaObiettivo().getCittaObiettivo().getNome()+" Citta Partenza: "+ giocatori_ordinati.get(g).ChiediCartaPercorso().getCittaPartenza().getNome()+" Citta Arrivo: "+giocatori_ordinati.get(g).ChiediCartaPercorso().getCittaArrivo().getNome());
+                System.out.println("Giocatore: "+giocatori_ordinati.get(g)+" ICitta obiettivo: "+giocatori_ordinati.get(g).ChiediCartaObiettivo().getCittaObiettivo().getNome()+" ICitta Partenza: "+ giocatori_ordinati.get(g).ChiediCartaPercorso().getCittaPartenza().getNome()+" ICitta Arrivo: "+giocatori_ordinati.get(g).ChiediCartaPercorso().getCittaArrivo().getNome());
             }*/
             this.mappa=i.getMappa();
             this.viewMappa=new ViewMappa(map,googleMapView,CartaObiettivo,CartaPercorsoPartenza,CartaPercorsoArrivo,GiocatoreName,TurnoButton,NumeroMezzo,FinePartita);

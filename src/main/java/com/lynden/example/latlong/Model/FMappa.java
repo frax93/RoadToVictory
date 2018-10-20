@@ -1,23 +1,19 @@
-package com.lynden.example.latlong;
+package com.lynden.example.latlong.Model;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-
-import com.google.gson.JsonArray;
-import com.lynden.example.latlong.Model.FactoryCitta.Citta;
+import com.lynden.example.latlong.Model.FactoryCitta.ICitta;
 import com.lynden.example.latlong.Model.FactoryMappa.America;
 import com.lynden.example.latlong.Model.FactoryMappa.Europa;
 import com.lynden.example.latlong.Model.FactoryMezzo.Vagone;
 import com.lynden.gmapsfx.javascript.object.LatLong;
 
 import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
 import java.util.*;
 import java.lang.String;
 
 public class FMappa {
 	private String Nome;
-	private ArrayList<com.lynden.example.latlong.Percorso> p=new ArrayList<com.lynden.example.latlong.Percorso>();
+	private ArrayList<Percorso> p=new ArrayList<Percorso>();
 
 	public FMappa(String nomeMappa) throws FileNotFoundException,IOException {
 		if(nomeMappa=="America"){America america=new America();
@@ -80,17 +76,17 @@ public class FMappa {
 	}
 
 
-	public ArrayList<Citta> getCitta(){
-		ArrayList<Citta> c=new ArrayList<Citta>();
+	public ArrayList<ICitta> getCitta(){
+		ArrayList<ICitta> c=new ArrayList<ICitta>();
 		for(int i=0; i<this.p.size();i++) {
 			Percorso percorso = p.get(i);
-			Citta citta1=percorso.getCittapartenza();
-			Citta citta2=percorso.getCittaArrivo();
+			ICitta citta1=percorso.getCittapartenza();
+			ICitta citta2=percorso.getCittaArrivo();
 			c.add(citta1);
 			c.add(citta2);
 		}
 		java.util.Set setta_citta=new HashSet(c);
-		ArrayList<Citta> c1=new ArrayList<Citta>(setta_citta);
+		ArrayList<ICitta> c1=new ArrayList<ICitta>(setta_citta);
 		return c1;
 
 	}
@@ -171,12 +167,12 @@ public class FMappa {
 		return percorsi.get(i);
 
 	}
-	public ArrayList<com.lynden.example.latlong.Percorso> RimuoviDuplicati(ArrayList<com.lynden.example.latlong.Percorso> percorsi){
-		ArrayList<com.lynden.example.latlong.Percorso> percorso_no_s=percorsi;
+	public ArrayList<Percorso> RimuoviDuplicati(ArrayList<Percorso> percorsi){
+		ArrayList<Percorso> percorso_no_s=percorsi;
 		for(int i=0;i<percorsi.size();i++){
-			com.lynden.example.latlong.Percorso percorso=percorsi.get(i);
+			Percorso percorso=percorsi.get(i);
 			for(int j=0;j<percorsi.size();j++){
-				com.lynden.example.latlong.Percorso percorso1=percorsi.get(j);
+				Percorso percorso1=percorsi.get(j);
 				if(percorso.getid()!=percorso1.getid()) {
 					if ((Math.abs(percorso1.getCasellaPartenza().getInizio().getLatitude() - percorso.getCasellaPartenza().getInizio().getLatitude()) < 0.0005
 							&& Math.abs(percorso1.getCasellaPartenza().getInizio().getLongitude() - percorso.getCasellaPartenza().getInizio().getLongitude()) < 0.005)) {
@@ -210,7 +206,7 @@ public class FMappa {
 
 	//Funzione che calcola il centro della mappa, che viene utilizzato per posizionare la mappa in modo giusto
 	public LatLong CalcolaCentro(){
-		ArrayList<Citta> cittas=new ArrayList<Citta>();
+		ArrayList<ICitta> cittas=new ArrayList<ICitta>();
 		cittas=this.getCitta();
 
 		LatLong l=null;

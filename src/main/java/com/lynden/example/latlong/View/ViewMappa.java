@@ -1,8 +1,7 @@
-package com.lynden.example.latlong;
+package com.lynden.example.latlong.View;
 
 import com.lynden.example.latlong.Controller.Partita;
-import com.lynden.example.latlong.FMappa;
-import com.lynden.example.latlong.Model.FactoryMappa.Europa;
+import com.lynden.example.latlong.Model.*;
 import com.lynden.example.latlong.Model.FactoryMezzo.Mezzo;
 import com.lynden.example.latlong.Utlity.Utility;
 import com.lynden.gmapsfx.GoogleMapView;
@@ -45,7 +44,7 @@ public class ViewMappa {
 
     }
 
-    public void Creamappa(ArrayList<Giocatore> giocatoreArrayList, FMappa mappa, Partita p,String nomemappa) throws FileNotFoundException, IOException {
+    public void Creamappa(ArrayList<Giocatore> giocatoreArrayList, FMappa mappa, Partita p, String nomemappa) throws FileNotFoundException, IOException {
         this.setGiocatoreName(giocatoreArrayList.get(0));
         final Polyline[] polyline = {null};
         MapOptions mapOptions = new MapOptions();
@@ -66,7 +65,7 @@ public class ViewMappa {
                 .scaleControl(false);
         this.map = this.googleMapView.createMap(mapOptions, false);
         this.setCarte(giocatoreArrayList);
-        CartaObiettivo CartaObbGioc1 = giocatoreArrayList.get(0).ChiediCartaObiettivo();
+        com.lynden.example.latlong.Model.CartaObiettivo CartaObbGioc1 = giocatoreArrayList.get(0).ChiediCartaObiettivo();
         CartaPercorso CartaPercGioc1 = giocatoreArrayList.get(0).ChiediCartaPercorso();
 
         ArrayList<Percorso> percorsi = new ArrayList<>();
@@ -185,7 +184,7 @@ public class ViewMappa {
          this.TurnoButton.setVisible(button);
     }
 
-    public void setCarte(ArrayList<com.lynden.example.latlong.Giocatore> giocatoreArrayList){
+    public void setCarte(ArrayList<Giocatore> giocatoreArrayList){
         CartaObiettivo CartaObbGioc1 = giocatoreArrayList.get(0).ChiediCartaObiettivo();
         CartaPercorso CartaPercGioc1 = giocatoreArrayList.get(0).ChiediCartaPercorso();
 
@@ -232,7 +231,7 @@ public class ViewMappa {
 
     }
 
-    public void setObiettivo(ArrayList<com.lynden.example.latlong.Giocatore> giocatoreArrayList){
+    public void setObiettivo(ArrayList<Giocatore> giocatoreArrayList){
         String color=null;
         if(giocatoreArrayList.get(0).getObiettivo()==true) {
             //this.CartaObiettivo.setTextFill(Color.web("green"));   Per settare testo della label
@@ -249,7 +248,7 @@ public class ViewMappa {
     }
 
 
-    public void setArrivo(ArrayList<com.lynden.example.latlong.Giocatore> giocatoreArrayList){
+    public void setArrivo(ArrayList<Giocatore> giocatoreArrayList){
         if(giocatoreArrayList.get(0).getArrivo()==true) {
             String style = "-fx-background-color:" +Utility.ColorToRgba("green");
             this.CartaPercorsoArrivo.setStyle(style);
@@ -262,7 +261,7 @@ public class ViewMappa {
 
     }
 
-    public void FinePartita(com.lynden.example.latlong.Giocatore g){
+    public void FinePartita(Giocatore g){
         this.FinePartita.setVisible(true);
         this.FinePartita.setText(g.getUsername()+" HAI VINTO LA PARTITA!!!!!!");
         

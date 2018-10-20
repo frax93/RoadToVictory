@@ -1,4 +1,4 @@
-package com.lynden.example.latlong;
+package com.lynden.example.latlong.Model;
 import java.util.Random;
 
 public class SDado {

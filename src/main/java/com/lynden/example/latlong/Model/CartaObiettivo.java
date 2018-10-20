@@ -1,23 +1,19 @@
-package com.lynden.example.latlong;
+package com.lynden.example.latlong.Model;
 
-import com.lynden.example.latlong.Model.FactoryCitta.Citta;
+import com.lynden.example.latlong.Model.FactoryCitta.ICitta;
 
 public class CartaObiettivo extends Carta {
 
-	private Citta CittaObiettivo;
+	private ICitta CittaObiettivo;
 
-        public CartaObiettivo(int id1, Citta CittaObiettivo) {
+        public CartaObiettivo(int id1, ICitta CittaObiettivo) {
             super(id1);
             this.CittaObiettivo=CittaObiettivo;
             
         }
-        public Citta getCittaObiettivo(){
+        public ICitta getCittaObiettivo(){
             return this.CittaObiettivo;
         }
 
-	public void CreaCarta() {
-		// TODO - implement CartaObiettivo.CreaCarta
-		throw new UnsupportedOperationException();
-	}
 
 }

@@ -1,4 +1,4 @@
-package com.lynden.example.latlong;
+package com.lynden.example.latlong.Model;
 import com.lynden.example.latlong.Model.FactoryMezzo.Mezzo;
 import com.lynden.gmapsfx.javascript.object.LatLong;
 

@@ -1,7 +1,5 @@
-package com.lynden.example.latlong;
+package com.lynden.example.latlong.Model;
 
-import com.lynden.example.latlong.MazzoObiettivo;
-import com.lynden.example.latlong.MazzoPercorso;
 import com.lynden.example.latlong.Model.FactoryMezzo.Mezzo;
 import com.lynden.example.latlong.Model.StatoGiocatore.Attesa;
 import com.lynden.example.latlong.Model.StatoGiocatore.Stato_Giocatore;
@@ -123,15 +121,6 @@ public class Giocatore implements Comparable<Giocatore>,Runnable {
 		return this.c1;
 	}
 
-	public void ChiediMezzo() {
-		// TODO - implement Giocatore.ChiediMezzo
-		throw new UnsupportedOperationException();
-	}
-
-	public void ChiediCarte() {
-		// TODO - implement Giocatore.ChiediCarte
-		throw new UnsupportedOperationException();
-	}
 
 	public void PosizionaMezzo(Casella c) {
 

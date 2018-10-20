@@ -1,19 +1,19 @@
-package com.lynden.example.latlong;
+package com.lynden.example.latlong.Model;
 
-import com.lynden.example.latlong.Model.FactoryCitta.Citta;
+import com.lynden.example.latlong.Model.FactoryCitta.ICitta;
 import com.lynden.gmapsfx.javascript.object.LatLong;
 
 import java.util.ArrayList;
 
 public class Percorso {
 	private int id;
-	private Citta Cittapartenza=new Citta();
-	private Citta CittaArrivo=new Citta();
+	private ICitta Cittapartenza;
+	private ICitta CittaArrivo;
 	public static int identificativo=0;
 	private double distanza;
 	ArrayList<Casella> caselle=new ArrayList<Casella>();
 
-	public Percorso(int num, Citta Cp, Citta Ca){
+	public Percorso(int num, ICitta Cp, ICitta Ca){
 		this.id=num;
 		this.CittaArrivo=Ca;
 		this.Cittapartenza=Cp;
@@ -28,8 +28,6 @@ public class Percorso {
 		double dist= this.distanza;
 		LatLong partenza=this.Cittapartenza.getCoordinate();
 		LatLong arrivo=this.CittaArrivo.getCoordinate();
-		//System.out.println(this.Cittapartenza.getNome()+" "+this.CittaArrivo.getNome());
-		//System.out.println(dist);
 
 		if(arrivo.getLatitude()>partenza.getLatitude()&&arrivo.getLongitude()<partenza.getLongitude()){
 			double x=partenza.getLatitude();
@@ -205,16 +203,16 @@ public class Percorso {
 	public int getid(){
 		return this.id;
 	}
-	public Citta getCittapartenza(){
+	public ICitta getCittapartenza(){
 		return this.Cittapartenza;
 	}
-	public Citta getCittaArrivo(){
+	public ICitta getCittaArrivo(){
 		return this.CittaArrivo;
 	}
 	public ArrayList<Casella> getCaselle(){
 		return this.caselle;
 	}
-	public void removeCasella(com.lynden.example.latlong.Casella casella){
+	public void removeCasella(Casella casella){
 		this.caselle.remove(casella);
 	}
 
@@ -231,8 +229,8 @@ public class Percorso {
 	}
 
 	//Funzione che restituisce le due citta del percorso
-	public ArrayList<Citta> getCittas(){
-		ArrayList<Citta> cit= new ArrayList<>();
+	public ArrayList<ICitta> getCittas(){
+		ArrayList<ICitta> cit= new ArrayList<>();
 		cit.add(0,getCittapartenza());
 		cit.add(1,getCittaArrivo());
 

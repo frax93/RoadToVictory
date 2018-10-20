@@ -1,10 +1,8 @@
 package com.lynden.example.latlong.Model.FactoryMappa;
 
-import com.lynden.example.latlong.Model.FactoryCitta.Citta;
-import com.lynden.example.latlong.Percorso;
-import com.lynden.gmapsfx.javascript.object.LatLong;
+import com.lynden.example.latlong.Model.FactoryCitta.ICitta;
+import com.lynden.example.latlong.Model.Percorso;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -13,5 +11,5 @@ import java.util.ArrayList;
  */
 public interface IMappa {
     void AddPercorso(Percorso p1);
-    ArrayList<Citta> CreaMappa() throws FileNotFoundException, IOException;
+    ArrayList<ICitta> CreaMappa() throws IOException;
 }

@@ -2,8 +2,10 @@ package com.lynden.example.latlong.Model.FactoryMappa;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.JsonArray;
-import com.lynden.example.latlong.Model.FactoryCitta.Citta;
-import com.lynden.example.latlong.Percorso;
+import com.lynden.example.latlong.Model.FactoryCitta.ICitta;
+
+import com.lynden.example.latlong.Model.FactoryCitta.Normale;
+import com.lynden.example.latlong.Model.Percorso;
 import com.lynden.gmapsfx.javascript.object.LatLong;
 
 import java.io.FileNotFoundException;
@@ -22,7 +24,7 @@ public class America implements IMappa {
     private ArrayList<Percorso> p=new ArrayList<Percorso>();
     public America() throws IOException {
 
-        ArrayList<Citta> c = this.CreaMappa();
+        ArrayList<ICitta> c = this.CreaMappa();
         for(int i=0;i<c.size();i++) System.out.println("C: "+c.get(i).getNome());
         Percorso p;
         p=new Percorso(2,c.get(14),c.get(10));
@@ -108,13 +110,13 @@ public class America implements IMappa {
 
 
     }
-
+    @Override
     public void AddPercorso(Percorso p1){
         this.p.add(p1);
     }
-
-    public ArrayList<Citta> CreaMappa()throws FileNotFoundException,IOException{
-        ArrayList<Citta> c1=new ArrayList<Citta>();
+    @Override
+    public ArrayList<ICitta> CreaMappa()throws FileNotFoundException,IOException{
+        ArrayList<ICitta> c1=new ArrayList<ICitta>();
         try {
 
             FileReader fw = new FileReader("america.json");
@@ -139,7 +141,7 @@ public class America implements IMappa {
             for (Map.Entry entry : maplat.entrySet()){
                 String nome=(String) entry.getKey();
                 String[] nome1 = nome.split(",");
-                Citta p= new Citta((String) nome1[0].replace("\"",""));
+                Normale p= new Normale((String) nome1[0].replace("\"",""));
                 p.ImpostaCoordinate((LatLong) entry.getValue());
                 c1.add(p);
             }

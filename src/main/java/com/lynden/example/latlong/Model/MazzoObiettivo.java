@@ -1,6 +1,6 @@
-package com.lynden.example.latlong;
+package com.lynden.example.latlong.Model;
 
-import com.lynden.example.latlong.Model.FactoryCitta.Citta;
+import com.lynden.example.latlong.Model.FactoryCitta.ICitta;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -12,11 +12,11 @@ public class MazzoObiettivo extends Mazzo {
      *
      * @param Cit
      */
-    public static MazzoObiettivo getIstance(ArrayList<Citta> Cit){
+    public static MazzoObiettivo getIstance(ArrayList<ICitta> Cit){
         if(istance==null){
             istance = new MazzoObiettivo();
             for(int i=0;i<Cit.size();i++){
-                Citta c= Cit.get(i);
+                ICitta c= Cit.get(i);
                 CartaObiettivo c1;
                 c1=new CartaObiettivo(i, c);
                 istance.addCarta(c1);

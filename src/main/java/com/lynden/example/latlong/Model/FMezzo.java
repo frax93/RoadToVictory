@@ -1,4 +1,4 @@
-package com.lynden.example.latlong;
+package com.lynden.example.latlong.Model;
 
 
 import com.lynden.example.latlong.Model.FactoryMezzo.Aereo;
@@ -14,10 +14,6 @@ public class FMezzo {
 	public Aereo CreaAereo(Giocatore g){
 		Aereo a=new Aereo(121);
 		return a;
-	}
-	public void DammiMezzo() {
-		// TODO - implement FMezzo.DammiMezzo
-		throw new UnsupportedOperationException();
 	}
 
 }

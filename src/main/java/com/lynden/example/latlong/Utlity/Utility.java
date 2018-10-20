@@ -1,6 +1,5 @@
 package com.lynden.example.latlong.Utlity;
 
-import java.awt.*;
 
 /**
  * Created by micheletaranta on 17/10/18.

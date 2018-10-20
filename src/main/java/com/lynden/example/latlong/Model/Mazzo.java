@@ -1,6 +1,7 @@
-package com.lynden.example.latlong;
+package com.lynden.example.latlong.Model;
 
-import java.util.ArrayList;
+
+
 
 
 public abstract class Mazzo {

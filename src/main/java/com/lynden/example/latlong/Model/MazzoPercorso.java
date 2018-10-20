@@ -1,6 +1,6 @@
-package com.lynden.example.latlong;
+package com.lynden.example.latlong.Model;
 
-import com.lynden.example.latlong.Model.FactoryCitta.Citta;
+import com.lynden.example.latlong.Model.FactoryCitta.ICitta;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -13,8 +13,8 @@ public class MazzoPercorso extends Mazzo {
             istance = new MazzoPercorso();
             for(int i=0;i<p.size();i++){
                 Percorso percorso= p.get(i);
-                Citta ca= percorso.getCittaArrivo();
-                Citta cp= percorso.getCittapartenza();
+                ICitta ca= percorso.getCittaArrivo();
+                ICitta cp= percorso.getCittapartenza();
                 CartaPercorso c1=new CartaPercorso(1,cp,ca);
                 istance.addCarta((Carta)c1);
             }
