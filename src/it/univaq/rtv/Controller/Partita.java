@@ -81,7 +81,7 @@ public class Partita implements Initializable,MapComponentInitializedListener{
     //private ArrayList<Casella> Stato_attuale = new ArrayList<>();
     private ViewNumGiocatori ngioc;
     private ViewSceltaMappa scmapp;
-    private int Numero=0;
+    private String Numero="";
     private Timestamp timestamp;
 
 
@@ -94,15 +94,19 @@ public class Partita implements Initializable,MapComponentInitializedListener{
     }
     @Override
     public void mapInitialized(){
-        if(this.Numero!=0){
+        if(this.Numero!=""){
             switch(this.Numero){
-                case 2:
+                case "Uno":
                     Giocatore giocatore1 = new Giocatore(1, "Giocatore1", "red");
+                    this.Giocatori.add(giocatore1);
+                    break;
+                case "Due":
+                    giocatore1 = new Giocatore(1, "Giocatore1", "red");
                     Giocatore giocatore2 = new Giocatore(2, "Giocatore2", "aqua");
                     this.Giocatori.add(giocatore1);
                     this.Giocatori.add(giocatore2);
                     break;
-                case 3:
+                case "Tre":
                     giocatore1 = new Giocatore(1, "Giocatore1", "red");
                     giocatore2 = new Giocatore(2, "Giocatore2", "aqua");
                     Giocatore giocatore3 = new Giocatore(3, "Giocatore3", "orange");
@@ -110,7 +114,7 @@ public class Partita implements Initializable,MapComponentInitializedListener{
                     this.Giocatori.add(giocatore2);
                     this.Giocatori.add(giocatore3);
                     break;
-                case 4:
+                case "Quattro":
                     giocatore1 = new Giocatore(1, "Giocatore1", "red");
                     giocatore2 = new Giocatore(2, "Giocatore2", "aqua");
                     giocatore3 = new Giocatore(3, "Giocatore3", "orange");
@@ -120,7 +124,7 @@ public class Partita implements Initializable,MapComponentInitializedListener{
                     this.Giocatori.add(giocatore3);
                     this.Giocatori.add(giocatore4);
                     break;
-                case 5:
+                case "Cinque":
                     giocatore1 = new Giocatore(1, "Giocatore1", "red");
                     giocatore2 = new Giocatore(2, "Giocatore2", "aqua");
                     giocatore3 = new Giocatore(3, "Giocatore3", "orange");
@@ -132,16 +136,11 @@ public class Partita implements Initializable,MapComponentInitializedListener{
                     this.Giocatori.add(giocatore4);
                     this.Giocatori.add(giocatore5);
                     break;
-                case 1:
-                    giocatore1 = new Giocatore(1, "Giocatore1", "red");
-                    this.Giocatori.add(giocatore1);
-                    break;
+
             }
         }
-        if(this.nomemappa!=null){
-            this.AvviaPartita(nomemappa);}
-        //this.wait(1000);
-        //this.viewMappa.setTurnoButton(false);
+        if(this.nomemappa!=null)
+            this.AvviaPartita(nomemappa);
 
     }
 
@@ -172,6 +171,7 @@ public class Partita implements Initializable,MapComponentInitializedListener{
     private void Europa(final ActionEvent event){
         event.consume();
         this.nomemappa="Europa";
+        //System.out.println(event.getTarget().toString().replace("Button[id=","").replace(", styleClass=button]'America'",""));
         this.mapInitialized();
         this.scmapp=new ViewSceltaMappa(SceltaMappa,Europa,America,SceltaGiocatori,InizioPartita,menu,ScrittaGiocatori);
     }
@@ -179,35 +179,14 @@ public class Partita implements Initializable,MapComponentInitializedListener{
     private void America(final ActionEvent event){
         event.consume();
         this.nomemappa="America";
+        //System.out.println(event.getTarget().toString().replace("Button[id=","").replace(", styleClass=button]'America'",""));
         this.mapInitialized();
         this.scmapp=new ViewSceltaMappa(SceltaMappa,Europa,America,SceltaGiocatori,InizioPartita,menu,ScrittaGiocatori);
     }
     @FXML
-    private void N2(final ActionEvent event){
+    private void Setgiocatore(final ActionEvent event){
         event.consume();
-        this.Numero=2;
-        this.ngioc=new ViewNumGiocatori(SceltaGiocatori,Uno,Due,Tre,Quattro,Cinque,InizioPartita,menu,SceltaMappa,Europa,America,ScrittaGiocatori);
-    }
-    @FXML
-    private void N3(final ActionEvent event) {
-        event.consume();
-        this.Numero=3;
-        this.ngioc=new ViewNumGiocatori(SceltaGiocatori,Uno,Due,Tre,Quattro,Cinque,InizioPartita,menu,SceltaMappa,Europa,America,ScrittaGiocatori);
-    } @FXML
-    private void N4(final ActionEvent event) {
-        event.consume();
-        this.Numero=4;
-        this.ngioc=new ViewNumGiocatori(SceltaGiocatori,Uno,Due,Tre,Quattro,Cinque,InizioPartita,menu,SceltaMappa,Europa,America,ScrittaGiocatori);
-    } @FXML
-    private void N5(final ActionEvent event) {
-        event.consume();
-        this.Numero=5;
-        this.ngioc=new ViewNumGiocatori(SceltaGiocatori,Uno,Due,Tre,Quattro,Cinque,InizioPartita,menu,SceltaMappa,Europa,America,ScrittaGiocatori);
-    }
-    @FXML
-    private void N1(final ActionEvent event) {
-        event.consume();
-        this.Numero=1;
+        this.Numero=event.getTarget().toString().replace("Button[id=","").replace(", styleClass=button]''","");
         this.ngioc=new ViewNumGiocatori(SceltaGiocatori,Uno,Due,Tre,Quattro,Cinque,InizioPartita,menu,SceltaMappa,Europa,America,ScrittaGiocatori);
     }
 
