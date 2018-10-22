@@ -203,7 +203,12 @@ public class ViewMappa {
                     mappa.getCitta().get(j).setMezzo(mezGioc1);
                     c.getCittaPartenza().setOccupata(true);
                     MarkerOptions MarkerPartenza = new MarkerOptions();
-                   // MarkerPartenza.icon("http://oi64.tinypic.com/2vifno1.jpg");
+                    if(giocatores.get(i).getColor()=="aqua")  MarkerPartenza.icon("http://oi63.tinypic.com/iqh2mx.jpg");
+                    if(giocatores.get(i).getColor()=="red")  MarkerPartenza.icon("http://oi64.tinypic.com/wan96r.jpg");
+                    if(giocatores.get(i).getColor()=="orange")  MarkerPartenza.icon("http://oi64.tinypic.com/331lhly.jpg");
+                    if(giocatores.get(i).getColor()=="pink")  MarkerPartenza.icon("http://oi66.tinypic.com/20k831c.jpg");
+                    if(giocatores.get(i).getColor()=="white")  MarkerPartenza.icon("http://oi64.tinypic.com/6tiflx.jpg");
+                    if(giocatores.get(i).getColor()=="teal")  MarkerPartenza.icon("http://oi64.tinypic.com/othy13.jpg");
                     MarkerPartenza.position(coorPartenza);
                     MarkerPartenza.visible(Boolean.TRUE);
                     String nome_giocatore=giocatores.get(i).getUsername().substring(0,1);
