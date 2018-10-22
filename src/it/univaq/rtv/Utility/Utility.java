@@ -46,7 +46,7 @@ public class Utility {
 
     }
     public static int StringtoInteger(String s){
-        if(s=="Uno") return 1;
+        if(s.equals("Uno")) return 1;
         else if(s.equals("Due")) return 2;
         else if(s.equals("Tre")) return 3;
         else if(s.equals("Quattro")) return 4;
