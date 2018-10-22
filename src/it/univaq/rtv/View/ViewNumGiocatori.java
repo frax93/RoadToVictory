@@ -1,5 +1,6 @@
 package it.univaq.rtv.View;
 
+import com.sun.deploy.uitoolkit.impl.awt.AWTFrameWindow;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
@@ -18,12 +19,13 @@ public class ViewNumGiocatori {
     private Label SceltaMappa;
     private Button Europa;
     private Button America;
+    private Button Africa;
 
 
 
 
 
-    public ViewNumGiocatori(Label SceltaGiocatori, Button Uno, Button Due, Button Tre, Button Quattro,Button Cinque, Label InizioPartita, AnchorPane menu,Label SceltaMappa,Button Europa,Button America, Label ScrittaGiocatore){
+    public ViewNumGiocatori(Label SceltaGiocatori, Button Uno, Button Due, Button Tre, Button Quattro,Button Cinque, Label InizioPartita, AnchorPane menu,Label SceltaMappa,Button Europa,Button America,Button Africa, Label ScrittaGiocatore){
         this.SceltaGiocatori=SceltaGiocatori;
         this.Uno=Uno;
         this.Due=Due;
@@ -36,8 +38,10 @@ public class ViewNumGiocatori {
         this.SceltaMappa=SceltaMappa;
         this.Europa=Europa;
         this.America=America;
+        this.Africa=Africa;
         this.Europa.setVisible(true);
         this.America.setVisible(true);
+        this.Africa.setVisible(true);
         this.SceltaMappa.setVisible(true);
         this.Uno.setVisible(false);
         this.Due.setVisible(false);

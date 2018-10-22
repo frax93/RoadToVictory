@@ -18,11 +18,11 @@ import java.util.Map;
 
 
 
-public class America implements IMappa {
+public class USA implements IMappa {
     private String nome;
     private ArrayList<Percorso> p=new ArrayList<Percorso>();
-    public America() throws IOException {
-        this.nome="America";
+    public USA() throws IOException {
+        this.nome="USA";
         ArrayList<ICitta> c = this.CreaMappa();
         /*for(int i=0;i<c.size();i++)
             System.out.println("C: "+c.get(i).getNome());*/

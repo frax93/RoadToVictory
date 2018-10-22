@@ -8,7 +8,8 @@ import javafx.scene.layout.AnchorPane;
 public class ViewSceltaMappa {
     private Label SceltaMappa;
     private Button Europa;
-    private Button America;
+    private Button USA;
+    private Button Africa;
     private Label SceltaGiocatori;
     private Label InizioPartita;
     private AnchorPane menu;
@@ -18,16 +19,18 @@ public class ViewSceltaMappa {
 
 
 
-    public ViewSceltaMappa(Label SceltaMappa, Button Europa, Button America, Label SceltaGiocatori,Label InizioPartita, AnchorPane menu, Label ScrittaGiocatori){
+    public ViewSceltaMappa(Label SceltaMappa, Button Europa, Button USA,Button Africa, Label SceltaGiocatori,Label InizioPartita, AnchorPane menu, Label ScrittaGiocatori){
         this.SceltaMappa=SceltaMappa;
         this.SceltaGiocatori=SceltaGiocatori;
         this.Europa=Europa;
-        this.America=America;
+        this.USA =USA;
+        this.Africa=Africa;
         this.InizioPartita=InizioPartita;
         this.menu=menu;
         this.ScrittaGiocatori=ScrittaGiocatori;
         this.Europa.setVisible(false);
-        this.America.setVisible(false);
+        this.USA.setVisible(false);
+        this.Africa.setVisible(false);
         this.SceltaMappa.setVisible(false);
         this.SceltaGiocatori.setVisible(false);
         this.InizioPartita.setVisible(false);

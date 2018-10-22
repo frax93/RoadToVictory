@@ -1,6 +1,7 @@
 package it.univaq.rtv.Model;
 
-import it.univaq.rtv.Model.FactoryMappa.America;
+import it.univaq.rtv.Model.FactoryMappa.Africa;
+import it.univaq.rtv.Model.FactoryMappa.USA;
 import it.univaq.rtv.Model.FactoryMappa.Europa;
 import it.univaq.rtv.Model.FactoryMappa.IMappa;
 
@@ -12,8 +13,10 @@ public class FMappa {
 	public static IMappa getMappa(String criteria ) throws IOException{
 		if ( criteria.equals("Europa") )
 			return new Europa();
-		else if ( criteria.equals("America") )
-			return new America();
+		else if ( criteria.equals("USA") )
+			return new USA();
+		else if ( criteria.equals("Africa") )
+			return new Africa();
 		else
 			return null;
 	}
