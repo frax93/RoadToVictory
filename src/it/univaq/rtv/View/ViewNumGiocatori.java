@@ -48,7 +48,15 @@ public class ViewNumGiocatori {
         this.InizioPartita.setVisible(false);
         this.ScrittaGiocatori.setVisible(false);
     }
+    public void BornAgain(){
+        this.Uno.setVisible(true);
+        this.Due.setVisible(true);
+        this.Tre.setVisible(true);
+        this.Quattro.setVisible(true);
+        this.Cinque.setVisible(true);
+        this.SceltaGiocatori.setVisible(true);
+        this.InizioPartita.setVisible(true);
+        this.ScrittaGiocatori.setVisible(true);
 
-    public void Scegli(){
-        }
+    }
 }

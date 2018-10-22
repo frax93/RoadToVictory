@@ -10,6 +10,7 @@ import it.univaq.rtv.Model.StatoGiocatore.Vincente;
 import it.univaq.rtv.Model.StatoTurno.Generale;
 import it.univaq.rtv.Model.StatoTurno.Iniziale;
 import it.univaq.rtv.Model.Turno;
+import it.univaq.rtv.Utility.Utility;
 import it.univaq.rtv.View.ViewDado;
 import it.univaq.rtv.View.ViewMappa;
 import it.univaq.rtv.View.ViewNumGiocatori;
@@ -95,7 +96,11 @@ public class Partita implements Initializable,MapComponentInitializedListener{
     @Override
     public void mapInitialized(){
         if(this.Numero!=""){
-            switch(this.Numero){
+            for(int i=1;i<=Utility.StringtoInteger(this.Numero);i++){
+                Giocatore giocatore = new Giocatore(i,"Giocatore"+i, Utility.Colori());
+                this.Giocatori.add(giocatore);
+            }
+           /* switch(this.Numero){
                 case "Uno":
                     Giocatore giocatore1 = new Giocatore(1, "Giocatore1", "red");
                     this.Giocatori.add(giocatore1);
@@ -137,7 +142,7 @@ public class Partita implements Initializable,MapComponentInitializedListener{
                     this.Giocatori.add(giocatore5);
                     break;
 
-            }
+            }*/
         }
         if(this.nomemappa!=null)
             this.AvviaPartita(nomemappa);

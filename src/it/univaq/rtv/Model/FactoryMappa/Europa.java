@@ -25,8 +25,6 @@ public class Europa implements IMappa {
     public Europa() throws IOException {
         this.nome="Europa";
         ArrayList<ICitta> c = this.CreaMappa();
-
-        for(int i=0;i<c.size();i++) System.out.println("C: "+c.get(i).getNome());
         Percorso p;
         p=new Percorso(1,c.get(13),c.get(11));
         this.AddPercorso(p);
@@ -328,8 +326,6 @@ public class Europa implements IMappa {
         lat=(lat_max+lat_min)/2;
         longi=(long_max+long_min)/2;
         l=new LatLong(lat,longi);
-        //System.out.println("lat funzione media"+l.getLatitude());
-        //System.out.println("long funzione media"+l.getLongitude());
         return l;
     }
 

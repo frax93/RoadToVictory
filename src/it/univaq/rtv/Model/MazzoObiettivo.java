@@ -51,7 +51,6 @@ public class MazzoObiettivo extends Mazzo {
                Random r= new Random();
                int num=0;
                int n=this.Carte.size();
-            System.out.println("Questo è n: "+n);
                if(n!=0)num= r.nextInt(n);
                return num;
 	    }

@@ -1,12 +1,27 @@
 package it.univaq.rtv.Utility;
 
 
+import it.univaq.rtv.Model.Casella;
+import it.univaq.rtv.Model.Giocatore;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Random;
+
 /**
  * Created by micheletaranta on 17/10/18.
  */
 
 //Classe di utilità per funzioni di supporto al gioco RTV
 public class Utility {
+    public static ArrayList<String> colori= new ArrayList<String>() {{
+        add("red");
+        add("aqua");
+        add("orange");
+        add("pink");
+        add("teal");
+        add("white");
+    }};
 
     public static String ColorToRgba(String colore){
         String c = null;
@@ -15,7 +30,41 @@ public class Utility {
         else if(colore=="orange")  c="rgba(255,165,0,1)";
         else if(colore=="pink")  c="rgba(255,192,203,1)";
         else if(colore=="green") c="rgba(45,255,13,1)";
-        else if(colore=="black") c="rgba(255,255,255,1)";
+        else if(colore=="white") c="rgba(255,255,255,1)";
+        else if(colore=="teal") c="rgba(0,128,128,1)";
+        else if(colore=="black") c="rgba(0,0,0,1)";
         return c;
+    }
+    public static String Colori(){
+
+        Random num= new Random();
+        String colorescelto;
+        int n=num.nextInt(colori.size());
+        colorescelto=colori.get(n);
+        colori.remove(colori.get(n));
+        return colorescelto;
+
+    }
+    public static int StringtoInteger(String s){
+        if(s=="Uno") return 1;
+        else if(s.equals("Due")) return 2;
+        else if(s.equals("Tre")) return 3;
+        else if(s.equals("Quattro")) return 4;
+        else if(s.equals("Cinque")) return 5;
+        else if(s.equals("Sei")) return 6;
+        else if(s.equals("Sette")) return 7;
+        else if(s.equals("Otto")) return 8;
+        else if(s.equals("Nove")) return 9;
+        else return 0;
+
+
+    }
+    public static boolean IsPartenza(Giocatore giocatore, Casella casella){
+        if(Math.abs(giocatore.ChiediCartaPercorso().getCittaPartenza().getCoordinate().getLatitude() - casella.getInizio().getLatitude())<0.5 && Math.abs(giocatore.ChiediCartaPercorso().getCittaPartenza().getCoordinate().getLongitude() - casella.getInizio().getLongitude())<0.5) return true;
+        else return false;
+    }
+    public static boolean EqualsIdCasella(Casella casella1, Casella casella2){
+        if(casella1.getId()==casella2.getId())return true;
+        else return false;
     }
 }

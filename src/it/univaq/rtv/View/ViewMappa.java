@@ -81,10 +81,7 @@ public class ViewMappa {
                 pe = percorsi.get(j);
                 ArrayList<Casella> caselle = pe.getCaselle();
                 for (int cont = 0; cont < caselle.size(); cont++) {
-                    if (Math.abs(giocatoreArrayList.get(a).ChiediCartaPercorso().getCittaPartenza().getCoordinate().getLatitude() - caselle.get(cont).getInizio().getLatitude())<0.5 &&
-                            Math.abs(giocatoreArrayList.get(a).ChiediCartaPercorso().getCittaPartenza().getCoordinate().getLatitude() - caselle.get(cont).getInizio().getLatitude())>=0 && Math.abs(giocatoreArrayList.get(a).ChiediCartaPercorso().getCittaPartenza().getCoordinate().getLongitude() - caselle.get(cont).getInizio().getLongitude())<0.5 &&
-                            Math.abs(giocatoreArrayList.get(a).ChiediCartaPercorso().getCittaPartenza().getCoordinate().getLongitude() - caselle.get(cont).getInizio().getLongitude())>=0
-                    )  {
+                    if (Utility.IsPartenza(giocatoreArrayList.get(a),caselle.get(cont))){
                         LatLong[] Prova1 = {caselle.get(cont).getInizio(), caselle.get(cont).getFine()};
                     PolylineOptions pippo1 = new PolylineOptions();
                     pippo1.path(new MVCArray(Prova1))
@@ -99,10 +96,10 @@ public class ViewMappa {
                     giocatoreArrayList.get(a).PosizionaMezzo(caselle.get(cont));
                     giocatoreArrayList.get(a).setMossa(pe.CalcolaCaselleVicine(caselle.get(cont)));
                     ArrayList<Percorso> percorsi_vicini = new ArrayList<>();
-                    if (caselle.get(cont).getId() == mappa.getPercorsoByCasella(caselle.get(cont)).getCasellaPartenza().getId()){
+                    if (Utility.EqualsIdCasella(caselle.get(cont),mappa.getPercorsoByCasella(caselle.get(cont)).getCasellaPartenza())){
                         percorsi_vicini = mappa.getViciniPercorsoPartenza(mappa.getPercorsoByCasella(caselle.get(cont)));}
 
-                    else if (caselle.get(cont).getId() == mappa.getPercorsoByCasella(caselle.get(cont)).getCasellaArrivo().getId()){
+                    else if (Utility.EqualsIdCasella(caselle.get(cont),mappa.getPercorsoByCasella(caselle.get(cont)).getCasellaArrivo())){
                         percorsi_vicini = mappa.getViciniPercorsoArrivo(mappa.getPercorsoByCasella(caselle.get(cont)));}
 
                     if (percorsi_vicini.size() == 0) ;
@@ -238,7 +235,7 @@ public class ViewMappa {
         }
         else {
             this.CartaObiettivo.setTextFill(Color.web("black"));
-            String style = "-fx-background-color:"+Utility.ColorToRgba("black");
+            String style = "-fx-background-color:"+Utility.ColorToRgba("white");
             this.CartaObiettivo.setStyle(style);
         }
 
@@ -252,7 +249,7 @@ public class ViewMappa {
         }
         else {
             this.CartaObiettivo.setTextFill(Color.web("black"));
-            String style = "-fx-background-color:"+Utility.ColorToRgba("black");
+            String style = "-fx-background-color:"+Utility.ColorToRgba("white");
             this.CartaPercorsoArrivo.setStyle(style);
         }
 
