@@ -16,6 +16,8 @@ public class FMappa {
 			return new Africa();
 		else if ( criteria.equals("Sud_America") )
 			return new Sud_America();
+		else if ( criteria.equals("Asia") )
+			return new Asia();
 		else
 			return null;
 	}

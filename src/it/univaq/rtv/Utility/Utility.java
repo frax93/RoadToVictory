@@ -88,7 +88,7 @@ public class Utility {
                 && Math.abs(p1.getCasellaArrivo().getInizio().getLongitude() - p2.getCasellaPartenza().getInizio().getLongitude()) < 0.005)) return true;
         else return false;
     }
-    public static boolean EqualsArrivoArrivo(Percorso p1, Percorso p2){
+    public static boolean EqualsArrivo(Percorso p1, Percorso p2){
         if((Math.abs(p1.getCasellaArrivo().getInizio().getLatitude() - p2.getCasellaArrivo().getInizio().getLatitude()) < 0.0005
                 && Math.abs(p1.getCasellaArrivo().getInizio().getLongitude() - p2.getCasellaArrivo().getInizio().getLongitude()) < 0.005)) return true;
         else return false;

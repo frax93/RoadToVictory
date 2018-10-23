@@ -54,6 +54,7 @@ public class Partita implements Initializable,MapComponentInitializedListener{
     public Button USA;
     public Button Africa;
     public Button Sud_America;
+    public Button Asia;
     private String nomemappa="";
     public Button Uno;
     public Button Due;
@@ -138,13 +139,13 @@ public class Partita implements Initializable,MapComponentInitializedListener{
         int pos=this.nomemappa.indexOf("'");
         this.nomemappa=this.nomemappa.substring(0,pos);
         this.mapInitialized();
-        this.scmapp=new ViewSceltaMappa(SceltaMappa,Europa,USA,Africa,Sud_America,SceltaGiocatori,InizioPartita,menu,ScrittaGiocatori);
+        this.scmapp=new ViewSceltaMappa(SceltaMappa,Europa,USA,Africa,Sud_America,Asia,SceltaGiocatori,InizioPartita,menu,ScrittaGiocatori);
     }
     @FXML
     private void Setgiocatore(final ActionEvent event){
         event.consume();
         this.Numero=event.getTarget().toString().replace("Button[id=","").replace(", styleClass=button]''","");
-        this.ngioc=new ViewNumGiocatori(SceltaGiocatori,Uno,Due,Tre,Quattro,Cinque,InizioPartita,menu,SceltaMappa,Europa,USA,Africa,Sud_America,ScrittaGiocatori);
+        this.ngioc=new ViewNumGiocatori(SceltaGiocatori,Uno,Due,Tre,Quattro,Cinque,InizioPartita,menu,SceltaMappa,Europa,USA,Africa,Sud_America,Asia,ScrittaGiocatori);
     }
 
     /**********   Funzione per lanciare il Dado    ************/

@@ -21,12 +21,13 @@ public class ViewNumGiocatori {
     private Button America;
     private Button Africa;
     private Button Sud_America;
+    private Button Asia;
 
 
 
 
 
-    public ViewNumGiocatori(Label SceltaGiocatori, Button Uno, Button Due, Button Tre, Button Quattro,Button Cinque, Label InizioPartita, AnchorPane menu,Label SceltaMappa,Button Europa,Button America,Button Africa,Button Sud_America, Label ScrittaGiocatore){
+    public ViewNumGiocatori(Label SceltaGiocatori, Button Uno, Button Due, Button Tre, Button Quattro,Button Cinque, Label InizioPartita, AnchorPane menu,Label SceltaMappa,Button Europa,Button America,Button Africa,Button Sud_America,Button Asia, Label ScrittaGiocatore){
         this.SceltaGiocatori=SceltaGiocatori;
         this.Uno=Uno;
         this.Due=Due;
@@ -41,10 +42,12 @@ public class ViewNumGiocatori {
         this.America=America;
         this.Africa=Africa;
         this.Sud_America=Sud_America;
+        this.Asia=Asia;
         this.Europa.setVisible(true);
         this.America.setVisible(true);
         this.Africa.setVisible(true);
         this.Sud_America.setVisible(true);
+        this.Asia.setVisible(true);
         this.SceltaMappa.setVisible(true);
         this.Uno.setVisible(false);
         this.Due.setVisible(false);

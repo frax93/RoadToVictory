@@ -310,7 +310,7 @@ public class USA implements IMappa {
                         percorso1.removeCasella(percorso1.getCasellaArrivo());
                         percorso_no_s.remove(percorso1);
                         percorso_no_s.add(percorso1);
-                    } else if (Utility.EqualsArrivoArrivo(percorso1,percorso)) {
+                    } else if (Utility.EqualsArrivo(percorso1,percorso)) {
                         percorso1.removeCasella(percorso1.getCasellaArrivo());
                         percorso_no_s.remove(percorso1);
                         percorso_no_s.add(percorso1);

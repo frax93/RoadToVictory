@@ -193,7 +193,7 @@ Button#Uno{
 
 
 
-Button#Europa,Button#USA,Button#Africa,Button#Sud_America{
+Button#Europa,Button#USA,Button#Africa,Button#Sud_America,Button#Asia{
     -fx-background-color: white;
     -fx-weight: 1000;
     width:100px;
