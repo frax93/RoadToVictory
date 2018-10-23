@@ -1,5 +1,6 @@
 package it.univaq.rtv.Model.StatoTurno;
 
+import it.univaq.rtv.Utility.Utility;
 import it.univaq.rtv.Model.FMappa;
 import it.univaq.rtv.Model.FactoryMappa.IMappa;
 import it.univaq.rtv.Model.Giocatore;
@@ -26,7 +27,7 @@ public class Iniziale implements State_Turno {
 		for(int i=0;i<g.size();i++){
 			g.get(i).PescaDueCarte();
 			for(int c=0;c<CittaUsate.size();c++){
-				while(g.get(i).ChiediCartaObiettivo().getCittaObiettivo().getNome().equals(CittaUsate.get(c))||g.get(i).ChiediCartaPercorso().getCittaPartenza().getNome().equals(CittaUsate.get(c))||g.get(i).ChiediCartaPercorso().getCittaArrivo().getNome().equals(CittaUsate.get(c))){
+				while(Utility.EqualsCitta(g.get(i),CittaUsate.get(c))){
 					g.get(i).RestituisciCarte();
 					g.get(i).PescaDueCarte();
 					c=-1;

@@ -7,6 +7,7 @@ import it.univaq.rtv.Model.FactoryCitta.ICitta;
 
 import it.univaq.rtv.Model.FactoryMezzo.Vagone;
 import com.lynden.gmapsfx.javascript.object.LatLong;
+import it.univaq.rtv.Utility.Utility;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -65,8 +66,6 @@ public class Sud_America implements IMappa {
         p = new Percorso(19, c.get(11), c.get(1));
         this.AddPercorso(p);
         p = new Percorso(20, c.get(13), c.get(18));
-        this.AddPercorso(p);
-        p = new Percorso(21, c.get(2), c.get(8));
         this.AddPercorso(p);
         p = new Percorso(22, c.get(2), c.get(8));
         this.AddPercorso(p);
@@ -290,23 +289,19 @@ public class Sud_America implements IMappa {
             for (int j = 0; j < percorsi.size(); j++) {
                 Percorso percorso1 = percorsi.get(j);
                 if (percorso.getid() != percorso1.getid()) {
-                    if ((Math.abs(percorso1.getCasellaPartenza().getInizio().getLatitude() - percorso.getCasellaPartenza().getInizio().getLatitude()) < 0.0005
-                            && Math.abs(percorso1.getCasellaPartenza().getInizio().getLongitude() - percorso.getCasellaPartenza().getInizio().getLongitude()) < 0.005)) {
+                    if (Utility.EqualsPartenza(percorso1,percorso)) {
                         percorso1.removeCasella(percorso1.getCasellaPartenza());
                         percorso_no_s.remove(percorso1);
                         percorso_no_s.add(percorso1);
-                    } else if ((Math.abs(percorso1.getCasellaPartenza().getInizio().getLatitude() - percorso.getCasellaArrivo().getInizio().getLatitude()) < 0.0005
-                            && Math.abs(percorso1.getCasellaPartenza().getInizio().getLongitude() - percorso.getCasellaArrivo().getInizio().getLongitude()) < 0.005)) {
+                    } else if (Utility.EqualsPartenzaArrivo(percorso1,percorso)) {
                         percorso1.removeCasella(percorso1.getCasellaPartenza());
                         percorso_no_s.remove(percorso1);
                         percorso_no_s.add(percorso1);
-                    } else if ((Math.abs(percorso1.getCasellaArrivo().getInizio().getLatitude() - percorso.getCasellaPartenza().getInizio().getLatitude()) < 0.0005
-                            && Math.abs(percorso1.getCasellaArrivo().getInizio().getLongitude() - percorso.getCasellaPartenza().getInizio().getLongitude()) < 0.005)) {
+                    } else if (Utility.EqualsArrivoPartenza(percorso1,percorso)) {
                         percorso1.removeCasella(percorso1.getCasellaArrivo());
                         percorso_no_s.remove(percorso1);
                         percorso_no_s.add(percorso1);
-                    } else if ((Math.abs(percorso1.getCasellaArrivo().getInizio().getLatitude() - percorso.getCasellaArrivo().getInizio().getLatitude()) < 0.0005
-                            && Math.abs(percorso1.getCasellaArrivo().getInizio().getLongitude() - percorso.getCasellaArrivo().getInizio().getLongitude()) < 0.005)) {
+                    } else if (Utility.EqualsArrivoArrivo(percorso1,percorso)) {
                         percorso1.removeCasella(percorso1.getCasellaArrivo());
                         percorso_no_s.remove(percorso1);
                         percorso_no_s.add(percorso1);
