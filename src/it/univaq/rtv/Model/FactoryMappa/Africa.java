@@ -24,8 +24,8 @@ public class Africa implements IMappa {
     public Africa() throws IOException {
         this.nome="Africa";
         ArrayList<ICitta> c = this.CreaMappa();
-        for(int i=0;i<c.size();i++)
-            System.out.println("C: "+c.get(i).getNome());
+        /*for(int i=0;i<c.size();i++)
+            System.out.println("C: "+c.get(i).getNome());*/
         Percorso p;
         p=new Percorso(1,c.get(4),c.get(9));
         this.AddPercorso(p);

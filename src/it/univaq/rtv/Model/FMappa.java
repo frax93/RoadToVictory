@@ -1,9 +1,6 @@
 package it.univaq.rtv.Model;
 
-import it.univaq.rtv.Model.FactoryMappa.Africa;
-import it.univaq.rtv.Model.FactoryMappa.USA;
-import it.univaq.rtv.Model.FactoryMappa.Europa;
-import it.univaq.rtv.Model.FactoryMappa.IMappa;
+import it.univaq.rtv.Model.FactoryMappa.*;
 
 import java.io.IOException;
 import java.lang.String;
@@ -17,6 +14,8 @@ public class FMappa {
 			return new USA();
 		else if ( criteria.equals("Africa") )
 			return new Africa();
+		else if ( criteria.equals("Sud_America") )
+			return new Sud_America();
 		else
 			return null;
 	}

@@ -53,6 +53,7 @@ public class Partita implements Initializable,MapComponentInitializedListener{
     public Button Europa;
     public Button USA;
     public Button Africa;
+    public Button Sud_America;
     private String nomemappa;
     public Button Uno;
     public Button Due;
@@ -136,7 +137,7 @@ public class Partita implements Initializable,MapComponentInitializedListener{
         this.nomemappa="Europa";
         //System.out.println(event.getTarget().toString().replace("Button[id=","").replace(", styleClass=button]'USA'",""));
         this.mapInitialized();
-        this.scmapp=new ViewSceltaMappa(SceltaMappa,Europa,USA,Africa,SceltaGiocatori,InizioPartita,menu,ScrittaGiocatori);
+        this.scmapp=new ViewSceltaMappa(SceltaMappa,Europa,USA,Africa,Sud_America,SceltaGiocatori,InizioPartita,menu,ScrittaGiocatori);
     }
     @FXML
     private void USA(final ActionEvent event){
@@ -144,7 +145,7 @@ public class Partita implements Initializable,MapComponentInitializedListener{
         this.nomemappa="USA";
         //System.out.println(event.getTarget().toString().replace("Button[id=","").replace(", styleClass=button]'USA'",""));
         this.mapInitialized();
-        this.scmapp=new ViewSceltaMappa(SceltaMappa,Europa,USA,Africa,SceltaGiocatori,InizioPartita,menu,ScrittaGiocatori);
+        this.scmapp=new ViewSceltaMappa(SceltaMappa,Europa,USA,Africa,Sud_America,SceltaGiocatori,InizioPartita,menu,ScrittaGiocatori);
     }
     @FXML
     private void Africa(final ActionEvent event){
@@ -152,13 +153,21 @@ public class Partita implements Initializable,MapComponentInitializedListener{
         this.nomemappa="Africa";
         //System.out.println(event.getTarget().toString().replace("Button[id=","").replace(", styleClass=button]'USA'",""));
         this.mapInitialized();
-        this.scmapp=new ViewSceltaMappa(SceltaMappa,Europa,USA,Africa,SceltaGiocatori,InizioPartita,menu,ScrittaGiocatori);
+        this.scmapp=new ViewSceltaMappa(SceltaMappa,Europa,USA,Africa,Sud_America,SceltaGiocatori,InizioPartita,menu,ScrittaGiocatori);
+    }
+    @FXML
+    private void Sud_America(final ActionEvent event){
+        event.consume();
+        this.nomemappa="Sud_America";
+        //System.out.println(event.getTarget().toString().replace("Button[id=","").replace(", styleClass=button]'USA'",""));
+        this.mapInitialized();
+        this.scmapp=new ViewSceltaMappa(SceltaMappa,Europa,USA,Africa,Sud_America,SceltaGiocatori,InizioPartita,menu,ScrittaGiocatori);
     }
     @FXML
     private void Setgiocatore(final ActionEvent event){
         event.consume();
         this.Numero=event.getTarget().toString().replace("Button[id=","").replace(", styleClass=button]''","");
-        this.ngioc=new ViewNumGiocatori(SceltaGiocatori,Uno,Due,Tre,Quattro,Cinque,InizioPartita,menu,SceltaMappa,Europa,USA,Africa,ScrittaGiocatori);
+        this.ngioc=new ViewNumGiocatori(SceltaGiocatori,Uno,Due,Tre,Quattro,Cinque,InizioPartita,menu,SceltaMappa,Europa,USA,Africa,Sud_America,ScrittaGiocatori);
     }
 
     /**********   Funzione per lanciare il Dado    ************/

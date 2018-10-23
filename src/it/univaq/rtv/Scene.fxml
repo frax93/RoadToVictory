@@ -15,6 +15,7 @@
     <children>
         <Button fx:id="Europa" layoutX="500.0" layoutY="170.0" text="Europa" onAction="#Europa" visible="false"></Button>
         <Button fx:id="USA" layoutX="200.0" layoutY="200.0" text="USA" onAction="#USA" visible="false"></Button>
+        <Button fx:id="Sud_America" layoutX="200.0" layoutY="400.0" text="Sud America" onAction="#Sud_America" visible="false"></Button>
         <Button fx:id="Africa" layoutX="500.0" layoutY="250.0" text="Africa" onAction="#Africa" visible="false"></Button>
     </children>
 
