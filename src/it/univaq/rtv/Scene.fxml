@@ -13,10 +13,10 @@
 
     <Label fx:id="SceltaMappa" layoutX="30.0" layoutY="30.0" text="Scegli dove giocare:" minHeight="530" minWidth="750" visible="false"/>
     <children>
-        <Button fx:id="Europa" layoutX="500.0" layoutY="170.0" text="Europa" onAction="#Europa" visible="false"></Button>
-        <Button fx:id="USA" layoutX="200.0" layoutY="200.0" text="USA" onAction="#USA" visible="false"></Button>
-        <Button fx:id="Sud_America" layoutX="200.0" layoutY="400.0" text="Sud America" onAction="#Sud_America" visible="false"></Button>
-        <Button fx:id="Africa" layoutX="500.0" layoutY="250.0" text="Africa" onAction="#Africa" visible="false"></Button>
+        <Button fx:id="Europa" layoutX="500.0" layoutY="170.0" text="Europa" onAction="#SetMappa" visible="false"></Button>
+        <Button fx:id="USA" layoutX="200.0" layoutY="200.0" text="USA" onAction="#SetMappa" visible="false"></Button>
+        <Button fx:id="Sud_America" layoutX="300.0" layoutY="350.0" text="Sud America" onAction="#SetMappa" visible="false"></Button>
+        <Button fx:id="Africa" layoutX="500.0" layoutY="250.0" text="Africa" onAction="#SetMappa" visible="false"></Button>
     </children>
 
     <Label fx:id="SceltaGiocatori" layoutX="30.0" layoutY="30.0" minHeight="530" minWidth="750"/>

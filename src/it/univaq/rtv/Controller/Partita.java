@@ -54,7 +54,7 @@ public class Partita implements Initializable,MapComponentInitializedListener{
     public Button USA;
     public Button Africa;
     public Button Sud_America;
-    private String nomemappa;
+    private String nomemappa="";
     public Button Uno;
     public Button Due;
     public Button Tre;
@@ -103,7 +103,7 @@ public class Partita implements Initializable,MapComponentInitializedListener{
                 this.Giocatori.add(giocatore);
             }
         }
-        if(this.nomemappa!=null)
+        if(this.nomemappa!="")
             this.AvviaPartita(nomemappa);
 
     }
@@ -132,34 +132,11 @@ public class Partita implements Initializable,MapComponentInitializedListener{
     }
 
     @FXML
-    private void Europa(final ActionEvent event){
+    private void SetMappa(final ActionEvent event){
         event.consume();
-        this.nomemappa="Europa";
-        //System.out.println(event.getTarget().toString().replace("Button[id=","").replace(", styleClass=button]'USA'",""));
-        this.mapInitialized();
-        this.scmapp=new ViewSceltaMappa(SceltaMappa,Europa,USA,Africa,Sud_America,SceltaGiocatori,InizioPartita,menu,ScrittaGiocatori);
-    }
-    @FXML
-    private void USA(final ActionEvent event){
-        event.consume();
-        this.nomemappa="USA";
-        //System.out.println(event.getTarget().toString().replace("Button[id=","").replace(", styleClass=button]'USA'",""));
-        this.mapInitialized();
-        this.scmapp=new ViewSceltaMappa(SceltaMappa,Europa,USA,Africa,Sud_America,SceltaGiocatori,InizioPartita,menu,ScrittaGiocatori);
-    }
-    @FXML
-    private void Africa(final ActionEvent event){
-        event.consume();
-        this.nomemappa="Africa";
-        //System.out.println(event.getTarget().toString().replace("Button[id=","").replace(", styleClass=button]'USA'",""));
-        this.mapInitialized();
-        this.scmapp=new ViewSceltaMappa(SceltaMappa,Europa,USA,Africa,Sud_America,SceltaGiocatori,InizioPartita,menu,ScrittaGiocatori);
-    }
-    @FXML
-    private void Sud_America(final ActionEvent event){
-        event.consume();
-        this.nomemappa="Sud_America";
-        //System.out.println(event.getTarget().toString().replace("Button[id=","").replace(", styleClass=button]'USA'",""));
+        this.nomemappa=event.getTarget().toString().replace("Button[id=","").replaceAll(", styleClass=button]","");
+        int pos=this.nomemappa.indexOf("'");
+        this.nomemappa=this.nomemappa.substring(0,pos);
         this.mapInitialized();
         this.scmapp=new ViewSceltaMappa(SceltaMappa,Europa,USA,Africa,Sud_America,SceltaGiocatori,InizioPartita,menu,ScrittaGiocatori);
     }
