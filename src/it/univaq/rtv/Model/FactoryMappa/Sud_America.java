@@ -26,8 +26,8 @@ public class Sud_America implements IMappa {
     public Sud_America() throws IOException {
         this.nome = "Sud_America";
         ArrayList<ICitta> c = this.CreaMappa();
-        for(int i=0;i<c.size();i++)
-            System.out.println("C: "+c.get(i).getNome());
+        /*for(int i=0;i<c.size();i++)
+            System.out.println("C: "+c.get(i).getNome());*/
         Percorso p;
         p = new Percorso(1, c.get(5), c.get(17));
         this.AddPercorso(p);
@@ -115,7 +115,7 @@ public class Sud_America implements IMappa {
         ArrayList<ICitta> c1 = new ArrayList<ICitta>();
         try {
 
-            FileReader fw = new FileReader("Sud_America.json");
+            FileReader fw = new FileReader("Json/Sud_America.json");
             ObjectMapper objectMapper = new ObjectMapper();
             HashMap<String, LatLong> maplat = new HashMap<>();
 

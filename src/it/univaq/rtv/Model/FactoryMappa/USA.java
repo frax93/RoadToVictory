@@ -126,7 +126,7 @@ public class USA implements IMappa {
         ArrayList<ICitta> c1=new ArrayList<ICitta>();
         try {
 
-            FileReader fw = new FileReader("america.json");
+            FileReader fw = new FileReader("Json/America.json");
             ObjectMapper objectMapper = new ObjectMapper();
             HashMap<String, LatLong> maplat = new HashMap<>();
 

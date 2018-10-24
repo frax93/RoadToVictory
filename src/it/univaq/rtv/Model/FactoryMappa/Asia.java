@@ -131,7 +131,7 @@ public class Asia implements IMappa {
         ArrayList<ICitta> c1 = new ArrayList<ICitta>();
         try {
 
-            FileReader fw = new FileReader("Asia.json");
+            FileReader fw = new FileReader("Json/Asia.json");
             ObjectMapper objectMapper = new ObjectMapper();
             HashMap<String, LatLong> maplat = new HashMap<>();
 

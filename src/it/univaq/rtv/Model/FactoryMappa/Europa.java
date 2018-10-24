@@ -27,8 +27,8 @@ public class Europa implements IMappa {
         this.nome="Europa";
         ArrayList<ICitta> c = this.CreaMappa();
         Percorso p;
-        for(int i=0;i<c.size();i++)
-            System.out.println("C: "+c.get(i).getNome());
+        /*for(int i=0;i<c.size();i++)
+            System.out.println("C: "+c.get(i).getNome());*/
         p=new Percorso(1,c.get(13),c.get(11));
         this.AddPercorso(p);
         p=new Percorso(3,c.get(3),c.get(12));
@@ -111,7 +111,7 @@ public class Europa implements IMappa {
         ArrayList<ICitta> c1 = new ArrayList<ICitta>();
         try {
 
-            FileReader fw = new FileReader("Europa.json");
+            FileReader fw = new FileReader("Json/Europa.json");
             ObjectMapper objectMapper = new ObjectMapper();
             HashMap<String, LatLong> maplat = new HashMap<>();
 
