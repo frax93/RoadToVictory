@@ -27,6 +27,8 @@ public class Europa implements IMappa {
         this.nome="Europa";
         ArrayList<ICitta> c = this.CreaMappa();
         Percorso p;
+        for(int i=0;i<c.size();i++)
+            System.out.println("C: "+c.get(i).getNome());
         p=new Percorso(1,c.get(13),c.get(11));
         this.AddPercorso(p);
         p=new Percorso(3,c.get(3),c.get(12));
@@ -79,11 +81,17 @@ public class Europa implements IMappa {
         this.AddPercorso(p);
         p=new Percorso(32,c.get(8),c.get(14));
         this.AddPercorso(p);
-        p=new Percorso(33,c.get(5),c.get(15));
-        this.AddPercorso(p);
         p=new Percorso(34,c.get(0),c.get(2));
         this.AddPercorso(p);
         p=new Percorso(35,c.get(2),c.get(13));
+        this.AddPercorso(p);
+        p=new Percorso(36,c.get(10),c.get(16));
+        this.AddPercorso(p);
+        p=new Percorso(37,c.get(5),c.get(3));
+        this.AddPercorso(p);
+        p=new Percorso(38,c.get(3),c.get(16));
+        this.AddPercorso(p);
+        p=new Percorso(39,c.get(16),c.get(15));
         this.AddPercorso(p);
 
     }
@@ -99,23 +107,23 @@ public class Europa implements IMappa {
     }
 
     @Override
-    public ArrayList<ICitta> CreaMappa()throws FileNotFoundException,IOException{
-        ArrayList<ICitta> c1=new ArrayList<ICitta>();
+    public ArrayList<ICitta> CreaMappa() throws FileNotFoundException,IOException{
+        ArrayList<ICitta> c1 = new ArrayList<ICitta>();
         try {
 
-            FileReader fw = new FileReader("citta.json");
+            FileReader fw = new FileReader("Europa.json");
             ObjectMapper objectMapper = new ObjectMapper();
             HashMap<String, LatLong> maplat = new HashMap<>();
 
 
             com.google.gson.JsonParser jsonParser = new com.google.gson.JsonParser();
             JsonArray object = (JsonArray) jsonParser.parse(fw);
-            LatLong l=null;
+            LatLong l = null;
             for (int i = 0; i < object.size(); i++) {
-                if(object.get(i) != null){
-                    double latitude= object.get(i).getAsJsonObject().get("latitude").getAsDouble();
-                    double longitude=object.get(i).getAsJsonObject().get("longitude").getAsDouble();
-                    l = new LatLong(latitude,longitude);
+                if (object.get(i) != null) {
+                    double latitude = object.get(i).getAsJsonObject().get("latitude").getAsDouble();
+                    double longitude = object.get(i).getAsJsonObject().get("longitude").getAsDouble();
+                    l = new LatLong(latitude, longitude);
                     maplat.put(object.get(i).getAsJsonObject().get("variableName").toString(), l);
                 }
 
@@ -123,7 +131,7 @@ public class Europa implements IMappa {
 
             //Costruzione dei percorsi della mappa DA SPOSTARE IN FUTURO
             for (Map.Entry entry : maplat.entrySet()){
-                String nome=(String) entry.getKey();
+                String nome = (String) entry.getKey();
                 String[] nome1 = nome.split(",");
                 //Logica di implementazione delle città Oscure e Rifornimento oltre quelle Normali
                 ICitta p = FCitta.getCitta("Normale",(String) nome1[0].replace("\"",""));
@@ -131,9 +139,7 @@ public class Europa implements IMappa {
                 c1.add(p);
             }
             return c1;
-        }
-
-        catch (FileNotFoundException exc) {
+        } catch (FileNotFoundException exc) {
             return c1;
         }
 
