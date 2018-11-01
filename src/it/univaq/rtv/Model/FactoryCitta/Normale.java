@@ -39,7 +39,7 @@ public class Normale implements ICitta {
     }
     @Override
     public void PosizionaGiocatore(FMezzo Mezzo, Giocatore g) {
-        this.mezzo=Mezzo.CreaVagone(g);
+        this.mezzo=Mezzo.getMezzo("Vagone", g);
     }
     @Override
     public Mezzo getMezzo(){

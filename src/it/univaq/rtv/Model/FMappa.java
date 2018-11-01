@@ -5,9 +5,9 @@ import it.univaq.rtv.Model.FactoryMappa.*;
 import java.io.IOException;
 import java.lang.String;
 
-public class FMappa {
+public class FMappa{
 
-	public static IMappa getMappa(String criteria ) throws IOException{
+	public static AbstractMappa getMappa(String criteria ) throws IOException{
 		if ( criteria.equals("Europa") )
 			return new Europa();
 		else if ( criteria.equals("USA") )

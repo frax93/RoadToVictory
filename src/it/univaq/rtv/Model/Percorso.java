@@ -96,7 +96,6 @@ public class Percorso {
 			for(double i=x,j=y;i<=partenza.getLatitude()+err&&j<=partenza.getLongitude()-err;){
 				// System.out.println(l+" "+l1+" "+passo);
 				//    System.out.println(i+" "+j);
-
 				LatLong l1= new LatLong(i+spezzata,j+spezzata);
 				LatLong[] result={resultold,l1};
 				resultold=new LatLong(i,j);

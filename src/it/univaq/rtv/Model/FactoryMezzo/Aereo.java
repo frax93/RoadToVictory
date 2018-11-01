@@ -1,9 +1,11 @@
 package it.univaq.rtv.Model.FactoryMezzo;
 
 
+import it.univaq.rtv.Model.Giocatore;
+
 public class Aereo implements Mezzo {
 
-	public Aereo(int id) {
+	public Aereo(Giocatore giocatore) {
 
 	}
 	@Override

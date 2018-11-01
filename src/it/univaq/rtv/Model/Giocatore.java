@@ -82,7 +82,7 @@ public class Giocatore implements Comparable<Giocatore>,Runnable {
 		this.mezzo=new ArrayList<Mezzo>();
 		FMezzo factorymezzo=new FMezzo();
 		for(int i=0;i<taglia;i++){
-			this.mezzo.add(factorymezzo.CreaVagone(this));
+			this.mezzo.add(factorymezzo.getMezzo("Vagone", this));
 		}
 
 

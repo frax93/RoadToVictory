@@ -1,7 +1,7 @@
 package it.univaq.rtv.Controller;
 
 import it.univaq.rtv.Model.Casella;
-import it.univaq.rtv.Model.FactoryMappa.IMappa;
+import it.univaq.rtv.Model.FactoryMappa.AbstractMappa;
 import it.univaq.rtv.Model.Giocatore;
 import it.univaq.rtv.Model.Percorso;
 import it.univaq.rtv.Model.StatoGiocatore.Attesa;
@@ -78,7 +78,7 @@ public class Partita implements Initializable,MapComponentInitializedListener{
     private ArrayList<Giocatore> Giocatori=new ArrayList<>();
     private ViewMappa viewMappa;
     private ViewDado viewDado;
-    private IMappa mappa;
+    private AbstractMappa mappa;
     private Generale general;
     private Gioca gioca=new Gioca();
     private Vincente vince= new Vincente();

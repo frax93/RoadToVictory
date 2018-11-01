@@ -3,7 +3,7 @@ package it.univaq.rtv.View;
 import it.univaq.rtv.Controller.Partita;
 
 import it.univaq.rtv.Model.*;
-import it.univaq.rtv.Model.FactoryMappa.IMappa;
+import it.univaq.rtv.Model.FactoryMappa.AbstractMappa;
 import it.univaq.rtv.Model.FactoryMezzo.Mezzo;
 import it.univaq.rtv.Utility.Utility;
 import com.lynden.gmapsfx.GoogleMapView;
@@ -46,7 +46,7 @@ public class ViewMappa {
 
     }
 
-    public void Creamappa(ArrayList<Giocatore> giocatoreArrayList, IMappa mappa, Partita p) throws FileNotFoundException, IOException {
+    public void Creamappa(ArrayList<Giocatore> giocatoreArrayList, AbstractMappa mappa, Partita p) throws FileNotFoundException, IOException {
         this.setGiocatoreName(giocatoreArrayList.get(0));
         final Polyline[] polyline = {null};
         MapOptions mapOptions = new MapOptions();
@@ -190,7 +190,7 @@ public class ViewMappa {
 
 
 
-    public void setMarker(ArrayList<Giocatore> giocatores, IMappa mappa){
+    public void setMarker(ArrayList<Giocatore> giocatores, AbstractMappa mappa){
         ArrayList<Marker> markers= new ArrayList<>();
         for(int i=0; i<giocatores.size();i++){
             CartaPercorso c= giocatores.get(i).ChiediCartaPercorso();
@@ -199,7 +199,7 @@ public class ViewMappa {
                 LatLong coorPartenza = mappa.getCitta().get(j).getCoordinate();
                 if (mappa.getCitta().get(j).getNome().equals(c.getCittaPartenza().getNome())) {
                     FMezzo fMezzo=new FMezzo();
-                    Mezzo mezGioc1= fMezzo.CreaVagone(giocatores.get(i));
+                    Mezzo mezGioc1= fMezzo.getMezzo("Vagone",giocatores.get(i));
                     mappa.getCitta().get(j).setMezzo(mezGioc1);
                     c.getCittaPartenza().setOccupata(true);
                     MarkerOptions MarkerPartenza = new MarkerOptions();

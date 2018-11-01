@@ -2,7 +2,7 @@ package it.univaq.rtv.Model.StatoTurno;
 
 import it.univaq.rtv.Utility.Utility;
 import it.univaq.rtv.Model.FMappa;
-import it.univaq.rtv.Model.FactoryMappa.IMappa;
+import it.univaq.rtv.Model.FactoryMappa.AbstractMappa;
 import it.univaq.rtv.Model.Giocatore;
 import it.univaq.rtv.Model.MazzoObiettivo;
 import it.univaq.rtv.Model.MazzoPercorso;
@@ -14,7 +14,7 @@ import java.io.IOException;
 import java.util.*;
 
 public class Iniziale implements State_Turno {
-	private IMappa mappa;
+	private AbstractMappa mappa;
 	@Override
 	public ArrayList<Giocatore> InizioTurno(ArrayList<Giocatore> g, String nomeMappa, Turno t, Stato_Giocatore gioca)throws FileNotFoundException,IOException{
 
@@ -55,7 +55,7 @@ public class Iniziale implements State_Turno {
 		return g;
 	}
 
-	public IMappa getMappa() {
+	public AbstractMappa getMappa() {
 		return mappa;
 	}
 }
