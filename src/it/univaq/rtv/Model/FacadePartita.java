@@ -1,4 +1,4 @@
-package it.univaq.rtv.Controller;
+package it.univaq.rtv.Model;
 
 import it.univaq.rtv.Model.Casella;
 import it.univaq.rtv.Model.FactoryMappa.AbstractMappa;
@@ -42,7 +42,7 @@ import javafx.scene.image.*;
 
 import java.io.*;
 
-public class Partita implements Initializable,MapComponentInitializedListener{
+public class FacadePartita {
 
 
     @FXML
@@ -70,8 +70,8 @@ public class Partita implements Initializable,MapComponentInitializedListener{
     public Label ErroreDado;
     public ImageView DadoImage;  //per impostare immagine dado
     public Label CartaObiettivo;
-    public Label CartaPercorsoPartenza;
-    public Label CartaPercorsoArrivo;
+    //public Label CartaPercorsoPartenza;
+    //public Label CartaPercorsoArrivo;
     public Label GiocatoreName;
     public Label FinePartita;
     public Button TurnoButton;
@@ -89,38 +89,20 @@ public class Partita implements Initializable,MapComponentInitializedListener{
     private Timestamp timestamp;
 
 
-    @Override
-    public void initialize(URL url, ResourceBundle rb){
-        //googleMapView.addMapInializedListener(this);
 
 
-
-    }
-    @Override
-    public void mapInitialized(){
-        if(this.Numero!=""){
-            for(int i=1;i<=Utility.StringtoInteger(this.Numero);i++){
-                Giocatore giocatore = new Giocatore(i,"Giocatore"+i, Utility.Colori());
-                this.Giocatori.add(giocatore);
-            }
-        }
-        if(this.nomemappa!="")
-            this.AvviaPartita(nomemappa);
-
-    }
-
-    public void AvviaPartita(String Nome_mappa)  {
+    public void AvviaPartita(String Nome_mappa, GoogleMapView googleMapView, ArrayList<Giocatore> giocatoriArrayList,Label CartaObiettivo,Label CartapercorsoPartenza, Label CartapercorsoArrivo, Label GiocatoreName, Button TurnoButton,Label NumeroMezzo,Label FinePartita)  {
         try{
 
             Turno t= new Turno();
             Iniziale i=new Iniziale();
-            ArrayList<Giocatore> giocatori_ordinati=i.OrdinaGiocatori(this.Giocatori);
+            ArrayList<Giocatore> giocatori_ordinati=i.OrdinaGiocatori(giocatoriArrayList);
             Attesa attesa=new Attesa();
             giocatori_ordinati=i.InizioTurno(giocatori_ordinati,Nome_mappa,t, attesa);
-            this.Giocatori=giocatori_ordinati;
+            giocatoriArrayList=giocatori_ordinati;
             this.mappa=i.getMappa();
-            this.viewMappa=new ViewMappa(map,googleMapView,CartaObiettivo,CartaPercorsoPartenza,CartaPercorsoArrivo,GiocatoreName,TurnoButton,NumeroMezzo,FinePartita);
-            this.viewMappa.Creamappa(this.Giocatori,this.mappa,this);
+            this.viewMappa=new ViewMappa(googleMapView, CartaObiettivo, CartapercorsoPartenza,CartapercorsoArrivo,GiocatoreName,TurnoButton,NumeroMezzo,FinePartita);
+            this.viewMappa.Creamappa(giocatoriArrayList,this.mappa,this);
             this.general=new Generale();
             this.Giocatori=this.general.InizioTurno(giocatori_ordinati,Nome_mappa,t, this.gioca);
         }
@@ -132,28 +114,12 @@ public class Partita implements Initializable,MapComponentInitializedListener{
 
     }
 
-    @FXML
-    private void SetMappa(final ActionEvent event){
-        event.consume();
-        this.nomemappa=event.getTarget().toString().replace("Button[id=","").replaceAll(", styleClass=button]","");
-        int pos=this.nomemappa.indexOf("'");
-        this.nomemappa=this.nomemappa.substring(0,pos);
-        this.mapInitialized();
-        this.scmapp=new ViewSceltaMappa(SceltaMappa,Europa,USA,Africa,Sud_America,Asia,SceltaGiocatori,InizioPartita,menu,ScrittaGiocatori);
-    }
-    @FXML
-    private void Setgiocatore(final ActionEvent event){
-        event.consume();
-        this.Numero=event.getTarget().toString().replace("Button[id=","").replace(", styleClass=button]''","");
-        this.ngioc=new ViewNumGiocatori(SceltaGiocatori,Uno,Due,Tre,Quattro,Cinque,InizioPartita,menu,SceltaMappa,Europa,USA,Africa,Sud_America,Asia,ScrittaGiocatori);
-    }
 
-    /**********   Funzione per lanciare il Dado    ************/
-    @FXML
-    private void LanciaDado(final ActionEvent event) {
-        event.consume();
-       int n = this.Giocatori.get(0).LanciaDado();
-       this.Giocatori.get(0).setMezzo(n);
+
+
+    public void LanciaDado(Button dadoButton, Label NumeroMezzo, Label NumberDado, ImageView DadoImage, ArrayList<Giocatore> giocatoreArrayList) {
+       int n = giocatoreArrayList.get(0).LanciaDado();
+       giocatoreArrayList.get(0).setMezzo(n);
        this.viewDado =new ViewDado(dadoButton, NumeroMezzo,NumberDado,DadoImage,n);
        //this.timestamp = new Timestamp(System.currentTimeMillis());
 
@@ -230,21 +196,7 @@ System.out.println("Aspettiamo: "+System.currentTimeMillis());
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-    /**********   Funzione calcolo randomico della Carta Obiettivo del Giocatore   ************/
-    @FXML
-    private void FineTurno(final ActionEvent event) {
+    public void FineTurno() {
             try{
                 Turno t = new Turno();
                 Giocatore giocatore_backup = this.Giocatori.get(0);

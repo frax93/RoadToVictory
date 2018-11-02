@@ -1,6 +1,6 @@
 package it.univaq.rtv.View;
 
-import it.univaq.rtv.Controller.Partita;
+import it.univaq.rtv.Model.FacadePartita;
 
 import it.univaq.rtv.Model.*;
 import it.univaq.rtv.Model.FactoryMappa.AbstractMappa;
@@ -33,9 +33,8 @@ public class ViewMappa {
     private Button TurnoButton;
     private Label NumeroMezzo;
 
-    public ViewMappa(GoogleMap map, GoogleMapView googleMapView, Label CartaObiettivo,Label CartapercorsoPartenza, Label CartapercorsoArrivo, Label GiocatoreName, Button TurnoButton,Label NumeroMezzo,Label FinePartita) {
+    public ViewMappa(GoogleMapView googleMapView, Label CartaObiettivo,Label CartapercorsoPartenza, Label CartapercorsoArrivo, Label GiocatoreName, Button TurnoButton,Label NumeroMezzo,Label FinePartita) {
         this.googleMapView = googleMapView;
-        this.map = map;
         this.GiocatoreName=GiocatoreName;
         this.CartaObiettivo=CartaObiettivo;
         this.CartaPercorsoArrivo=CartapercorsoArrivo;
@@ -46,7 +45,7 @@ public class ViewMappa {
 
     }
 
-    public void Creamappa(ArrayList<Giocatore> giocatoreArrayList, AbstractMappa mappa, Partita p) throws FileNotFoundException, IOException {
+    public void Creamappa(ArrayList<Giocatore> giocatoreArrayList, AbstractMappa mappa, FacadePartita p) throws FileNotFoundException, IOException {
         this.setGiocatoreName(giocatoreArrayList.get(0));
         final Polyline[] polyline = {null};
         MapOptions mapOptions = new MapOptions();

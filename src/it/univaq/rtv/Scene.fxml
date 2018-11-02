@@ -5,7 +5,7 @@
 
 <?import javafx.scene.image.ImageView?>
 
-<AnchorPane id="AnchorPane" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.univaq.rtv.Controller.Partita" >
+<AnchorPane id="AnchorPane" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.univaq.rtv.Controller.ControllerRoadToVictory" >
 
 <GoogleMapView fx:id="googleMapView"/>
 
