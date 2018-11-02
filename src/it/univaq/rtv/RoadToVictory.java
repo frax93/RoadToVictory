@@ -41,47 +41,6 @@ public class RoadToVictory extends Application{
     public void start(Stage stage) throws Exception, FileNotFoundException,IOException {
 
         Parent root = FXMLLoader.load(getClass().getResource("Scene.fxml"));
-        
-         /*********    DADO  3D  ******************************/
-
-        Box testBox = new Box(5, 5, 5);
-        testBox.setMaterial(new PhongMaterial(Color.GREENYELLOW));
-        testBox.setDrawMode(DrawMode.FILL);
-
-        PerspectiveCamera camera = new PerspectiveCamera(true);
-        camera.getTransforms().addAll(
-                new Rotate(60, Rotate.X_AXIS),
-                new Translate(0, 0, -20));
-
-        RotateTransition rotateTransition = new RotateTransition(
-                Duration.millis(3000), testBox);
-
-        rotateTransition.setFromAngle(0);
-        rotateTransition.setToAngle(360);
-
-        rotateTransition.setCycleCount(Timeline.INDEFINITE);
-        rotateTransition.setInterpolator(Interpolator.LINEAR);
-        rotateTransition.play();
-
-        Group root1 = new Group();
-        root1.getChildren().add(camera);
-        root1.getChildren().add(testBox);
-
-        SubScene subScene = new SubScene(root1, 300, 300);
-        subScene.setFill(Color.DARKSLATEBLUE);
-        subScene.setCamera(camera);
-        Group group = new Group();
-        group.getChildren().add(subScene);
-
-        Scene dado = new Scene(group, 300, 300);
-
-        stage.setScene(dado);
-        /*********   FINE DADO  ******************************/
-
-
-
-
-
         Scene scene = new Scene(root);
         GoogleMapView googleMapView = (GoogleMapView)  scene.lookup("#googleMapView");
         googleMapView.autosize();
