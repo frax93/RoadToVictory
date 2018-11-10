@@ -16,13 +16,12 @@ import java.util.Map;
 
 
 
+
 public class USA extends AbstractMappa {
 
     public USA() throws IOException {
         this.nome="USA";
         ArrayList<ICitta> c = this.CreaMappa();
-        /*for(int i=0;i<c.size();i++)
-            System.out.println("C: "+c.get(i).getNome());*/
         Percorso p;
         p=new Percorso(2,c.get(14),c.get(10));
         this.AddPercorso(p);
@@ -129,12 +128,11 @@ public class USA extends AbstractMappa {
                     maplat.put(object.get(i).getAsJsonObject().get("variableName").toString(), l);
                 }
 
-            //Costruzione dei percorsi della mappa DA SPOSTARE IN FUTURO
             for (Map.Entry entry : maplat.entrySet()){
                 String nome=(String) entry.getKey();
                 String[] nome1 = nome.split(",");
                 //Logica per città oscure e rifornimento oltre a quelle normali
-                ICitta p = FCitta.getCitta("Normale",(String) nome1[0].replace("\"",""));
+                ICitta p = FactorCitta.getCitta("Normale",(String) nome1[0].replace("\"",""));
                 p.ImpostaCoordinate((LatLong) entry.getValue());
                 c1.add(p);
             }

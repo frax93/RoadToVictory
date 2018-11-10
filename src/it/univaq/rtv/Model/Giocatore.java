@@ -1,8 +1,8 @@
 package it.univaq.rtv.Model;
 
-import it.univaq.rtv.Model.FactoryMezzo.Mezzo;
 import it.univaq.rtv.Model.StatoGiocatore.Attesa;
-import it.univaq.rtv.Model.StatoGiocatore.Stato_Giocatore;
+import it.univaq.rtv.Model.StatoGiocatore.IStato_Giocatore;
+import it.univaq.rtv.Model.FactoryMezzo.IMezzo;
 
 
 import java.util.ArrayList;
@@ -12,19 +12,19 @@ public class Giocatore implements Comparable<Giocatore>,Runnable {
 	private String username;
 	private CartaPercorso c=null;
 	private CartaObiettivo c1=null;
-	private ArrayList<Mezzo> mezzo=null;
-	private Stato_Giocatore stato_giocatore;
+	private ArrayList<IMezzo> IMezzo =null;
+	private IStato_Giocatore IStato_giocatore;
 	private String color;
 	private ArrayList<Casella> mosse=new ArrayList<>();
 	private boolean Obiettivo=false;
 	private boolean Arrivo=false;
 
-	public void setState(Stato_Giocatore state){
-		this.stato_giocatore = state;
+	public void setState(IStato_Giocatore state){
+		this.IStato_giocatore = state;
 	}
 
-	public Stato_Giocatore getState(){
-		return this.stato_giocatore;
+	public IStato_Giocatore getState(){
+		return this.IStato_giocatore;
 	}
 	@Override
 	public int compareTo(Giocatore g){
@@ -50,8 +50,8 @@ public class Giocatore implements Comparable<Giocatore>,Runnable {
 		return this.id;
 	}
 
-	public ArrayList<Mezzo> getMezzi(){
-		return this.mezzo;
+	public ArrayList<IMezzo> getMezzi(){
+		return this.IMezzo;
 	}
 
 	public String getUsername(){
@@ -73,39 +73,39 @@ public class Giocatore implements Comparable<Giocatore>,Runnable {
 	}
 
 	public int LanciaDado() {
-		SDado dado=new SDado();
+		SingletonDado dado=new SingletonDado();
 		dado=dado.getIstance();
 		return dado.Lancia();
 
 	}
 	public void setMezzo(int taglia){
-		this.mezzo=new ArrayList<Mezzo>();
-		FMezzo factorymezzo=new FMezzo();
+		this.IMezzo =new ArrayList<IMezzo>();
+		FactorMezzo factorymezzo=new FactorMezzo();
 		for(int i=0;i<taglia;i++){
-			this.mezzo.add(factorymezzo.getMezzo("Vagone", this));
+			this.IMezzo.add(factorymezzo.getMezzo("Vagone", this));
 		}
 
 
 	}
 
-	public ArrayList<Mezzo> getMezzo() {
-		return mezzo;
+	public ArrayList<IMezzo> getMezzo() {
+		return IMezzo;
 	}
 
 	public void PescaDueCarte() {
-		MazzoObiettivo m= new MazzoObiettivo();
+		SingletonMazzoObiettivo m= new SingletonMazzoObiettivo();
 		m=m.getIstance1();
 		this.c1=m.PescaCarta();
-		MazzoPercorso m1= new MazzoPercorso();
+		SingletonMazzoPercorso m1= new SingletonMazzoPercorso();
 		m1=m1.getIstance1();
 		this.c=m1.PescaCarta();
 
 	}
 
 	public void RestituisciCarte(){
-		MazzoObiettivo mo= new MazzoObiettivo();
+		SingletonMazzoObiettivo mo= new SingletonMazzoObiettivo();
 		mo=mo.getIstance1();
-		MazzoPercorso mp= new MazzoPercorso();
+		SingletonMazzoPercorso mp= new SingletonMazzoPercorso();
 		mp=mp.getIstance1();
 		this.ChiediCartaPercorso().getCittaPartenza();
 		mo.ReinserisciCarta(this.ChiediCartaObiettivo());
@@ -124,9 +124,9 @@ public class Giocatore implements Comparable<Giocatore>,Runnable {
 
 	public void PosizionaMezzo(Casella c) {
 
-		int pos=this.mezzo.size()-1;
+		int pos=this.IMezzo.size()-1;
 		c.PosizionaGiocatore(this);
-		this.mezzo.remove(pos);
+		this.IMezzo.remove(pos);
 
 
 	}

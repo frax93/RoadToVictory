@@ -14,17 +14,13 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * Created by micheletaranta on 18/10/18.
- */
+
 public class Europa extends AbstractMappa {
 
     public Europa() throws IOException {
         this.nome="Europa";
         ArrayList<ICitta> c = this.CreaMappa();
         Percorso p;
-        /*for(int i=0;i<c.size();i++)
-            System.out.println("C: "+c.get(i).getNome());*/
         p=new Percorso(1,c.get(13),c.get(11));
         this.AddPercorso(p);
         p=new Percorso(3,c.get(3),c.get(12));
@@ -114,12 +110,12 @@ public class Europa extends AbstractMappa {
                     maplat.put(object.get(i).getAsJsonObject().get("variableName").toString(), l);
                 }
 
-            //Costruzione dei percorsi della mappa DA SPOSTARE IN FUTURO
+
             for (Map.Entry entry : maplat.entrySet()){
                 String nome = (String) entry.getKey();
                 String[] nome1 = nome.split(",");
                 //Logica di implementazione delle città Oscure e Rifornimento oltre quelle Normali
-                ICitta p = FCitta.getCitta("Normale",(String) nome1[0].replace("\"",""));
+                ICitta p = FactorCitta.getCitta("Normale",(String) nome1[0].replace("\"",""));
                 p.ImpostaCoordinate((LatLong) entry.getValue());
                 c1.add(p);
             }

@@ -1,42 +1,29 @@
 package it.univaq.rtv.Model;
 
-import it.univaq.rtv.Model.Casella;
 import it.univaq.rtv.Model.FactoryMappa.AbstractMappa;
-import it.univaq.rtv.Model.Giocatore;
-import it.univaq.rtv.Model.Percorso;
 import it.univaq.rtv.Model.StatoGiocatore.Attesa;
 import it.univaq.rtv.Model.StatoGiocatore.Gioca;
 import it.univaq.rtv.Model.StatoGiocatore.Vincente;
 import it.univaq.rtv.Model.StatoTurno.Generale;
 import it.univaq.rtv.Model.StatoTurno.Iniziale;
-import it.univaq.rtv.Model.Turno;
-import it.univaq.rtv.Utility.Utility;
 import it.univaq.rtv.View.ViewDado;
 import it.univaq.rtv.View.ViewMappa;
-import it.univaq.rtv.View.ViewNumGiocatori;
-import it.univaq.rtv.View.ViewSceltaMappa;
 import com.lynden.gmapsfx.GoogleMapView;
-import com.lynden.gmapsfx.MapComponentInitializedListener;
 import com.lynden.gmapsfx.javascript.object.*;
 
 import java.io.IOException;
-import java.net.URL;
 
-import java.sql.Timestamp;
 import java.util.*;
 
 import com.lynden.gmapsfx.shapes.Polyline;
 import com.lynden.gmapsfx.shapes.PolylineOptions;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 
 
 import java.lang.*;
 
 
 import javafx.scene.control.*;
-import javafx.event.*;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.image.*;
 
 
@@ -87,14 +74,10 @@ public class FacadePartita {
        int n = giocatoreArrayList.get(0).LanciaDado();
        giocatoreArrayList.get(0).setMezzo(n);
        this.viewDado =new ViewDado(dadoButton, NumeroMezzo,NumberDado,DadoImage,n);
-       //this.timestamp = new Timestamp(System.currentTimeMillis());
 
     }
 
     public void PosizionaMezzo(Polyline finalPolyline1, PolylineOptions pippo, int finalI,ArrayList<Casella> caselle) throws FileNotFoundException,IOException {
-//System.out.println("Aspettiamo: "+System.currentTimeMillis());
-//possibilità di fare il controllo sul tempo ma va ovviamente sistemato perchè serve un coontrollo sulle mosse finite e sul tempo di inattività
-//if(System.currentTimeMillis() - this.timestamp.getTime()>1000){this.viewMappa.setTurnoButton(true);}
             this.viewMappa.setGiocatoreName(this.Giocatori.get(0));
             MVCArray path = finalPolyline1.getPath();
             pippo.path(path);

@@ -1,20 +1,20 @@
 package it.univaq.rtv.Model;
 import java.util.Random;
 
-public class SDado {
-    private static SDado istance = null;
+public class SingletonDado {
+    private static SingletonDado istance = null;
 	private Random Numero;
     private int lati;
         
-    public static SDado getIstance(){
+    public static SingletonDado getIstance(){
         if(istance==null){
-            istance = new SDado();
+            istance = new SingletonDado();
             istance.Numero= new Random();
             istance.lati=6;
         }
         return istance;
     }
-    protected SDado(){
+    protected SingletonDado(){
 
     }
         

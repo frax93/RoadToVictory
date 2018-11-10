@@ -1,7 +1,7 @@
 package it.univaq.rtv.Model.FactoryMezzo;
 
 
-public interface  Mezzo {
+public interface IMezzo {
      void CreaMezzo();
      void DammiMezzo();
 

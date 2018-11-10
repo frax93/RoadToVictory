@@ -5,12 +5,12 @@ import it.univaq.rtv.Model.FactoryCitta.ICitta;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class MazzoPercorso{
-        private static MazzoPercorso istance = null;
+public class SingletonMazzoPercorso {
+        private static SingletonMazzoPercorso istance = null;
         private ArrayList<CartaPercorso> Carte= new ArrayList<CartaPercorso>();
-    public static MazzoPercorso getIstance(ArrayList<Percorso> p){
+    public static SingletonMazzoPercorso getIstance(ArrayList<Percorso> p){
         if(istance==null){
-            istance = new MazzoPercorso();
+            istance = new SingletonMazzoPercorso();
             for(int i=0;i<p.size();i++){
                 Percorso percorso= p.get(i);
                 ICitta ca= percorso.getCittaArrivo();
@@ -21,12 +21,12 @@ public class MazzoPercorso{
         }
         return istance;
     }
-    public static MazzoPercorso getIstance1(){
+    public static SingletonMazzoPercorso getIstance1(){
         if(istance==null){
         }
         return istance;
     }
-    public MazzoPercorso(){
+    public SingletonMazzoPercorso(){
 
     }
         public void addCarta(CartaPercorso c){

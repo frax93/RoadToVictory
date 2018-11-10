@@ -3,7 +3,7 @@ package it.univaq.rtv.Model.FactoryMezzo;
 
 import it.univaq.rtv.Model.Giocatore;
 
-public class Aereo implements Mezzo {
+public class Aereo implements IMezzo {
 
 	public Aereo(Giocatore giocatore) {
 
@@ -13,7 +13,7 @@ public class Aereo implements Mezzo {
 			// TODO - implement Aereo.CreaMezzo
 			throw new UnsupportedOperationException();
 		}
-@Override
+	@Override
 	public void DammiMezzo() {
 		// TODO - implement Aereo.DammiMezzo
 		throw new UnsupportedOperationException();

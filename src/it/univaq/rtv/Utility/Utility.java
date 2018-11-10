@@ -9,9 +9,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
 
-/**
- * Created by micheletaranta on 17/10/18.
- */
 
 //Classe di utilità per funzioni di supporto al gioco RTV
 public class Utility {

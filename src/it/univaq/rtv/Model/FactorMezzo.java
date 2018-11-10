@@ -1,18 +1,14 @@
 package it.univaq.rtv.Model;
 
 
-import it.univaq.rtv.Model.FactoryCitta.ICitta;
-import it.univaq.rtv.Model.FactoryCitta.Normale;
-import it.univaq.rtv.Model.FactoryCitta.Oscura;
-import it.univaq.rtv.Model.FactoryCitta.Rifornimento;
 import it.univaq.rtv.Model.FactoryMezzo.Aereo;
-import it.univaq.rtv.Model.FactoryMezzo.Mezzo;
+import it.univaq.rtv.Model.FactoryMezzo.IMezzo;
 import it.univaq.rtv.Model.FactoryMezzo.Nave;
 import it.univaq.rtv.Model.FactoryMezzo.Vagone;
 
-public class FMezzo {
+public class FactorMezzo {
 
-	public static Mezzo getMezzo(String criteria, Giocatore giocatore )
+	public static IMezzo getMezzo(String criteria, Giocatore giocatore )
 	{
 		if ( criteria.equals("Vagone") )
 			return new Vagone(giocatore);

@@ -3,6 +3,7 @@ package it.univaq.rtv.Model;
 import it.univaq.rtv.Model.FactoryCitta.ICitta;
 import com.lynden.gmapsfx.javascript.object.LatLong;
 
+
 import java.util.ArrayList;
 
 public class Percorso {
@@ -151,11 +152,12 @@ public class Percorso {
 	/**
 	 *
 	 * @param CartaPercorso
-	 * @param Mezzo
+	 * @param FactorMezzo
+	 * @param Giocatore
 	 */
-	public void TrovaPercorso(CartaPercorso c, FMezzo mez,Giocatore g) {
+	public void TrovaPercorso(CartaPercorso c, FactorMezzo mez, Giocatore g) {
 
-		if(c.getCittaPartenza()==this.Cittapartenza&&this.Cittapartenza.getMezzo()==null)
+		if(c.getCittaPartenza()==this.Cittapartenza&&this.Cittapartenza.getIMezzo()==null)
 			this.Cittapartenza.PosizionaGiocatore(mez,g);
 	}
 
@@ -179,23 +181,6 @@ public class Percorso {
 			return  true;
 		}
 		else return false;
-	}
-
-
-
-	public void checkPosizionaMezzo() {
-		// TODO - implement Percorso.checkPosizionaMezzo
-		throw new UnsupportedOperationException();
-	}
-
-	public void ControlloFinePartita() {
-		// TODO - implement Percorso.ControlloFinePartita
-		throw new UnsupportedOperationException();
-	}
-
-	public void CheckFinePartita() {
-		// TODO - implement Percorso.CheckFinePartita
-		throw new UnsupportedOperationException();
 	}
 
 	//ritorna citta partenza o arrivo
@@ -237,7 +222,7 @@ public class Percorso {
 	}
 
 	/*******Funzione che permette di capire come è posizionato il percorso, e dove si trova la casella di partenza
-	 * in questo modo possiamo distinguere i vicini di arrivo e partenza del percorso. Va fatta un check vicini partenza e un cech vicini coda.*****/
+	 * in questo modo possiamo distinguere i vicini di arrivo e partenza del percorso.*****/
 
 	public Casella CalcolaCaselleVicine(Casella casella){
 		if(casella.getId()==this.caselle.get(0).getId()&&(!this.caselle.get(1).CheckOccupata())){
@@ -295,11 +280,9 @@ public class Percorso {
 		}
 		else casellaPartenza= this.getCaselle().get(this.getCaselle().size()-1);
 
-		//System.out.println(distCittaPartenza);
-		//System.out.println(distCasella0);
-		//System.out.println(distCasellaN);
 		return casellaPartenza;
 	}
+
 	public Casella getCasellaPerVicino(Casella casella_iniziale){
 		double R = 6372.795477598;  //Con errore dello 0.3%
 
@@ -321,9 +304,6 @@ public class Percorso {
 		else
 			casella_vicina= this.getCaselle().get(this.getCaselle().size()-1);
 
-		//System.out.println(distCittaPartenza);
-		//System.out.println(distCasella0);
-		//System.out.println(distCasellaN);
 		return casella_vicina;
 	}
 
@@ -348,9 +328,7 @@ public class Percorso {
 		else if(Math.abs(distCittaArrivo-distCasella0)> Math.abs(distCittaArrivo-distCasellaN)){
 			casellaArrivo= this.getCaselle().get(this.getCaselle().size()-1);
 		}
-		//System.out.println(distCittaPartenza);
-		//System.out.println(distCasella0);
-		//System.out.println(distCasellaN);
+
 		return casellaArrivo;
 
 	}

@@ -1,15 +1,15 @@
 package it.univaq.rtv.Model.FactoryCitta;
 
-import it.univaq.rtv.Model.FMezzo;
+import it.univaq.rtv.Model.FactorMezzo;
 import it.univaq.rtv.Model.Giocatore;
-import it.univaq.rtv.Model.FactoryMezzo.Mezzo;
+import it.univaq.rtv.Model.FactoryMezzo.IMezzo;
 import com.lynden.gmapsfx.javascript.object.LatLong;
 
 public class Oscura implements ICitta {
     private String Nome;
     private LatLong coordinate;
     private boolean occupata;
-    private Mezzo mezzo=null;
+    private IMezzo IMezzo =null;
     public Oscura() {
         this.Nome="";
         this.coordinate=null;
@@ -37,12 +37,12 @@ public class Oscura implements ICitta {
     }
 
     @Override
-    public void PosizionaGiocatore(FMezzo Mezzo, Giocatore g) {
+    public void PosizionaGiocatore(FactorMezzo Mezzo, Giocatore g) {
 
     }
 
     @Override
-    public Mezzo getMezzo() {
+    public IMezzo getIMezzo() {
         return null;
     }
 
@@ -52,7 +52,7 @@ public class Oscura implements ICitta {
     }
 
     @Override
-    public void setMezzo(Mezzo mezzo) {
+    public void setIMezzo(IMezzo IMezzo) {
 
     }
 }

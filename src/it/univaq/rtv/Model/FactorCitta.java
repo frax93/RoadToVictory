@@ -6,11 +6,9 @@ import it.univaq.rtv.Model.FactoryCitta.Rifornimento;
 import it.univaq.rtv.Model.FactoryCitta.Normale;
 import it.univaq.rtv.Model.FactoryCitta.Oscura;
 
-/**
- * Created by frankmd93 on 18/10/18.
- */
 
-public class FCitta {
+
+public class FactorCitta {
 
     public static ICitta getCitta(String criteria, String nomeCitta )
     {

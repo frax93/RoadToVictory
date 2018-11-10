@@ -5,16 +5,16 @@ import it.univaq.rtv.Model.FactoryCitta.ICitta;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class MazzoObiettivo{
-    private static MazzoObiettivo istance = null;
+public class SingletonMazzoObiettivo {
+    private static SingletonMazzoObiettivo istance = null;
     private ArrayList<CartaObiettivo> Carte= new ArrayList<CartaObiettivo>();
     /**
      *
      * @param Cit
      */
-    public static MazzoObiettivo getIstance(ArrayList<ICitta> Cit){
+    public static SingletonMazzoObiettivo getIstance(ArrayList<ICitta> Cit){
         if(istance==null){
-            istance = new MazzoObiettivo();
+            istance = new SingletonMazzoObiettivo();
             for(int i=0;i<Cit.size();i++){
                 ICitta c= Cit.get(i);
                 CartaObiettivo c1;
@@ -24,10 +24,10 @@ public class MazzoObiettivo{
         }
         return istance;
     }
-    public static MazzoObiettivo getIstance1(){
+    public static SingletonMazzoObiettivo getIstance1(){
         return istance;
     }
-    public MazzoObiettivo(){
+    public SingletonMazzoObiettivo(){
 
     }
 
