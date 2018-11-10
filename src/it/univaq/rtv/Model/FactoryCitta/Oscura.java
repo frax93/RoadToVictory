@@ -31,12 +31,6 @@ public class Oscura implements ICitta {
     public void setOccupata(boolean occupata) {
 
     }
-
-    @Override
-    public boolean getOccupata() {
-        return false;
-    }
-
     @Override
     public void ImpostaCoordinate(LatLong l) {
 
@@ -50,11 +44,6 @@ public class Oscura implements ICitta {
     @Override
     public Mezzo getMezzo() {
         return null;
-    }
-
-    @Override
-    public boolean CheckOccupata() {
-        return false;
     }
 
     @Override

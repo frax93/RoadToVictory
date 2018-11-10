@@ -33,11 +33,6 @@ public class Rifornimento implements ICitta {
 	}
 
 	@Override
-	public boolean getOccupata() {
-		return false;
-	}
-
-	@Override
 	public void ImpostaCoordinate(LatLong l) {
 
 	}
@@ -50,11 +45,6 @@ public class Rifornimento implements ICitta {
 	@Override
 	public Mezzo getMezzo() {
 		return null;
-	}
-
-	@Override
-	public boolean CheckOccupata() {
-		return false;
 	}
 
 	@Override

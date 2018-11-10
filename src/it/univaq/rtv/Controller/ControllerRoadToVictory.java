@@ -65,7 +65,6 @@ public class ControllerRoadToVictory  implements Initializable, MapComponentInit
     private Generale general;
     private Gioca gioca=new Gioca();
     private Vincente vince= new Vincente();
-    //private ArrayList<Casella> Stato_attuale = new ArrayList<>();
     private ViewNumGiocatori ngioc;
     private ViewSceltaMappa scmapp;
     private String Numero="";

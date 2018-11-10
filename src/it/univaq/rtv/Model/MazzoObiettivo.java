@@ -5,7 +5,7 @@ import it.univaq.rtv.Model.FactoryCitta.ICitta;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class MazzoObiettivo extends Mazzo {
+public class MazzoObiettivo{
     private static MazzoObiettivo istance = null;
     private ArrayList<CartaObiettivo> Carte= new ArrayList<CartaObiettivo>();
     /**
@@ -30,12 +30,12 @@ public class MazzoObiettivo extends Mazzo {
     public MazzoObiettivo(){
 
     }
-        @Override
-        public void addCarta(Carta c){
+
+        public void addCarta(CartaObiettivo c){
             this.Carte.add((CartaObiettivo) c);
         }
-        @Override
-        public Carta PescaCarta() {
+
+        public CartaObiettivo PescaCarta() {
                 int num1=this.MischiaMazzo();
 		        CartaObiettivo c=this.Carte.get(num1);
                 this.Carte.remove(num1);
@@ -46,7 +46,7 @@ public class MazzoObiettivo extends Mazzo {
 	    public void ReinserisciCarta(CartaObiettivo c){
             this.Carte.add(c);
         }
-        @Override
+
 	    public int MischiaMazzo() {
                Random r= new Random();
                int num=0;
@@ -54,14 +54,6 @@ public class MazzoObiettivo extends Mazzo {
                if(n!=0)num= r.nextInt(n);
                return num;
 	    }
-	    public int getCarte(){return this.Carte.size();}
 
-	  /* CANCELLARE IN FUTURO
-	   public void stampacarte(){
-            for(int i=0;i<this.Carte.size();i++){
-                String c=this.Carte.get(i).getNome();
-                System.out.println(c);
-            }
-        }*/
 
 }

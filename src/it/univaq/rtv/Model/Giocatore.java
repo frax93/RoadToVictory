@@ -95,10 +95,10 @@ public class Giocatore implements Comparable<Giocatore>,Runnable {
 	public void PescaDueCarte() {
 		MazzoObiettivo m= new MazzoObiettivo();
 		m=m.getIstance1();
-		this.c1=(CartaObiettivo)m.PescaCarta();
+		this.c1=m.PescaCarta();
 		MazzoPercorso m1= new MazzoPercorso();
 		m1=m1.getIstance1();
-		this.c=(CartaPercorso)m1.PescaCarta();
+		this.c=m1.PescaCarta();
 
 	}
 

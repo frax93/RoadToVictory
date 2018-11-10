@@ -30,10 +30,6 @@ public class Normale implements ICitta {
         this.occupata = occupata;
     }
     @Override
-    public boolean getOccupata(){
-        return this.occupata;
-    }
-    @Override
     public void ImpostaCoordinate(LatLong l){
         this.coordinate=l;
     }
@@ -44,11 +40,6 @@ public class Normale implements ICitta {
     @Override
     public Mezzo getMezzo(){
         return this.mezzo;
-    }
-    @Override
-    public boolean CheckOccupata() {
-        if(this.mezzo==null) return false;
-        else return true;
     }
     @Override
     public LatLong getCoordinate() {

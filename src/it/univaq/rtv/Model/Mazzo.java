@@ -1,7 +1,7 @@
 package it.univaq.rtv.Model;
 
 
-
+/*
 
 
 public abstract class Mazzo {
@@ -24,4 +24,3 @@ public abstract class Mazzo {
 		throw new UnsupportedOperationException();
 	}*/
 
-}

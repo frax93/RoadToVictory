@@ -12,17 +12,13 @@ public interface ICitta {
 
 	public void setOccupata(boolean occupata);
 
-	public boolean getOccupata();
-
 	public void ImpostaCoordinate(LatLong l);
 
 	public void PosizionaGiocatore(FMezzo Mezzo, Giocatore g);
+
 	public Mezzo getMezzo();
 
-	public boolean CheckOccupata();
-
 	public LatLong getCoordinate();
-
 
 	public void setMezzo(Mezzo mezzo);
 }

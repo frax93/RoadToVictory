@@ -1,5 +1,6 @@
 package it.univaq.rtv.Model;
 
+/*
 public abstract class Carta {
 
 	private int id;
@@ -8,4 +9,4 @@ public abstract class Carta {
     	this.id=id1;
 	}
 
-}
+}*/
