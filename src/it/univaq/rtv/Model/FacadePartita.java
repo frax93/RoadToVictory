@@ -46,35 +46,6 @@ public class FacadePartita {
 
 
     @FXML
-    private GoogleMapView googleMapView;
-    private GoogleMap map;
-    public Label SceltaGiocatori;
-    public Label SceltaMappa;
-    public Button Europa;
-    public Button USA;
-    public Button Africa;
-    public Button Sud_America;
-    public Button Asia;
-    private String nomemappa="";
-    public Button Uno;
-    public Button Due;
-    public Button Tre;
-    public Button Quattro;
-    public Button Cinque;
-    public Label InizioPartita;
-    public AnchorPane menu;
-    public Label ScrittaGiocatori;
-    public Button dadoButton;
-    public Label NumberDado;
-    public Label NumeroMezzo;
-    public Label ErroreDado;
-    public ImageView DadoImage;  //per impostare immagine dado
-    public Label CartaObiettivo;
-    //public Label CartaPercorsoPartenza;
-    //public Label CartaPercorsoArrivo;
-    public Label GiocatoreName;
-    public Label FinePartita;
-    public Button TurnoButton;
     private ArrayList<Giocatore> Giocatori=new ArrayList<>();
     private ViewMappa viewMappa;
     private ViewDado viewDado;
@@ -82,11 +53,6 @@ public class FacadePartita {
     private Generale general;
     private Gioca gioca=new Gioca();
     private Vincente vince= new Vincente();
-    //private ArrayList<Casella> Stato_attuale = new ArrayList<>();
-    private ViewNumGiocatori ngioc;
-    private ViewSceltaMappa scmapp;
-    private String Numero="";
-    private Timestamp timestamp;
 
 
 
@@ -126,7 +92,7 @@ public class FacadePartita {
     }
 
     public void PosizionaMezzo(Polyline finalPolyline1, PolylineOptions pippo, int finalI,ArrayList<Casella> caselle) throws FileNotFoundException,IOException {
-System.out.println("Aspettiamo: "+System.currentTimeMillis());
+//System.out.println("Aspettiamo: "+System.currentTimeMillis());
 //possibilità di fare il controllo sul tempo ma va ovviamente sistemato perchè serve un coontrollo sulle mosse finite e sul tempo di inattività
 //if(System.currentTimeMillis() - this.timestamp.getTime()>1000){this.viewMappa.setTurnoButton(true);}
             this.viewMappa.setGiocatoreName(this.Giocatori.get(0));
@@ -140,15 +106,11 @@ System.out.println("Aspettiamo: "+System.currentTimeMillis());
             LatLong LongCasellaFine = caselle.get(finalI).getFine();
             Casella Casella_premuta = caselle.get(finalI);
 
-        //System.out.println(Casella_premuta.getInizio().getLatitude());
             if ((LongCasellaInizio.getLatitude() == Lat && LongCasellaInizio.getLongitude() == Long) ||
                     (LongCasellaFine.getLatitude() == Lat && LongCasellaFine.getLongitude() == Long)) {
 
                 Percorso PercorsoPremuto = null;
                 PercorsoPremuto = mappa.getPercorsoByCasella(Casella_premuta);
-                //System.out.println("Id casella Arrivo: "+PercorsoPremuto.getCasellaArrivo().getId());
-                //System.out.println("Id casella Partenza: "+PercorsoPremuto.getCasellaPartenza().getId());
-                //System.out.println("Casella premuta: "+Casella_premuta.getId());
 
                                 for (int g2 = 0; g2 < this.Giocatori.get(0).getMosse().size(); g2++) {
                                     //aggiungi caselle dei percorsi vicini

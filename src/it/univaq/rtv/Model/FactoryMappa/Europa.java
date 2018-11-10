@@ -106,15 +106,13 @@ public class Europa extends AbstractMappa {
             com.google.gson.JsonParser jsonParser = new com.google.gson.JsonParser();
             JsonArray object = (JsonArray) jsonParser.parse(fw);
             LatLong l = null;
-            for (int i = 0; i < object.size(); i++) {
+            for (int i = 0; i < object.size(); i++)
                 if (object.get(i) != null) {
                     double latitude = object.get(i).getAsJsonObject().get("latitude").getAsDouble();
                     double longitude = object.get(i).getAsJsonObject().get("longitude").getAsDouble();
                     l = new LatLong(latitude, longitude);
                     maplat.put(object.get(i).getAsJsonObject().get("variableName").toString(), l);
                 }
-
-            }
 
             //Costruzione dei percorsi della mappa DA SPOSTARE IN FUTURO
             for (Map.Entry entry : maplat.entrySet()){
@@ -133,27 +131,7 @@ public class Europa extends AbstractMappa {
     }
 
 
-    @Override
-    public LatLong CalcolaCentro(){
-        ArrayList<ICitta> cittas=new ArrayList<ICitta>();
-        cittas=this.getCitta();
 
-        LatLong l=null;
-        double inizioLat=cittas.get(0).getCoordinate().getLatitude();
-        double inizioLong=cittas.get(0).getCoordinate().getLongitude();
-        double lat_min=inizioLat,lat_max=inizioLat,long_min=inizioLong, long_max=inizioLong, lat, longi;
-
-        for (int i=1; i<cittas.size();i++){
-            if(cittas.get(i).getCoordinate().getLatitude()>lat_max) lat_max=cittas.get(i).getCoordinate().getLatitude();
-            if(cittas.get(i).getCoordinate().getLatitude()<lat_min) lat_min=cittas.get(i).getCoordinate().getLatitude();
-            if(cittas.get(i).getCoordinate().getLongitude()>long_max) long_max=cittas.get(i).getCoordinate().getLongitude();
-            if(cittas.get(i).getCoordinate().getLongitude()<long_min) long_min=cittas.get(i).getCoordinate().getLongitude();
-        }
-        lat=(lat_max+lat_min)/2;
-        longi=(long_max+long_min)/2;
-        l=new LatLong(lat,longi);
-        return l;
-    }
 
 
 }
