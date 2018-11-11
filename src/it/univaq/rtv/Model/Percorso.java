@@ -144,11 +144,6 @@ public class Percorso {
 
 	}
 
-	public Percorso ChiediPercorso() {
-		// TODO - implement Percorso.ChiediPercorso
-		throw new UnsupportedOperationException();
-	}
-
 	/**
 	 *
 	 * @param CartaPercorso
@@ -224,7 +219,7 @@ public class Percorso {
 	/*******Funzione che permette di capire come è posizionato il percorso, e dove si trova la casella di partenza
 	 * in questo modo possiamo distinguere i vicini di arrivo e partenza del percorso.*****/
 
-	public Casella CalcolaCaselleVicine(Casella casella){
+	public Casella CalcolaCasellaVicina(Casella casella){
 		if(casella.getId()==this.caselle.get(0).getId()&&(!this.caselle.get(1).CheckOccupata())){
 			return this.caselle.get(1);
 		}

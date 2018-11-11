@@ -30,6 +30,8 @@ public class Normale implements ICitta {
         this.occupata = occupata;
     }
     @Override
+    public boolean getOccupata(){return this.occupata;}
+    @Override
     public void ImpostaCoordinate(LatLong l){
         this.coordinate=l;
     }

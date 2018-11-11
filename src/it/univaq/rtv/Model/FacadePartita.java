@@ -39,7 +39,7 @@ public class FacadePartita {
     private AbstractMappa mappa;
     private Generale general;
     private Gioca gioca=new Gioca();
-    private Vincente vince= new Vincente();
+    private Vincente vincente= new Vincente();
 
 
 
@@ -77,10 +77,10 @@ public class FacadePartita {
 
     }
 
-    public void PosizionaMezzo(Polyline finalPolyline1, PolylineOptions pippo, int finalI,ArrayList<Casella> caselle) throws FileNotFoundException,IOException {
+    public void PosizionaMezzo(Polyline finalPolyline1, PolylineOptions polylineOptions, int finalI,ArrayList<Casella> caselle) throws FileNotFoundException,IOException {
             this.viewMappa.setGiocatoreName(this.Giocatori.get(0));
             MVCArray path = finalPolyline1.getPath();
-            pippo.path(path);
+            polylineOptions.path(path);
             String coordinata = String.valueOf(path.getAt(0));
             String[] LatLinea = coordinata.split(",");
             double Lat = Double.valueOf(LatLinea[0].replace("(", ""));
@@ -111,9 +111,9 @@ public class FacadePartita {
                                             casellaArrayList.remove(null);
                                             this.Giocatori.get(0).setMosse(casellaArrayList);
                                         }
-                                        this.Giocatori.get(0).setMossa(PercorsoPremuto.CalcolaCaselleVicine(Casella_premuta));
+                                        this.Giocatori.get(0).setMossa(PercorsoPremuto.CalcolaCasellaVicina(Casella_premuta));
                                         this.Giocatori.get(0).PosizionaMezzo(Casella_premuta);
-                                        this.viewMappa.PosizionaMezzo(this.Giocatori.get(0).getMezzi().size(), finalPolyline1, pippo, this.Giocatori);
+                                        this.viewMappa.PosizionaMezzo(this.Giocatori.get(0).getMezzi().size(), finalPolyline1, polylineOptions, this.Giocatori);
                                         this.Giocatori.get(0).removeMossa(Casella_premuta);
                                         if(Math.abs(Casella_premuta.getInizio().getLatitude()-this.Giocatori.get(0).ChiediCartaObiettivo().getCittaObiettivo().getCoordinate().getLatitude())<0.005){
                                             this.Giocatori.get(0).Obiettivoraggiunto();
@@ -124,7 +124,7 @@ public class FacadePartita {
                                             this.viewMappa.setArrivo(this.Giocatori);
                                         }
                                         if(this.Giocatori.get(0).getObiettivo()==true && this.Giocatori.get(0).getArrivo()==true) {
-                                            this.Giocatori.get(0).setState(vince);
+                                            this.Giocatori.get(0).setState(vincente);
                                             this.viewMappa.FinePartita(this.Giocatori.get(0));
                                         }
                                         break;

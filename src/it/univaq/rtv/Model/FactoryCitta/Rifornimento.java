@@ -33,6 +33,9 @@ public class Rifornimento implements ICitta {
 	}
 
 	@Override
+	public boolean getOccupata(){return this.occupata;}
+
+	@Override
 	public void ImpostaCoordinate(LatLong l) {
 
 	}

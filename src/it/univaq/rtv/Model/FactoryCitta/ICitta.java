@@ -12,6 +12,8 @@ public interface ICitta {
 
 	public void setOccupata(boolean occupata);
 
+	public boolean getOccupata();
+
 	public void ImpostaCoordinate(LatLong l);
 
 	public void PosizionaGiocatore(FactorMezzo Mezzo, Giocatore g);

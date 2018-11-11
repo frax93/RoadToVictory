@@ -107,7 +107,6 @@ public class Giocatore implements Comparable<Giocatore>,Runnable {
 		mo=mo.getIstance1();
 		SingletonMazzoPercorso mp= new SingletonMazzoPercorso();
 		mp=mp.getIstance1();
-		this.ChiediCartaPercorso().getCittaPartenza();
 		mo.ReinserisciCarta(this.ChiediCartaObiettivo());
 		mp.ReinserisciCarta(this.ChiediCartaPercorso());
 	}

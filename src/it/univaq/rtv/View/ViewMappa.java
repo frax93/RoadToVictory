@@ -93,7 +93,7 @@ public class ViewMappa {
                     map.addMapShape(polyline[0]);
                     giocatoreArrayList.get(a).setMezzo(1);
                     giocatoreArrayList.get(a).PosizionaMezzo(caselle.get(cont));
-                    giocatoreArrayList.get(a).setMossa(pe.CalcolaCaselleVicine(caselle.get(cont)));
+                    giocatoreArrayList.get(a).setMossa(pe.CalcolaCasellaVicina(caselle.get(cont)));
                     ArrayList<Percorso> percorsi_vicini = new ArrayList<>();
                     if (Utility.EqualsIdCasella(caselle.get(cont),mappa.getPercorsoByCasella(caselle.get(cont)).getCasellaPartenza())){
                         percorsi_vicini = mappa.getViciniPercorsoPartenza(mappa.getPercorsoByCasella(caselle.get(cont)));}
