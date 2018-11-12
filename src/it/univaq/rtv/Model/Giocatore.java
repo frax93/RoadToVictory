@@ -73,11 +73,9 @@ public class Giocatore implements Comparable<Giocatore>,Runnable {
 	}
 
 	public int LanciaDado() {
-		SingletonDado dado=new SingletonDado();
-		dado=dado.getIstance();
-		return dado.Lancia();
-
+		return SingletonDado.getIstance().Lancia();
 	}
+
 	public void setMezzo(int taglia){
 		this.IMezzo =new ArrayList<IMezzo>();
 		FactorMezzo factorymezzo=new FactorMezzo();

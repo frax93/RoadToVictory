@@ -19,11 +19,9 @@ public class Iniziale implements IState_Turno {
 	public ArrayList<Giocatore> InizioTurno(ArrayList<Giocatore> g, String nomeMappa, Turno t, IStato_Giocatore gioca)throws FileNotFoundException,IOException{
 
 		this.mappa= FactorMappa.getMappa(nomeMappa);
-		SingletonMazzoPercorso m1=new SingletonMazzoPercorso();
-		m1=m1.getIstance(mappa.DammiPercorsi());
-		SingletonMazzoObiettivo m2 = new SingletonMazzoObiettivo();
+		SingletonMazzoPercorso.getIstance(mappa.DammiPercorsi());
+		SingletonMazzoObiettivo.getIstance(mappa.getCitta());
 		ArrayList<String> CittaUsate= new ArrayList<>();
-		m2=m2.getIstance(mappa.getCitta());
 		for(int i=0;i<g.size();i++){
 			g.get(i).PescaDueCarte();
 			for(int c=0;c<CittaUsate.size();c++){

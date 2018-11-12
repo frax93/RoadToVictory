@@ -73,9 +73,6 @@ public class ControllerRoadToVictory  implements Initializable, MapComponentInit
     @Override
     public void initialize(URL url, ResourceBundle rb){
         //googleMapView.addMapInializedListener(this);
-
-
-
     }
     @Override
     public void mapInitialized(){
