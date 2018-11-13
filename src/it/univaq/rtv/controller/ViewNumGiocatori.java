@@ -1,6 +1,5 @@
-package it.univaq.rtv.View;
+package it.univaq.rtv.controller;
 
-import com.sun.deploy.uitoolkit.impl.awt.AWTFrameWindow;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;

@@ -2,12 +2,13 @@ package it.univaq.rtv.Model;
 
 import it.univaq.rtv.Model.FactoryCitta.ICitta;
 
-public class CartaObiettivo extends Carta {
+public class CartaObiettivo{
 
 	private ICitta CittaObiettivo;
+	private int id;
 
         public CartaObiettivo(int id1, ICitta CittaObiettivo) {
-            super(id1);
+            this.id=id1;
             this.CittaObiettivo=CittaObiettivo;
             
         }

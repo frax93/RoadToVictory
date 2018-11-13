@@ -14,17 +14,13 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * Created by micheletaranta on 18/10/18.
- */
+
 public class Europa extends AbstractMappa {
 
     public Europa() throws IOException {
         this.nome="Europa";
         ArrayList<ICitta> c = this.CreaMappa();
         Percorso p;
-        /*for(int i=0;i<c.size();i++)
-            System.out.println("C: "+c.get(i).getNome());*/
         p=new Percorso(1,c.get(13),c.get(11));
         this.AddPercorso(p);
         p=new Percorso(3,c.get(3),c.get(12));
@@ -106,7 +102,7 @@ public class Europa extends AbstractMappa {
             com.google.gson.JsonParser jsonParser = new com.google.gson.JsonParser();
             JsonArray object = (JsonArray) jsonParser.parse(fw);
             LatLong l = null;
-            for (int i = 0; i < object.size(); i++) {
+            for (int i = 0; i < object.size(); i++)
                 if (object.get(i) != null) {
                     double latitude = object.get(i).getAsJsonObject().get("latitude").getAsDouble();
                     double longitude = object.get(i).getAsJsonObject().get("longitude").getAsDouble();
@@ -114,14 +110,12 @@ public class Europa extends AbstractMappa {
                     maplat.put(object.get(i).getAsJsonObject().get("variableName").toString(), l);
                 }
 
-            }
 
-            //Costruzione dei percorsi della mappa DA SPOSTARE IN FUTURO
             for (Map.Entry entry : maplat.entrySet()){
                 String nome = (String) entry.getKey();
                 String[] nome1 = nome.split(",");
                 //Logica di implementazione delle città Oscure e Rifornimento oltre quelle Normali
-                ICitta p = FCitta.getCitta("Normale",(String) nome1[0].replace("\"",""));
+                ICitta p = FactorCitta.getCitta("Normale",(String) nome1[0].replace("\"",""));
                 p.ImpostaCoordinate((LatLong) entry.getValue());
                 c1.add(p);
             }
@@ -133,27 +127,7 @@ public class Europa extends AbstractMappa {
     }
 
 
-    @Override
-    public LatLong CalcolaCentro(){
-        ArrayList<ICitta> cittas=new ArrayList<ICitta>();
-        cittas=this.getCitta();
 
-        LatLong l=null;
-        double inizioLat=cittas.get(0).getCoordinate().getLatitude();
-        double inizioLong=cittas.get(0).getCoordinate().getLongitude();
-        double lat_min=inizioLat,lat_max=inizioLat,long_min=inizioLong, long_max=inizioLong, lat, longi;
-
-        for (int i=1; i<cittas.size();i++){
-            if(cittas.get(i).getCoordinate().getLatitude()>lat_max) lat_max=cittas.get(i).getCoordinate().getLatitude();
-            if(cittas.get(i).getCoordinate().getLatitude()<lat_min) lat_min=cittas.get(i).getCoordinate().getLatitude();
-            if(cittas.get(i).getCoordinate().getLongitude()>long_max) long_max=cittas.get(i).getCoordinate().getLongitude();
-            if(cittas.get(i).getCoordinate().getLongitude()<long_min) long_min=cittas.get(i).getCoordinate().getLongitude();
-        }
-        lat=(lat_max+lat_min)/2;
-        longi=(long_max+long_min)/2;
-        l=new LatLong(lat,longi);
-        return l;
-    }
 
 
 }

@@ -1,4 +1,4 @@
-package it.univaq.rtv.Controller;
+package it.univaq.rtv.dispatcher;
 
 import com.lynden.gmapsfx.GoogleMapView;
 import com.lynden.gmapsfx.MapComponentInitializedListener;
@@ -10,10 +10,10 @@ import it.univaq.rtv.Model.StatoGiocatore.Vincente;
 import it.univaq.rtv.Model.StatoTurno.Generale;
 import it.univaq.rtv.Model.FacadePartita;
 import it.univaq.rtv.Utility.Utility;
-import it.univaq.rtv.View.ViewDado;
-import it.univaq.rtv.View.ViewMappa;
-import it.univaq.rtv.View.ViewNumGiocatori;
-import it.univaq.rtv.View.ViewSceltaMappa;
+import it.univaq.rtv.controller.ViewDado;
+import it.univaq.rtv.controller.ViewMappa;
+import it.univaq.rtv.controller.ViewNumGiocatori;
+import it.univaq.rtv.controller.ViewSceltaMappa;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -22,6 +22,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Timestamp;
 import java.util.ArrayList;
@@ -65,7 +66,6 @@ public class ControllerRoadToVictory  implements Initializable, MapComponentInit
     private Generale general;
     private Gioca gioca=new Gioca();
     private Vincente vince= new Vincente();
-    //private ArrayList<Casella> Stato_attuale = new ArrayList<>();
     private ViewNumGiocatori ngioc;
     private ViewSceltaMappa scmapp;
     private String Numero="";
@@ -74,9 +74,6 @@ public class ControllerRoadToVictory  implements Initializable, MapComponentInit
     @Override
     public void initialize(URL url, ResourceBundle rb){
         //googleMapView.addMapInializedListener(this);
-
-
-
     }
     @Override
     public void mapInitialized(){
@@ -87,8 +84,15 @@ public class ControllerRoadToVictory  implements Initializable, MapComponentInit
             }
         }
         if(this.nomemappa!=""){
+            this.viewMappa=new ViewMappa(googleMapView, CartaObiettivo, CartaPercorsoPartenza,CartaPercorsoArrivo,GiocatoreName,TurnoButton,NumeroMezzo,FinePartita);
 
-            p.AvviaPartita(nomemappa,googleMapView,this.Giocatori, CartaObiettivo, CartaPercorsoPartenza,  CartaPercorsoArrivo,  GiocatoreName,  TurnoButton, NumeroMezzo, FinePartita );
+            try {
+                this.viewMappa.Creamappa(this.Giocatori,p.AvviaPartita(nomemappa,this.Giocatori),this.p);
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
         }
 
     }
@@ -112,7 +116,8 @@ public class ControllerRoadToVictory  implements Initializable, MapComponentInit
     @FXML
     public void LanciaDado(final ActionEvent event){
         event.consume();
-        p.LanciaDado(dadoButton, NumeroMezzo,NumberDado,DadoImage, this.Giocatori);
+        this.viewDado =new ViewDado(dadoButton, NumeroMezzo,NumberDado,DadoImage,p.LanciaDado(this.Giocatori));
+
 
     }
 

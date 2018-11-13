@@ -5,19 +5,19 @@ package it.univaq.rtv.Model.StatoTurno;
 
 import it.univaq.rtv.Model.Giocatore;
 import it.univaq.rtv.Model.StatoGiocatore.Attesa;
-import it.univaq.rtv.Model.StatoGiocatore.Stato_Giocatore;
+import it.univaq.rtv.Model.StatoGiocatore.IStato_Giocatore;
 import it.univaq.rtv.Model.Turno;
 
 import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class Generale extends Thread implements State_Turno {
+public class Generale extends Thread implements IState_Turno {
 	private Giocatore giocatore;
 
 
 	@Override
-	public ArrayList<Giocatore> InizioTurno(ArrayList<Giocatore> g, String NomeMappa, Turno t, Stato_Giocatore gioca) throws Exception {
+	public ArrayList<Giocatore> InizioTurno(ArrayList<Giocatore> g, String NomeMappa, Turno t, IStato_Giocatore gioca) throws Exception {
 		Timer timer = new Timer();
 		TimerTask task = new TimerTask()
 		{

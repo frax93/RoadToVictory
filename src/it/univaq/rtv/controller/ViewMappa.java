@@ -1,10 +1,10 @@
-package it.univaq.rtv.View;
+package it.univaq.rtv.controller;
 
 import it.univaq.rtv.Model.FacadePartita;
 
 import it.univaq.rtv.Model.*;
 import it.univaq.rtv.Model.FactoryMappa.AbstractMappa;
-import it.univaq.rtv.Model.FactoryMezzo.Mezzo;
+import it.univaq.rtv.Model.FactoryMezzo.IMezzo;
 import it.univaq.rtv.Utility.Utility;
 import com.lynden.gmapsfx.GoogleMapView;
 import com.lynden.gmapsfx.javascript.event.UIEventType;
@@ -93,7 +93,7 @@ public class ViewMappa {
                     map.addMapShape(polyline[0]);
                     giocatoreArrayList.get(a).setMezzo(1);
                     giocatoreArrayList.get(a).PosizionaMezzo(caselle.get(cont));
-                    giocatoreArrayList.get(a).setMossa(pe.CalcolaCaselleVicine(caselle.get(cont)));
+                    giocatoreArrayList.get(a).setMossa(pe.CalcolaCasellaVicina(caselle.get(cont)));
                     ArrayList<Percorso> percorsi_vicini = new ArrayList<>();
                     if (Utility.EqualsIdCasella(caselle.get(cont),mappa.getPercorsoByCasella(caselle.get(cont)).getCasellaPartenza())){
                         percorsi_vicini = mappa.getViciniPercorsoPartenza(mappa.getPercorsoByCasella(caselle.get(cont)));}
@@ -137,7 +137,8 @@ public class ViewMappa {
             Polyline finalPolyline1 = finalPolyline;
             map.addUIEventHandler(polyline[0], UIEventType.click, (JSObject obj) -> {
                 try{
-                    p.PosizionaMezzo(finalPolyline1, pippo,finalI,caselle);
+                    this.setGiocatoreName(giocatoreArrayList.get(0));
+                    this.PosizionaMezzo(p.PosizionaMezzo(finalPolyline1, pippo,finalI,caselle).size(),finalPolyline1,pippo,p.PosizionaMezzo(finalPolyline1, pippo,finalI,caselle));
                 }
                 catch (Exception f){
                     f.printStackTrace();
@@ -197,9 +198,9 @@ public class ViewMappa {
 
                 LatLong coorPartenza = mappa.getCitta().get(j).getCoordinate();
                 if (mappa.getCitta().get(j).getNome().equals(c.getCittaPartenza().getNome())) {
-                    FMezzo fMezzo=new FMezzo();
-                    Mezzo mezGioc1= fMezzo.getMezzo("Vagone",giocatores.get(i));
-                    mappa.getCitta().get(j).setMezzo(mezGioc1);
+                    FactorMezzo factorMezzo =new FactorMezzo();
+                    IMezzo mezGioc1= factorMezzo.getMezzo("Vagone",giocatores.get(i));
+                    mappa.getCitta().get(j).setIMezzo(mezGioc1);
                     c.getCittaPartenza().setOccupata(true);
                     MarkerOptions MarkerPartenza = new MarkerOptions();
                     if(giocatores.get(i).getColor()=="aqua")  MarkerPartenza.icon("http://oi63.tinypic.com/iqh2mx.jpg");

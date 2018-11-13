@@ -1,12 +1,12 @@
 package it.univaq.rtv.Model;
-import it.univaq.rtv.Model.FactoryMezzo.Mezzo;
 import com.lynden.gmapsfx.javascript.object.LatLong;
+import it.univaq.rtv.Model.FactoryMezzo.IMezzo;
 
 public class Casella {
     
         private boolean occupata;
         private int id;
-        private Mezzo m=null;
+        private IMezzo m=null;
         private LatLong inizio;
         private LatLong fine;
 	
@@ -27,9 +27,9 @@ public class Casella {
     }
 
     public void PosizionaGiocatore(Giocatore g){
-            this.m=(Mezzo)g.getMezzo().get(g.getMezzo().size()-1);
+            this.m=(IMezzo)g.getMezzo().get(g.getMezzo().size()-1);
 
-            this.occupata=true;
+            this.setOccupata(true);
         }
     public void ImpostaCoordinate(LatLong i,LatLong f){
 	    this.inizio=i;

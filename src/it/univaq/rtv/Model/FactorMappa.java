@@ -5,7 +5,7 @@ import it.univaq.rtv.Model.FactoryMappa.*;
 import java.io.IOException;
 import java.lang.String;
 
-public class FMappa{
+public class FactorMappa {
 
 	public static AbstractMappa getMappa(String criteria ) throws IOException{
 		if ( criteria.equals("Europa") )

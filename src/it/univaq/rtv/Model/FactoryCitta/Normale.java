@@ -1,15 +1,15 @@
 package it.univaq.rtv.Model.FactoryCitta;
 
-import it.univaq.rtv.Model.FMezzo;
+import it.univaq.rtv.Model.FactorMezzo;
 import it.univaq.rtv.Model.Giocatore;
-import it.univaq.rtv.Model.FactoryMezzo.Mezzo;
+import it.univaq.rtv.Model.FactoryMezzo.IMezzo;
 import com.lynden.gmapsfx.javascript.object.LatLong;
 
 public class Normale implements ICitta {
     private String Nome;
     private LatLong coordinate;
     private boolean occupata;
-    private Mezzo mezzo=null;
+    private IMezzo IMezzo =null;
     public Normale() {
         this.Nome="";
         this.coordinate=null;
@@ -30,32 +30,25 @@ public class Normale implements ICitta {
         this.occupata = occupata;
     }
     @Override
-    public boolean getOccupata(){
-        return this.occupata;
-    }
+    public boolean getOccupata(){return this.occupata;}
     @Override
     public void ImpostaCoordinate(LatLong l){
         this.coordinate=l;
     }
     @Override
-    public void PosizionaGiocatore(FMezzo Mezzo, Giocatore g) {
-        this.mezzo=Mezzo.getMezzo("Vagone", g);
+    public void PosizionaGiocatore(FactorMezzo Mezzo, Giocatore g) {
+        this.IMezzo =Mezzo.getMezzo("Vagone", g);
     }
     @Override
-    public Mezzo getMezzo(){
-        return this.mezzo;
-    }
-    @Override
-    public boolean CheckOccupata() {
-        if(this.mezzo==null) return false;
-        else return true;
+    public IMezzo getIMezzo(){
+        return this.IMezzo;
     }
     @Override
     public LatLong getCoordinate() {
         return coordinate;
     }
     @Override
-    public void setMezzo(Mezzo mezzo) {
-        this.mezzo = mezzo;
+    public void setIMezzo(IMezzo IMezzo) {
+        this.IMezzo = IMezzo;
     }
 }

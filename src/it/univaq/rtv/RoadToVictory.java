@@ -19,13 +19,6 @@ import java.io.IOException;
 
 
 //Importante per realizzazione CUBO 3D
-import javafx.scene.shape.*;
-import javafx.scene.paint.*;
-import javafx.scene.paint.Color;
-import javafx.scene.transform.*;
-import javafx.animation.*;
-import javafx.util.*;
-import javafx.scene.*;
 
 import java.lang.*;
 
@@ -40,11 +33,11 @@ public class RoadToVictory extends Application{
     @Override
     public void start(Stage stage) throws Exception, FileNotFoundException,IOException {
 
-        Parent root = FXMLLoader.load(getClass().getResource("Scene.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("view/Scene.fxml"));
         Scene scene = new Scene(root);
         GoogleMapView googleMapView = (GoogleMapView)  scene.lookup("#googleMapView");
         googleMapView.autosize();
-        scene.getStylesheets().add("Styles.css");
+        scene.getStylesheets().add("it/univaq/rtv/view/Styles.css");
         stage.setTitle("Road To Victory");
         stage.setScene(scene);
         stage.show();

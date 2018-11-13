@@ -1,8 +1,8 @@
 package it.univaq.rtv.Model.FactoryCitta;
 
-import it.univaq.rtv.Model.FMezzo;
+import it.univaq.rtv.Model.FactorMezzo;
 import it.univaq.rtv.Model.Giocatore;
-import it.univaq.rtv.Model.FactoryMezzo.Mezzo;
+import it.univaq.rtv.Model.FactoryMezzo.IMezzo;
 import com.lynden.gmapsfx.javascript.object.LatLong;
 
 
@@ -16,13 +16,11 @@ public interface ICitta {
 
 	public void ImpostaCoordinate(LatLong l);
 
-	public void PosizionaGiocatore(FMezzo Mezzo, Giocatore g);
-	public Mezzo getMezzo();
+	public void PosizionaGiocatore(FactorMezzo Mezzo, Giocatore g);
 
-	public boolean CheckOccupata();
+	public IMezzo getIMezzo();
 
 	public LatLong getCoordinate();
 
-
-	public void setMezzo(Mezzo mezzo);
+	public void setIMezzo(IMezzo IMezzo);
 }

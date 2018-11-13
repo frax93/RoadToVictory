@@ -3,7 +3,7 @@ package it.univaq.rtv.Model.FactoryMezzo;
 
 import it.univaq.rtv.Model.Giocatore;
 
-public class Nave implements Mezzo {
+public class Nave implements IMezzo {
 
         public Nave(Giocatore giocatore) {
             //super(id);

@@ -1,31 +1,21 @@
 package it.univaq.rtv.Model.FactoryMappa;
 
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.google.gson.JsonArray;
 import it.univaq.rtv.Model.*;
 import it.univaq.rtv.Model.FactoryCitta.ICitta;
 import com.lynden.gmapsfx.javascript.object.LatLong;
 import it.univaq.rtv.Model.FactoryMezzo.Vagone;
 import it.univaq.rtv.Utility.Utility;
 
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Map;
 
-/**
- * Created by micheletaranta on 18/10/18.
- */
+
 public abstract class AbstractMappa {
     protected String nome;
     protected ArrayList<Percorso> p=new ArrayList<Percorso>();
     protected abstract ArrayList<ICitta> CreaMappa() throws IOException;
-    //Funzione che calcola il centro della mappa, che viene utilizzato per posizionare la mappa in modo giusto
-    public abstract LatLong CalcolaCentro();
 
 
     public String getNome() {
@@ -45,15 +35,6 @@ public abstract class AbstractMappa {
 
     }
 
-    public boolean CheckPercorsiVicini(Percorso p1, Percorso p2) {
-        if( p1.getCittapartenza().getNome().equals(p2.getCittapartenza().getNome()) ||
-                p1.getCittapartenza().getNome().equals(p2.getCittaArrivo().getNome()) ||
-                p1.getCittaArrivo().getNome().equals(p2.getCittaArrivo().getNome()) ||
-                p1.getCittaArrivo().getNome().equals(p2.getCittapartenza().getNome()))
-            return true;
-        else
-            return false;
-    }
 
     /**
      *
@@ -62,7 +43,7 @@ public abstract class AbstractMappa {
     public void PopolaMappa(ArrayList<Giocatore> giocatores) {
         for(int i=0; i<giocatores.size();i++){
             Giocatore g=giocatores.get(i);
-            FMezzo factory= new FMezzo();
+            FactorMezzo factory= new FactorMezzo();
             Vagone v=(Vagone) factory.getMezzo("Vagone", g);
             CartaPercorso c1=g.ChiediCartaPercorso();
             for(int j=0;j<this.p.size();j++){
@@ -88,22 +69,6 @@ public abstract class AbstractMappa {
 
     }
 
-    public ArrayList<Percorso> getViciniPercorso(Percorso percorso){
-        ArrayList<Percorso> percorsos=new ArrayList<>();
-        for (int a = 0; a < this.DammiPercorsi().size(); a++) {
-            Percorso per1 = this.DammiPercorsi().get(a);
-            if ( percorso.getCittapartenza().getNome().equals(per1.getCittapartenza().getNome())
-                    ||percorso.getCittapartenza().getNome().equals(per1.getCittaArrivo().getNome())
-                    ||percorso.getCittaArrivo().getNome().equals(per1.getCittaArrivo().getNome())
-                    ||percorso.getCittaArrivo().getNome().equals(per1.getCittapartenza().getNome())
-            ){
-                percorsos.add(per1);
-
-            }
-
-        }
-        return percorsos;
-    }
 
     public ArrayList<Percorso> getViciniPercorsoPartenza(Percorso percorso){
         ArrayList<Percorso> percorsos=new ArrayList<>();
@@ -197,6 +162,26 @@ public abstract class AbstractMappa {
         }
         return percorso_no_s;
 
+    }
+    public LatLong CalcolaCentro(){
+        ArrayList<ICitta> cittas=new ArrayList<ICitta>();
+        cittas=this.getCitta();
+
+        LatLong l=null;
+        double inizioLat=cittas.get(0).getCoordinate().getLatitude();
+        double inizioLong=cittas.get(0).getCoordinate().getLongitude();
+        double lat_min=inizioLat,lat_max=inizioLat,long_min=inizioLong, long_max=inizioLong, lat, longi;
+
+        for (int i=1; i<cittas.size();i++){
+            if(cittas.get(i).getCoordinate().getLatitude()>lat_max) lat_max=cittas.get(i).getCoordinate().getLatitude();
+            if(cittas.get(i).getCoordinate().getLatitude()<lat_min) lat_min=cittas.get(i).getCoordinate().getLatitude();
+            if(cittas.get(i).getCoordinate().getLongitude()>long_max) long_max=cittas.get(i).getCoordinate().getLongitude();
+            if(cittas.get(i).getCoordinate().getLongitude()<long_min) long_min=cittas.get(i).getCoordinate().getLongitude();
+        }
+        lat=(lat_max+lat_min)/2;
+        longi=(long_max+long_min)/2;
+        l=new LatLong(lat,longi);
+        return l;
     }
 
 

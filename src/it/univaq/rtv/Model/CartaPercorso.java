@@ -2,13 +2,13 @@ package it.univaq.rtv.Model;
 
 import it.univaq.rtv.Model.FactoryCitta.ICitta;
 
-public class CartaPercorso extends Carta {
+public class CartaPercorso{
 
 	private ICitta CittaPartenza;
 	private ICitta CittaArrivo;
 
-    public CartaPercorso(int id1, ICitta CittaPartenza, ICitta CittaArrivo) {
-        super(id1);
+    public CartaPercorso(ICitta CittaPartenza, ICitta CittaArrivo) {
+
         this.CittaPartenza=CittaPartenza;
         this.CittaArrivo=CittaArrivo;
     }

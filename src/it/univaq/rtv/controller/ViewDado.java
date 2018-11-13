@@ -1,4 +1,4 @@
-package it.univaq.rtv.View;
+package it.univaq.rtv.controller;
 
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
