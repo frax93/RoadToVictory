@@ -138,7 +138,7 @@ public class ViewMappa {
             map.addUIEventHandler(polyline[0], UIEventType.click, (JSObject obj) -> {
                 try{
                     this.setGiocatoreName(giocatoreArrayList.get(0));
-                    this.PosizionaMezzo(p.PosizionaMezzo(finalPolyline1, pippo,finalI,caselle).size(),finalPolyline1,pippo,p.PosizionaMezzo(finalPolyline1, pippo,finalI,caselle));
+                    this.PosizionaMezzo(finalPolyline1,pippo,p.PosizionaMezzo(finalPolyline1, pippo,finalI,caselle));
                 }
                 catch (Exception f){
                     f.printStackTrace();
@@ -154,8 +154,8 @@ public class ViewMappa {
 
 
 
-    public void PosizionaMezzo(int n,Polyline finalPolyline1, PolylineOptions pippo, ArrayList<Giocatore> giocatoreArrayList){
-                    giocatoreArrayList.get(0).setMezzo(n);
+    public void PosizionaMezzo(Polyline finalPolyline1, PolylineOptions pippo, ArrayList<Giocatore> giocatoreArrayList){
+                    //giocatoreArrayList.get(0).setMezzo(n);
                     if (giocatoreArrayList.get(0).getMezzi().size() > 0) {
                         this.NumeroMezzo.setText(String.valueOf(giocatoreArrayList.get(0).getMezzi().size()));
                         pippo.strokeColor(giocatoreArrayList.get(0).getColor());
