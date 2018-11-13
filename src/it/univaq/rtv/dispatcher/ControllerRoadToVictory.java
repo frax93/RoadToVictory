@@ -124,7 +124,13 @@ public class ControllerRoadToVictory  implements Initializable, MapComponentInit
     @FXML
     public void FineTurno(final ActionEvent event){
         event.consume();
-        p.FineTurno();
+        this.viewDado.setDadoButton();
+        this.Giocatori=p.FineTurno();
+        this.viewMappa.setCarte(this.Giocatori);
+        this.viewMappa.setObiettivo(this.Giocatori);
+        this.viewMappa.setArrivo(this.Giocatori);
+        this.viewMappa.setTurnoButton(false);
+        this.viewMappa.setGiocatoreName(this.Giocatori.get(0));
 
     }
 

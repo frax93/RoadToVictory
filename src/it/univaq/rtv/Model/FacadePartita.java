@@ -140,23 +140,22 @@ public class FacadePartita {
 
 
 
-    public void FineTurno() {
+    public ArrayList<Giocatore> FineTurno() {
             try{
                 Turno t = new Turno();
                 Giocatore giocatore_backup = this.Giocatori.get(0);
                 this.Giocatori.remove(giocatore_backup);
                 this.Giocatori.add(this.Giocatori.size(), giocatore_backup);
-                this.viewDado.setDadoButton();
+
                 this.general.InizioTurno(this.Giocatori, this.mappa.getNome(), t, this.gioca);
                 this.general.Fineturno(this.Giocatori.get(0));
-                this.viewMappa.setCarte(this.Giocatori);
-                this.viewMappa.setObiettivo(this.Giocatori);
-                this.viewMappa.setArrivo(this.Giocatori);
-                this.viewMappa.setTurnoButton(false);
-                this.viewMappa.setGiocatoreName(this.Giocatori.get(0));
+
             }
             catch (Exception e){
                 e.printStackTrace();
+            }
+            finally {
+                return this.Giocatori;
             }
 
 
