@@ -74,7 +74,7 @@ public class FacadePartita {
        return n;
     }
 
-    public ArrayList<Giocatore> PosizionaMezzo(Polyline finalPolyline1, PolylineOptions polylineOptions, int finalI, ArrayList<Casella> caselle) throws FileNotFoundException,IOException {
+    public boolean PosizionaMezzo(Polyline finalPolyline1, PolylineOptions polylineOptions, int finalI, ArrayList<Casella> caselle) throws FileNotFoundException,IOException {
             //this.viewMappa.setGiocatoreName(this.Giocatori.get(0));
             MVCArray path = finalPolyline1.getPath();
             polylineOptions.path(path);
@@ -111,7 +111,7 @@ public class FacadePartita {
                                         this.Giocatori.get(0).setMossa(PercorsoPremuto.CalcolaCasellaVicina(Casella_premuta));
                                         this.Giocatori.get(0).PosizionaMezzo(Casella_premuta);
                                         this.Giocatori.get(0).removeMossa(Casella_premuta);
-                                        break;
+                                        return true;
                                         /*this.viewMappa.PosizionaMezzo(this.Giocatori.get(0).getMezzi().size(), finalPolyline1, polylineOptions, this.Giocatori);
                                         if(Math.abs(Casella_premuta.getInizio().getLatitude()-this.Giocatori.get(0).ChiediCartaObiettivo().getCittaObiettivo().getCoordinate().getLatitude())<0.005){
                                             this.Giocatori.get(0).Obiettivoraggiunto();
@@ -134,7 +134,7 @@ public class FacadePartita {
                                     }
 
                                 }
-                return this.Giocatori;
+                return false;
 
     }
 

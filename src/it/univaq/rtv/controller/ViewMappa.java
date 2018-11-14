@@ -65,8 +65,6 @@ public class ViewMappa {
                 .scaleControl(false);
         this.map = this.googleMapView.createMap(mapOptions, false);
         this.setCarte(giocatoreArrayList);
-        //CartaObiettivo CartaObbGioc1 = giocatoreArrayList.get(0).ChiediCartaObiettivo();
-        //CartaPercorso CartaPercGioc1 = giocatoreArrayList.get(0).ChiediCartaPercorso();
 
         ArrayList<Percorso> percorsi = new ArrayList<>();
         percorsi = mappa.DammiPercorsi();
@@ -137,8 +135,11 @@ public class ViewMappa {
             Polyline finalPolyline1 = finalPolyline;
             map.addUIEventHandler(polyline[0], UIEventType.click, (JSObject obj) -> {
                 try{
-                    this.setGiocatoreName(giocatoreArrayList.get(0));
-                    this.PosizionaMezzo(finalPolyline1,pippo,p.PosizionaMezzo(finalPolyline1, pippo,finalI,caselle));
+                    if(p.PosizionaMezzo(finalPolyline1, pippo,finalI,caselle)){
+                        this.setGiocatoreName(giocatoreArrayList.get(0));
+                        this.PosizionaMezzo(finalPolyline1,pippo,giocatoreArrayList);
+                    }
+
                 }
                 catch (Exception f){
                     f.printStackTrace();
