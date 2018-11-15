@@ -52,7 +52,7 @@ public class ControllerRoadToVictory  implements Initializable, MapComponentInit
     public ControllerDado controllerDado;
     public ControllerFineTurno controllerFineTurno;
     private ControllerNumGiocatori ngioc;
-    private ViewSceltaMappa scmapp;
+    private ControllerSceltaMappa scmapp;
     private String Numero="";
     private Timestamp timestamp;
     @Override
@@ -85,7 +85,7 @@ public class ControllerRoadToVictory  implements Initializable, MapComponentInit
         int pos=this.nomemappa.indexOf("'");
         this.nomemappa=this.nomemappa.substring(0,pos);
         this.mapInitialized();
-        this.scmapp=new ViewSceltaMappa(SceltaMappa,Europa,USA,Africa,Sud_America,Asia,SceltaGiocatori,InizioPartita,menu,ScrittaGiocatori);
+        this.scmapp=new ControllerSceltaMappa(SceltaMappa,Europa,USA,Africa,Sud_America,Asia,SceltaGiocatori,InizioPartita,menu,ScrittaGiocatori);
     }
     @FXML
     private void Setgiocatore(final ActionEvent event){
