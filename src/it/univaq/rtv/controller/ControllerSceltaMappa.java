@@ -5,7 +5,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 
 
-public class ViewSceltaMappa {
+public class ControllerSceltaMappa {
     private Label SceltaMappa;
     private Button Europa;
     private Button USA;
@@ -21,7 +21,7 @@ public class ViewSceltaMappa {
 
 
 
-    public ViewSceltaMappa(Label SceltaMappa, Button Europa, Button USA,Button Africa,Button Sud_America, Button Asia,Label SceltaGiocatori,Label InizioPartita, AnchorPane menu, Label ScrittaGiocatori){
+    public ControllerSceltaMappa(Label SceltaMappa, Button Europa, Button USA, Button Africa, Button Sud_America, Button Asia, Label SceltaGiocatori, Label InizioPartita, AnchorPane menu, Label ScrittaGiocatori){
         this.SceltaMappa=SceltaMappa;
         this.SceltaGiocatori=SceltaGiocatori;
         this.Europa=Europa;
