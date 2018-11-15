@@ -21,7 +21,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class ViewMappa {
+public class ControllerMappa {
     @FXML
     private GoogleMapView googleMapView;
     private GoogleMap map;
@@ -33,7 +33,7 @@ public class ViewMappa {
     private Button TurnoButton;
     private Label NumeroMezzo;
 
-    public ViewMappa(GoogleMapView googleMapView, Label CartaObiettivo,Label CartapercorsoPartenza, Label CartapercorsoArrivo, Label GiocatoreName, Button TurnoButton,Label NumeroMezzo,Label FinePartita) {
+    public ControllerMappa(GoogleMapView googleMapView, Label CartaObiettivo, Label CartapercorsoPartenza, Label CartapercorsoArrivo, Label GiocatoreName, Button TurnoButton, Label NumeroMezzo, Label FinePartita) {
         this.googleMapView = googleMapView;
         this.GiocatoreName=GiocatoreName;
         this.CartaObiettivo=CartaObiettivo;
@@ -45,8 +45,9 @@ public class ViewMappa {
 
     }
 
-    public void Creamappa(ArrayList<Giocatore> giocatoreArrayList, AbstractMappa mappa, FacadePartita p) throws FileNotFoundException, IOException {
-        this.setGiocatoreName(giocatoreArrayList.get(0));
+    public void Creamappa(String nomemappa) throws FileNotFoundException, IOException {
+        AbstractMappa mappa = FacadePartita.getIstance().AvviaPartita(nomemappa,FacadePartita.getIstance().getGiocatori());
+        this.setGiocatoreName();
         final Polyline[] polyline = {null};
         MapOptions mapOptions = new MapOptions();
 
@@ -64,7 +65,7 @@ public class ViewMappa {
                 .rotateControl(false)
                 .scaleControl(false);
         this.map = this.googleMapView.createMap(mapOptions, false);
-        this.setCarte(giocatoreArrayList);
+        this.setCarte();
 
         ArrayList<Percorso> percorsi = new ArrayList<>();
         percorsi = mappa.DammiPercorsi();
@@ -72,13 +73,13 @@ public class ViewMappa {
 
 
         Percorso pe = null;
-        this.setMarker(giocatoreArrayList,mappa);
-        for(int a=0;a<giocatoreArrayList.size();a++){
+        this.setMarker(mappa);
+        for(int a=0;a<FacadePartita.getIstance().getGiocatori().size();a++){
             for (int j = 0; j < percorsi.size(); j++) {
                 pe = percorsi.get(j);
                 ArrayList<Casella> caselle = pe.getCaselle();
                 for (int cont = 0; cont < caselle.size(); cont++) {
-                    if (Utility.IsPartenza(giocatoreArrayList.get(a),caselle.get(cont))){
+                    if (Utility.IsPartenza(FacadePartita.getIstance().getGiocatori().get(a),caselle.get(cont))){
                         LatLong[] Prova1 = {caselle.get(cont).getInizio(), caselle.get(cont).getFine()};
                     PolylineOptions pippo1 = new PolylineOptions();
                     pippo1.path(new MVCArray(Prova1))
@@ -89,9 +90,9 @@ public class ViewMappa {
                             .visible(true);
                     polyline[0] = new Polyline(pippo1);
                     map.addMapShape(polyline[0]);
-                    giocatoreArrayList.get(a).setMezzo(1);
-                    giocatoreArrayList.get(a).PosizionaMezzo(caselle.get(cont));
-                    giocatoreArrayList.get(a).setMossa(pe.CalcolaCasellaVicina(caselle.get(cont)));
+                    FacadePartita.getIstance().getGiocatori().get(a).setMezzo(1);
+                    FacadePartita.getIstance().getGiocatori().get(a).PosizionaMezzo(caselle.get(cont));
+                    FacadePartita.getIstance().getGiocatori().get(a).setMossa(pe.CalcolaCasellaVicina(caselle.get(cont)));
                     ArrayList<Percorso> percorsi_vicini = new ArrayList<>();
                     if (Utility.EqualsIdCasella(caselle.get(cont),mappa.getPercorsoByCasella(caselle.get(cont)).getCasellaPartenza())){
                         percorsi_vicini = mappa.getViciniPercorsoPartenza(mappa.getPercorsoByCasella(caselle.get(cont)));}
@@ -103,7 +104,7 @@ public class ViewMappa {
                     else {
                         ArrayList<Casella> casellaArrayList = mappa.getCaselleVicinePercorsi(percorsi_vicini, caselle.get(cont));
                         casellaArrayList.remove(null);
-                        giocatoreArrayList.get(a).setMosse(casellaArrayList);
+                        FacadePartita.getIstance().getGiocatori().get(a).setMosse(casellaArrayList);
                     }
 
 
@@ -135,9 +136,9 @@ public class ViewMappa {
             Polyline finalPolyline1 = finalPolyline;
             map.addUIEventHandler(polyline[0], UIEventType.click, (JSObject obj) -> {
                 try{
-                    if(p.PosizionaMezzo(finalPolyline1, pippo,finalI,caselle)){
-                        this.setGiocatoreName(giocatoreArrayList.get(0));
-                        this.PosizionaMezzo(finalPolyline1,pippo,giocatoreArrayList);
+                    if(FacadePartita.getIstance().PosizionaMezzo(finalPolyline1, pippo,finalI,caselle)){
+                        this.setGiocatoreName();
+                        this.PosizionaMezzo(finalPolyline1,pippo);
                     }
 
                 }
@@ -155,18 +156,17 @@ public class ViewMappa {
 
 
 
-    public void PosizionaMezzo(Polyline finalPolyline1, PolylineOptions pippo, ArrayList<Giocatore> giocatoreArrayList){
-                    //giocatoreArrayList.get(0).setMezzo(n);
-                    if (giocatoreArrayList.get(0).getMezzi().size() > 0) {
-                        this.NumeroMezzo.setText(String.valueOf(giocatoreArrayList.get(0).getMezzi().size()));
-                        pippo.strokeColor(giocatoreArrayList.get(0).getColor());
+    public void PosizionaMezzo(Polyline finalPolyline1, PolylineOptions pippo){
+                    if (FacadePartita.getIstance().getGiocatori().get(0).getMezzi().size() > 0) {
+                        this.NumeroMezzo.setText(String.valueOf(FacadePartita.getIstance().getGiocatori().get(0).getMezzi().size()));
+                        pippo.strokeColor(FacadePartita.getIstance().getGiocatori().get(0).getColor());
                         finalPolyline1.setVisible(false);
                         Polyline polyline1 = new Polyline(pippo);
                         map.addMapShape(polyline1);
                     }
-                    else if (giocatoreArrayList.get(0).getMezzi().size() == 0) {
+                    else if (FacadePartita.getIstance().getGiocatori().get(0).getMezzi().size() == 0) {
                         this.NumeroMezzo.setText(String.valueOf(0));
-                        pippo.strokeColor(giocatoreArrayList.get(0).getColor());
+                        pippo.strokeColor(FacadePartita.getIstance().getGiocatori().get(0).getColor());
                         finalPolyline1.setVisible(false);
                         Polyline polyline1 = new Polyline(pippo);
                         this.map.addMapShape(polyline1);
@@ -176,13 +176,11 @@ public class ViewMappa {
     }
 
 
-    public void setTurnoButton(Boolean button){
-         this.TurnoButton.setVisible(button);
-    }
 
-    public void setCarte(ArrayList<Giocatore> giocatoreArrayList){
-        it.univaq.rtv.Model.CartaObiettivo CartaObbGioc1 = giocatoreArrayList.get(0).ChiediCartaObiettivo();
-        CartaPercorso CartaPercGioc1 = giocatoreArrayList.get(0).ChiediCartaPercorso();
+
+    public void setCarte(){
+        it.univaq.rtv.Model.CartaObiettivo CartaObbGioc1 = FacadePartita.getIstance().getGiocatori().get(0).ChiediCartaObiettivo();
+        CartaPercorso CartaPercGioc1 = FacadePartita.getIstance().getGiocatori().get(0).ChiediCartaPercorso();
 
         this.CartaObiettivo.setText("Città obiettivo: " + CartaObbGioc1.getCittaObiettivo().getNome());
         this.CartaPercorsoPartenza.setText("Partenza:" + CartaPercGioc1.getCittaPartenza().getNome());
@@ -191,29 +189,29 @@ public class ViewMappa {
 
 
 
-    public void setMarker(ArrayList<Giocatore> giocatores, AbstractMappa mappa){
+    public void setMarker(AbstractMappa mappa){
         ArrayList<Marker> markers= new ArrayList<>();
-        for(int i=0; i<giocatores.size();i++){
-            CartaPercorso c= giocatores.get(i).ChiediCartaPercorso();
+        for(int i=0; i<FacadePartita.getIstance().getGiocatori().size();i++){
+            CartaPercorso c= FacadePartita.getIstance().getGiocatori().get(i).ChiediCartaPercorso();
             for (int j = 0; j < mappa.getCitta().size(); j++) {
 
                 LatLong coorPartenza = mappa.getCitta().get(j).getCoordinate();
                 if (mappa.getCitta().get(j).getNome().equals(c.getCittaPartenza().getNome())) {
                     FactorMezzo factorMezzo =new FactorMezzo();
-                    IMezzo mezGioc1= factorMezzo.getMezzo("Vagone",giocatores.get(i));
+                    IMezzo mezGioc1= factorMezzo.getMezzo("Vagone",FacadePartita.getIstance().getGiocatori().get(i));
                     mappa.getCitta().get(j).setIMezzo(mezGioc1);
                     c.getCittaPartenza().setOccupata(true);
                     MarkerOptions MarkerPartenza = new MarkerOptions();
-                    if(giocatores.get(i).getColor()=="aqua")  MarkerPartenza.icon("http://oi63.tinypic.com/iqh2mx.jpg");
-                    if(giocatores.get(i).getColor()=="red")  MarkerPartenza.icon("http://oi64.tinypic.com/wan96r.jpg");
-                    if(giocatores.get(i).getColor()=="orange")  MarkerPartenza.icon("http://oi64.tinypic.com/331lhly.jpg");
-                    if(giocatores.get(i).getColor()=="pink")  MarkerPartenza.icon("http://oi66.tinypic.com/20k831c.jpg");
-                    if(giocatores.get(i).getColor()=="white")  MarkerPartenza.icon("http://oi64.tinypic.com/6tiflx.jpg");
-                    if(giocatores.get(i).getColor()=="teal")  MarkerPartenza.icon("http://oi64.tinypic.com/othy13.jpg");
+                    if(FacadePartita.getIstance().getGiocatori().get(i).getColor()=="aqua")  MarkerPartenza.icon("http://oi63.tinypic.com/iqh2mx.jpg");
+                    if(FacadePartita.getIstance().getGiocatori().get(i).getColor()=="red")  MarkerPartenza.icon("http://oi64.tinypic.com/wan96r.jpg");
+                    if(FacadePartita.getIstance().getGiocatori().get(i).getColor()=="orange")  MarkerPartenza.icon("http://oi64.tinypic.com/331lhly.jpg");
+                    if(FacadePartita.getIstance().getGiocatori().get(i).getColor()=="pink")  MarkerPartenza.icon("http://oi66.tinypic.com/20k831c.jpg");
+                    if(FacadePartita.getIstance().getGiocatori().get(i).getColor()=="white")  MarkerPartenza.icon("http://oi64.tinypic.com/6tiflx.jpg");
+                    if(FacadePartita.getIstance().getGiocatori().get(i).getColor()=="teal")  MarkerPartenza.icon("http://oi64.tinypic.com/othy13.jpg");
                     MarkerPartenza.position(coorPartenza);
                     MarkerPartenza.visible(Boolean.TRUE);
-                    String nome_giocatore=giocatores.get(i).getUsername().substring(0,1);
-                    MarkerPartenza.label(nome_giocatore.concat(giocatores.get(i).getUsername().substring(giocatores.get(i).getUsername().length()-1)));
+                    String nome_giocatore=FacadePartita.getIstance().getGiocatori().get(i).getUsername().substring(0,1);
+                    MarkerPartenza.label(nome_giocatore.concat(FacadePartita.getIstance().getGiocatori().get(i).getUsername().substring(FacadePartita.getIstance().getGiocatori().get(i).getUsername().length()-1)));
                     Marker m1 = new Marker(MarkerPartenza);
                     markers.add(m1);
                     map.addMarkers(markers);
@@ -223,17 +221,17 @@ public class ViewMappa {
         }
     }
 
-    public void setGiocatoreName(Giocatore g){
-        this.GiocatoreName.setText(g.getUsername());
-        String color= Utility.ColorToRgba(g.getColor());
+    public void setGiocatoreName(){
+        this.GiocatoreName.setText(FacadePartita.getIstance().getGiocatori().get(0).getUsername());
+        String color= Utility.ColorToRgba(FacadePartita.getIstance().getGiocatori().get(0).getColor());
         String style = "-fx-background-color:"+color;
         this.GiocatoreName.setStyle(style);
        // this.GiocatoreName.setTextFill(Color.web(g.getColor()));
 
     }
 
-    public void setObiettivo(ArrayList<Giocatore> giocatoreArrayList){
-        if(giocatoreArrayList.get(0).getObiettivo()==true) {
+    public void setObiettivo(){
+        if(FacadePartita.getIstance().getGiocatori().get(0).getObiettivo()==true) {
             //this.CartaObiettivo.setTextFill(Color.web("green"));   Per settare testo della label
            // this.CartaObiettivo.setBackground(Background.EMPTY);   Nel caso si voglia riportare il background invisibile, alla mossa successiva
             String style = "-fx-background-color:" + Utility.ColorToRgba("green");
@@ -248,8 +246,8 @@ public class ViewMappa {
     }
 
 
-    public void setArrivo(ArrayList<Giocatore> giocatoreArrayList){
-        if(giocatoreArrayList.get(0).getArrivo()==true) {
+    public void setArrivo(){
+        if(FacadePartita.getIstance().getGiocatori().get(0).getArrivo()==true) {
             String style = "-fx-background-color:" +Utility.ColorToRgba("green");
             this.CartaPercorsoArrivo.setStyle(style);
         }
@@ -267,6 +265,16 @@ public class ViewMappa {
         String color= Utility.ColorToRgba(g.getColor());
         String style = "-fx-background-color:"+ color;
         this.FinePartita.setStyle(style);
+    }
+
+    //Queste 2 funzioni andranno nel controller FINETURNO
+    public void FinisciTurno(){
+        System.out.println("Sei in finisci turno");
+        FacadePartita.getIstance().setGiocatori(FacadePartita.getIstance().FineTurno());
+
+    }
+    public void setTurnoButton(Boolean button){
+        this.TurnoButton.setVisible(button);
     }
 }
 

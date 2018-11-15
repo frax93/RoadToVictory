@@ -1,23 +1,27 @@
 package it.univaq.rtv.controller;
 
+import it.univaq.rtv.Model.Giocatore;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import it.univaq.rtv.Model.FacadePartita;
 
-public class ViewDado {
+import java.util.ArrayList;
+
+public class ControllerDado {
     private Button dadoButton;
     private Label NumeroMezzo;
     private Label NumberDado;
     boolean Primo = true;
     public ImageView DadoImage;
 
-    public ViewDado(Button dadoButton, Label NumeroMezzo, Label NumberDado, ImageView DadoImage, int NumeroMezzi){
+    public ControllerDado(Button dadoButton, Label NumeroMezzo, Label NumberDado, ImageView DadoImage){
         this.dadoButton=dadoButton;
         this.NumeroMezzo=NumeroMezzo;
         this.NumberDado=NumberDado;
         this.DadoImage=DadoImage;
-        this.Lancia(NumeroMezzi);
+        this.Lancia(FacadePartita.getIstance().LanciaDado(FacadePartita.getIstance().getGiocatori()));
     }
 
     public void Lancia(int n){

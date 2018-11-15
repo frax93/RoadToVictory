@@ -1,11 +1,13 @@
 package it.univaq.rtv.controller;
 
+import it.univaq.rtv.Utility.Utility;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
+import it.univaq.rtv.Model.FacadePartita;
 
 
-public class ViewNumGiocatori {
+public class ControllerNumGiocatori {
     private Label SceltaGiocatori;
     private Button Uno;
     private Button Due;
@@ -26,7 +28,7 @@ public class ViewNumGiocatori {
 
 
 
-    public ViewNumGiocatori(Label SceltaGiocatori, Button Uno, Button Due, Button Tre, Button Quattro,Button Cinque, Label InizioPartita, AnchorPane menu,Label SceltaMappa,Button Europa,Button America,Button Africa,Button Sud_America,Button Asia, Label ScrittaGiocatore){
+    public ControllerNumGiocatori(Label SceltaGiocatori, Button Uno, Button Due, Button Tre, Button Quattro, Button Cinque, Label InizioPartita, AnchorPane menu, Label SceltaMappa, Button Europa, Button America, Button Africa, Button Sud_America, Button Asia, Label ScrittaGiocatore){
         this.SceltaGiocatori=SceltaGiocatori;
         this.Uno=Uno;
         this.Due=Due;
@@ -68,4 +70,9 @@ public class ViewNumGiocatori {
         this.ScrittaGiocatori.setVisible(true);
 
     }
+    public void SettaNumGiocatori(String n){
+        FacadePartita.getIstance().CreaGiocatori(n);
+        }
+
 }
+

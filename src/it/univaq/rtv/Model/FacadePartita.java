@@ -6,9 +6,9 @@ import it.univaq.rtv.Model.StatoGiocatore.Gioca;
 import it.univaq.rtv.Model.StatoGiocatore.Vincente;
 import it.univaq.rtv.Model.StatoTurno.Generale;
 import it.univaq.rtv.Model.StatoTurno.Iniziale;
-import it.univaq.rtv.controller.ViewDado;
-import it.univaq.rtv.controller.ViewMappa;
-import com.lynden.gmapsfx.GoogleMapView;
+import it.univaq.rtv.Utility.Utility;
+import it.univaq.rtv.controller.ControllerDado;
+import it.univaq.rtv.controller.ControllerMappa;
 import com.lynden.gmapsfx.javascript.object.*;
 
 import java.io.IOException;
@@ -22,9 +22,6 @@ import com.lynden.gmapsfx.shapes.PolylineOptions;
 import java.lang.*;
 
 
-import javafx.scene.control.*;
-
-
 import java.io.*;
 
 public class FacadePartita {
@@ -32,13 +29,23 @@ public class FacadePartita {
 
 
     private ArrayList<Giocatore> Giocatori=new ArrayList<>();
-    private ViewMappa viewMappa;
-    private ViewDado viewDado;
+    private ControllerMappa controllerMappa;
+    private ControllerDado controllerDado;
     private AbstractMappa mappa;
     private Generale general;
     private Gioca gioca=new Gioca();
     private Vincente vincente= new Vincente();
+    private static FacadePartita istance = null;
 
+    public static FacadePartita getIstance(){
+        if(istance==null){
+            istance = new FacadePartita();
+        }
+        return istance;
+    }
+    protected FacadePartita(){
+
+    }
 
 
 
@@ -112,18 +119,18 @@ public class FacadePartita {
                                         this.Giocatori.get(0).PosizionaMezzo(Casella_premuta);
                                         this.Giocatori.get(0).removeMossa(Casella_premuta);
                                         return true;
-                                        /*this.viewMappa.PosizionaMezzo(this.Giocatori.get(0).getMezzi().size(), finalPolyline1, polylineOptions, this.Giocatori);
+                                        /*this.controllerMappa.PosizionaMezzo(finalPolyline1, polylineOptions);
                                         if(Math.abs(Casella_premuta.getInizio().getLatitude()-this.Giocatori.get(0).ChiediCartaObiettivo().getCittaObiettivo().getCoordinate().getLatitude())<0.005){
                                             this.Giocatori.get(0).Obiettivoraggiunto();
-                                            this.viewMappa.setObiettivo(this.Giocatori);
+                                            this.controllerMappa.setObiettivo();
                                         }
                                         if(Math.abs(Casella_premuta.getInizio().getLatitude()-this.Giocatori.get(0).ChiediCartaPercorso().getCittaArrivo().getCoordinate().getLatitude())<0.005){
                                             this.Giocatori.get(0).Arrivoraggiunto();
-                                            this.viewMappa.setArrivo(this.Giocatori);
+                                            this.controllerMappa.setArrivo();
                                         }
                                         if(this.Giocatori.get(0).getObiettivo()==true && this.Giocatori.get(0).getArrivo()==true) {
                                             this.Giocatori.get(0).setState(vincente);
-                                            this.viewMappa.FinePartita(this.Giocatori.get(0));
+                                            this.controllerMappa.FinePartita(this.Giocatori.get(0));
                                         }
                                         break;*/
 
@@ -158,15 +165,18 @@ public class FacadePartita {
                 return this.Giocatori;
             }
 
-
     }
 
-
-
-
-
-
-
-
-
+    public void setGiocatori(ArrayList<Giocatore> giocatorearraylist){
+        this.Giocatori = giocatorearraylist;
+    }
+    public ArrayList<Giocatore> getGiocatori(){
+        return this.Giocatori;
+    }
+    public void CreaGiocatori(String n){
+        for(int i = 1; i<= Utility.StringtoInteger(n); i++){
+            Giocatore giocatore = new Giocatore(i,"Giocatore"+i, Utility.Colori());
+            this.Giocatori.add(giocatore);
+        }
+    }
 }
