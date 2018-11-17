@@ -179,19 +179,8 @@ public class ControllerRoadToVictory  implements Initializable, MapComponentInit
                         map.addMapShape(polyline[0]);
                         this.controllerMappa.setMezzo(a,1);
                         this.controllerMappa.PosizionaMezzoGioc(a,j,cont);
-                        this.controllerMappa.SetMossaGioc(a,j,cont);
-                        ArrayList<Percorso> percorsi_vicini = new ArrayList<>();
-                        if (Utility.EqualsIdCasella(caselle.get(cont),mappa.getPercorsoByCasella(caselle.get(cont)).getCasellaPartenza())){
-                            percorsi_vicini = mappa.getViciniPercorsoPartenza(mappa.getPercorsoByCasella(caselle.get(cont)));}
-
-                        else if (Utility.EqualsIdCasella(caselle.get(cont),mappa.getPercorsoByCasella(caselle.get(cont)).getCasellaArrivo())){
-                            percorsi_vicini = mappa.getViciniPercorsoArrivo(mappa.getPercorsoByCasella(caselle.get(cont)));}
-
-                        if (percorsi_vicini.size() == 0) ;
-                        else {
-                            ArrayList<Casella> casellaArrayList = mappa.getCaselleVicinePercorsi(percorsi_vicini, caselle.get(cont));
-                            casellaArrayList.remove(null);
-                            FacadePartita.getIstance().getGiocatori().get(a).setMosse(casellaArrayList);
+                        this.controllerMappa.setMossaGioc(a,j,cont);
+                        this.controllerMappa.setMosseGioc(a,j,cont);
                         }
 
 
@@ -200,12 +189,10 @@ public class ControllerRoadToVictory  implements Initializable, MapComponentInit
 
                 }
             }
-        }
 
-        percorsi=mappa.RimuoviDuplicati(percorsi);
-        for (int j = 0; j < percorsi.size(); j++) {
-            pe = percorsi.get(j);
-            ArrayList<Casella> caselle = pe.getCaselle();
+
+        for (int j = 0; j < this.controllerMappa.Duplicati().size(); j++) {
+            ArrayList<Casella> caselle = this.controllerMappa.Duplicati().get(j).getCaselle();
             for (int cont = 0; cont < caselle.size(); cont++) {
                 Polyline finalPolyline = null;
                 LatLong[] latLongs = {caselle.get(cont).getInizio(), caselle.get(cont).getFine()};
@@ -224,7 +211,7 @@ public class ControllerRoadToVictory  implements Initializable, MapComponentInit
                 Polyline finalPolyline1 = finalPolyline;
                 map.addUIEventHandler(polyline[0], UIEventType.click, (JSObject obj) -> {
                     try{
-                        if(FacadePartita.getIstance().PosizionaMezzo(finalPolyline1, polylineOptions,finalI,caselle)){
+                        if(this.controllerMappa.PosizionaMezzoPartita(finalPolyline1, polylineOptions,finalI,caselle)){
                             this.setGiocatoreName();
                             this.PosizionaMezzo(finalPolyline1,polylineOptions);
                         }
@@ -361,6 +348,7 @@ public class ControllerRoadToVictory  implements Initializable, MapComponentInit
         String color= Utility.ColorToRgba(this.controllerMappa.getColoreGiocatore(0));
         String style = "-fx-background-color:"+ color;
         this.FinePartita.setStyle(style);
+        this.menu.setVisible(false);
     }
 
     //Queste 2 funzioni andranno nel controller FINETURNO

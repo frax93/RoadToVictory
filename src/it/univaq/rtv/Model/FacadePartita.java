@@ -202,4 +202,23 @@ public class FacadePartita {
         return this.mappa.DammiPercorsi().get(percorso).getCaselle().get(casella).getFine();
     }
 
+
+    public ArrayList<Casella> CaselleVicini(int percorso, int casella) {
+        ArrayList<Percorso> percorsi_vicini = new ArrayList<>();
+        Casella cas = this.getMappa().DammiPercorsi().get(percorso).getCaselle().get(casella);
+        if (Utility.EqualsIdCasella(cas, this.getMappa().getPercorsoByCasella(cas).getCasellaPartenza())) {
+            percorsi_vicini = mappa.getViciniPercorsoPartenza(mappa.getPercorsoByCasella(cas));
+        } else if (Utility.EqualsIdCasella(cas, mappa.getPercorsoByCasella(cas).getCasellaArrivo())) {
+            percorsi_vicini = mappa.getViciniPercorsoArrivo(mappa.getPercorsoByCasella(cas));
+        }
+
+        if (percorsi_vicini.size() == 0) ;
+        else {
+            ArrayList<Casella> casellaArrayList = mappa.getCaselleVicinePercorsi(percorsi_vicini, cas);
+            casellaArrayList.remove(null);
+            return casellaArrayList;
+        }
+        return null;
+    }
+
 }

@@ -118,6 +118,15 @@ public class ControllerMappa {
         return FacadePartita.getIstance().getMappa().getCitta().size();
     }
 
+    public boolean EquaslIDCasellePartenza(int percorso,int casella){
+        return Utility.EqualsIdCasella(FacadePartita.getIstance().getMappa().DammiPercorsi().get(percorso).getCaselle().get(casella),FacadePartita.getIstance().getMappa().getPercorsoByCasella(FacadePartita.getIstance().getMappa().DammiPercorsi().get(percorso).getCaselle().get(casella)).getCasellaPartenza());
+    }
+
+    public boolean EquaslIDCaselleArrivo(int percorso,int casella){
+        return Utility.EqualsIdCasella(FacadePartita.getIstance().getMappa().DammiPercorsi().get(percorso).getCaselle().get(casella),FacadePartita.getIstance().getMappa().getPercorsoByCasella(FacadePartita.getIstance().getMappa().DammiPercorsi().get(percorso).getCaselle().get(casella)).getCasellaArrivo());
+    }
+
+
     public int getNumGiocatori(){
         return FacadePartita.getIstance().getGiocatori().size();
     }
@@ -158,12 +167,24 @@ public class ControllerMappa {
         FacadePartita.getIstance().getGiocatori().get(gioc).PosizionaMezzo(FacadePartita.getIstance().getMappa().DammiPercorsi().get(percorso).getCaselle().get(casella));
     }
 
-    public void SetMossaGioc(int gioc, int percorso, int casella){
+    public void setMossaGioc(int gioc, int percorso, int casella){
         FacadePartita.getIstance().getGiocatori().get(gioc).setMossa(FacadePartita.getIstance().getMappa().DammiPercorsi().get(percorso).CalcolaCasellaVicina(FacadePartita.getIstance().getMappa().DammiPercorsi().get(percorso).getCaselle().get(casella)));
     }
 
     public FacadePartita getPartita(){
         return FacadePartita.getIstance();
+    }
+
+    public void setMosseGioc(int gioc,int percorso, int casella){
+        FacadePartita.getIstance().getGiocatori().get(gioc).setMosse(FacadePartita.getIstance().CaselleVicini(percorso,casella));
+    }
+
+    public ArrayList<Percorso> Duplicati(){
+        return FacadePartita.getIstance().getMappa().RimuoviDuplicati(FacadePartita.getIstance().getMappa().DammiPercorsi());
+    }
+
+    public boolean PosizionaMezzoPartita(Polyline finalPolyline1, PolylineOptions polylineOptions,int finalI,ArrayList<Casella> caselle) throws IOException {
+        return FacadePartita.getIstance().PosizionaMezzo(finalPolyline1, polylineOptions,finalI,caselle);
     }
 }
 
