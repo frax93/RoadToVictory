@@ -121,21 +121,16 @@ public class FacadePartita {
                                         this.Giocatori.get(0).setMossa(PercorsoPremuto.CalcolaCasellaVicina(Casella_premuta));
                                         this.Giocatori.get(0).PosizionaMezzo(Casella_premuta);
                                         this.Giocatori.get(0).removeMossa(Casella_premuta);
-                                        return true;
-                                        /*this.controllerMappa.PosizionaMezzo(finalPolyline1, polylineOptions);
                                         if(Math.abs(Casella_premuta.getInizio().getLatitude()-this.Giocatori.get(0).ChiediCartaObiettivo().getCittaObiettivo().getCoordinate().getLatitude())<0.005){
                                             this.Giocatori.get(0).Obiettivoraggiunto();
-                                            this.controllerMappa.setObiettivo();
                                         }
                                         if(Math.abs(Casella_premuta.getInizio().getLatitude()-this.Giocatori.get(0).ChiediCartaPercorso().getCittaArrivo().getCoordinate().getLatitude())<0.005){
                                             this.Giocatori.get(0).Arrivoraggiunto();
-                                            this.controllerMappa.setArrivo();
                                         }
                                         if(this.Giocatori.get(0).getObiettivo()==true && this.Giocatori.get(0).getArrivo()==true) {
                                             this.Giocatori.get(0).setState(vincente);
-                                            this.controllerMappa.FinePartita(this.Giocatori.get(0));
                                         }
-                                        break;*/
+                                        return true;
 
 
                                     }

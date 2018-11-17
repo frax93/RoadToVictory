@@ -248,12 +248,13 @@ public class ControllerRoadToVictory  implements Initializable, MapComponentInit
 
     public void PosizionaMezzo(Polyline finalPolyline1, PolylineOptions pippo){
 
-        this.ControlloCitta();
 
 
         if (FacadePartita.getIstance().getGiocatori().get(0).getMezzi().size() > 0) {
-            this.ControlloCitta();
-
+         
+           if(this.controllerMappa.ControlloObiettivo())  this.setObiettivo();
+            if(this.controllerMappa.ControlloArrivo()) this.setArrivo();
+            if(this.controllerMappa.ControlloFine()) this.FinePartita();
             this.NumeroMezzo.setText(String.valueOf(FacadePartita.getIstance().getGiocatori().get(0).getMezzi().size()));
             pippo.strokeColor(FacadePartita.getIstance().getGiocatori().get(0).getColor());
             finalPolyline1.setVisible(false);
@@ -261,8 +262,10 @@ public class ControllerRoadToVictory  implements Initializable, MapComponentInit
             map.addMapShape(polyline1);
         }
         else if (FacadePartita.getIstance().getGiocatori().get(0).getMezzi().size() == 0) {
-            this.ControlloCitta();
 
+            if(this.controllerMappa.ControlloObiettivo())  this.setObiettivo();
+            if(this.controllerMappa.ControlloArrivo()) this.setArrivo();
+            if(this.controllerMappa.ControlloFine()) this.FinePartita();
             this.NumeroMezzo.setText(String.valueOf(0));
             pippo.strokeColor(FacadePartita.getIstance().getGiocatori().get(0).getColor());
             finalPolyline1.setVisible(false);
@@ -273,23 +276,7 @@ public class ControllerRoadToVictory  implements Initializable, MapComponentInit
         }
     }
 
-    public void ControlloCitta(){
-            if(Math.abs(FacadePartita.getIstance().CasellaPremuta().getInizio().getLatitude()-
-                    FacadePartita.getIstance().getGiocatori().get(0).ChiediCartaObiettivo().getCittaObiettivo().getCoordinate().getLatitude()) < 0.005) {
-                FacadePartita.getIstance().getGiocatori().get(0).Obiettivoraggiunto();
-                this.setObiettivo();
 
-            }
-            if(Math.abs(FacadePartita.getIstance().CasellaPremuta().getInizio().getLatitude()-
-                    FacadePartita.getIstance().getGiocatori().get(0).ChiediCartaPercorso().getCittaArrivo().getCoordinate().getLatitude()) < 0.005) {
-                FacadePartita.getIstance().getGiocatori().get(0).Arrivoraggiunto();
-                this.setArrivo();
-            }
-            if(FacadePartita.getIstance().getGiocatori().get(0).getObiettivo()==true&&FacadePartita.getIstance().getGiocatori().get(0).getArrivo()==true){
-                FacadePartita.getIstance().getGiocatori().get(0).setState(vincente);
-                this.FinePartita(FacadePartita.getIstance().getGiocatori().get(0));
-            }
-        }
 
 
 
@@ -376,10 +363,10 @@ public class ControllerRoadToVictory  implements Initializable, MapComponentInit
 
     }
 
-    public void FinePartita(Giocatore g){
+    public void FinePartita(){
         this.FinePartita.setVisible(true);
-        this.FinePartita.setText(g.getUsername()+" HAI VINTO LA PARTITA!!!!!!");
-        String color= Utility.ColorToRgba(g.getColor());
+        this.FinePartita.setText(this.controllerMappa.getUsername()+" HAI VINTO LA PARTITA!!!!!!");
+        String color= Utility.ColorToRgba(this.controllerMappa.getColoreGiocatore());
         String style = "-fx-background-color:"+ color;
         this.FinePartita.setStyle(style);
     }
