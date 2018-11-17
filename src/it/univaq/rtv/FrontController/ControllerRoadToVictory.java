@@ -171,14 +171,14 @@ public class ControllerRoadToVictory  implements Initializable, MapComponentInit
                 for (int cont = 0; cont < caselle.size(); cont++) {
                     if (Utility.IsPartenza(FacadePartita.getIstance().getGiocatori().get(a),caselle.get(cont))){
                         LatLong[] Prova1 = {caselle.get(cont).getInizio(), caselle.get(cont).getFine()};
-                        PolylineOptions pippo1 = new PolylineOptions();
-                        pippo1.path(new MVCArray(Prova1))
+                        PolylineOptions polylineOptions1 = new PolylineOptions();
+                        polylineOptions1.path(new MVCArray(Prova1))
                                 .clickable(true)
                                 .draggable(false)
                                 .strokeColor("blue")
                                 .strokeWeight(10)
                                 .visible(true);
-                        polyline[0] = new Polyline(pippo1);
+                        polyline[0] = new Polyline(polylineOptions1);
                         polyline[0].setDraggable(false);
                         map.addMapShape(polyline[0]);
                         FacadePartita.getIstance().getGiocatori().get(a).setMezzo(1);
@@ -213,14 +213,14 @@ public class ControllerRoadToVictory  implements Initializable, MapComponentInit
             for (int cont = 0; cont < caselle.size(); cont++) {
                 Polyline finalPolyline = null;
                 LatLong[] Prova = {caselle.get(cont).getInizio(), caselle.get(cont).getFine()};
-                PolylineOptions pippo = new PolylineOptions();
-                pippo.path(new MVCArray(Prova))
+                PolylineOptions polylineOptions = new PolylineOptions();
+                polylineOptions.path(new MVCArray(Prova))
                         .clickable(true)
                         .draggable(false)
                         .strokeColor("gray")
                         .strokeWeight(6)
                         .visible(true);
-                polyline[0] = new Polyline(pippo);
+                polyline[0] = new Polyline(polylineOptions);
                 polyline[0].setDraggable(false);
                 map.addMapShape(polyline[0]);
                 finalPolyline = polyline[0];
@@ -228,9 +228,9 @@ public class ControllerRoadToVictory  implements Initializable, MapComponentInit
                 Polyline finalPolyline1 = finalPolyline;
                 map.addUIEventHandler(polyline[0], UIEventType.click, (JSObject obj) -> {
                     try{
-                        if(FacadePartita.getIstance().PosizionaMezzo(finalPolyline1, pippo,finalI,caselle)){
+                        if(FacadePartita.getIstance().PosizionaMezzo(finalPolyline1, polylineOptions,finalI,caselle)){
                             this.setGiocatoreName();
-                            this.PosizionaMezzo(finalPolyline1,pippo);
+                            this.PosizionaMezzo(finalPolyline1,polylineOptions);
                         }
 
                     }
@@ -248,30 +248,30 @@ public class ControllerRoadToVictory  implements Initializable, MapComponentInit
 
 
 
-    public void PosizionaMezzo(Polyline finalPolyline1, PolylineOptions pippo){
+    public void PosizionaMezzo(Polyline finalPolyline1, PolylineOptions polylineOptions){
 
 
 
-        if (FacadePartita.getIstance().getGiocatori().get(0).getMezzi().size() > 0) {
+        if (this.controllerMappa.getNumMezzi(0) > 0) {
          
            if(this.controllerMappa.ControlloObiettivo())  this.setObiettivo();
             if(this.controllerMappa.ControlloArrivo()) this.setArrivo();
             if(this.controllerMappa.ControlloFine()) this.FinePartita();
-            this.NumeroMezzo.setText(String.valueOf(FacadePartita.getIstance().getGiocatori().get(0).getMezzi().size()));
-            pippo.strokeColor(FacadePartita.getIstance().getGiocatori().get(0).getColor());
+            this.NumeroMezzo.setText(String.valueOf(this.controllerMappa.getNumMezzi(0)));
+            polylineOptions.strokeColor(this.controllerMappa.getColoreGiocatore(0));
             finalPolyline1.setVisible(false);
-            Polyline polyline1 = new Polyline(pippo);
+            Polyline polyline1 = new Polyline(polylineOptions);
             map.addMapShape(polyline1);
         }
-        else if (FacadePartita.getIstance().getGiocatori().get(0).getMezzi().size() == 0) {
+        else if (this.controllerMappa.getNumMezzi(0)== 0) {
 
             if(this.controllerMappa.ControlloObiettivo())  this.setObiettivo();
             if(this.controllerMappa.ControlloArrivo()) this.setArrivo();
             if(this.controllerMappa.ControlloFine()) this.FinePartita();
             this.NumeroMezzo.setText(String.valueOf(0));
-            pippo.strokeColor(FacadePartita.getIstance().getGiocatori().get(0).getColor());
+            polylineOptions.strokeColor(this.controllerMappa.getColoreGiocatore(0));
             finalPolyline1.setVisible(false);
-            Polyline polyline1 = new Polyline(pippo);
+            Polyline polyline1 = new Polyline(polylineOptions);
             this.map.addMapShape(polyline1);
             this.TurnoButton.setVisible(true);
 

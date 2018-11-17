@@ -121,5 +121,9 @@ public class ControllerMappa {
     public int getNumGiocatori(){
         return FacadePartita.getIstance().getNumGiocatori();
     }
+
+    public int getNumMezzi(int gioc){
+        return FacadePartita.getIstance().getNumMezzi(gioc);
+    }
 }
 

@@ -27,7 +27,6 @@ import java.io.*;
 
 public class FacadePartita {
 
-    public Casella CasellaStar;
 
     private ArrayList<Giocatore> Giocatori=new ArrayList<>();
     private ControllerMappa controllerMappa;
@@ -94,7 +93,6 @@ public class FacadePartita {
             LatLong LongCasellaFine = caselle.get(finalI).getFine();
             Casella Casella_premuta = caselle.get(finalI);
 
-             CasellaStar=Casella_premuta;
 
             if ((LongCasellaInizio.getLatitude() == Lat && LongCasellaInizio.getLongitude() == Long) ||
                     (LongCasellaFine.getLatitude() == Lat && LongCasellaFine.getLongitude() == Long)) {
@@ -184,25 +182,22 @@ public class FacadePartita {
         return this.mappa;
     }
 
-    public CartaPercorso getCartaPercorso(int i) {
-        return FacadePartita.getIstance().getGiocatori().get(i).ChiediCartaPercorso();
+    public CartaPercorso getCartaPercorso(int gioc) {
+        return FacadePartita.getIstance().getGiocatori().get(gioc).ChiediCartaPercorso();
     }
 
-    public CartaObiettivo getCartaObiettivo(int i) {
-        return FacadePartita.getIstance().getGiocatori().get(i).ChiediCartaObiettivo();
+    public CartaObiettivo getCartaObiettivo(int gioc) {
+        return FacadePartita.getIstance().getGiocatori().get(gioc).ChiediCartaObiettivo();
     }
 
     public void OccupaPartenza(int i){
         this.getCartaPercorso(i).getCittaPartenza().setOccupata(true);
     }
 
-    public Casella CasellaPremuta(){
-        return CasellaStar;
-    }
 
-    public void setIMezzoGioc(int i, int j,String mezzo){
+    public void setIMezzoGioc(int gioc, int j,String mezzo){
         FactorMezzo factorMezzo =new FactorMezzo();
-        IMezzo mezGioc1= factorMezzo.getMezzo(mezzo,FacadePartita.getIstance().getGiocatori().get(i));
+        IMezzo mezGioc1= factorMezzo.getMezzo(mezzo,FacadePartita.getIstance().getGiocatori().get(gioc));
         mappa.getCitta().get(j).setIMezzo(mezGioc1);
 
     }
@@ -218,5 +213,9 @@ public class FacadePartita {
 
     public int getNumGiocatori(){
         return this.getGiocatori().size();
+    }
+
+    public int getNumMezzi(int gioc){
+        return this.getGiocatori().get(gioc).getMezzi().size();
     }
 }
