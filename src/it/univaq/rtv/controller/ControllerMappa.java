@@ -25,7 +25,7 @@ import java.util.ArrayList;
 public class ControllerMappa {
 
 
-    @FXML
+
     private GoogleMapView googleMapView;
     private GoogleMap map;
     private Label CartaObiettivo;
@@ -108,22 +108,6 @@ public class ControllerMappa {
 
     public void setMezzoGioc(int i, int j, String mezzo){
         FacadePartita.getIstance().setIMezzoGioc(i,j,mezzo);
-    }
-
-    public LatLong getCoordinateCitta(int i){
-        return FacadePartita.getIstance().getMappa().getCitta().get(i).getCoordinate();
-    }
-
-    public int getNumCittaMappa(){
-        return FacadePartita.getIstance().getMappa().getCitta().size();
-    }
-
-    public boolean EquaslIDCasellePartenza(int percorso,int casella){
-        return Utility.EqualsIdCasella(FacadePartita.getIstance().getMappa().DammiPercorsi().get(percorso).getCaselle().get(casella),FacadePartita.getIstance().getMappa().getPercorsoByCasella(FacadePartita.getIstance().getMappa().DammiPercorsi().get(percorso).getCaselle().get(casella)).getCasellaPartenza());
-    }
-
-    public boolean EquaslIDCaselleArrivo(int percorso,int casella){
-        return Utility.EqualsIdCasella(FacadePartita.getIstance().getMappa().DammiPercorsi().get(percorso).getCaselle().get(casella),FacadePartita.getIstance().getMappa().getPercorsoByCasella(FacadePartita.getIstance().getMappa().DammiPercorsi().get(percorso).getCaselle().get(casella)).getCasellaArrivo());
     }
 
 

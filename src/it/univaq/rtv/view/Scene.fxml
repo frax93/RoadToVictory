@@ -30,7 +30,7 @@
       <Button fx:id="Cinque" layoutX="650.0" layoutY="300.0" minHeight="85" minWidth="100" onAction="#Setgiocatore"></Button>
     </children>
 <Label fx:id="label" layoutX="126" layoutY="120" minHeight="16" minWidth="69" />
-    <Label fx:id="FinePartita"  layoutX="300.0" layoutY="150.0" text="" visible="false"/>
+    <Label fx:id="FinePartita"  layoutX="230.0" layoutY="150.0" text="" visible="false"/>
 
 
 <children>
