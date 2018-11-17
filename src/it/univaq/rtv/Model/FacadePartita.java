@@ -26,6 +26,7 @@ import java.io.*;
 
 public class FacadePartita {
 
+    public Casella CasellaStar;
 
 
     private ArrayList<Giocatore> Giocatori=new ArrayList<>();
@@ -92,6 +93,8 @@ public class FacadePartita {
             LatLong LongCasellaInizio = caselle.get(finalI).getInizio();
             LatLong LongCasellaFine = caselle.get(finalI).getFine();
             Casella Casella_premuta = caselle.get(finalI);
+
+             CasellaStar=Casella_premuta;
 
             if ((LongCasellaInizio.getLatitude() == Lat && LongCasellaInizio.getLongitude() == Long) ||
                     (LongCasellaFine.getLatitude() == Lat && LongCasellaFine.getLongitude() == Long)) {
@@ -178,5 +181,9 @@ public class FacadePartita {
             Giocatore giocatore = new Giocatore(i,"Giocatore"+i, Utility.Colori());
             this.Giocatori.add(giocatore);
         }
+    }
+
+    public Casella CasellaPremuta(){
+        return CasellaStar;
     }
 }

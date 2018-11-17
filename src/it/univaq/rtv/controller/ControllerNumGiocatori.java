@@ -1,6 +1,5 @@
 package it.univaq.rtv.controller;
 
-import it.univaq.rtv.Utility.Utility;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
