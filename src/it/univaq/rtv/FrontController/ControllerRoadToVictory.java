@@ -296,26 +296,25 @@ public class ControllerRoadToVictory  implements Initializable, MapComponentInit
     public void setMarker(AbstractMappa mappa){
         ArrayList<Marker> markers= new ArrayList<>();
         for(int i=0; i<FacadePartita.getIstance().getGiocatori().size();i++){
-            CartaPercorso c= FacadePartita.getIstance().getGiocatori().get(i).ChiediCartaPercorso();
             for (int j = 0; j < mappa.getCitta().size(); j++) {
 
                 LatLong coorPartenza = mappa.getCitta().get(j).getCoordinate();
-                if (mappa.getCitta().get(j).getNome().equals(c.getCittaPartenza().getNome())) {
+                if (this.controllerMappa.getNomeCitta(j).equals(this.controllerMappa.getNomeCPCittaPartenza(i))) {
                     FactorMezzo factorMezzo =new FactorMezzo();
                     IMezzo mezGioc1= factorMezzo.getMezzo("Vagone",FacadePartita.getIstance().getGiocatori().get(i));
                     mappa.getCitta().get(j).setIMezzo(mezGioc1);
-                    c.getCittaPartenza().setOccupata(true);
+                    this.controllerMappa.OccupaCittaPartenza(i);
                     MarkerOptions MarkerPartenza = new MarkerOptions();
-                    if(FacadePartita.getIstance().getGiocatori().get(i).getColor()=="aqua")  MarkerPartenza.icon("http://oi63.tinypic.com/iqh2mx.jpg");
-                    if(FacadePartita.getIstance().getGiocatori().get(i).getColor()=="red")  MarkerPartenza.icon("http://oi64.tinypic.com/wan96r.jpg");
-                    if(FacadePartita.getIstance().getGiocatori().get(i).getColor()=="orange")  MarkerPartenza.icon("http://oi64.tinypic.com/331lhly.jpg");
-                    if(FacadePartita.getIstance().getGiocatori().get(i).getColor()=="pink")  MarkerPartenza.icon("http://oi66.tinypic.com/20k831c.jpg");
-                    if(FacadePartita.getIstance().getGiocatori().get(i).getColor()=="white")  MarkerPartenza.icon("http://oi64.tinypic.com/6tiflx.jpg");
-                    if(FacadePartita.getIstance().getGiocatori().get(i).getColor()=="teal")  MarkerPartenza.icon("http://oi64.tinypic.com/othy13.jpg");
+                    if(this.controllerMappa.getColoreGiocatore(i)=="aqua")  MarkerPartenza.icon("http://oi63.tinypic.com/iqh2mx.jpg");
+                    if(this.controllerMappa.getColoreGiocatore(i)=="red")  MarkerPartenza.icon("http://oi64.tinypic.com/wan96r.jpg");
+                    if(this.controllerMappa.getColoreGiocatore(i)=="orange")  MarkerPartenza.icon("http://oi64.tinypic.com/331lhly.jpg");
+                    if(this.controllerMappa.getColoreGiocatore(i)=="pink")  MarkerPartenza.icon("http://oi66.tinypic.com/20k831c.jpg");
+                    if(this.controllerMappa.getColoreGiocatore(i)=="white")  MarkerPartenza.icon("http://oi64.tinypic.com/6tiflx.jpg");
+                    if(this.controllerMappa.getColoreGiocatore(i)=="teal")  MarkerPartenza.icon("http://oi64.tinypic.com/othy13.jpg");
                     MarkerPartenza.position(coorPartenza);
                     MarkerPartenza.visible(Boolean.TRUE);
-                    String nome_giocatore=FacadePartita.getIstance().getGiocatori().get(i).getUsername().substring(0,1);
-                    MarkerPartenza.label(nome_giocatore.concat(FacadePartita.getIstance().getGiocatori().get(i).getUsername().substring(FacadePartita.getIstance().getGiocatori().get(i).getUsername().length()-1)));
+                    String nome_giocatore=this.controllerMappa.getUsername(i).substring(0,1);
+                    MarkerPartenza.label(nome_giocatore.concat(this.controllerMappa.getUsername(i).substring(this.controllerMappa.getUsername(i).length()-1)));
                     Marker m1 = new Marker(MarkerPartenza);
                     markers.add(m1);
                     map.addMarkers(markers);
@@ -365,8 +364,8 @@ public class ControllerRoadToVictory  implements Initializable, MapComponentInit
 
     public void FinePartita(){
         this.FinePartita.setVisible(true);
-        this.FinePartita.setText(this.controllerMappa.getUsername()+" HAI VINTO LA PARTITA!!!!!!");
-        String color= Utility.ColorToRgba(this.controllerMappa.getColoreGiocatore());
+        this.FinePartita.setText(this.controllerMappa.getUsername(0)+" HAI VINTO LA PARTITA!!!!!!");
+        String color= Utility.ColorToRgba(this.controllerMappa.getColoreGiocatore(0));
         String style = "-fx-background-color:"+ color;
         this.FinePartita.setStyle(style);
     }

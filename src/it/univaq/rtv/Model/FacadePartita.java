@@ -28,7 +28,6 @@ public class FacadePartita {
 
     public Casella CasellaStar;
 
-
     private ArrayList<Giocatore> Giocatori=new ArrayList<>();
     private ControllerMappa controllerMappa;
     private ControllerDado controllerDado;
@@ -177,7 +176,15 @@ public class FacadePartita {
             this.Giocatori.add(giocatore);
         }
     }
-
+    public AbstractMappa getMappa(){
+        return this.mappa;
+    }
+    public CartaPercorso getCartaPercorso(int i) {
+        return FacadePartita.getIstance().getGiocatori().get(i).ChiediCartaPercorso();
+    }
+    public void OccupaPartenza(int i){
+        this.getCartaPercorso(i).getCittaPartenza().setOccupata(true);
+    }
     public Casella CasellaPremuta(){
         return CasellaStar;
     }

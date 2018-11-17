@@ -23,7 +23,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class ControllerMappa {
-    private Vincente vincente= new Vincente();
 
     @FXML
     private GoogleMapView googleMapView;
@@ -75,18 +74,24 @@ public class ControllerMappa {
 
     }
 
-        public Giocatore getGioc(){
-                return FacadePartita.getIstance().getGiocatori().get(0);
-        }
+    public String getColoreGiocatore(int i){
+        return FacadePartita.getIstance().getGiocatori().get(i).getColor();
+    }
 
-        public String getColoreGiocatore(){
-        return FacadePartita.getIstance().getGiocatori().get(0).getColor();
-        }
+    public String getUsername(int i){
+        return FacadePartita.getIstance().getGiocatori().get(i).getUsername();
+    }
 
-        public String getUsername(){
-        return FacadePartita.getIstance().getGiocatori().get(0).getUsername();
-        }
+    public String getNomeCitta(int i){
+        return FacadePartita.getIstance().getMappa().getCitta().get(i).getNome();
+    }
+    public String getNomeCPCittaPartenza(int i){
+        return FacadePartita.getIstance().getCartaPercorso(i).getCittaPartenza().getNome();
 
+    }
+    public void OccupaCittaPartenza(int i){
+        FacadePartita.getIstance().OccupaPartenza(i);
+    }
 
 
 
