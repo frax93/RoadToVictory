@@ -114,7 +114,7 @@ public class ControllerRoadToVictory  implements Initializable, MapComponentInit
     @FXML
     public void LanciaDado(final ActionEvent event){
         event.consume();
-        this.controllerDado =new ControllerDado(dadoButton, NumeroMezzo,NumberDado,DadoImage);
+        this.controllerDado =new ControllerDado(dadoButton,DadoImage);
         this.controllerDado.Lancia(this.controllerDado.getNumDado());
         this.NumeroMezzo.setText(String.valueOf(this.controllerDado.getNumDado()));
 
@@ -285,12 +285,10 @@ public class ControllerRoadToVictory  implements Initializable, MapComponentInit
 
 
     public void setCarte(){
-        it.univaq.rtv.Model.CartaObiettivo CartaObbGioc1 = FacadePartita.getIstance().getGiocatori().get(0).ChiediCartaObiettivo();
-        CartaPercorso CartaPercGioc1 = FacadePartita.getIstance().getGiocatori().get(0).ChiediCartaPercorso();
 
-        this.CartaObiettivo.setText("Città obiettivo: " + CartaObbGioc1.getCittaObiettivo().getNome());
-        this.CartaPercorsoPartenza.setText("Partenza:" + CartaPercGioc1.getCittaPartenza().getNome());
-        this.CartaPercorsoArrivo.setText("Arrivo:" + CartaPercGioc1.getCittaArrivo().getNome());
+        this.CartaObiettivo.setText("Città obiettivo: " + this.controllerMappa.getNomeCittaObiettivo(0));
+        this.CartaPercorsoPartenza.setText("Partenza:" + this.controllerMappa.getNomeCPCittaPartenza(0));
+        this.CartaPercorsoArrivo.setText("Arrivo:" + this.controllerMappa.getNomeCPCittaArrivo(0));
     }
 
 

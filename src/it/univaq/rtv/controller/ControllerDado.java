@@ -11,16 +11,12 @@ import java.util.ArrayList;
 
 public class ControllerDado {
     private Button dadoButton;
-    private Label NumeroMezzo;
-    private Label NumberDado;
     boolean Primo = true;
     public ImageView DadoImage;
     private int numDado;
 
-    public ControllerDado(Button dadoButton, Label NumeroMezzo, Label NumberDado, ImageView DadoImage){
+    public ControllerDado(Button dadoButton,ImageView DadoImage){
         this.dadoButton=dadoButton;
-        this.NumeroMezzo=NumeroMezzo;
-        this.NumberDado=NumberDado;
         this.DadoImage=DadoImage;
         this.numDado=FacadePartita.getIstance().LanciaDado(FacadePartita.getIstance().getGiocatori());
     }

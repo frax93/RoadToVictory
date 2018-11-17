@@ -188,6 +188,10 @@ public class FacadePartita {
         return FacadePartita.getIstance().getGiocatori().get(i).ChiediCartaPercorso();
     }
 
+    public CartaObiettivo getCartaObiettivo(int i) {
+        return FacadePartita.getIstance().getGiocatori().get(i).ChiediCartaObiettivo();
+    }
+
     public void OccupaPartenza(int i){
         this.getCartaPercorso(i).getCittaPartenza().setOccupata(true);
     }

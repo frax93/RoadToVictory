@@ -87,8 +87,18 @@ public class ControllerMappa {
         return FacadePartita.getIstance().getMappa().getCitta().get(i).getNome();
     }
 
-    public String getNomeCPCittaPartenza(int i){
-        return FacadePartita.getIstance().getCartaPercorso(i).getCittaPartenza().getNome();
+    public String getNomeCPCittaPartenza(int gioc){
+        return FacadePartita.getIstance().getCartaPercorso(gioc).getCittaPartenza().getNome();
+
+    }
+
+    public String getNomeCPCittaArrivo(int gioc){
+        return FacadePartita.getIstance().getCartaPercorso(gioc).getCittaArrivo().getNome();
+
+    }
+
+    public String getNomeCittaObiettivo(int gioc){
+        return FacadePartita.getIstance().getCartaObiettivo(gioc).getCittaObiettivo().getNome();
 
     }
 
