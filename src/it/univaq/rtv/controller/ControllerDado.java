@@ -15,18 +15,19 @@ public class ControllerDado {
     private Label NumberDado;
     boolean Primo = true;
     public ImageView DadoImage;
+    private int numDado;
 
     public ControllerDado(Button dadoButton, Label NumeroMezzo, Label NumberDado, ImageView DadoImage){
         this.dadoButton=dadoButton;
         this.NumeroMezzo=NumeroMezzo;
         this.NumberDado=NumberDado;
         this.DadoImage=DadoImage;
-        this.Lancia(FacadePartita.getIstance().LanciaDado(FacadePartita.getIstance().getGiocatori()));
+        this.numDado=FacadePartita.getIstance().LanciaDado(FacadePartita.getIstance().getGiocatori());
     }
 
     public void Lancia(int n){
 
-        this.NumeroMezzo.setText(String.valueOf(n));
+
 
 
         /****** Controllo su lancio dado doppio *****/
@@ -60,6 +61,10 @@ public class ControllerDado {
             Primo=false;
         }
         this.dadoButton.setDisable(true);
+    }
+
+    public int getNumDado(){
+        return this.numDado;
     }
 
     public void setDadoButton() {

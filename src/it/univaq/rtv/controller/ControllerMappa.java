@@ -24,6 +24,7 @@ import java.util.ArrayList;
 
 public class ControllerMappa {
 
+
     @FXML
     private GoogleMapView googleMapView;
     private GoogleMap map;
@@ -85,17 +86,30 @@ public class ControllerMappa {
     public String getNomeCitta(int i){
         return FacadePartita.getIstance().getMappa().getCitta().get(i).getNome();
     }
+
     public String getNomeCPCittaPartenza(int i){
         return FacadePartita.getIstance().getCartaPercorso(i).getCittaPartenza().getNome();
 
     }
+
     public void OccupaCittaPartenza(int i){
         FacadePartita.getIstance().OccupaPartenza(i);
     }
 
+    public void setMezzoGioc(int i, int j, String mezzo){
+        FacadePartita.getIstance().setIMezzoGioc(i,j,mezzo);
+    }
 
+    public LatLong getCoordinateCitta(int i){
+        return FacadePartita.getIstance().getCoordinateCitta(i);
+    }
 
+    public int getNumCittaMappa(){
+        return FacadePartita.getIstance().getNumCittaMappa();
+    }
 
-
+    public int getNumGiocatori(){
+        return FacadePartita.getIstance().getNumGiocatori();
+    }
 }
 

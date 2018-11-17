@@ -115,6 +115,8 @@ public class ControllerRoadToVictory  implements Initializable, MapComponentInit
     public void LanciaDado(final ActionEvent event){
         event.consume();
         this.controllerDado =new ControllerDado(dadoButton, NumeroMezzo,NumberDado,DadoImage);
+        this.controllerDado.Lancia(this.controllerDado.getNumDado());
+        this.NumeroMezzo.setText(String.valueOf(this.controllerDado.getNumDado()));
 
 
     }
@@ -161,7 +163,7 @@ public class ControllerRoadToVictory  implements Initializable, MapComponentInit
 
 
         Percorso pe = null;
-        this.setMarker(mappa);
+        this.setMarker();
         for(int a=0;a<FacadePartita.getIstance().getGiocatori().size();a++){
             for (int j = 0; j < percorsi.size(); j++) {
                 pe = percorsi.get(j);
@@ -293,16 +295,13 @@ public class ControllerRoadToVictory  implements Initializable, MapComponentInit
 
 
 
-    public void setMarker(AbstractMappa mappa){
+    public void setMarker(){
         ArrayList<Marker> markers= new ArrayList<>();
-        for(int i=0; i<FacadePartita.getIstance().getGiocatori().size();i++){
-            for (int j = 0; j < mappa.getCitta().size(); j++) {
-
-                LatLong coorPartenza = mappa.getCitta().get(j).getCoordinate();
+        for(int i=0; i<this.controllerMappa.getNumGiocatori();i++){
+            for (int j = 0; j < this.controllerMappa.getNumCittaMappa(); j++) {
+                LatLong coorPartenza = this.controllerMappa.getCoordinateCitta(j);
                 if (this.controllerMappa.getNomeCitta(j).equals(this.controllerMappa.getNomeCPCittaPartenza(i))) {
-                    FactorMezzo factorMezzo =new FactorMezzo();
-                    IMezzo mezGioc1= factorMezzo.getMezzo("Vagone",FacadePartita.getIstance().getGiocatori().get(i));
-                    mappa.getCitta().get(j).setIMezzo(mezGioc1);
+                    this.controllerMappa.setMezzoGioc(i,j,"Vagone");
                     this.controllerMappa.OccupaCittaPartenza(i);
                     MarkerOptions MarkerPartenza = new MarkerOptions();
                     if(this.controllerMappa.getColoreGiocatore(i)=="aqua")  MarkerPartenza.icon("http://oi63.tinypic.com/iqh2mx.jpg");

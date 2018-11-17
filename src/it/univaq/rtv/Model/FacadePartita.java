@@ -1,6 +1,7 @@
 package it.univaq.rtv.Model;
 
 import it.univaq.rtv.Model.FactoryMappa.AbstractMappa;
+import it.univaq.rtv.Model.FactoryMezzo.IMezzo;
 import it.univaq.rtv.Model.StatoGiocatore.Attesa;
 import it.univaq.rtv.Model.StatoGiocatore.Gioca;
 import it.univaq.rtv.Model.StatoGiocatore.Vincente;
@@ -167,25 +168,51 @@ public class FacadePartita {
     public void setGiocatori(ArrayList<Giocatore> giocatorearraylist){
         this.Giocatori = giocatorearraylist;
     }
+
     public ArrayList<Giocatore> getGiocatori(){
         return this.Giocatori;
     }
+
     public void CreaGiocatori(String n){
         for(int i = 1; i<= Utility.StringtoInteger(n); i++){
             Giocatore giocatore = new Giocatore(i,"Giocatore"+i, Utility.Colori());
             this.Giocatori.add(giocatore);
         }
     }
+
     public AbstractMappa getMappa(){
         return this.mappa;
     }
+
     public CartaPercorso getCartaPercorso(int i) {
         return FacadePartita.getIstance().getGiocatori().get(i).ChiediCartaPercorso();
     }
+
     public void OccupaPartenza(int i){
         this.getCartaPercorso(i).getCittaPartenza().setOccupata(true);
     }
+
     public Casella CasellaPremuta(){
         return CasellaStar;
+    }
+
+    public void setIMezzoGioc(int i, int j,String mezzo){
+        FactorMezzo factorMezzo =new FactorMezzo();
+        IMezzo mezGioc1= factorMezzo.getMezzo(mezzo,FacadePartita.getIstance().getGiocatori().get(i));
+        mappa.getCitta().get(j).setIMezzo(mezGioc1);
+
+    }
+
+
+    public LatLong getCoordinateCitta(int i){
+        return this.mappa.getCitta().get(i).getCoordinate();
+    }
+
+    public int getNumCittaMappa(){
+        return this.mappa.getCitta().size();
+    }
+
+    public int getNumGiocatori(){
+        return this.getGiocatori().size();
     }
 }
