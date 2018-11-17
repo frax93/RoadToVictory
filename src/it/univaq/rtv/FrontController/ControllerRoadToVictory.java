@@ -66,7 +66,6 @@ public class ControllerRoadToVictory  implements Initializable, MapComponentInit
     public Button TurnoButton;
     public ControllerMappa controllerMappa;
     public ControllerDado controllerDado;
-    public ControllerFineTurno controllerFineTurno;
     private ControllerNumGiocatori ngioc;
     private ControllerSceltaMappa scmapp;
     private String Numero="";
