@@ -31,7 +31,6 @@ import java.util.ResourceBundle;
 
 public class ControllerRoadToVictory  implements Initializable, MapComponentInitializedListener {
 
-    AbstractMappa mappa;
 
     private Vincente vincente= new Vincente();
 
@@ -136,13 +135,13 @@ public class ControllerRoadToVictory  implements Initializable, MapComponentInit
 
     @FXML
     public void Creamappa(String nomemappa) throws FileNotFoundException, IOException {
-        AbstractMappa mappa = FacadePartita.getIstance().AvviaPartita(nomemappa,FacadePartita.getIstance().getGiocatori());
+        //AbstractMappa mappa = FacadePartita.getIstance().AvviaPartita(nomemappa,FacadePartita.getIstance().getGiocatori());
         this.setGiocatoreName();
         final Polyline[] polyline = {null};
         MapOptions mapOptions = new MapOptions();
 
 
-        mapOptions.center(new LatLong(mappa.CalcolaCentro().getLatitude(), mappa.CalcolaCentro().getLongitude()))
+        mapOptions.center(new LatLong(this.controllerMappa.getCoordinateCentroMappa(nomemappa).getLatitude(), this.controllerMappa.getCoordinateCentroMappa(nomemappa).getLongitude()))
                 .mapType(MapTypeIdEnum.ROADMAP)
                 .zoom(4)
                 .scrollWheel(false)
@@ -157,22 +156,19 @@ public class ControllerRoadToVictory  implements Initializable, MapComponentInit
         this.map = this.googleMapView.createMap(mapOptions, false);
         this.setCarte();
 
-        ArrayList<Percorso> percorsi = new ArrayList<>();
-        percorsi = mappa.DammiPercorsi();
+        //ArrayList<Percorso> percorsi = new ArrayList<>();
+        //percorsi = mappa.DammiPercorsi();
 
 
 
-        Percorso pe = null;
         this.setMarker();
-        for(int a=0;a<FacadePartita.getIstance().getGiocatori().size();a++){
-            for (int j = 0; j < percorsi.size(); j++) {
-                pe = percorsi.get(j);
-                ArrayList<Casella> caselle = pe.getCaselle();
-                for (int cont = 0; cont < caselle.size(); cont++) {
-                    if (Utility.IsPartenza(FacadePartita.getIstance().getGiocatori().get(a),caselle.get(cont))){
-                        LatLong[] Prova1 = {caselle.get(cont).getInizio(), caselle.get(cont).getFine()};
+        for(int a=0;a<this.controllerMappa.getNumGiocatori();a++){
+            for (int j = 0; j < this.controllerMappa.getNumPercorsiMappa(); j++) {
+                for (int cont = 0; cont < this.controllerMappa.getNumCasellePercorso(j); cont++) {
+                    if (this.controllerMappa.IsPartenza(a,j,cont)){
+                        LatLong[] latLongs1 = {this.controllerMappa.getInizioCasella(j,cont), this.controllerMappa.getFineCasella(j,cont)};
                         PolylineOptions polylineOptions1 = new PolylineOptions();
-                        polylineOptions1.path(new MVCArray(Prova1))
+                        polylineOptions1.path(new MVCArray(latLongs1))
                                 .clickable(true)
                                 .draggable(false)
                                 .strokeColor("blue")
@@ -181,9 +177,9 @@ public class ControllerRoadToVictory  implements Initializable, MapComponentInit
                         polyline[0] = new Polyline(polylineOptions1);
                         polyline[0].setDraggable(false);
                         map.addMapShape(polyline[0]);
-                        FacadePartita.getIstance().getGiocatori().get(a).setMezzo(1);
-                        FacadePartita.getIstance().getGiocatori().get(a).PosizionaMezzo(caselle.get(cont));
-                        FacadePartita.getIstance().getGiocatori().get(a).setMossa(pe.CalcolaCasellaVicina(caselle.get(cont)));
+                        this.controllerMappa.setMezzo(a,1);
+                        this.controllerMappa.PosizionaMezzoGioc(a,j,cont);
+                        this.controllerMappa.SetMossaGioc(a,j,cont);
                         ArrayList<Percorso> percorsi_vicini = new ArrayList<>();
                         if (Utility.EqualsIdCasella(caselle.get(cont),mappa.getPercorsoByCasella(caselle.get(cont)).getCasellaPartenza())){
                             percorsi_vicini = mappa.getViciniPercorsoPartenza(mappa.getPercorsoByCasella(caselle.get(cont)));}
@@ -212,9 +208,9 @@ public class ControllerRoadToVictory  implements Initializable, MapComponentInit
             ArrayList<Casella> caselle = pe.getCaselle();
             for (int cont = 0; cont < caselle.size(); cont++) {
                 Polyline finalPolyline = null;
-                LatLong[] Prova = {caselle.get(cont).getInizio(), caselle.get(cont).getFine()};
+                LatLong[] latLongs = {caselle.get(cont).getInizio(), caselle.get(cont).getFine()};
                 PolylineOptions polylineOptions = new PolylineOptions();
-                polylineOptions.path(new MVCArray(Prova))
+                polylineOptions.path(new MVCArray(latLongs))
                         .clickable(true)
                         .draggable(false)
                         .strokeColor("gray")
@@ -295,10 +291,10 @@ public class ControllerRoadToVictory  implements Initializable, MapComponentInit
 
     public void setMarker(){
         ArrayList<Marker> markers= new ArrayList<>();
-        for(int i=0; i<this.controllerMappa.getNumGiocatori();i++){
-            for (int j = 0; j < this.controllerMappa.getNumCittaMappa(); j++) {
-                LatLong coorPartenza = this.controllerMappa.getCoordinateCitta(j);
-                if (this.controllerMappa.getNomeCitta(j).equals(this.controllerMappa.getNomeCPCittaPartenza(i))) {
+        for(int i=0; i<this.controllerMappa.getPartita().getGiocatori().size();i++){
+            for (int j = 0; j < this.controllerMappa.getPartita().getMappa().getCitta().size(); j++) {
+                LatLong coorPartenza = this.controllerMappa.getPartita().getMappa().getCitta().get(j).getCoordinate();
+                if (this.controllerMappa.getPartita().getMappa().getCitta().get(j).getNome().equals(this.controllerMappa.getNomeCPCittaPartenza(i))) {
                     this.controllerMappa.setMezzoGioc(i,j,"Vagone");
                     this.controllerMappa.OccupaCittaPartenza(i);
                     MarkerOptions MarkerPartenza = new MarkerOptions();
@@ -310,8 +306,8 @@ public class ControllerRoadToVictory  implements Initializable, MapComponentInit
                     if(this.controllerMappa.getColoreGiocatore(i)=="teal")  MarkerPartenza.icon("http://oi64.tinypic.com/othy13.jpg");
                     MarkerPartenza.position(coorPartenza);
                     MarkerPartenza.visible(Boolean.TRUE);
-                    String nome_giocatore=this.controllerMappa.getUsername(i).substring(0,1);
-                    MarkerPartenza.label(nome_giocatore.concat(this.controllerMappa.getUsername(i).substring(this.controllerMappa.getUsername(i).length()-1)));
+                    String nome_giocatore=this.controllerMappa.getPartita().getGiocatori().get(i).getUsername().substring(0,1);
+                    MarkerPartenza.label(nome_giocatore.concat(this.controllerMappa.getPartita().getGiocatori().get(i).getUsername().substring(this.controllerMappa.getUsername(i).length()-1)));
                     Marker m1 = new Marker(MarkerPartenza);
                     markers.add(m1);
                     map.addMarkers(markers);
@@ -322,8 +318,8 @@ public class ControllerRoadToVictory  implements Initializable, MapComponentInit
     }
 
     public void setGiocatoreName(){
-        this.GiocatoreName.setText(FacadePartita.getIstance().getGiocatori().get(0).getUsername());
-        String color= Utility.ColorToRgba(FacadePartita.getIstance().getGiocatori().get(0).getColor());
+        this.GiocatoreName.setText(this.controllerMappa.getPartita().getGiocatori().get(0).getUsername());
+        String color= Utility.ColorToRgba(this.controllerMappa.getColoreGiocatore(0));
         String style = "-fx-background-color:"+color;
         this.GiocatoreName.setStyle(style);
         // this.GiocatoreName.setTextFill(Color.web(g.getColor()));
@@ -331,7 +327,7 @@ public class ControllerRoadToVictory  implements Initializable, MapComponentInit
     }
 
     public void setObiettivo(){
-        if(FacadePartita.getIstance().getGiocatori().get(0).getObiettivo()==true) {
+        if(this.controllerMappa.getPartita().getGiocatori().get(0).getObiettivo()==true) {
             //this.CartaObiettivo.setTextFill(Color.web("green"));   Per settare testo della label
             // this.CartaObiettivo.setBackground(Background.EMPTY);   Nel caso si voglia riportare il background invisibile, alla mossa successiva
             String style = "-fx-background-color:" + Utility.ColorToRgba("green");
@@ -347,7 +343,7 @@ public class ControllerRoadToVictory  implements Initializable, MapComponentInit
 
 
     public void setArrivo(){
-        if(FacadePartita.getIstance().getGiocatori().get(0).getArrivo()==true) {
+        if(this.controllerMappa.getPartita().getGiocatori().get(0).getArrivo()==true) {
             String style = "-fx-background-color:" +Utility.ColorToRgba("green");
             this.CartaPercorsoArrivo.setStyle(style);
         }

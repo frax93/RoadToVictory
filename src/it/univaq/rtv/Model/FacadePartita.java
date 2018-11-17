@@ -66,7 +66,7 @@ public class FacadePartita {
             e.printStackTrace();
         }
         finally {
-            return i.getMappa();
+            return this.mappa;
         }
 
 
@@ -182,19 +182,6 @@ public class FacadePartita {
         return this.mappa;
     }
 
-    public CartaPercorso getCartaPercorso(int gioc) {
-        return FacadePartita.getIstance().getGiocatori().get(gioc).ChiediCartaPercorso();
-    }
-
-    public CartaObiettivo getCartaObiettivo(int gioc) {
-        return FacadePartita.getIstance().getGiocatori().get(gioc).ChiediCartaObiettivo();
-    }
-
-    public void OccupaPartenza(int i){
-        this.getCartaPercorso(i).getCittaPartenza().setOccupata(true);
-    }
-
-
     public void setIMezzoGioc(int gioc, int j,String mezzo){
         FactorMezzo factorMezzo =new FactorMezzo();
         IMezzo mezGioc1= factorMezzo.getMezzo(mezzo,FacadePartita.getIstance().getGiocatori().get(gioc));
@@ -203,19 +190,16 @@ public class FacadePartita {
     }
 
 
-    public LatLong getCoordinateCitta(int i){
-        return this.mappa.getCitta().get(i).getCoordinate();
+    public boolean IsPartenza(int gioc, int percorso, int casella){
+        return Utility.IsPartenza(this.getGiocatori().get(gioc),this.mappa.DammiPercorsi().get(percorso).getCaselle().get(casella));
     }
 
-    public int getNumCittaMappa(){
-        return this.mappa.getCitta().size();
+    public LatLong getInizioCasella(int percorso,int casella){
+        return this.mappa.DammiPercorsi().get(percorso).getCaselle().get(casella).getInizio();
     }
 
-    public int getNumGiocatori(){
-        return this.getGiocatori().size();
+    public LatLong getFineCasella(int percorso,int casella){
+        return this.mappa.DammiPercorsi().get(percorso).getCaselle().get(casella).getFine();
     }
 
-    public int getNumMezzi(int gioc){
-        return this.getGiocatori().get(gioc).getMezzi().size();
-    }
 }

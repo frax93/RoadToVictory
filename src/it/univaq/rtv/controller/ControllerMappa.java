@@ -88,22 +88,22 @@ public class ControllerMappa {
     }
 
     public String getNomeCPCittaPartenza(int gioc){
-        return FacadePartita.getIstance().getCartaPercorso(gioc).getCittaPartenza().getNome();
+        return FacadePartita.getIstance().getGiocatori().get(gioc).ChiediCartaPercorso().getCittaPartenza().getNome();
 
     }
 
     public String getNomeCPCittaArrivo(int gioc){
-        return FacadePartita.getIstance().getCartaPercorso(gioc).getCittaArrivo().getNome();
+        return FacadePartita.getIstance().getGiocatori().get(gioc).ChiediCartaPercorso().getCittaArrivo().getNome();
 
     }
 
     public String getNomeCittaObiettivo(int gioc){
-        return FacadePartita.getIstance().getCartaObiettivo(gioc).getCittaObiettivo().getNome();
+        return FacadePartita.getIstance().getGiocatori().get(gioc).ChiediCartaObiettivo().getCittaObiettivo().getNome();
 
     }
 
     public void OccupaCittaPartenza(int i){
-        FacadePartita.getIstance().OccupaPartenza(i);
+        FacadePartita.getIstance().getGiocatori().get(i).ChiediCartaPercorso().getCittaPartenza().setOccupata(true);
     }
 
     public void setMezzoGioc(int i, int j, String mezzo){
@@ -111,19 +111,59 @@ public class ControllerMappa {
     }
 
     public LatLong getCoordinateCitta(int i){
-        return FacadePartita.getIstance().getCoordinateCitta(i);
+        return FacadePartita.getIstance().getMappa().getCitta().get(i).getCoordinate();
     }
 
     public int getNumCittaMappa(){
-        return FacadePartita.getIstance().getNumCittaMappa();
+        return FacadePartita.getIstance().getMappa().getCitta().size();
     }
 
     public int getNumGiocatori(){
-        return FacadePartita.getIstance().getNumGiocatori();
+        return FacadePartita.getIstance().getGiocatori().size();
     }
 
     public int getNumMezzi(int gioc){
-        return FacadePartita.getIstance().getNumMezzi(gioc);
+        return FacadePartita.getIstance().getGiocatori().get(gioc).getMezzi().size();
+    }
+
+    public LatLong getCoordinateCentroMappa(String mappa){
+        return FacadePartita.getIstance().AvviaPartita(mappa,FacadePartita.getIstance().getGiocatori()).CalcolaCentro();
+    }
+
+    public int getNumPercorsiMappa(){
+        return FacadePartita.getIstance().getMappa().DammiPercorsi().size();
+    }
+
+    public int getNumCasellePercorso(int percorso){
+        return FacadePartita.getIstance().getMappa().DammiPercorsi().get(percorso).getCaselle().size();
+    }
+
+    public boolean IsPartenza(int gioc, int percorso, int casella){
+        return FacadePartita.getIstance().IsPartenza(gioc,percorso,casella);
+    }
+
+    public LatLong getInizioCasella(int percorso,int casella){
+        return FacadePartita.getIstance().getInizioCasella(percorso,casella);
+    }
+
+    public LatLong getFineCasella(int percorso,int casella){
+        return FacadePartita.getIstance().getFineCasella(percorso,casella);
+    }
+
+    public void setMezzo(int gioc,int i){
+        FacadePartita.getIstance().getGiocatori().get(gioc).setMezzo(i);
+    }
+
+    public void PosizionaMezzoGioc(int gioc, int percorso, int casella){
+        FacadePartita.getIstance().getGiocatori().get(gioc).PosizionaMezzo(FacadePartita.getIstance().getMappa().DammiPercorsi().get(percorso).getCaselle().get(casella));
+    }
+
+    public void SetMossaGioc(int gioc, int percorso, int casella){
+        FacadePartita.getIstance().getGiocatori().get(gioc).setMossa(FacadePartita.getIstance().getMappa().DammiPercorsi().get(percorso).CalcolaCasellaVicina(FacadePartita.getIstance().getMappa().DammiPercorsi().get(percorso).getCaselle().get(casella)));
+    }
+
+    public FacadePartita getPartita(){
+        return FacadePartita.getIstance();
     }
 }
 
