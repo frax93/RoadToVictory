@@ -26,6 +26,8 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Timestamp;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
@@ -139,9 +141,18 @@ public class ControllerRoadToVictory  implements Initializable, MapComponentInit
         final Polyline[] polyline = {null};
         MapOptions mapOptions = new MapOptions();
 
+        /*Controllo per variare la mappa a seconda che sia giorno o pomeriggio*/
+        MapTypeIdEnum mapTypeIdEnum;
+        if(LocalDateTime.now().getHour()<12) {
+             mapTypeIdEnum= MapTypeIdEnum.ROADMAP;
+        }
+        else {
+            mapTypeIdEnum= MapTypeIdEnum.HYBRID;
+        }
 
+        System.out.println();
         mapOptions.center(new LatLong(this.controllerMappa.getCoordinateCentroMappa(nomemappa).getLatitude(), this.controllerMappa.getCoordinateCentroMappa(nomemappa).getLongitude()))
-                .mapType(MapTypeIdEnum.ROADMAP)
+                .mapType(mapTypeIdEnum)
                 .zoom(4)
                 .scrollWheel(false)
                 .maxZoom(8)
