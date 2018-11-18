@@ -82,7 +82,6 @@ public class FacadePartita {
     }
 
     public boolean PosizionaMezzo(Polyline finalPolyline1, PolylineOptions polylineOptions, int finalI, ArrayList<Casella> caselle) throws FileNotFoundException,IOException {
-            //this.viewMappa.setGiocatoreName(this.Giocatori.get(0));
             MVCArray path = finalPolyline1.getPath();
             polylineOptions.path(path);
             String coordinata = String.valueOf(path.getAt(0));

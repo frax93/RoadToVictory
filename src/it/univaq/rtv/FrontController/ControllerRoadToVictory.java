@@ -34,8 +34,6 @@ import java.util.ResourceBundle;
 public class ControllerRoadToVictory  implements Initializable, MapComponentInitializedListener {
 
 
-    private Vincente vincente= new Vincente();
-
     @FXML
     public GoogleMapView googleMapView;
     public GoogleMap map;
