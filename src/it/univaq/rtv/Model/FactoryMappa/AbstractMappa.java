@@ -163,6 +163,8 @@ public abstract class AbstractMappa {
         return percorso_no_s;
 
     }
+
+    /*
     public LatLong CalcolaCentro(){
         ArrayList<ICitta> cittas=new ArrayList<ICitta>();
         cittas=this.getCitta();
@@ -182,7 +184,7 @@ public abstract class AbstractMappa {
         longi=(long_max+long_min)/2;
         l=new LatLong(lat,longi);
         return l;
-    }
+    }*/
 
 
 }

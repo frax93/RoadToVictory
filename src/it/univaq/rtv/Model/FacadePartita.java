@@ -186,22 +186,7 @@ public class FacadePartita {
         FactorMezzo factorMezzo =new FactorMezzo();
         IMezzo mezGioc1= factorMezzo.getMezzo(mezzo,FacadePartita.getIstance().getGiocatori().get(gioc));
         mappa.getCitta().get(j).setIMezzo(mezGioc1);
-
     }
-
-
-    public boolean IsPartenza(int gioc, int percorso, int casella){
-        return Utility.IsPartenza(this.getGiocatori().get(gioc),this.mappa.DammiPercorsi().get(percorso).getCaselle().get(casella));
-    }
-
-    public LatLong getInizioCasella(int percorso,int casella){
-        return this.mappa.DammiPercorsi().get(percorso).getCaselle().get(casella).getInizio();
-    }
-
-    public LatLong getFineCasella(int percorso,int casella){
-        return this.mappa.DammiPercorsi().get(percorso).getCaselle().get(casella).getFine();
-    }
-
 
     public ArrayList<Casella> CaselleVicini(int percorso, int casella) {
         ArrayList<Percorso> percorsi_vicini = new ArrayList<>();

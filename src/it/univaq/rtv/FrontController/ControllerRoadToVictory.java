@@ -74,7 +74,7 @@ public class ControllerRoadToVictory  implements Initializable, MapComponentInit
     private Timestamp timestamp;
     @Override
     public void initialize(URL url, ResourceBundle rb){
-        //googleMapView.addMapInializedListener(this);
+       // googleMapView.addMapInializedListener(this);
     }
     @Override
     public void mapInitialized(){
@@ -101,8 +101,8 @@ public class ControllerRoadToVictory  implements Initializable, MapComponentInit
         this.nomemappa=event.getTarget().toString().replace("Button[id=","").replaceAll(", styleClass=button]","");
         int pos=this.nomemappa.indexOf("'");
         this.nomemappa=this.nomemappa.substring(0,pos);
-        this.mapInitialized();
         this.scmapp=new ControllerSceltaMappa(SceltaMappa,Europa,USA,Africa,Sud_America,Asia,SceltaGiocatori,InizioPartita,menu,ScrittaGiocatori);
+        this.mapInitialized();
     }
     @FXML
     private void Setgiocatore(final ActionEvent event){
@@ -136,7 +136,7 @@ public class ControllerRoadToVictory  implements Initializable, MapComponentInit
 
     @FXML
     public void Creamappa(String nomemappa) throws FileNotFoundException, IOException {
-        //AbstractMappa mappa = FacadePartita.getIstance().AvviaPartita(nomemappa,FacadePartita.getIstance().getGiocatori());
+        this.controllerMappa.getPartita().AvviaPartita(nomemappa, this.controllerMappa.getPartita().getGiocatori());
         this.setGiocatoreName();
         final Polyline[] polyline = {null};
         MapOptions mapOptions = new MapOptions();
@@ -151,7 +151,7 @@ public class ControllerRoadToVictory  implements Initializable, MapComponentInit
         }
 
         System.out.println();
-        mapOptions.center(new LatLong(this.controllerMappa.getCoordinateCentroMappa(nomemappa).getLatitude(), this.controllerMappa.getCoordinateCentroMappa(nomemappa).getLongitude()))
+        mapOptions.center(new LatLong(Utility.CalcolaCentro().getLatitude(),Utility.CalcolaCentro().getLongitude()))
                 .mapType(mapTypeIdEnum)
                 .zoom(4)
                 .scrollWheel(false)
@@ -363,7 +363,7 @@ public class ControllerRoadToVictory  implements Initializable, MapComponentInit
 
     //Queste 2 funzioni andranno nel controller FINETURNO
     public void FinisciTurno(){
-        FacadePartita.getIstance().setGiocatori(FacadePartita.getIstance().FineTurno());
+        this.controllerMappa.getPartita().setGiocatori(FacadePartita.getIstance().FineTurno());
 
     }
     public void setTurnoButton(Boolean button){
