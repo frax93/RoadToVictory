@@ -16,10 +16,12 @@ import java.util.*;
 public class Iniziale implements IState_Turno {
 	private AbstractMappa mappa;
 	@Override
-	public ArrayList<Giocatore> InizioTurno(ArrayList<Giocatore> g, String nomeMappa, Turno t, IStato_Giocatore gioca)throws FileNotFoundException,IOException{
+	public ArrayList<Giocatore> InizioTurno(ArrayList<Giocatore> g, String nomeMappa, Turno t, IStato_Giocatore stato)throws FileNotFoundException,IOException{
 
 		this.mappa= FactorMappa.getMappa(nomeMappa);
+		System.out.println("Prima di istanziare mazzo percorso");
 		SingletonMazzoPercorso.getIstance(mappa.DammiPercorsi());
+		System.out.println("istanzia mazzo percorso");
 		SingletonMazzoObiettivo.getIstance(mappa.getCitta());
 		ArrayList<String> CittaUsate= new ArrayList<>();
 		for(int i=0;i<g.size();i++){

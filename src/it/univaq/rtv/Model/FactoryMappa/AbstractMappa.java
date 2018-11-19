@@ -38,7 +38,7 @@ public abstract class AbstractMappa {
 
     /**
      *
-     * @param Giocatori
+     * @param ArrayList<Giocatore>
      */
     public void PopolaMappa(ArrayList<Giocatore> giocatores) {
         for(int i=0; i<giocatores.size();i++){
@@ -132,8 +132,7 @@ public abstract class AbstractMappa {
 
     }
 
-    public ArrayList<Percorso> RimuoviDuplicati(ArrayList<Percorso> percorsi) {
-        ArrayList<Percorso> percorso_no_s = percorsi;
+    public void RimuoviDuplicati(ArrayList<Percorso> percorsi) {
         for (int i = 0; i < percorsi.size(); i++) {
             Percorso percorso = percorsi.get(i);
             for (int j = 0; j < percorsi.size(); j++) {
@@ -141,30 +140,27 @@ public abstract class AbstractMappa {
                 if (percorso.getid() != percorso1.getid()) {
                     if (Utility.EqualsPartenza(percorso1,percorso)) {
                         percorso1.removeCasella(percorso1.getCasellaPartenza());
-                        percorso_no_s.remove(percorso1);
-                        percorso_no_s.add(percorso1);
+                        this.p.remove(percorso1);
+                        this.p.add(percorso1);
                     } else if (Utility.EqualsPartenzaArrivo(percorso1,percorso)) {
                         percorso1.removeCasella(percorso1.getCasellaPartenza());
-                        percorso_no_s.remove(percorso1);
-                        percorso_no_s.add(percorso1);
+                        this.p.remove(percorso1);
+                        this.p.add(percorso1);
                     } else if (Utility.EqualsArrivoPartenza(percorso1,percorso)) {
                         percorso1.removeCasella(percorso1.getCasellaArrivo());
-                        percorso_no_s.remove(percorso1);
-                        percorso_no_s.add(percorso1);
+                        this.p.remove(percorso1);
+                        this.p.add(percorso1);
                     } else if (Utility.EqualsArrivo(percorso1,percorso)) {
                         percorso1.removeCasella(percorso1.getCasellaArrivo());
-                        percorso_no_s.remove(percorso1);
-                        percorso_no_s.add(percorso1);
+                        this.p.remove(percorso1);
+                        this.p.add(percorso1);
                     }
 
                 }
             }
         }
-        return percorso_no_s;
 
     }
-
-    /*
     public LatLong CalcolaCentro(){
         ArrayList<ICitta> cittas=new ArrayList<ICitta>();
         cittas=this.getCitta();
@@ -184,7 +180,7 @@ public abstract class AbstractMappa {
         longi=(long_max+long_min)/2;
         l=new LatLong(lat,longi);
         return l;
-    }*/
+    }
 
 
 }

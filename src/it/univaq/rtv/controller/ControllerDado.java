@@ -1,13 +1,10 @@
 package it.univaq.rtv.controller;
 
-import it.univaq.rtv.Model.Giocatore;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import it.univaq.rtv.Model.FacadePartita;
 
-import java.util.ArrayList;
 
 public class ControllerDado {
     private Button dadoButton;

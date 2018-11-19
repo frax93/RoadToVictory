@@ -2,25 +2,15 @@ package it.univaq.rtv.controller;
 
 import it.univaq.rtv.Model.FacadePartita;
 
-import it.univaq.rtv.Model.*;
-import it.univaq.rtv.Model.FactoryMappa.AbstractMappa;
-import it.univaq.rtv.Model.FactoryMezzo.IMezzo;
-import it.univaq.rtv.Model.StatoGiocatore.Vincente;
+
 import it.univaq.rtv.Utility.Utility;
 import com.lynden.gmapsfx.GoogleMapView;
-import com.lynden.gmapsfx.javascript.event.UIEventType;
 import com.lynden.gmapsfx.javascript.object.*;
 import com.lynden.gmapsfx.shapes.Polyline;
 import com.lynden.gmapsfx.shapes.PolylineOptions;
-import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.paint.Color;
-import netscape.javascript.JSObject;
-
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.ArrayList;
 
 public class ControllerMappa {
 
@@ -131,10 +121,11 @@ public class ControllerMappa {
         return this.getPartita().getGiocatori().get(gioc).getMezzi().size();
     }
 
-    /*
-    public LatLong getCoordinateCentroMappa(String mappa){
-        return FacadePartita.getIstance().AvviaPartita(mappa,FacadePartita.getIstance().getGiocatori()).CalcolaCentro();
-    }*/
+
+    public LatLong getCoordinateCentroMappa(String mappa) {
+        System.out.println("CalcolaCentro");
+        return getPartita().getMappa().CalcolaCentro();
+    }
 
     public int getNumPercorsiMappa(){
         System.out.println("12");
@@ -173,13 +164,13 @@ public class ControllerMappa {
     public void PosizionaMezzoGioc(int gioc, int percorso, int casella){
         System.out.println("18");
 
-        this.getPartita().getGiocatori().get(gioc).PosizionaMezzo(FacadePartita.getIstance().getMappa().DammiPercorsi().get(percorso).getCaselle().get(casella));
+        this.getPartita().getGiocatori().get(gioc).PosizionaMezzo(this.getPartita().getMappa().DammiPercorsi().get(percorso).getCaselle().get(casella));
     }
 
     public void setMossaGioc(int gioc, int percorso, int casella){
         System.out.println("19");
 
-        this.getPartita().getGiocatori().get(gioc).setMossa(FacadePartita.getIstance().getMappa().DammiPercorsi().get(percorso).CalcolaCasellaVicina(FacadePartita.getIstance().getMappa().DammiPercorsi().get(percorso).getCaselle().get(casella)));
+        this.getPartita().getGiocatori().get(gioc).setMossa(this.getPartita().getMappa().DammiPercorsi().get(percorso).CalcolaCasellaVicina(this.getPartita().getMappa().DammiPercorsi().get(percorso).getCaselle().get(casella)));
     }
 
     public FacadePartita getPartita(){
@@ -191,17 +182,21 @@ public class ControllerMappa {
     public void setMosseGioc(int gioc,int percorso, int casella){
         System.out.println("20");
 
-        this.getPartita().getGiocatori().get(gioc).setMosse(FacadePartita.getIstance().CaselleVicini(percorso,casella));
+        this.getPartita().getGiocatori().get(gioc).setMosse(this.getPartita().CaselleVicini(percorso,casella));
     }
 
-    public ArrayList<Percorso> Duplicati(){        System.out.println("21");
+    public void Duplicati(){        System.out.println("21");
 
-        return this.getPartita().getMappa().RimuoviDuplicati(FacadePartita.getIstance().getMappa().DammiPercorsi());
+        this.getPartita().getMappa().RimuoviDuplicati(this.getPartita().getMappa().DammiPercorsi());
     }
 
-    public boolean PosizionaMezzoPartita(Polyline finalPolyline1, PolylineOptions polylineOptions,int finalI,ArrayList<Casella> caselle) throws IOException {
+    public boolean PosizionaMezzoPartita(Polyline finalPolyline1, PolylineOptions polylineOptions,int finalI,int j) throws IOException {
         System.out.println("22");
-        return this.getPartita().PosizionaMezzo(finalPolyline1, polylineOptions,finalI,caselle);
+        return this.getPartita().PosizionaMezzo(finalPolyline1, polylineOptions,finalI,j);
+    }
+
+    public int getNumeroCitta(){
+        return this.getPartita().getMappa().getCitta().size();
     }
 }
 

@@ -6,7 +6,6 @@ import com.lynden.gmapsfx.javascript.event.UIEventType;
 import com.lynden.gmapsfx.javascript.object.*;
 import com.lynden.gmapsfx.shapes.Polyline;
 import com.lynden.gmapsfx.shapes.PolylineOptions;
-import it.univaq.rtv.Model.*;
 import it.univaq.rtv.Model.FactoryMappa.AbstractMappa;
 import it.univaq.rtv.Model.FactoryMezzo.IMezzo;
 import it.univaq.rtv.Model.StatoGiocatore.Vincente;
@@ -134,7 +133,9 @@ public class ControllerRoadToVictory  implements Initializable, MapComponentInit
 
     @FXML
     public void Creamappa(String nomemappa) throws FileNotFoundException, IOException {
+        System.out.println("Prima di avviare partita");
         this.controllerMappa.getPartita().AvviaPartita(nomemappa, this.controllerMappa.getPartita().getGiocatori());
+        System.out.println("Avviata PArtita");
         this.setGiocatoreName();
         final Polyline[] polyline = {null};
         MapOptions mapOptions = new MapOptions();
@@ -148,12 +149,12 @@ public class ControllerRoadToVictory  implements Initializable, MapComponentInit
             mapTypeIdEnum= MapTypeIdEnum.HYBRID;
         }
 
-        System.out.println();
-        mapOptions.center(new LatLong(Utility.CalcolaCentro().getLatitude(),Utility.CalcolaCentro().getLongitude()))
+
+        mapOptions.center(new LatLong(this.controllerMappa.getCoordinateCentroMappa(nomemappa).getLatitude(),this.controllerMappa.getCoordinateCentroMappa(nomemappa).getLongitude()))
                 .mapType(mapTypeIdEnum)
                 .zoom(4)
                 .scrollWheel(false)
-                .maxZoom(8)
+                .maxZoom(7)
                 .streetViewControl(false)
                 .zoomControl(true)
                 .mapTypeControl(false)
@@ -170,40 +171,43 @@ public class ControllerRoadToVictory  implements Initializable, MapComponentInit
 
 
         this.setMarker();
+        System.out.println("dopo set marker");
         for(int a=0;a<this.controllerMappa.getNumGiocatori();a++){
             for (int j = 0; j < this.controllerMappa.getNumPercorsiMappa(); j++) {
                 for (int cont = 0; cont < this.controllerMappa.getNumCasellePercorso(j); cont++) {
                     if (this.controllerMappa.IsPartenza(a,j,cont)){
-                        LatLong[] latLongs1 = {this.controllerMappa.getInizioCasella(j,cont), this.controllerMappa.getFineCasella(j,cont)};
-                        PolylineOptions polylineOptions1 = new PolylineOptions();
-                        polylineOptions1.path(new MVCArray(latLongs1))
-                                .clickable(true)
-                                .draggable(false)
-                                .strokeColor("blue")
-                                .strokeWeight(10)
-                                .visible(true);
-                        polyline[0] = new Polyline(polylineOptions1);
-                        polyline[0].setDraggable(false);
-                        map.addMapShape(polyline[0]);
-                        this.controllerMappa.setMezzo(a,1);
-                        this.controllerMappa.PosizionaMezzoGioc(a,j,cont);
-                        this.controllerMappa.setMossaGioc(a,j,cont);
-                        this.controllerMappa.setMosseGioc(a,j,cont);
+                            LatLong[] latLongs1 = {this.controllerMappa.getInizioCasella(j,cont), this.controllerMappa.getFineCasella(j,cont)};
+                            PolylineOptions polylineOptions1 = new PolylineOptions();
+                            polylineOptions1.path(new MVCArray(latLongs1))
+                                    .clickable(true)
+                                    .draggable(false)
+                                    .strokeColor("blue")
+                                    .strokeWeight(10)
+                                    .visible(true);
+                            polyline[0] = new Polyline(polylineOptions1);
+                            polyline[0].setDraggable(false);
+                            map.addMapShape(polyline[0]);
+                            this.controllerMappa.setMezzo(a,1);
+                            this.controllerMappa.PosizionaMezzoGioc(a,j,cont);
+                            this.controllerMappa.setMossaGioc(a,j,cont);
+                            this.controllerMappa.setMosseGioc(a,j,cont);
+                            break;
                         }
-
-
-
                     }
+
+
+
+
 
                 }
             }
-
-
-        for (int j = 0; j < this.controllerMappa.Duplicati().size(); j++) {
-            ArrayList<Casella> caselle = this.controllerMappa.Duplicati().get(j).getCaselle();
-            for (int cont = 0; cont < caselle.size(); cont++) {
+        System.out.println("Prima di Duplicati");
+        this.controllerMappa.Duplicati();
+        System.out.println("CreaMappa");
+        for (int j = 0; j < this.controllerMappa.getNumPercorsiMappa(); j++) {
+            for (int cont = 0; cont <  this.controllerMappa.getPartita().getMappa().DammiPercorsi().get(j).getCaselle().size(); cont++) {
                 Polyline finalPolyline = null;
-                LatLong[] latLongs = {caselle.get(cont).getInizio(), caselle.get(cont).getFine()};
+                LatLong[] latLongs = {this.controllerMappa.getInizioCasella(j,cont), this.controllerMappa.getFineCasella(j,cont)};
                 PolylineOptions polylineOptions = new PolylineOptions();
                 polylineOptions.path(new MVCArray(latLongs))
                         .clickable(true)
@@ -217,9 +221,10 @@ public class ControllerRoadToVictory  implements Initializable, MapComponentInit
                 finalPolyline = polyline[0];
                 int finalI = cont;
                 Polyline finalPolyline1 = finalPolyline;
+                int finalJ = j;
                 map.addUIEventHandler(polyline[0], UIEventType.click, (JSObject obj) -> {
                     try{
-                        if(this.controllerMappa.PosizionaMezzoPartita(finalPolyline1, polylineOptions,finalI,caselle)){
+                        if(this.controllerMappa.PosizionaMezzoPartita(finalPolyline1, polylineOptions,finalI,finalJ)){
                             this.setGiocatoreName();
                             this.PosizionaMezzo(finalPolyline1,polylineOptions);
                         }
@@ -286,8 +291,8 @@ public class ControllerRoadToVictory  implements Initializable, MapComponentInit
 
     public void setMarker(){
         ArrayList<Marker> markers= new ArrayList<>();
-        for(int i=0; i<this.controllerMappa.getPartita().getGiocatori().size();i++){
-            for (int j = 0; j < this.controllerMappa.getPartita().getMappa().getCitta().size(); j++) {
+        for(int i=0; i<this.controllerMappa.getNumGiocatori();i++){
+            for (int j = 0; j < this.controllerMappa.getNumeroCitta(); j++) {
                 LatLong coorPartenza = this.controllerMappa.getPartita().getMappa().getCitta().get(j).getCoordinate();
                 if (this.controllerMappa.getPartita().getMappa().getCitta().get(j).getNome().equals(this.controllerMappa.getNomeCPCittaPartenza(i))) {
                     this.controllerMappa.setMezzoGioc(i,j,"Vagone");
@@ -361,7 +366,7 @@ public class ControllerRoadToVictory  implements Initializable, MapComponentInit
 
     //Queste 2 funzioni andranno nel controller FINETURNO
     public void FinisciTurno(){
-        this.controllerMappa.getPartita().setGiocatori(FacadePartita.getIstance().FineTurno());
+        this.controllerMappa.getPartita().setGiocatori(this.controllerMappa.getPartita().FineTurno());
 
     }
     public void setTurnoButton(Boolean button){

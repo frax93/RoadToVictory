@@ -54,9 +54,13 @@ public class FacadePartita {
         Iniziale i=new Iniziale();
         try{
             ArrayList<Giocatore> giocatori_ordinati=i.OrdinaGiocatori(giocatoriArrayList);
+            System.out.println("array di giocatori ordinati");
             Attesa attesa=new Attesa();
+            System.out.println("nuova attesa");
             giocatori_ordinati=i.InizioTurno(giocatori_ordinati,Nome_mappa,t, attesa);
+            System.out.println("inizio turno da i giocatori ordinati di nuovo");
             giocatoriArrayList=giocatori_ordinati;
+            System.out.println("assegno i giocatori ordinati ma non li uso");
             this.general=new Generale();
             this.mappa =i.getMappa();
             this.Giocatori=this.general.InizioTurno(giocatori_ordinati,Nome_mappa,t, this.gioca);
@@ -81,16 +85,17 @@ public class FacadePartita {
        return n;
     }
 
-    public boolean PosizionaMezzo(Polyline finalPolyline1, PolylineOptions polylineOptions, int finalI, ArrayList<Casella> caselle) throws FileNotFoundException,IOException {
+    public boolean PosizionaMezzo(Polyline finalPolyline1, PolylineOptions polylineOptions, int finalI,int j) throws FileNotFoundException,IOException {
+            Casella casella = this.getMappa().DammiPercorsi().get(j).getCaselle().get(finalI);
             MVCArray path = finalPolyline1.getPath();
             polylineOptions.path(path);
             String coordinata = String.valueOf(path.getAt(0));
             String[] LatLinea = coordinata.split(",");
             double Lat = Double.valueOf(LatLinea[0].replace("(", ""));
             double Long = Double.valueOf(LatLinea[1].replace(")", ""));
-            LatLong LongCasellaInizio = caselle.get(finalI).getInizio();
-            LatLong LongCasellaFine = caselle.get(finalI).getFine();
-            Casella Casella_premuta = caselle.get(finalI);
+            LatLong LongCasellaInizio = casella.getInizio();
+            LatLong LongCasellaFine = casella.getFine();
+            Casella Casella_premuta = casella;
 
 
             if ((LongCasellaInizio.getLatitude() == Lat && LongCasellaInizio.getLongitude() == Long) ||
