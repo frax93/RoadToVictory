@@ -85,6 +85,8 @@ public class Europa extends AbstractMappa {
         this.AddPercorso(p);
         p=new Percorso(39,c.get(16),c.get(15));
         this.AddPercorso(p);
+        p=new Percorso(40,c.get(7),c.get(9));
+        this.AddPercorso(p);
 
     }
 
