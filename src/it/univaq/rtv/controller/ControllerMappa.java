@@ -17,7 +17,6 @@ public class ControllerMappa {
 
 
     private GoogleMapView googleMapView;
-    private GoogleMap map;
     private Label CartaObiettivo;
     private Label CartaPercorsoPartenza;
     private Label CartaPercorsoArrivo;

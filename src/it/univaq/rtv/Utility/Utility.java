@@ -93,25 +93,4 @@ public class Utility {
                 && Math.abs(p1.getCasellaArrivo().getInizio().getLongitude() - p2.getCasellaArrivo().getInizio().getLongitude()) < 0.005)) return true;
         else return false;
     }
-
-    public static LatLong CalcolaCentro(){
-        ArrayList<ICitta> cittas=new ArrayList<ICitta>();
-        cittas= FacadePartita.getIstance().getMappa().getCitta();
-
-        LatLong l=null;
-        double inizioLat=cittas.get(0).getCoordinate().getLatitude();
-        double inizioLong=cittas.get(0).getCoordinate().getLongitude();
-        double lat_min=inizioLat,lat_max=inizioLat,long_min=inizioLong, long_max=inizioLong, lat, longi;
-
-        for (int i=1; i<cittas.size();i++){
-            if(cittas.get(i).getCoordinate().getLatitude()>lat_max) lat_max=cittas.get(i).getCoordinate().getLatitude();
-            if(cittas.get(i).getCoordinate().getLatitude()<lat_min) lat_min=cittas.get(i).getCoordinate().getLatitude();
-            if(cittas.get(i).getCoordinate().getLongitude()>long_max) long_max=cittas.get(i).getCoordinate().getLongitude();
-            if(cittas.get(i).getCoordinate().getLongitude()<long_min) long_min=cittas.get(i).getCoordinate().getLongitude();
-        }
-        lat=(lat_max+lat_min)/2;
-        longi=(long_max+long_min)/2;
-        l=new LatLong(lat,longi);
-        return l;
-    }
 }
