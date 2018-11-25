@@ -72,7 +72,7 @@ public class ControllerRoadToVictory  implements Initializable, MapComponentInit
     @Override
     public void mapInitialized(){
         if(this.Numero!=""){
-            ngioc.SettaNumGiocatori(this.Numero);
+            ngioc.setNumGiocatori(this.Numero);
         }
         if(this.nomemappa!=""){
             this.controllerMappa =new ControllerMappa(googleMapView, CartaObiettivo, CartaPercorsoPartenza,CartaPercorsoArrivo,GiocatoreName,TurnoButton,NumeroMezzo,FinePartita);
@@ -108,7 +108,7 @@ public class ControllerRoadToVictory  implements Initializable, MapComponentInit
     public void LanciaDado(final ActionEvent event){
         event.consume();
         this.controllerDado =new ControllerDado(dadoButton,DadoImage);
-        this.controllerDado.Lancia(this.controllerDado.getNumDado());
+        this.controllerDado.lancia(this.controllerDado.getNumDado());
         this.NumeroMezzo.setText(String.valueOf(this.controllerDado.getNumDado()));
 
 
@@ -160,7 +160,7 @@ public class ControllerRoadToVictory  implements Initializable, MapComponentInit
         for(int a=0;a<this.controllerMappa.getNumGiocatori();a++){
             for (int j = 0; j < this.controllerMappa.getNumPercorsiMappa(); j++) {
                 for (int cont = 0; cont < this.controllerMappa.getNumCasellePercorso(j); cont++) {
-                    if (this.controllerMappa.IsPartenza(a,j,cont)){
+                    if (this.controllerMappa.isPartenza(a,j,cont)){
                             LatLong[] latLongs1 = {this.controllerMappa.getInizioCasella(j,cont), this.controllerMappa.getFineCasella(j,cont)};
                             PolylineOptions polylineOptions1 = new PolylineOptions();
                             polylineOptions1.path(new MVCArray(latLongs1))
@@ -173,7 +173,7 @@ public class ControllerRoadToVictory  implements Initializable, MapComponentInit
                             polyline[0].setDraggable(false);
                             map.addMapShape(polyline[0]);
                             this.controllerMappa.setMezzo(a,1);
-                            this.controllerMappa.PosizionaMezzoGioc(a,j,cont);
+                            this.controllerMappa.posizionaMezzoGioc(a,j,cont);
                             this.controllerMappa.setMossaGioc(a,j,cont);
                             this.controllerMappa.setMosseGioc(a,j,cont);
                             break;
@@ -186,7 +186,7 @@ public class ControllerRoadToVictory  implements Initializable, MapComponentInit
 
                 }
             }
-        this.controllerMappa.Duplicati();
+        this.controllerMappa.duplicati();
         for (int j = 0; j < this.controllerMappa.getNumPercorsiMappa(); j++) {
             for (int cont = 0; cont <  this.controllerMappa.getPartita().getMappa().DammiPercorsi().get(j).getCaselle().size(); cont++) {
                 Polyline finalPolyline = null;
@@ -207,7 +207,7 @@ public class ControllerRoadToVictory  implements Initializable, MapComponentInit
                 int finalJ = j;
                 map.addUIEventHandler(polyline[0], UIEventType.click, (JSObject obj) -> {
                     try{
-                        if(this.controllerMappa.PosizionaMezzoPartita(finalPolyline1, polylineOptions,finalI,finalJ)){
+                        if(this.controllerMappa.posizionaMezzoPartita(finalPolyline1, polylineOptions,finalI,finalJ)){
                             this.setGiocatoreName();
                             this.PosizionaMezzo(finalPolyline1,polylineOptions);
                         }
@@ -233,9 +233,9 @@ public class ControllerRoadToVictory  implements Initializable, MapComponentInit
 
         if (this.controllerMappa.getNumMezzi(0) > 0) {
          
-           if(this.controllerMappa.ControlloObiettivo())  this.setObiettivo();
-            if(this.controllerMappa.ControlloArrivo()) this.setArrivo();
-            if(this.controllerMappa.ControlloFine()) this.FinePartita();
+           if(this.controllerMappa.controlloObiettivo())  this.setObiettivo();
+            if(this.controllerMappa.controlloArrivo()) this.setArrivo();
+            if(this.controllerMappa.controlloFine()) this.FinePartita();
             this.NumeroMezzo.setText(String.valueOf(this.controllerMappa.getNumMezzi(0)));
             polylineOptions.strokeColor(this.controllerMappa.getColoreGiocatore(0));
             finalPolyline1.setVisible(false);
@@ -244,9 +244,9 @@ public class ControllerRoadToVictory  implements Initializable, MapComponentInit
         }
         else if (this.controllerMappa.getNumMezzi(0)== 0) {
 
-            if(this.controllerMappa.ControlloObiettivo())  this.setObiettivo();
-            if(this.controllerMappa.ControlloArrivo()) this.setArrivo();
-            if(this.controllerMappa.ControlloFine()) this.FinePartita();
+            if(this.controllerMappa.controlloObiettivo())  this.setObiettivo();
+            if(this.controllerMappa.controlloArrivo()) this.setArrivo();
+            if(this.controllerMappa.controlloFine()) this.FinePartita();
             this.NumeroMezzo.setText(String.valueOf(0));
             polylineOptions.strokeColor(this.controllerMappa.getColoreGiocatore(0));
             finalPolyline1.setVisible(false);
@@ -279,7 +279,7 @@ public class ControllerRoadToVictory  implements Initializable, MapComponentInit
                 LatLong coorPartenza = this.controllerMappa.getPartita().getMappa().getCitta().get(j).getCoordinate();
                 if (this.controllerMappa.getPartita().getMappa().getCitta().get(j).getNome().equals(this.controllerMappa.getNomeCPCittaPartenza(i))) {
                     this.controllerMappa.setMezzoGioc(i,j,"Vagone");
-                    this.controllerMappa.OccupaCittaPartenza(i);
+                    this.controllerMappa.occupaCittaPartenza(i);
                     MarkerOptions MarkerPartenza = new MarkerOptions();
                     if(this.controllerMappa.getColoreGiocatore(i)=="aqua")  MarkerPartenza.icon("http://oi63.tinypic.com/iqh2mx.jpg");
                     if(this.controllerMappa.getColoreGiocatore(i)=="red")  MarkerPartenza.icon("http://oi64.tinypic.com/wan96r.jpg");

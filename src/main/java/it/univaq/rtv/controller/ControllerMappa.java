@@ -17,28 +17,28 @@ public class ControllerMappa {
 
 
     private GoogleMapView googleMapView;
-    private Label CartaObiettivo;
-    private Label CartaPercorsoPartenza;
-    private Label CartaPercorsoArrivo;
-    private Label GiocatoreName;
-    private Label FinePartita;
-    private Button TurnoButton;
-    private Label NumeroMezzo;
+    private Label cartaObiettivo;
+    private Label cartaPercorsoPartenza;
+    private Label cartaPercorsoArrivo;
+    private Label giocatoreName;
+    private Label finePartita;
+    private Button turnoButton;
+    private Label numeroMezzo;
 
     public ControllerMappa(GoogleMapView googleMapView, Label CartaObiettivo, Label CartapercorsoPartenza, Label CartapercorsoArrivo, Label GiocatoreName, Button TurnoButton, Label NumeroMezzo, Label FinePartita) {
         this.googleMapView = googleMapView;
-        this.GiocatoreName = GiocatoreName;
-        this.CartaObiettivo = CartaObiettivo;
-        this.CartaPercorsoArrivo = CartapercorsoArrivo;
-        this.CartaPercorsoPartenza = CartapercorsoPartenza;
-        this.TurnoButton = TurnoButton;
-        this.FinePartita = FinePartita;
-        this.NumeroMezzo = NumeroMezzo;
+        this.giocatoreName = GiocatoreName;
+        this.cartaObiettivo = CartaObiettivo;
+        this.cartaPercorsoArrivo = CartapercorsoArrivo;
+        this.cartaPercorsoPartenza = CartapercorsoPartenza;
+        this.turnoButton = TurnoButton;
+        this.finePartita = FinePartita;
+        this.numeroMezzo = NumeroMezzo;
 
     }
 
 
-    public boolean ControlloObiettivo(){
+    public boolean controlloObiettivo(){
         if (this.getPartita().getGiocatori().get(0).getObiettivo()) {
            return true;
         }
@@ -47,7 +47,7 @@ public class ControllerMappa {
 
 
 
-    public boolean ControlloArrivo() {
+    public boolean controlloArrivo() {
         if (this.getPartita().getGiocatori().get(0).getArrivo()) {
 
 
@@ -58,8 +58,8 @@ public class ControllerMappa {
 
 
 
-    public boolean ControlloFine( ){
-            if (this.ControlloObiettivo() && this.ControlloArrivo()) {
+    public boolean controlloFine( ){
+            if (this.controlloObiettivo() && this.controlloArrivo()) {
 
                 return true;
         }
@@ -95,7 +95,7 @@ public class ControllerMappa {
 
     }
 
-    public void OccupaCittaPartenza(int i){
+    public void occupaCittaPartenza(int i){
 
         this.getPartita().getGiocatori().get(i).ChiediCartaPercorso().getCittaPartenza().setOccupata(true);
     }
@@ -129,7 +129,7 @@ public class ControllerMappa {
         return this.getPartita().getMappa().DammiPercorsi().get(percorso).getCaselle().size();
     }
 
-    public boolean IsPartenza(int gioc, int percorso, int casella){
+    public boolean isPartenza(int gioc, int percorso, int casella){
         return Utility.IsPartenza(this.getPartita().getGiocatori().get(gioc),this.getPartita().getMappa().DammiPercorsi().get(percorso).getCaselle().get(casella));
     }
 
@@ -147,7 +147,7 @@ public class ControllerMappa {
         this.getPartita().getGiocatori().get(gioc).setMezzo(i);
     }
 
-    public void PosizionaMezzoGioc(int gioc, int percorso, int casella){
+    public void posizionaMezzoGioc(int gioc, int percorso, int casella){
         this.getPartita().getGiocatori().get(gioc).PosizionaMezzo(this.getPartita().getMappa().DammiPercorsi().get(percorso).getCaselle().get(casella));
     }
 
@@ -164,11 +164,11 @@ public class ControllerMappa {
         this.getPartita().getGiocatori().get(gioc).setMosse(this.getPartita().CaselleVicini(percorso,casella));
     }
 
-    public void Duplicati(){
+    public void duplicati(){
         this.getPartita().getMappa().RimuoviDuplicati(this.getPartita().getMappa().DammiPercorsi());
     }
 
-    public boolean PosizionaMezzoPartita(Polyline finalPolyline1, PolylineOptions polylineOptions,int finalI,int j) throws IOException {
+    public boolean posizionaMezzoPartita(Polyline finalPolyline1, PolylineOptions polylineOptions, int finalI, int j) throws IOException {
         return this.getPartita().PosizionaMezzo(finalPolyline1, polylineOptions,finalI,j);
     }
 
