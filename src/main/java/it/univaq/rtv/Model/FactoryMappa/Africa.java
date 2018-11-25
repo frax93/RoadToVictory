@@ -1,14 +1,11 @@
 package it.univaq.rtv.Model.FactoryMappa;
 
-import com.lynden.gmapsfx.javascript.object.LatLong;
-import it.univaq.rtv.Model.FactorCitta;
 import it.univaq.rtv.Model.FactoryCitta.ICitta;
 
 import it.univaq.rtv.Model.Percorso;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
 
 
 public class Africa extends AbstractMappa {

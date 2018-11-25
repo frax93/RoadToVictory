@@ -1,12 +1,5 @@
 package it.univaq.rtv.Model.FactoryMappa;
 
-
-import com.sun.jersey.api.client.Client;
-import com.sun.jersey.api.client.ClientResponse;
-import com.sun.jersey.api.client.WebResource;
-import com.sun.jersey.api.client.config.ClientConfig;
-import com.sun.jersey.api.client.config.DefaultClientConfig;
-import com.sun.jersey.api.json.JSONConfiguration;
 import it.univaq.rtv.Model.*;
 import it.univaq.rtv.Utility.CittaDTO;
 import it.univaq.rtv.Model.FactoryCitta.ICitta;
@@ -15,11 +8,8 @@ import com.lynden.gmapsfx.javascript.object.LatLong;
 import it.univaq.rtv.Model.FactoryMezzo.Vagone;
 import it.univaq.rtv.Utility.Utility;
 
-import javax.ws.rs.core.MediaType;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 
 
 public abstract class AbstractMappa {
@@ -204,7 +194,7 @@ public abstract class AbstractMappa {
                 }
             }
          catch (Exception e) {
-            System.out.println("Serverck Again and enter a number");
+            System.out.println("Try Again");
         }
         finally {
             return c1;

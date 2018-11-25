@@ -6,19 +6,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-/*import org.apache.commons.lang.builder.ToStringBuilder;
-import org.apache.commons.lang.builder.ToStringStyle;*/
-
-/*import net.sourceforge.jgeocoder.CommonUtils;
-import net.sourceforge.jgeocoder.JGeocodeAddress;
-import net.sourceforge.jgeocoder.tiger.H2DbDataSourceFactory;
-import net.sourceforge.jgeocoder.tiger.JGeocoder;
-import net.sourceforge.jgeocoder.tiger.JGeocoderConfig;*/
 import java.io.FileNotFoundException;
 import java.io.IOException;
-
-
-//Importante per realizzazione CUBO 3D
 
 import java.lang.*;
 

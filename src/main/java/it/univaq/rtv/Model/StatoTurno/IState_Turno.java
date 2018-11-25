@@ -1,8 +1,5 @@
 package it.univaq.rtv.Model.StatoTurno;
 
-
-
-
 import it.univaq.rtv.Model.Giocatore;
 import it.univaq.rtv.Model.StatoGiocatore.IStato_Giocatore;
 import it.univaq.rtv.Model.Turno;

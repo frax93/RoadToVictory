@@ -54,13 +54,9 @@ public class FacadePartita {
         Iniziale i=new Iniziale();
         try{
             ArrayList<Giocatore> giocatori_ordinati=i.OrdinaGiocatori(giocatoriArrayList);
-            System.out.println("array di giocatori ordinati");
             Attesa attesa=new Attesa();
-            System.out.println("nuova attesa");
             giocatori_ordinati=i.InizioTurno(giocatori_ordinati,Nome_mappa,t, attesa);
-            System.out.println("inizio turno da i giocatori ordinati di nuovo");
             giocatoriArrayList=giocatori_ordinati;
-            System.out.println("assegno i giocatori ordinati ma non li uso");
             this.general=new Generale();
             this.mappa =i.getMappa();
             this.Giocatori=this.general.InizioTurno(giocatori_ordinati,Nome_mappa,t, this.gioca);
@@ -105,7 +101,6 @@ public class FacadePartita {
                 PercorsoPremuto = mappa.getPercorsoByCasella(Casella_premuta);
 
                                 for (int g2 = 0; g2 < this.Giocatori.get(0).getMosse().size(); g2++) {
-                                    //aggiungi caselle dei percorsi vicini
                                     if (Casella_premuta.getId() == this.Giocatori.get(0).getMosse().get(g2).getId()) {
                                         ArrayList<Percorso> percorsi_vicini = new ArrayList<>();
                                         if (Casella_premuta.getId() == PercorsoPremuto.getCasellaPartenza().getId())

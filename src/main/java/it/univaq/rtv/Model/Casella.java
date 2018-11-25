@@ -27,7 +27,7 @@ public class Casella {
     }
 
     public void PosizionaGiocatore(Giocatore g){
-            this.m=(IMezzo)g.getMezzo().get(g.getMezzo().size()-1);
+            this.m=g.getMezzo().get(g.getMezzo().size()-1);
 
             this.setOccupata(true);
         }

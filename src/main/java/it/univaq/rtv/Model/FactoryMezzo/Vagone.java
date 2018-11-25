@@ -11,13 +11,10 @@ public class Vagone implements IMezzo {
         }
 
 		public void CreaMezzo() {
-			// TODO - implement Vagone.CreaMezzo
-			throw new UnsupportedOperationException();
+
 		}
 
 		public void DammiMezzo() {
-			// TODO - implement Vagone.DammiMezzo
-			throw new UnsupportedOperationException();
 		}
 
 }

@@ -20,13 +20,7 @@ public class ControllerDado {
 
     public void Lancia(int n){
 
-
-
-
-        /****** Controllo su lancio dado doppio *****/
         if(Primo==true) {
-
-            /****** Set Immagine dado*****/
             if(n==1) {
                 Image dado= new Image("http://oi64.tinypic.com/2dluf4p.jpg");
                 this.DadoImage.setImage(dado);

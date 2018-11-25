@@ -23,7 +23,6 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
-import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
@@ -53,7 +52,7 @@ public class ControllerRoadToVictory  implements Initializable, MapComponentInit
     public Label NumberDado;
     public Label NumeroMezzo;
     public Label ErroreDado;
-    public ImageView DadoImage;  //per impostare immagine dado
+    public ImageView DadoImage;
     public Label CartaObiettivo;
     public Label CartaPercorsoPartenza;
     public Label CartaPercorsoArrivo;
@@ -68,7 +67,7 @@ public class ControllerRoadToVictory  implements Initializable, MapComponentInit
     private Timestamp timestamp;
     @Override
     public void initialize(URL url, ResourceBundle rb){
-       // googleMapView.addMapInializedListener(this);
+
     }
     @Override
     public void mapInitialized(){
@@ -130,14 +129,10 @@ public class ControllerRoadToVictory  implements Initializable, MapComponentInit
 
     @FXML
     public void Creamappa(String nomemappa) throws FileNotFoundException, IOException {
-        System.out.println("Prima di avviare partita");
         this.controllerMappa.getPartita().AvviaPartita(nomemappa, this.controllerMappa.getPartita().getGiocatori());
-        System.out.println("Avviata PArtita");
         this.setGiocatoreName();
         final Polyline[] polyline = {null};
         MapOptions mapOptions = new MapOptions();
-
-        /*Controllo per variare la mappa a seconda che sia giorno o pomeriggio*/
         MapTypeIdEnum mapTypeIdEnum;
         if(LocalDateTime.now().getHour()<12) {
              mapTypeIdEnum= MapTypeIdEnum.ROADMAP;
@@ -161,14 +156,7 @@ public class ControllerRoadToVictory  implements Initializable, MapComponentInit
                 .scaleControl(false);
         this.map = this.googleMapView.createMap(mapOptions, false);
         this.setCarte();
-
-        //ArrayList<Percorso> percorsi = new ArrayList<>();
-        //percorsi = mappa.DammiPercorsi();
-
-
-
         this.setMarker();
-        System.out.println("dopo set marker");
         for(int a=0;a<this.controllerMappa.getNumGiocatori();a++){
             for (int j = 0; j < this.controllerMappa.getNumPercorsiMappa(); j++) {
                 for (int cont = 0; cont < this.controllerMappa.getNumCasellePercorso(j); cont++) {
@@ -198,9 +186,7 @@ public class ControllerRoadToVictory  implements Initializable, MapComponentInit
 
                 }
             }
-        System.out.println("Prima di Duplicati");
         this.controllerMappa.Duplicati();
-        System.out.println("CreaMappa");
         for (int j = 0; j < this.controllerMappa.getNumPercorsiMappa(); j++) {
             for (int cont = 0; cont <  this.controllerMappa.getPartita().getMappa().DammiPercorsi().get(j).getCaselle().size(); cont++) {
                 Polyline finalPolyline = null;
@@ -319,14 +305,11 @@ public class ControllerRoadToVictory  implements Initializable, MapComponentInit
         String color= Utility.ColorToRgba(this.controllerMappa.getColoreGiocatore(0));
         String style = "-fx-background-color:"+color;
         this.GiocatoreName.setStyle(style);
-        // this.GiocatoreName.setTextFill(Color.web(g.getColor()));
 
     }
 
     public void setObiettivo(){
         if(this.controllerMappa.getPartita().getGiocatori().get(0).getObiettivo()==true) {
-            //this.CartaObiettivo.setTextFill(Color.web("green"));   Per settare testo della label
-            // this.CartaObiettivo.setBackground(Background.EMPTY);   Nel caso si voglia riportare il background invisibile, alla mossa successiva
             String style = "-fx-background-color:" + Utility.ColorToRgba("green");
             this.CartaObiettivo.setStyle(style);
         }
@@ -361,7 +344,6 @@ public class ControllerRoadToVictory  implements Initializable, MapComponentInit
         this.menu.setVisible(false);
     }
 
-    //Queste 2 funzioni andranno nel controller FINETURNO
     public void FinisciTurno(){
         this.controllerMappa.getPartita().setGiocatori(this.controllerMappa.getPartita().FineTurno());
 

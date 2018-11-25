@@ -23,7 +23,6 @@ public class Percorso {
 
 	}
 	private void setCaselle(){
-		//Valori utilizzati per coordinate casella
 		double err=0.1;
 		double spezzata =0.2;
 		double dist= this.distanza;
@@ -42,8 +41,6 @@ public class Percorso {
 
 
 			for(double i=x,j=y;i<=arrivo.getLatitude()+err&&j>=arrivo.getLongitude()-err;){
-				// System.out.println(l+" "+l1+" "+passo);
-				//    System.out.println(i+" "+j);
 				LatLong l1= new LatLong(i+spezzata,j+spezzata);
 				LatLong[] result={resultold,l1};
 				resultold=new LatLong(i,j);
@@ -68,9 +65,6 @@ public class Percorso {
 
 
 			for(double i=x,j=y;i>=partenza.getLatitude()+err&&j>=partenza.getLongitude()-err;){
-				// System.out.println(l+" "+l1+" "+passo);
-				//    System.out.println(i+" "+j);
-
 				LatLong l1= new LatLong(i+spezzata,j+spezzata);
 				LatLong[] result={resultold,l1};
 				resultold=new LatLong(i,j);
@@ -95,8 +89,6 @@ public class Percorso {
 			passo1/=n;
 
 			for(double i=x,j=y;i<=partenza.getLatitude()+err&&j<=partenza.getLongitude()-err;){
-				// System.out.println(l+" "+l1+" "+passo);
-				//    System.out.println(i+" "+j);
 				LatLong l1= new LatLong(i+spezzata,j+spezzata);
 				LatLong[] result={resultold,l1};
 				resultold=new LatLong(i,j);
@@ -122,9 +114,6 @@ public class Percorso {
 			passo1/=n;
 
 			for(double i=x,j=y;i<=partenza.getLatitude()+err&&j>=partenza.getLongitude()-err;){
-				// System.out.println(l+" "+l1+" "+passo);
-				//    System.out.println(i+" "+j);
-
 				LatLong l1= new LatLong(i+spezzata,j+spezzata);
 				LatLong[] result={resultold,l1};
 				resultold=new LatLong(i,j);
@@ -178,7 +167,6 @@ public class Percorso {
 		else return false;
 	}
 
-	//ritorna citta partenza o arrivo
 	public int getid(){
 		return this.id;
 	}
@@ -196,7 +184,6 @@ public class Percorso {
 	}
 
 
-	//FUNZIONE CHE DEVE RESTITUIRE 2 CASELLE, UNA INIZIALE E UNA FINALE DEL PERCORSO IN QUESTIONE
 	public ArrayList<Casella> getCaselleAntipodi(){
 		ArrayList<Casella> c= new ArrayList<>();
 
@@ -207,7 +194,6 @@ public class Percorso {
 
 	}
 
-	//Funzione che restituisce le due citta del percorso
 	public ArrayList<ICitta> getCittas(){
 		ArrayList<ICitta> cit= new ArrayList<>();
 		cit.add(0,getCittapartenza());
@@ -215,9 +201,6 @@ public class Percorso {
 
 		return cit;
 	}
-
-	/*******Funzione che permette di capire come è posizionato il percorso, e dove si trova la casella di partenza
-	 * in questo modo possiamo distinguere i vicini di arrivo e partenza del percorso.*****/
 
 	public Casella CalcolaCasellaVicina(Casella casella){
 		if(casella.getId()==this.caselle.get(0).getId()&&(!this.caselle.get(1).CheckOccupata())){
@@ -256,7 +239,7 @@ public class Percorso {
 	}
 
 	public Casella getCasellaPartenza(){
-		double R = 6372.795477598;  //Con errore dello 0.3%
+		double R = 6372.795477598;
 
 		double k= 2* 3.14/360;
 		Casella casellaPartenza = new Casella(0);
@@ -279,7 +262,7 @@ public class Percorso {
 	}
 
 	public Casella getCasellaPerVicino(Casella casella_iniziale){
-		double R = 6372.795477598;  //Con errore dello 0.3%
+		double R = 6372.795477598;
 
 		double k= 2* 3.14/360;
 		Casella casella_vicina = new Casella(0);
@@ -303,7 +286,7 @@ public class Percorso {
 	}
 
 	public Casella getCasellaArrivo(){
-		double R = 6372.795477598;  //Con errore dello 0.3%
+		double R = 6372.795477598;
 
 		double k= 2* 3.14/360;
 		Casella casellaArrivo = new Casella(0);
@@ -328,9 +311,7 @@ public class Percorso {
 
 	}
 	public void calcolaDistanza(){
-
-		/**** Algoritmo per calcolare la distanza tra le Città **********/
-		double R = 6372.795477598;  //Con errore dello 0.3%
+		double R = 6372.795477598;
 
 		double k= 2* 3.14/360;
 

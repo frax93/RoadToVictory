@@ -28,12 +28,11 @@ public class Giocatore implements Comparable<Giocatore>,Runnable {
 	}
 	@Override
 	public int compareTo(Giocatore g){
-		int compare=((Giocatore) g).getId();
+		int compare=g.getId();
 		return this.id-compare;
 	}
 	@Override
 	public void run(){
-		//this.Posizionamezzo();
 	}
 	public Giocatore(int id, String u,String color1){
 		this.color=color1;
