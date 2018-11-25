@@ -15,40 +15,42 @@ import java.util.*;
 
 public class Iniziale implements IState_Turno {
 	private AbstractMappa mappa;
-	@Override
-	public ArrayList<Giocatore> InizioTurno(ArrayList<Giocatore> g, String nomeMappa, Turno t, IStato_Giocatore gioca)throws FileNotFoundException,IOException{
 
+	@Override
+	public ArrayList<Giocatore> inizioTurno(ArrayList<Giocatore> g, String nomeMappa, Turno t, IStato_Giocatore gioca)throws FileNotFoundException,IOException{
 		this.mappa= FactorMappa.getMappa(nomeMappa);
-		SingletonMazzoPercorso.getIstance(mappa.DammiPercorsi());
+		SingletonMazzoPercorso.getIstance(mappa.dammiPercorsi());
 		SingletonMazzoObiettivo.getIstance(mappa.getCitta());
 		ArrayList<String> CittaUsate= new ArrayList<>();
 		for(int i=0;i<g.size();i++){
-			g.get(i).PescaDueCarte();
+			g.get(i).pescaDueCarte();
 			for(int c=0;c<CittaUsate.size();c++){
-				while(Utility.EqualsCitta(g.get(i),CittaUsate.get(c))){
-					g.get(i).RestituisciCarte();
-					g.get(i).PescaDueCarte();
+				while(Utility.equalsCitta(g.get(i),CittaUsate.get(c))){
+					g.get(i).restituisciCarte();
+					g.get(i).pescaDueCarte();
 					c=-1;
 					break;
 				}
 
 			}
-			CittaUsate.add(g.get(i).ChiediCartaObiettivo().getCittaObiettivo().getNome());
-			CittaUsate.add(g.get(i).ChiediCartaPercorso().getCittaPartenza().getNome());
-			CittaUsate.add(g.get(i).ChiediCartaPercorso().getCittaArrivo().getNome());
+			CittaUsate.add(g.get(i).chiediCartaObiettivo().getCittaObiettivo().getNome());
+			CittaUsate.add(g.get(i).chiediCartaPercorso().getCittaPartenza().getNome());
+			CittaUsate.add(g.get(i).chiediCartaPercorso().getCittaArrivo().getNome());
 
 		}
-		mappa.PopolaMappa(g);
+		mappa.popolaMappa(g);
 		t.setState(this);
 		return g;
 
 	}
+
 	@Override
-	public void Fineturno(Giocatore g) {
+	public void fineTurno(Giocatore g) {
 		return;
 	}
+
 	@Override
-	public ArrayList<Giocatore> OrdinaGiocatori(ArrayList<Giocatore> g) {
+	public ArrayList<Giocatore> ordinaGiocatori(ArrayList<Giocatore> g) {
 		Collections.sort(g);
 		return g;
 	}

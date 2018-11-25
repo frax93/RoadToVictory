@@ -1,7 +1,6 @@
 package it.univaq.rtv.Utility;
 
 
-import com.lynden.gmapsfx.javascript.object.LatLong;
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.WebResource;
@@ -9,14 +8,11 @@ import com.sun.jersey.api.client.config.ClientConfig;
 import com.sun.jersey.api.client.config.DefaultClientConfig;
 import com.sun.jersey.api.json.JSONConfiguration;
 import it.univaq.rtv.Model.Casella;
-import it.univaq.rtv.Model.FacadePartita;
-import it.univaq.rtv.Model.FactoryCitta.ICitta;
 import it.univaq.rtv.Model.Giocatore;
 import it.univaq.rtv.Model.Percorso;
 
 import javax.ws.rs.core.MediaType;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Random;
 
 
@@ -32,7 +28,7 @@ public class Utility {
         add("white");
     }};
 
-    public static String ColorToRgba(String colore){
+    public static String colorToRgba(String colore){
         String c = null;
         if(colore=="red")  c="rgba(255,0,0,1)";
         else if(colore=="aqua")  c="rgba(0,255,255,1)";
@@ -44,7 +40,7 @@ public class Utility {
         else if(colore=="black") c="rgba(0,0,0,1)";
         return c;
     }
-    public static String Colori(){
+    public static String colori(){
 
         Random num= new Random();
         String colorescelto;
@@ -54,7 +50,7 @@ public class Utility {
         return colorescelto;
 
     }
-    public static int StringtoInteger(String s){
+    public static int stringToInteger(String s){
         if(s.equals("Uno")) return 1;
         else if(s.equals("Due")) return 2;
         else if(s.equals("Tre")) return 3;
@@ -86,35 +82,35 @@ public class Utility {
         return cittaDTOS;
     }
 
-    public static boolean IsPartenza(Giocatore giocatore, Casella casella){
-        if(Math.abs(giocatore.ChiediCartaPercorso().getCittaPartenza().getCoordinate().getLatitude() - casella.getInizio().getLatitude())<0.5 && Math.abs(giocatore.ChiediCartaPercorso().getCittaPartenza().getCoordinate().getLongitude() - casella.getInizio().getLongitude())<0.5) return true;
+    public static boolean isPartenza(Giocatore giocatore, Casella casella){
+        if(Math.abs(giocatore.chiediCartaPercorso().getCittaPartenza().getCoordinate().getLatitude() - casella.getInizio().getLatitude())<0.5 && Math.abs(giocatore.chiediCartaPercorso().getCittaPartenza().getCoordinate().getLongitude() - casella.getInizio().getLongitude())<0.5) return true;
         else return false;
     }
-    public static boolean EqualsIdCasella(Casella casella1, Casella casella2){
+    public static boolean equalsIdCasella(Casella casella1, Casella casella2){
         if(casella1.getId()==casella2.getId())return true;
         else return false;
     }
-    public static boolean EqualsCitta(Giocatore gioc,String cittausate ){
-        if(gioc.ChiediCartaObiettivo().getCittaObiettivo().getNome().equals(cittausate)||gioc.ChiediCartaPercorso().getCittaPartenza().getNome().equals(cittausate)||gioc.ChiediCartaPercorso().getCittaArrivo().getNome().equals(cittausate)||gioc.ChiediCartaObiettivo().getCittaObiettivo().getNome().equals(gioc.ChiediCartaPercorso().getCittaPartenza().getNome()))return true;
+    public static boolean equalsCitta(Giocatore gioc, String cittausate ){
+        if(gioc.chiediCartaObiettivo().getCittaObiettivo().getNome().equals(cittausate)||gioc.chiediCartaPercorso().getCittaPartenza().getNome().equals(cittausate)||gioc.chiediCartaPercorso().getCittaArrivo().getNome().equals(cittausate)||gioc.chiediCartaObiettivo().getCittaObiettivo().getNome().equals(gioc.chiediCartaPercorso().getCittaPartenza().getNome()))return true;
         else return false;
     }
 
-    public static boolean EqualsPartenza(Percorso p1, Percorso p2){
+    public static boolean equalsPartenza(Percorso p1, Percorso p2){
         if((Math.abs(p1.getCasellaPartenza().getInizio().getLatitude() - p2.getCasellaPartenza().getInizio().getLatitude()) < 0.0005
                 && Math.abs(p1.getCasellaPartenza().getInizio().getLongitude() - p2.getCasellaPartenza().getInizio().getLongitude()) < 0.005)) return true;
         else return false;
     }
-    public static boolean EqualsPartenzaArrivo(Percorso p1, Percorso p2){
+    public static boolean equalsPartenzaArrivo(Percorso p1, Percorso p2){
         if((Math.abs(p1.getCasellaPartenza().getInizio().getLatitude() - p2.getCasellaArrivo().getInizio().getLatitude()) < 0.0005
                 && Math.abs(p1.getCasellaPartenza().getInizio().getLongitude() - p2.getCasellaArrivo().getInizio().getLongitude()) < 0.005)) return true;
         else return false;
     }
-    public static boolean EqualsArrivoPartenza(Percorso p1, Percorso p2){
+    public static boolean equalsArrivoPartenza(Percorso p1, Percorso p2){
         if((Math.abs(p1.getCasellaArrivo().getInizio().getLatitude() - p2.getCasellaPartenza().getInizio().getLatitude()) < 0.0005
                 && Math.abs(p1.getCasellaArrivo().getInizio().getLongitude() - p2.getCasellaPartenza().getInizio().getLongitude()) < 0.005)) return true;
         else return false;
     }
-    public static boolean EqualsArrivo(Percorso p1, Percorso p2){
+    public static boolean equalsArrivo(Percorso p1, Percorso p2){
         if((Math.abs(p1.getCasellaArrivo().getInizio().getLatitude() - p2.getCasellaArrivo().getInizio().getLatitude()) < 0.0005
                 && Math.abs(p1.getCasellaArrivo().getInizio().getLongitude() - p2.getCasellaArrivo().getInizio().getLongitude()) < 0.005)) return true;
         else return false;

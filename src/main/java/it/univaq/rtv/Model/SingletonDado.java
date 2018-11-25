@@ -18,7 +18,7 @@ public class SingletonDado {
 
     }
         
-	public int Lancia() {
+	public int lancia() {
             int n=1+this.Numero.nextInt(this.lati);
             return n;
 	}

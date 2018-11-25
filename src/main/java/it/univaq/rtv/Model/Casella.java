@@ -26,12 +26,13 @@ public class Casella {
         return fine;
     }
 
-    public void PosizionaGiocatore(Giocatore g){
+    public void posizionaGiocatore(Giocatore g){
             this.m=g.getMezzo().get(g.getMezzo().size()-1);
 
             this.setOccupata(true);
         }
-    public void ImpostaCoordinate(LatLong i,LatLong f){
+
+    public void impostaCoordinate(LatLong i, LatLong f){
 	    this.inizio=i;
 	    this.fine=f;
     }
@@ -40,7 +41,7 @@ public class Casella {
         return id;
     }
 
-    public boolean CheckOccupata(){
+    public boolean checkOccupata(){
             return this.occupata;
         }
 

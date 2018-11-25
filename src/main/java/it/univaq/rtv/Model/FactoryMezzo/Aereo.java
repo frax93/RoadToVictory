@@ -8,12 +8,14 @@ public class Aereo implements IMezzo {
 	public Aereo(Giocatore giocatore) {
 
 	}
-	@Override
-	public void CreaMezzo() {
 
-		}
 	@Override
-	public void DammiMezzo() {
+	public void creaMezzo() {
+
+	}
+
+	@Override
+	public void dammiMezzo() {
 
 	}
 

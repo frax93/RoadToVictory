@@ -16,13 +16,13 @@ public interface ICitta {
 
 	boolean getOccupata();
 
-	 void ImpostaCoordinate(LatLong l);
+	 void impostaCoordinate(LatLong l);
 
-	 void PosizionaGiocatore(FactorMezzo Mezzo, Giocatore g);
+	 void posizionaGiocatore(FactorMezzo Mezzo, Giocatore g);
 
 	 IMezzo getIMezzo();
 
-	LatLong getCoordinate();
+	 LatLong getCoordinate();
 
 	 void setIMezzo(IMezzo IMezzo);
 

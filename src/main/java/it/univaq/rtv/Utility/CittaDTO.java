@@ -12,25 +12,30 @@ public class CittaDTO {
 
         private Double longitude;
 
-        public CittaDTO(){}
+        public CittaDTO(){
 
+        }
 
-
-    public String getNome(){
+        public String getNome(){
             return this.Nome;
         }
+
         public Double getLatitude(){
             return this.latitude;
         }
-     public void setLatitude(Double lat){
-        this.latitude=lat;
-    }
-    public Double getLongitude(){
-        return this.longitude;
-    }
-    public void setLongitude(Double longitude){
-        this.longitude=longitude;
-    }
 
-        public void setNome(String nome){ this.Nome=nome;}
+        public void setLatitude(Double lat){
+        this.latitude=lat;
+         }
+
+         public Double getLongitude(){
+        return this.longitude;
+        }
+
+        public void setLongitude(Double longitude){
+        this.longitude=longitude;
+        }
+
+        public void setNome(String nome){
+            this.Nome=nome;}
 }

@@ -35,19 +35,19 @@ public class SingletonMazzoObiettivo {
             this.Carte.add((CartaObiettivo) c);
         }
 
-        public CartaObiettivo PescaCarta() {
-                int num1=this.MischiaMazzo();
+        public CartaObiettivo pescaCarta() {
+                int num1=this.mischiaMazzo();
 		        CartaObiettivo c=this.Carte.get(num1);
                 this.Carte.remove(num1);
                 return c;
                
 	    }
 
-	    public void ReinserisciCarta(CartaObiettivo c){
+	    public void reinserisciCarta(CartaObiettivo c){
             this.Carte.add(c);
         }
 
-	    public int MischiaMazzo() {
+	    public int mischiaMazzo() {
                Random r= new Random();
                int num=0;
                int n=this.Carte.size();

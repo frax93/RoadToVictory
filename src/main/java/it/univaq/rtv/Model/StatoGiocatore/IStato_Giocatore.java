@@ -5,7 +5,7 @@ import it.univaq.rtv.Model.Giocatore;
 
 public interface IStato_Giocatore {
 
-    void Ruolo(Giocatore g);
+    void ruolo(Giocatore g);
 
 
 }

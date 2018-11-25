@@ -70,7 +70,7 @@ public class ControllerNumGiocatori {
 
     }
     public void setNumGiocatori(String n){
-        FacadePartita.getIstance().CreaGiocatori(n);
+        FacadePartita.getIstance().creaGiocatori(n);
         }
 
 }

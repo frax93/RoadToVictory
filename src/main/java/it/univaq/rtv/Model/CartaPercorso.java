@@ -4,16 +4,19 @@ import it.univaq.rtv.Model.FactoryCitta.ICitta;
 
 public class CartaPercorso{
 
-	private ICitta CittaPartenza;
-	private ICitta CittaArrivo;
+	private ICitta cittaPartenza;
+	private ICitta cittaArrivo;
 
     public CartaPercorso(ICitta CittaPartenza, ICitta CittaArrivo) {
 
-        this.CittaPartenza=CittaPartenza;
-        this.CittaArrivo=CittaArrivo;
+        this.cittaPartenza =CittaPartenza;
+        this.cittaArrivo =CittaArrivo;
     }
-    public ICitta getCittaPartenza(){return this.CittaPartenza;}
-    public ICitta getCittaArrivo(){return this.CittaArrivo;}
-
+    public ICitta getCittaPartenza(){
+        return this.cittaPartenza;
+    }
+    public ICitta getCittaArrivo(){
+        return this.cittaArrivo;
+    }
 
 }

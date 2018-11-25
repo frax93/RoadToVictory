@@ -13,21 +13,21 @@
 
     <Label fx:id="SceltaMappa" layoutX="30.0" layoutY="30.0" text="Scegli dove giocare:" minHeight="530" minWidth="750" visible="false"/>
     <children>
-        <Button fx:id="Europa" layoutX="500.0" layoutY="170.0" text="Europa" onAction="#SetMappa" visible="false"></Button>
-        <Button fx:id="USA" layoutX="200.0" layoutY="200.0" text="USA" onAction="#SetMappa" visible="false"></Button>
-        <Button fx:id="Sud_America" layoutX="300.0" layoutY="350.0" text="Sud America" onAction="#SetMappa" visible="false"></Button>
-        <Button fx:id="Africa" layoutX="500.0" layoutY="250.0" text="Africa" onAction="#SetMappa" visible="false"></Button>
-        <Button fx:id="Asia" layoutX="700.0" layoutY="200.0" text="Asia" onAction="#SetMappa" visible="false"></Button>
+        <Button fx:id="Europa" layoutX="500.0" layoutY="170.0" text="Europa" onAction="#setMappa" visible="false"></Button>
+        <Button fx:id="USA" layoutX="200.0" layoutY="200.0" text="USA" onAction="#setMappa" visible="false"></Button>
+        <Button fx:id="Sud_America" layoutX="300.0" layoutY="350.0" text="Sud America" onAction="#setMappa" visible="false"></Button>
+        <Button fx:id="Africa" layoutX="500.0" layoutY="250.0" text="Africa" onAction="#setMappa" visible="false"></Button>
+        <Button fx:id="Asia" layoutX="700.0" layoutY="200.0" text="Asia" onAction="#setMappa" visible="false"></Button>
     </children>
 
     <Label fx:id="SceltaGiocatori" layoutX="30.0" layoutY="30.0" minHeight="530" minWidth="750"/>
   <children>
       <Label fx:id="ScrittaGiocatori" layoutX="290.0" layoutY="200.0"  text="Scegli Numero Giocatori Partita" />
-        <Button fx:id="Uno" layoutX="50.0" layoutY="300.0" minHeight="85" minWidth="100" onAction="#Setgiocatore" ></Button>
-        <Button fx:id="Due" layoutX="200.0" layoutY="300.0" minHeight="85" minWidth="100" onAction="#Setgiocatore"></Button>
-        <Button fx:id="Tre" layoutX="350.0" layoutY="300.0" minHeight="85" minWidth="100"  onAction="#Setgiocatore"></Button>
-        <Button fx:id="Quattro" layoutX="500.0" layoutY="300.0" minHeight="85" minWidth="100" onAction="#Setgiocatore"></Button>
-      <Button fx:id="Cinque" layoutX="650.0" layoutY="300.0" minHeight="85" minWidth="100" onAction="#Setgiocatore"></Button>
+        <Button fx:id="Uno" layoutX="50.0" layoutY="300.0" minHeight="85" minWidth="100" onAction="#setGiocatore" ></Button>
+        <Button fx:id="Due" layoutX="200.0" layoutY="300.0" minHeight="85" minWidth="100" onAction="#setGiocatore"></Button>
+        <Button fx:id="Tre" layoutX="350.0" layoutY="300.0" minHeight="85" minWidth="100"  onAction="#setGiocatore"></Button>
+        <Button fx:id="Quattro" layoutX="500.0" layoutY="300.0" minHeight="85" minWidth="100" onAction="#setGiocatore"></Button>
+      <Button fx:id="Cinque" layoutX="650.0" layoutY="300.0" minHeight="85" minWidth="100" onAction="#setGiocatore"></Button>
     </children>
 <Label fx:id="label" layoutX="126" layoutY="120" minHeight="16" minWidth="69" />
     <Label fx:id="FinePartita"  layoutX="230.0" layoutY="150.0" text="" visible="false"/>
@@ -37,7 +37,7 @@
     <AnchorPane fx:id="menu" prefHeight="500.0" prefWidth="130.0" style="-fx-background-color: #778899;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" visible="false">
         <children>
             <Label fx:id="GiocatoreName" layoutX="22.0" layoutY="31.0" text="" />
-            <Button fx:id="dadoButton" layoutX="20.0" layoutY="80.0" mnemonicParsing="false" text="Lancia Dado" onAction="#LanciaDado"/>
+            <Button fx:id="dadoButton" layoutX="20.0" layoutY="80.0" mnemonicParsing="false" text="Lancia Dado" onAction="#lanciaDado"/>
 
             <Button fx:id="Dado" layoutX="18.0" layoutY="110.0">
                 <graphic>
@@ -61,7 +61,7 @@
         </graphic>
 </Button>
 
-            <Button fx:id="TurnoButton" layoutX="28.0" layoutY="580.0" mnemonicParsing="false" text="Fine Turno" visible="false" onAction="#FineTurno"/>
+            <Button fx:id="TurnoButton" layoutX="28.0" layoutY="580.0" mnemonicParsing="false" text="Fine Turno" visible="false" onAction="#fineTurno"/>
         </children>
     </AnchorPane>
 </children>

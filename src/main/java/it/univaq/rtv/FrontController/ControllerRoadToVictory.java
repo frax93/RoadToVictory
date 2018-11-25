@@ -21,7 +21,6 @@ import netscape.javascript.JSObject;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
-import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -49,7 +48,6 @@ public class ControllerRoadToVictory  implements Initializable, MapComponentInit
     public AnchorPane menu;
     public Label ScrittaGiocatori;
     public Button dadoButton;
-    public Label NumberDado;
     public Label NumeroMezzo;
     public Label ErroreDado;
     public ImageView DadoImage;
@@ -64,7 +62,6 @@ public class ControllerRoadToVictory  implements Initializable, MapComponentInit
     private ControllerNumGiocatori ngioc;
     private ControllerSceltaMappa scmapp;
     private String Numero="";
-    private Timestamp timestamp;
     @Override
     public void initialize(URL url, ResourceBundle rb){
 
@@ -78,7 +75,7 @@ public class ControllerRoadToVictory  implements Initializable, MapComponentInit
             this.controllerMappa =new ControllerMappa(googleMapView, CartaObiettivo, CartaPercorsoPartenza,CartaPercorsoArrivo,GiocatoreName,TurnoButton,NumeroMezzo,FinePartita);
 
             try {
-                this.Creamappa(nomemappa);
+                this.creaMappa(nomemappa);
 
             } catch (IOException e) {
                 e.printStackTrace();
@@ -89,7 +86,7 @@ public class ControllerRoadToVictory  implements Initializable, MapComponentInit
     }
 
     @FXML
-    private void SetMappa(final ActionEvent event){
+    private void setMappa(final ActionEvent event){
         event.consume();
         this.nomemappa=event.getTarget().toString().replace("Button[id=","").replaceAll(", styleClass=button]","");
         int pos=this.nomemappa.indexOf("'");
@@ -98,14 +95,14 @@ public class ControllerRoadToVictory  implements Initializable, MapComponentInit
         this.mapInitialized();
     }
     @FXML
-    private void Setgiocatore(final ActionEvent event){
+    private void setGiocatore(final ActionEvent event){
         event.consume();
         this.Numero=event.getTarget().toString().replace("Button[id=","").replace(", styleClass=button]''","");
         this.ngioc=new ControllerNumGiocatori(SceltaGiocatori,Uno,Due,Tre,Quattro,Cinque,InizioPartita,menu,SceltaMappa,Europa,USA,Africa,Sud_America,Asia,ScrittaGiocatori);
     }
 
     @FXML
-    public void LanciaDado(final ActionEvent event){
+    public void lanciaDado(final ActionEvent event){
         event.consume();
         this.controllerDado =new ControllerDado(dadoButton,DadoImage);
         this.controllerDado.lancia(this.controllerDado.getNumDado());
@@ -115,10 +112,10 @@ public class ControllerRoadToVictory  implements Initializable, MapComponentInit
     }
 
     @FXML
-    public void FineTurno(final ActionEvent event){
+    public void fineTurno(final ActionEvent event){
         event.consume();
         this.controllerDado.setDadoButton();
-        this.FinisciTurno();
+        this.finisciTurno();
         this.setCarte();
         this.setObiettivo();
         this.setArrivo();
@@ -128,8 +125,8 @@ public class ControllerRoadToVictory  implements Initializable, MapComponentInit
     }
 
     @FXML
-    public void Creamappa(String nomemappa) throws FileNotFoundException, IOException {
-        this.controllerMappa.getPartita().AvviaPartita(nomemappa, this.controllerMappa.getPartita().getGiocatori());
+    public void creaMappa(String nomemappa) throws FileNotFoundException, IOException {
+        this.controllerMappa.getPartita().avviaPartita(nomemappa, this.controllerMappa.getPartita().getGiocatori());
         this.setGiocatoreName();
         final Polyline[] polyline = {null};
         MapOptions mapOptions = new MapOptions();
@@ -188,7 +185,7 @@ public class ControllerRoadToVictory  implements Initializable, MapComponentInit
             }
         this.controllerMappa.duplicati();
         for (int j = 0; j < this.controllerMappa.getNumPercorsiMappa(); j++) {
-            for (int cont = 0; cont <  this.controllerMappa.getPartita().getMappa().DammiPercorsi().get(j).getCaselle().size(); cont++) {
+            for (int cont = 0; cont <  this.controllerMappa.getPartita().getMappa().dammiPercorsi().get(j).getCaselle().size(); cont++) {
                 Polyline finalPolyline = null;
                 LatLong[] latLongs = {this.controllerMappa.getInizioCasella(j,cont), this.controllerMappa.getFineCasella(j,cont)};
                 PolylineOptions polylineOptions = new PolylineOptions();
@@ -209,7 +206,7 @@ public class ControllerRoadToVictory  implements Initializable, MapComponentInit
                     try{
                         if(this.controllerMappa.posizionaMezzoPartita(finalPolyline1, polylineOptions,finalI,finalJ)){
                             this.setGiocatoreName();
-                            this.PosizionaMezzo(finalPolyline1,polylineOptions);
+                            this.posizionaMezzo(finalPolyline1,polylineOptions);
                         }
 
                     }
@@ -227,7 +224,7 @@ public class ControllerRoadToVictory  implements Initializable, MapComponentInit
 
 
 
-    public void PosizionaMezzo(Polyline finalPolyline1, PolylineOptions polylineOptions){
+    public void posizionaMezzo(Polyline finalPolyline1, PolylineOptions polylineOptions){
 
 
 
@@ -235,7 +232,7 @@ public class ControllerRoadToVictory  implements Initializable, MapComponentInit
          
            if(this.controllerMappa.controlloObiettivo())  this.setObiettivo();
             if(this.controllerMappa.controlloArrivo()) this.setArrivo();
-            if(this.controllerMappa.controlloFine()) this.FinePartita();
+            if(this.controllerMappa.controlloFine()) this.finePartita();
             this.NumeroMezzo.setText(String.valueOf(this.controllerMappa.getNumMezzi(0)));
             polylineOptions.strokeColor(this.controllerMappa.getColoreGiocatore(0));
             finalPolyline1.setVisible(false);
@@ -246,7 +243,7 @@ public class ControllerRoadToVictory  implements Initializable, MapComponentInit
 
             if(this.controllerMappa.controlloObiettivo())  this.setObiettivo();
             if(this.controllerMappa.controlloArrivo()) this.setArrivo();
-            if(this.controllerMappa.controlloFine()) this.FinePartita();
+            if(this.controllerMappa.controlloFine()) this.finePartita();
             this.NumeroMezzo.setText(String.valueOf(0));
             polylineOptions.strokeColor(this.controllerMappa.getColoreGiocatore(0));
             finalPolyline1.setVisible(false);
@@ -302,7 +299,7 @@ public class ControllerRoadToVictory  implements Initializable, MapComponentInit
 
     public void setGiocatoreName(){
         this.GiocatoreName.setText(this.controllerMappa.getPartita().getGiocatori().get(0).getUsername());
-        String color= Utility.ColorToRgba(this.controllerMappa.getColoreGiocatore(0));
+        String color= Utility.colorToRgba(this.controllerMappa.getColoreGiocatore(0));
         String style = "-fx-background-color:"+color;
         this.GiocatoreName.setStyle(style);
 
@@ -310,12 +307,12 @@ public class ControllerRoadToVictory  implements Initializable, MapComponentInit
 
     public void setObiettivo(){
         if(this.controllerMappa.getPartita().getGiocatori().get(0).getObiettivo()==true) {
-            String style = "-fx-background-color:" + Utility.ColorToRgba("green");
+            String style = "-fx-background-color:" + Utility.colorToRgba("green");
             this.CartaObiettivo.setStyle(style);
         }
         else {
             this.CartaObiettivo.setTextFill(Color.web("black"));
-            String style = "-fx-background-color:"+Utility.ColorToRgba("white");
+            String style = "-fx-background-color:"+Utility.colorToRgba("white");
             this.CartaObiettivo.setStyle(style);
         }
 
@@ -324,28 +321,28 @@ public class ControllerRoadToVictory  implements Initializable, MapComponentInit
 
     public void setArrivo(){
         if(this.controllerMappa.getPartita().getGiocatori().get(0).getArrivo()==true) {
-            String style = "-fx-background-color:" +Utility.ColorToRgba("green");
+            String style = "-fx-background-color:" +Utility.colorToRgba("green");
             this.CartaPercorsoArrivo.setStyle(style);
         }
         else {
             this.CartaObiettivo.setTextFill(Color.web("black"));
-            String style = "-fx-background-color:"+Utility.ColorToRgba("white");
+            String style = "-fx-background-color:"+Utility.colorToRgba("white");
             this.CartaPercorsoArrivo.setStyle(style);
         }
 
     }
 
-    public void FinePartita(){
+    public void finePartita(){
         this.FinePartita.setVisible(true);
         this.FinePartita.setText(this.controllerMappa.getUsername(0)+" HAI VINTO LA PARTITA!!!!!!");
-        String color= Utility.ColorToRgba(this.controllerMappa.getColoreGiocatore(0));
+        String color= Utility.colorToRgba(this.controllerMappa.getColoreGiocatore(0));
         String style = "-fx-background-color:"+ color;
         this.FinePartita.setStyle(style);
         this.menu.setVisible(false);
     }
 
-    public void FinisciTurno(){
-        this.controllerMappa.getPartita().setGiocatori(this.controllerMappa.getPartita().FineTurno());
+    public void finisciTurno(){
+        this.controllerMappa.getPartita().setGiocatori(this.controllerMappa.getPartita().fineTurno());
 
     }
     public void setTurnoButton(Boolean button){

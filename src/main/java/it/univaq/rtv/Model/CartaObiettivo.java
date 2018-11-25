@@ -4,16 +4,16 @@ import it.univaq.rtv.Model.FactoryCitta.ICitta;
 
 public class CartaObiettivo{
 
-	private ICitta CittaObiettivo;
+	private ICitta cittaObiettivo;
 	private int id;
 
         public CartaObiettivo(int id1, ICitta CittaObiettivo) {
             this.id=id1;
-            this.CittaObiettivo=CittaObiettivo;
+            this.cittaObiettivo =CittaObiettivo;
             
         }
         public ICitta getCittaObiettivo(){
-            return this.CittaObiettivo;
+            return this.cittaObiettivo;
         }
 
 

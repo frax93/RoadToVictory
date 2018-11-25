@@ -6,17 +6,17 @@ import it.univaq.rtv.Model.FactoryMezzo.IMezzo;
 import it.univaq.rtv.Model.Giocatore;
 
 public class Rifornimento implements ICitta {
-	private String Nome;
+	private String nome;
 	private LatLong coordinate;
 	private boolean occupata;
 	private IMezzo IMezzo =null;
 	public Rifornimento() {
-		this.Nome="";
+		this.nome ="";
 		this.coordinate=null;
 		this.occupata=false;
 	}
 	public Rifornimento(String Nome){
-		this.Nome=Nome;
+		this.nome =Nome;
 		this.coordinate= null;
 		this.occupata= false;
 
@@ -33,15 +33,17 @@ public class Rifornimento implements ICitta {
 	}
 
 	@Override
-	public boolean getOccupata(){return this.occupata;}
+	public boolean getOccupata(){
+		return this.occupata;
+	}
 
 	@Override
-	public void ImpostaCoordinate(LatLong l) {
+	public void impostaCoordinate(LatLong l) {
 
 	}
 
 	@Override
-	public void PosizionaGiocatore(FactorMezzo Mezzo, Giocatore g) {
+	public void posizionaGiocatore(FactorMezzo Mezzo, Giocatore g) {
 
 	}
 

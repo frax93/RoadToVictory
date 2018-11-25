@@ -79,25 +79,25 @@ public class ControllerMappa {
 
     public String getNomeCPCittaPartenza(int gioc){
 
-        return this.getPartita().getGiocatori().get(gioc).ChiediCartaPercorso().getCittaPartenza().getNome();
+        return this.getPartita().getGiocatori().get(gioc).chiediCartaPercorso().getCittaPartenza().getNome();
 
     }
 
     public String getNomeCPCittaArrivo(int gioc){
 
-        return this.getPartita().getGiocatori().get(gioc).ChiediCartaPercorso().getCittaArrivo().getNome();
+        return this.getPartita().getGiocatori().get(gioc).chiediCartaPercorso().getCittaArrivo().getNome();
 
     }
 
     public String getNomeCittaObiettivo(int gioc){
 
-        return this.getPartita().getGiocatori().get(gioc).ChiediCartaObiettivo().getCittaObiettivo().getNome();
+        return this.getPartita().getGiocatori().get(gioc).chiediCartaObiettivo().getCittaObiettivo().getNome();
 
     }
 
     public void occupaCittaPartenza(int i){
 
-        this.getPartita().getGiocatori().get(i).ChiediCartaPercorso().getCittaPartenza().setOccupata(true);
+        this.getPartita().getGiocatori().get(i).chiediCartaPercorso().getCittaPartenza().setOccupata(true);
     }
 
     public void setMezzoGioc(int i, int j, String mezzo){
@@ -118,27 +118,27 @@ public class ControllerMappa {
 
 
     public LatLong getCoordinateCentroMappa(String mappa) {
-        return getPartita().getMappa().CalcolaCentro();
+        return getPartita().getMappa().calcolaCentro();
     }
 
     public int getNumPercorsiMappa(){
-        return this.getPartita().getMappa().DammiPercorsi().size();
+        return this.getPartita().getMappa().dammiPercorsi().size();
     }
 
     public int getNumCasellePercorso(int percorso){
-        return this.getPartita().getMappa().DammiPercorsi().get(percorso).getCaselle().size();
+        return this.getPartita().getMappa().dammiPercorsi().get(percorso).getCaselle().size();
     }
 
     public boolean isPartenza(int gioc, int percorso, int casella){
-        return Utility.IsPartenza(this.getPartita().getGiocatori().get(gioc),this.getPartita().getMappa().DammiPercorsi().get(percorso).getCaselle().get(casella));
+        return Utility.isPartenza(this.getPartita().getGiocatori().get(gioc),this.getPartita().getMappa().dammiPercorsi().get(percorso).getCaselle().get(casella));
     }
 
     public LatLong getInizioCasella(int percorso,int casella){
-        return this.getPartita().getMappa().DammiPercorsi().get(percorso).getCaselle().get(casella).getInizio();
+        return this.getPartita().getMappa().dammiPercorsi().get(percorso).getCaselle().get(casella).getInizio();
     }
 
     public LatLong getFineCasella(int percorso,int casella){
-        return this.getPartita().getMappa().DammiPercorsi().get(percorso).getCaselle().get(casella).getFine();
+        return this.getPartita().getMappa().dammiPercorsi().get(percorso).getCaselle().get(casella).getFine();
     }
 
 
@@ -148,11 +148,11 @@ public class ControllerMappa {
     }
 
     public void posizionaMezzoGioc(int gioc, int percorso, int casella){
-        this.getPartita().getGiocatori().get(gioc).PosizionaMezzo(this.getPartita().getMappa().DammiPercorsi().get(percorso).getCaselle().get(casella));
+        this.getPartita().getGiocatori().get(gioc).posizionaMezzo(this.getPartita().getMappa().dammiPercorsi().get(percorso).getCaselle().get(casella));
     }
 
     public void setMossaGioc(int gioc, int percorso, int casella){
-        this.getPartita().getGiocatori().get(gioc).setMossa(this.getPartita().getMappa().DammiPercorsi().get(percorso).CalcolaCasellaVicina(this.getPartita().getMappa().DammiPercorsi().get(percorso).getCaselle().get(casella)));
+        this.getPartita().getGiocatori().get(gioc).setMossa(this.getPartita().getMappa().dammiPercorsi().get(percorso).calcolaCasellaVicina(this.getPartita().getMappa().dammiPercorsi().get(percorso).getCaselle().get(casella)));
     }
 
     public FacadePartita getPartita(){
@@ -161,15 +161,15 @@ public class ControllerMappa {
     }
 
     public void setMosseGioc(int gioc,int percorso, int casella){
-        this.getPartita().getGiocatori().get(gioc).setMosse(this.getPartita().CaselleVicini(percorso,casella));
+        this.getPartita().getGiocatori().get(gioc).setMosse(this.getPartita().caselleVicini(percorso,casella));
     }
 
     public void duplicati(){
-        this.getPartita().getMappa().RimuoviDuplicati(this.getPartita().getMappa().DammiPercorsi());
+        this.getPartita().getMappa().rimuoviDuplicati(this.getPartita().getMappa().dammiPercorsi());
     }
 
     public boolean posizionaMezzoPartita(Polyline finalPolyline1, PolylineOptions polylineOptions, int finalI, int j) throws IOException {
-        return this.getPartita().PosizionaMezzo(finalPolyline1, polylineOptions,finalI,j);
+        return this.getPartita().posizionaMezzo(finalPolyline1, polylineOptions,finalI,j);
     }
 
     public int getNumeroCitta(){

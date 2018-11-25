@@ -9,9 +9,9 @@ import java.util.ArrayList;
 
 public interface IState_Turno {
 
-	ArrayList<Giocatore> InizioTurno(ArrayList<Giocatore> g, String nomeMappa, Turno t, IStato_Giocatore gioca) throws Exception;
-	void Fineturno(Giocatore g);
-	ArrayList<Giocatore> OrdinaGiocatori(ArrayList<Giocatore> g);
+	ArrayList<Giocatore> inizioTurno(ArrayList<Giocatore> g, String nomeMappa, Turno t, IStato_Giocatore gioca) throws Exception;
+	void fineTurno(Giocatore g);
+	ArrayList<Giocatore> ordinaGiocatori(ArrayList<Giocatore> g);
 
 
 }

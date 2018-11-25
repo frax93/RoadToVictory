@@ -16,8 +16,8 @@ public class Giocatore implements Comparable<Giocatore>,Runnable {
 	private IStato_Giocatore IStato_giocatore;
 	private String color;
 	private ArrayList<Casella> mosse=new ArrayList<>();
-	private boolean Obiettivo=false;
-	private boolean Arrivo=false;
+	private boolean obiettivo =false;
+	private boolean arrivo =false;
 
 	public void setState(IStato_Giocatore state){
 		this.IStato_giocatore = state;
@@ -31,15 +31,17 @@ public class Giocatore implements Comparable<Giocatore>,Runnable {
 		int compare=g.getId();
 		return this.id-compare;
 	}
+
 	@Override
 	public void run(){
 	}
+
 	public Giocatore(int id, String u,String color1){
 		this.color=color1;
 		this.id=id;
 		this.username=u;
 		Attesa attesa=new Attesa();
-		attesa.Ruolo(this);
+		attesa.ruolo(this);
 
 	}
 	public String getColor(){
@@ -71,8 +73,8 @@ public class Giocatore implements Comparable<Giocatore>,Runnable {
 		return this.mosse;
 	}
 
-	public int LanciaDado() {
-		return SingletonDado.getIstance().Lancia();
+	public int lanciaDado() {
+		return SingletonDado.getIstance().lancia();
 	}
 
 	public void setMezzo(int taglia){
@@ -89,54 +91,54 @@ public class Giocatore implements Comparable<Giocatore>,Runnable {
 		return IMezzo;
 	}
 
-	public void PescaDueCarte() {
+	public void pescaDueCarte() {
 		SingletonMazzoObiettivo m= new SingletonMazzoObiettivo();
 		m=m.getIstance1();
-		this.c1=m.PescaCarta();
+		this.c1=m.pescaCarta();
 		SingletonMazzoPercorso m1= new SingletonMazzoPercorso();
 		m1=m1.getIstance1();
-		this.c=m1.PescaCarta();
+		this.c=m1.pescaCarta();
 
 	}
 
-	public void RestituisciCarte(){
+	public void restituisciCarte(){
 		SingletonMazzoObiettivo mo= new SingletonMazzoObiettivo();
 		mo=mo.getIstance1();
 		SingletonMazzoPercorso mp= new SingletonMazzoPercorso();
 		mp=mp.getIstance1();
-		mo.ReinserisciCarta(this.ChiediCartaObiettivo());
-		mp.ReinserisciCarta(this.ChiediCartaPercorso());
+		mo.reinserisciCarta(this.chiediCartaObiettivo());
+		mp.reinserisciCarta(this.chiediCartaPercorso());
 	}
 
 
-	public CartaPercorso ChiediCartaPercorso() {
+	public CartaPercorso chiediCartaPercorso() {
 		return this.c;
 	}
 
-	public CartaObiettivo ChiediCartaObiettivo() {
+	public CartaObiettivo chiediCartaObiettivo() {
 		return this.c1;
 	}
 
 
-	public void PosizionaMezzo(Casella c) {
+	public void posizionaMezzo(Casella c) {
 
 		int pos=this.IMezzo.size()-1;
-		c.PosizionaGiocatore(this);
+		c.posizionaGiocatore(this);
 		this.IMezzo.remove(pos);
 
 
 	}
 
 	public boolean getObiettivo() {
-		return this.Obiettivo;
+		return this.obiettivo;
 	}
-	public void Obiettivoraggiunto() {
-		this.Obiettivo=true;
+	public void obiettivoRaggiunto() {
+		this.obiettivo =true;
 	}
 	public boolean getArrivo() {
-		return this.Arrivo;
+		return this.arrivo;
 	}
-	public void Arrivoraggiunto() {
-		this.Arrivo=true;
+	public void arrivoRaggiunto() {
+		this.arrivo =true;
 	}
 }

@@ -14,7 +14,7 @@ public class SingletonMazzoPercorso {
             for(int i=0;i<p.size();i++){
                 Percorso percorso= p.get(i);
                 ICitta ca= percorso.getCittaArrivo();
-                ICitta cp= percorso.getCittapartenza();
+                ICitta cp= percorso.getCittaPartenza();
                 CartaPercorso c1=new CartaPercorso(cp,ca);
                 istance.addCarta(c1);
             }
@@ -34,18 +34,19 @@ public class SingletonMazzoPercorso {
         }
 
 
-	    public CartaPercorso PescaCarta() {
-                int num1=this.MischiaMazzo();
+	    public CartaPercorso pescaCarta() {
+                int num1=this.mischiaMazzo();
 		        CartaPercorso c=this.Carte.get(num1);
                 this.Carte.remove(num1);
                 return c;
         }
-        public void ReinserisciCarta(CartaPercorso c){
+
+        public void reinserisciCarta(CartaPercorso c){
             this.Carte.add(c);
         }
 
 
-	    public int MischiaMazzo() {
+	    public int mischiaMazzo() {
                Random r= new Random();
                int num= r.nextInt(this.Carte.size());
                return num;

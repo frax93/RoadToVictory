@@ -15,7 +15,7 @@ public class ControllerDado {
     public ControllerDado(Button dadoButton,ImageView DadoImage){
         this.dadoButton=dadoButton;
         this.dadoImage =DadoImage;
-        this.numDado=FacadePartita.getIstance().LanciaDado(FacadePartita.getIstance().getGiocatori());
+        this.numDado=FacadePartita.getIstance().lanciaDado(FacadePartita.getIstance().getGiocatori());
     }
 
     public void lancia(int n){

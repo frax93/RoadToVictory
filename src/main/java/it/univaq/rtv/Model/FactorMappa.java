@@ -1,7 +1,6 @@
 package it.univaq.rtv.Model;
 
 import it.univaq.rtv.Model.FactoryMappa.*;
-
 import java.io.IOException;
 import java.lang.String;
 

@@ -8,16 +8,16 @@ import java.util.ArrayList;
 
 public class Percorso {
 	private int id;
-	private ICitta Cittapartenza;
-	private ICitta CittaArrivo;
+	private ICitta cittaPartenza;
+	private ICitta cittaArrivo;
 	public static int identificativo=0;
 	private double distanza;
 	ArrayList<Casella> caselle=new ArrayList<Casella>();
 
 	public Percorso(int num, ICitta Cp, ICitta Ca){
 		this.id=num;
-		this.CittaArrivo=Ca;
-		this.Cittapartenza=Cp;
+		this.cittaArrivo =Ca;
+		this.cittaPartenza =Cp;
 		this.calcolaDistanza();
 		this.setCaselle();
 
@@ -26,8 +26,8 @@ public class Percorso {
 		double err=0.1;
 		double spezzata =0.2;
 		double dist= this.distanza;
-		LatLong partenza=this.Cittapartenza.getCoordinate();
-		LatLong arrivo=this.CittaArrivo.getCoordinate();
+		LatLong partenza=this.cittaPartenza.getCoordinate();
+		LatLong arrivo=this.cittaArrivo.getCoordinate();
 
 		if(arrivo.getLatitude()>partenza.getLatitude()&&arrivo.getLongitude()<partenza.getLongitude()){
 			double x=partenza.getLatitude();
@@ -47,7 +47,7 @@ public class Percorso {
 				i=i+passo;
 				j=j-passo1;
 				Casella c=new Casella(identificativo);
-				c.ImpostaCoordinate(resultold,l1);
+				c.impostaCoordinate(resultold,l1);
 				this.caselle.add(c);
 				identificativo++;
 
@@ -71,7 +71,7 @@ public class Percorso {
 				i=i+passo;
 				j=j-passo1;
 				Casella c=new Casella(identificativo);
-				c.ImpostaCoordinate(resultold,l1);
+				c.impostaCoordinate(resultold,l1);
 				this.caselle.add(c);
 				identificativo++;
 
@@ -95,7 +95,7 @@ public class Percorso {
 				i=i+passo;
 				j=j-passo1;
 				Casella c=new Casella(identificativo);
-				c.ImpostaCoordinate(resultold,l1);
+				c.impostaCoordinate(resultold,l1);
 				this.caselle.add(c);
 				identificativo++;
 
@@ -120,7 +120,7 @@ public class Percorso {
 				i=i+passo;
 				j=j-passo1;
 				Casella c=new Casella(identificativo);
-				c.ImpostaCoordinate(resultold,l1);
+				c.impostaCoordinate(resultold,l1);
 				this.caselle.add(c);
 				identificativo++;
 
@@ -139,10 +139,10 @@ public class Percorso {
 	 * @param FactorMezzo
 	 * @param Giocatore
 	 */
-	public void TrovaPercorso(CartaPercorso c, FactorMezzo mez, Giocatore g) {
+	public void trovaPercorso(CartaPercorso c, FactorMezzo mez, Giocatore g) {
 
-		if(c.getCittaPartenza()==this.Cittapartenza&&this.Cittapartenza.getIMezzo()==null)
-			this.Cittapartenza.PosizionaGiocatore(mez,g);
+		if(c.getCittaPartenza()==this.cittaPartenza &&this.cittaPartenza.getIMezzo()==null)
+			this.cittaPartenza.posizionaGiocatore(mez,g);
 	}
 
 
@@ -156,10 +156,10 @@ public class Percorso {
 
 			}
 		}
-		if(caselle.get(1).CheckOccupata()&&(caselle.get(1).getId()-1==c.getId()||caselle.get(1).getId()+1==c.getId())){
+		if(caselle.get(1).checkOccupata()&&(caselle.get(1).getId()-1==c.getId()||caselle.get(1).getId()+1==c.getId())){
 			return true;
 		}
-		else if((caselle.get(pos-1).CheckOccupata()||caselle.get(pos+1).CheckOccupata())
+		else if((caselle.get(pos-1).checkOccupata()||caselle.get(pos+1).checkOccupata())
 				&&((caselle.get(pos-1).getId()+1==c.getId()||caselle.get(pos+1).getId()-1==c.getId())||
 				(caselle.get(pos-1).getId()-1==c.getId()||caselle.get(pos+1).getId()+1==c.getId()))){
 			return  true;
@@ -170,11 +170,11 @@ public class Percorso {
 	public int getid(){
 		return this.id;
 	}
-	public ICitta getCittapartenza(){
-		return this.Cittapartenza;
+	public ICitta getCittaPartenza(){
+		return this.cittaPartenza;
 	}
 	public ICitta getCittaArrivo(){
-		return this.CittaArrivo;
+		return this.cittaArrivo;
 	}
 	public ArrayList<Casella> getCaselle(){
 		return this.caselle;
@@ -196,17 +196,17 @@ public class Percorso {
 
 	public ArrayList<ICitta> getCittas(){
 		ArrayList<ICitta> cit= new ArrayList<>();
-		cit.add(0,getCittapartenza());
+		cit.add(0, getCittaPartenza());
 		cit.add(1,getCittaArrivo());
 
 		return cit;
 	}
 
-	public Casella CalcolaCasellaVicina(Casella casella){
-		if(casella.getId()==this.caselle.get(0).getId()&&(!this.caselle.get(1).CheckOccupata())){
+	public Casella calcolaCasellaVicina(Casella casella){
+		if(casella.getId()==this.caselle.get(0).getId()&&(!this.caselle.get(1).checkOccupata())){
 			return this.caselle.get(1);
 		}
-		else if (casella.getId()==this.caselle.get(this.caselle.size()-1).getId()&&(!this.caselle.get(this.caselle.size()-2).CheckOccupata())){
+		else if (casella.getId()==this.caselle.get(this.caselle.size()-1).getId()&&(!this.caselle.get(this.caselle.size()-2).checkOccupata())){
 
 			return this.caselle.get(this.caselle.size()-2);
 		}
@@ -221,9 +221,9 @@ public class Percorso {
 			}
 
 			if(pos>0 && pos<caselle.size()-1){
-				if (!this.caselle.get(pos + 1).CheckOccupata())
+				if (!this.caselle.get(pos + 1).checkOccupata())
 					return this.caselle.get(pos + 1);
-				else if (!this.caselle.get(pos - 1).CheckOccupata())
+				else if (!this.caselle.get(pos - 1).checkOccupata())
 					return this.caselle.get(pos - 1);
 			}
 			else if (pos==0){
@@ -250,8 +250,8 @@ public class Percorso {
 		double distCasellaN = R* Math.acos(Math.sin(this.getCaselle().get(this.getCaselle().size()-1).getInizio().getLatitude()*k) * Math.sin(53.3498053*k) +
 				Math.cos(this.getCaselle().get(this.getCaselle().size()-1).getInizio().getLatitude()*k) * Math.cos(53.3498053*k) * Math.cos(this.getCaselle().get(this.getCaselle().size()-1).getInizio().getLongitude()*k-(-6.260309699999993*k)));
 
-		double distCittaPartenza = R* Math.acos(Math.sin(this.getCittapartenza().getCoordinate().getLatitude()*k) * Math.sin(53.3498053*k) +
-				Math.cos(this.getCittapartenza().getCoordinate().getLatitude()*k) * Math.cos(53.3498053*k) * Math.cos(this.getCittapartenza().getCoordinate().getLongitude()*k-(-6.260309699999993*k)));
+		double distCittaPartenza = R* Math.acos(Math.sin(this.getCittaPartenza().getCoordinate().getLatitude()*k) * Math.sin(53.3498053*k) +
+				Math.cos(this.getCittaPartenza().getCoordinate().getLatitude()*k) * Math.cos(53.3498053*k) * Math.cos(this.getCittaPartenza().getCoordinate().getLongitude()*k-(-6.260309699999993*k)));
 
 		if(Math.abs(distCittaPartenza-distCasella0)<= Math.abs(distCittaPartenza-distCasellaN)){
 			casellaPartenza= this.getCaselle().get(0);
@@ -310,15 +310,15 @@ public class Percorso {
 		return casellaArrivo;
 
 	}
+
+
 	public void calcolaDistanza(){
 		double R = 6372.795477598;
 
 		double k= 2* 3.14/360;
 
-		this.distanza = R* Math.acos(Math.sin(this.Cittapartenza.getCoordinate().getLatitude()*k) * Math.sin(this.CittaArrivo.getCoordinate().getLatitude()*k) +
-				Math.cos(this.Cittapartenza.getCoordinate().getLatitude()*k) * Math.cos(this.CittaArrivo.getCoordinate().getLatitude()*k) * Math.cos(this.Cittapartenza.getCoordinate().getLongitude()*k-(this.CittaArrivo.getCoordinate().getLongitude()*k)));
-
-
+		this.distanza = R* Math.acos(Math.sin(this.cittaPartenza.getCoordinate().getLatitude()*k) * Math.sin(this.cittaArrivo.getCoordinate().getLatitude()*k) +
+				Math.cos(this.cittaPartenza.getCoordinate().getLatitude()*k) * Math.cos(this.cittaArrivo.getCoordinate().getLatitude()*k) * Math.cos(this.cittaPartenza.getCoordinate().getLongitude()*k-(this.cittaArrivo.getCoordinate().getLongitude()*k)));
 
 	}
 

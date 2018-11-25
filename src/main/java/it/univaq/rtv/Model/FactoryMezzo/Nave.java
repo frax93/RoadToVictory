@@ -9,11 +9,11 @@ public class Nave implements IMezzo {
 
         }
 
-	    public void CreaMezzo() {
+	    public void creaMezzo() {
 
 	    }
 
-	    public void DammiMezzo() {
+	    public void dammiMezzo() {
 
 	    }
 
