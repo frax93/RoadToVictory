@@ -8,6 +8,11 @@ import java.util.Random;
 public class SingletonMazzoPercorso {
         private static SingletonMazzoPercorso istance = null;
         private ArrayList<CartaPercorso> Carte= new ArrayList<CartaPercorso>();
+
+    /**
+     * @param p
+     * @return
+     */
     public static SingletonMazzoPercorso getIstance(ArrayList<Percorso> p){
         if(istance==null){
             istance = new SingletonMazzoPercorso();
@@ -21,19 +26,34 @@ public class SingletonMazzoPercorso {
         }
         return istance;
     }
+
+    /**
+     * @return
+     */
     public static SingletonMazzoPercorso getIstance1(){
         if(istance==null){
         }
         return istance;
     }
+
+    /**
+     *
+     */
     public SingletonMazzoPercorso(){
 
     }
+
+    /**
+     * @param c
+     */
         public void addCarta(CartaPercorso c){
             this.Carte.add((CartaPercorso) c);
         }
 
 
+    /**
+     * @return
+     */
 	    public CartaPercorso pescaCarta() {
                 int num1=this.mischiaMazzo();
 		        CartaPercorso c=this.Carte.get(num1);
@@ -41,11 +61,17 @@ public class SingletonMazzoPercorso {
                 return c;
         }
 
+    /**
+     * @param c
+     */
         public void reinserisciCarta(CartaPercorso c){
             this.Carte.add(c);
         }
 
 
+    /**
+     * @return
+     */
 	    public int mischiaMazzo() {
                Random r= new Random();
                int num= r.nextInt(this.Carte.size());

@@ -19,6 +19,12 @@ import java.lang.*;
 public class RoadToVictory extends Application{
 
 
+    /**
+     * @param stage
+     * @throws Exception
+     * @throws FileNotFoundException
+     * @throws IOException
+     */
     @Override
     public void start(Stage stage) throws Exception, FileNotFoundException,IOException {
 

@@ -28,6 +28,10 @@ public class Utility {
         add("white");
     }};
 
+    /**
+     * @param colore
+     * @return
+     */
     public static String colorToRgba(String colore){
         String c = null;
         if(colore=="red")  c="rgba(255,0,0,1)";
@@ -40,6 +44,10 @@ public class Utility {
         else if(colore=="black") c="rgba(0,0,0,1)";
         return c;
     }
+
+    /**
+     * @return
+     */
     public static String colori(){
 
         Random num= new Random();
@@ -50,6 +58,11 @@ public class Utility {
         return colorescelto;
 
     }
+
+    /**
+     * @param s
+     * @return
+     */
     public static int stringToInteger(String s){
         if(s.equals("Uno")) return 1;
         else if(s.equals("Due")) return 2;
@@ -65,6 +78,10 @@ public class Utility {
 
     }
 
+    /**
+     * @param nomeMappa
+     * @return
+     */
     public static CittaDTO[] getRestConnection(String nomeMappa){
         CittaDTO[] cittaDTOS = null;
         ClientConfig clientConfig = new DefaultClientConfig();
@@ -82,34 +99,74 @@ public class Utility {
         return cittaDTOS;
     }
 
+    /**
+     * @param giocatore
+     * @param casella
+     * @return
+     */
     public static boolean isPartenza(Giocatore giocatore, Casella casella){
         if(Math.abs(giocatore.chiediCartaPercorso().getCittaPartenza().getCoordinate().getLatitude() - casella.getInizio().getLatitude())<0.5 && Math.abs(giocatore.chiediCartaPercorso().getCittaPartenza().getCoordinate().getLongitude() - casella.getInizio().getLongitude())<0.5) return true;
         else return false;
     }
+
+    /**
+     * @param casella1
+     * @param casella2
+     * @return
+     */
     public static boolean equalsIdCasella(Casella casella1, Casella casella2){
         if(casella1.getId()==casella2.getId())return true;
         else return false;
     }
+
+    /**
+     * @param gioc
+     * @param cittausate
+     * @return
+     */
     public static boolean equalsCitta(Giocatore gioc, String cittausate ){
         if(gioc.chiediCartaObiettivo().getCittaObiettivo().getNome().equals(cittausate)||gioc.chiediCartaPercorso().getCittaPartenza().getNome().equals(cittausate)||gioc.chiediCartaPercorso().getCittaArrivo().getNome().equals(cittausate)||gioc.chiediCartaObiettivo().getCittaObiettivo().getNome().equals(gioc.chiediCartaPercorso().getCittaPartenza().getNome()))return true;
         else return false;
     }
 
+    /**
+     * @param p1
+     * @param p2
+     * @return
+     */
     public static boolean equalsPartenza(Percorso p1, Percorso p2){
         if((Math.abs(p1.getCasellaPartenza().getInizio().getLatitude() - p2.getCasellaPartenza().getInizio().getLatitude()) < 0.0005
                 && Math.abs(p1.getCasellaPartenza().getInizio().getLongitude() - p2.getCasellaPartenza().getInizio().getLongitude()) < 0.005)) return true;
         else return false;
     }
+
+    /**
+     * @param p1
+     * @param p2
+     * @return
+     */
     public static boolean equalsPartenzaArrivo(Percorso p1, Percorso p2){
         if((Math.abs(p1.getCasellaPartenza().getInizio().getLatitude() - p2.getCasellaArrivo().getInizio().getLatitude()) < 0.0005
                 && Math.abs(p1.getCasellaPartenza().getInizio().getLongitude() - p2.getCasellaArrivo().getInizio().getLongitude()) < 0.005)) return true;
         else return false;
     }
+
+    /**
+     * @param p1
+     * @param p2
+     * @return
+     */
     public static boolean equalsArrivoPartenza(Percorso p1, Percorso p2){
         if((Math.abs(p1.getCasellaArrivo().getInizio().getLatitude() - p2.getCasellaPartenza().getInizio().getLatitude()) < 0.0005
                 && Math.abs(p1.getCasellaArrivo().getInizio().getLongitude() - p2.getCasellaPartenza().getInizio().getLongitude()) < 0.005)) return true;
         else return false;
     }
+
+    /**
+     * @param p1
+     * @param p2
+     * @return
+     */
     public static boolean equalsArrivo(Percorso p1, Percorso p2){
         if((Math.abs(p1.getCasellaArrivo().getInizio().getLatitude() - p2.getCasellaArrivo().getInizio().getLatitude()) < 0.0005
                 && Math.abs(p1.getCasellaArrivo().getInizio().getLongitude() - p2.getCasellaArrivo().getInizio().getLongitude()) < 0.005)) return true;

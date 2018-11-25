@@ -12,12 +12,19 @@ public class ControllerDado {
     public ImageView dadoImage;
     private int numDado;
 
+    /**
+     * @param dadoButton
+     * @param DadoImage
+     */
     public ControllerDado(Button dadoButton,ImageView DadoImage){
         this.dadoButton=dadoButton;
         this.dadoImage =DadoImage;
         this.numDado=FacadePartita.getIstance().lanciaDado(FacadePartita.getIstance().getGiocatori());
     }
 
+    /**
+     * @param n
+     */
     public void lancia(int n){
 
         if(Primo==true) {
@@ -50,10 +57,16 @@ public class ControllerDado {
         this.dadoButton.setDisable(true);
     }
 
+    /**
+     * @return
+     */
     public int getNumDado(){
         return this.numDado;
     }
 
+    /**
+     *
+     */
     public void setDadoButton() {
         this.dadoButton.setDisable(false);
     }

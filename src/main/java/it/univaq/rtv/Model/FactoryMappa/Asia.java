@@ -10,6 +10,9 @@ import java.util.ArrayList;
 public class Asia extends AbstractMappa {
 
 
+    /**
+     * @throws IOException
+     */
     public Asia() throws IOException {
         this.nome = "Asia";
         ArrayList<ICitta> c = this.creaMappa();

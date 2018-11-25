@@ -5,16 +5,25 @@ import it.univaq.rtv.Model.Giocatore;
 
 public class Nave implements IMezzo {
 
-        public Nave(Giocatore giocatore) {
+	/**
+	 * @param giocatore
+	 */
+	 public Nave(Giocatore giocatore) {
 
-        }
+	 }
 
-	    public void creaMezzo() {
+	/**
+	 *
+	 */
+	 public void creaMezzo() {
 
-	    }
+	 }
 
-	    public void dammiMezzo() {
+	/**
+	 *
+	 */
+	 public void dammiMezzo() {
 
-	    }
+	 }
 
 }

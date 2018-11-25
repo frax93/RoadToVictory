@@ -24,9 +24,23 @@ public class ControllerNumGiocatori {
     private Button asia;
 
 
-
-
-
+    /**
+     * @param SceltaGiocatori
+     * @param Uno
+     * @param Due
+     * @param Tre
+     * @param Quattro
+     * @param Cinque
+     * @param InizioPartita
+     * @param menu
+     * @param SceltaMappa
+     * @param Europa
+     * @param America
+     * @param Africa
+     * @param Sud_America
+     * @param Asia
+     * @param ScrittaGiocatore
+     */
     public ControllerNumGiocatori(Label SceltaGiocatori, Button Uno, Button Due, Button Tre, Button Quattro, Button Cinque, Label InizioPartita, AnchorPane menu, Label SceltaMappa, Button Europa, Button America, Button Africa, Button Sud_America, Button Asia, Label ScrittaGiocatore){
         this.sceltaGiocatori =SceltaGiocatori;
         this.uno =Uno;
@@ -58,6 +72,10 @@ public class ControllerNumGiocatori {
         this.inizioPartita.setVisible(false);
         this.scrittaGiocatori.setVisible(false);
     }
+
+    /**
+     *
+     */
     public void bornAgain(){
         this.uno.setVisible(true);
         this.due.setVisible(true);
@@ -69,6 +87,10 @@ public class ControllerNumGiocatori {
         this.scrittaGiocatori.setVisible(true);
 
     }
+
+    /**
+     * @param n
+     */
     public void setNumGiocatori(String n){
         FacadePartita.getIstance().creaGiocatori(n);
         }

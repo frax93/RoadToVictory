@@ -8,6 +8,11 @@ import it.univaq.rtv.Model.FactoryMezzo.Vagone;
 
 public class FactorMezzo {
 
+	/**
+	 * @param criteria
+	 * @param giocatore
+	 * @return
+	 */
 	public static IMezzo getMezzo(String criteria, Giocatore giocatore )
 	{
 		if ( criteria.equals("Vagone") )

@@ -62,10 +62,19 @@ public class ControllerRoadToVictory  implements Initializable, MapComponentInit
     private ControllerNumGiocatori ngioc;
     private ControllerSceltaMappa scmapp;
     private String Numero="";
+
+    /**
+     * @param url
+     * @param rb
+     */
     @Override
     public void initialize(URL url, ResourceBundle rb){
 
     }
+
+    /**
+     *
+     */
     @Override
     public void mapInitialized(){
         if(this.Numero!=""){
@@ -85,6 +94,9 @@ public class ControllerRoadToVictory  implements Initializable, MapComponentInit
 
     }
 
+    /**
+     * @param event
+     */
     @FXML
     private void setMappa(final ActionEvent event){
         event.consume();
@@ -94,6 +106,10 @@ public class ControllerRoadToVictory  implements Initializable, MapComponentInit
         this.scmapp=new ControllerSceltaMappa(SceltaMappa,Europa,USA,Africa,Sud_America,Asia,SceltaGiocatori,InizioPartita,menu,ScrittaGiocatori);
         this.mapInitialized();
     }
+
+    /**
+     * @param event
+     */
     @FXML
     private void setGiocatore(final ActionEvent event){
         event.consume();
@@ -101,6 +117,9 @@ public class ControllerRoadToVictory  implements Initializable, MapComponentInit
         this.ngioc=new ControllerNumGiocatori(SceltaGiocatori,Uno,Due,Tre,Quattro,Cinque,InizioPartita,menu,SceltaMappa,Europa,USA,Africa,Sud_America,Asia,ScrittaGiocatori);
     }
 
+    /**
+     * @param event
+     */
     @FXML
     public void lanciaDado(final ActionEvent event){
         event.consume();
@@ -111,6 +130,9 @@ public class ControllerRoadToVictory  implements Initializable, MapComponentInit
 
     }
 
+    /**
+     * @param event
+     */
     @FXML
     public void fineTurno(final ActionEvent event){
         event.consume();
@@ -124,6 +146,11 @@ public class ControllerRoadToVictory  implements Initializable, MapComponentInit
 
     }
 
+    /**
+     * @param nomemappa
+     * @throws FileNotFoundException
+     * @throws IOException
+     */
     @FXML
     public void creaMappa(String nomemappa) throws FileNotFoundException, IOException {
         this.controllerMappa.getPartita().avviaPartita(nomemappa, this.controllerMappa.getPartita().getGiocatori());
@@ -221,9 +248,10 @@ public class ControllerRoadToVictory  implements Initializable, MapComponentInit
     }
 
 
-
-
-
+    /**
+     * @param finalPolyline1
+     * @param polylineOptions
+     */
     public void posizionaMezzo(Polyline finalPolyline1, PolylineOptions polylineOptions){
 
 
@@ -255,11 +283,9 @@ public class ControllerRoadToVictory  implements Initializable, MapComponentInit
     }
 
 
-
-
-
-
-
+    /**
+     *
+     */
     public void setCarte(){
 
         this.CartaObiettivo.setText("Città obiettivo: " + this.controllerMappa.getNomeCittaObiettivo(0));
@@ -268,7 +294,9 @@ public class ControllerRoadToVictory  implements Initializable, MapComponentInit
     }
 
 
-
+    /**
+     *
+     */
     public void setMarker(){
         ArrayList<Marker> markers= new ArrayList<>();
         for(int i=0; i<this.controllerMappa.getNumGiocatori();i++){
@@ -297,6 +325,9 @@ public class ControllerRoadToVictory  implements Initializable, MapComponentInit
         }
     }
 
+    /**
+     *
+     */
     public void setGiocatoreName(){
         this.GiocatoreName.setText(this.controllerMappa.getPartita().getGiocatori().get(0).getUsername());
         String color= Utility.colorToRgba(this.controllerMappa.getColoreGiocatore(0));
@@ -305,6 +336,9 @@ public class ControllerRoadToVictory  implements Initializable, MapComponentInit
 
     }
 
+    /**
+     *
+     */
     public void setObiettivo(){
         if(this.controllerMappa.getPartita().getGiocatori().get(0).getObiettivo()==true) {
             String style = "-fx-background-color:" + Utility.colorToRgba("green");
@@ -319,6 +353,9 @@ public class ControllerRoadToVictory  implements Initializable, MapComponentInit
     }
 
 
+    /**
+     *
+     */
     public void setArrivo(){
         if(this.controllerMappa.getPartita().getGiocatori().get(0).getArrivo()==true) {
             String style = "-fx-background-color:" +Utility.colorToRgba("green");
@@ -332,6 +369,9 @@ public class ControllerRoadToVictory  implements Initializable, MapComponentInit
 
     }
 
+    /**
+     *
+     */
     public void finePartita(){
         this.FinePartita.setVisible(true);
         this.FinePartita.setText(this.controllerMappa.getUsername(0)+" HAI VINTO LA PARTITA!!!!!!");
@@ -341,10 +381,17 @@ public class ControllerRoadToVictory  implements Initializable, MapComponentInit
         this.menu.setVisible(false);
     }
 
+    /**
+     *
+     */
     public void finisciTurno(){
         this.controllerMappa.getPartita().setGiocatori(this.controllerMappa.getPartita().fineTurno());
 
     }
+
+    /**
+     * @param button
+     */
     public void setTurnoButton(Boolean button){
         this.TurnoButton.setVisible(button);
     }

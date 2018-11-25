@@ -10,6 +10,11 @@ import it.univaq.rtv.Model.FactoryCitta.Oscura;
 
 public class FactorCitta {
 
+    /**
+     * @param criteria
+     * @param nomeCitta
+     * @return
+     */
     public static ICitta getCitta(String criteria, String nomeCitta )
     {
         if ( criteria.equals("Normale") )

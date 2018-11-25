@@ -5,7 +5,10 @@ public class SingletonDado {
     private static SingletonDado istance = null;
 	private Random Numero;
     private int lati;
-        
+
+    /**
+     * @return
+     */
     public static SingletonDado getIstance(){
         if(istance==null){
             istance = new SingletonDado();
@@ -14,10 +17,17 @@ public class SingletonDado {
         }
         return istance;
     }
+
+    /**
+     *
+     */
     protected SingletonDado(){
 
     }
-        
+
+    /**
+     * @return
+     */
 	public int lancia() {
             int n=1+this.Numero.nextInt(this.lati);
             return n;

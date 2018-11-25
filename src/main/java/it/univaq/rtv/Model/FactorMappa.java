@@ -6,6 +6,11 @@ import java.lang.String;
 
 public class FactorMappa {
 
+	/**
+	 * @param criteria
+	 * @return
+	 * @throws IOException
+	 */
 	public static AbstractMappa getMappa(String criteria ) throws IOException{
 		if ( criteria.equals("Europa") )
 			return new Europa();

@@ -15,17 +15,25 @@ public abstract class AbstractMappa {
     protected ArrayList<Percorso> p=new ArrayList<Percorso>();
 
 
+    /**
+     * @return
+     */
     public String getNome() {
         return this.nome;
     }
 
 
+    /**
+     * @param p1
+     */
     public void addPercorso(Percorso p1){
         this.p.add(p1);
     }
 
 
-
+    /**
+     * @return
+     */
     public ArrayList<Percorso> dammiPercorsi() {
         return this.p;
 
@@ -33,8 +41,7 @@ public abstract class AbstractMappa {
 
 
     /**
-     *
-     * @param Giocatori
+     * @param giocatores
      */
     public void popolaMappa(ArrayList<Giocatore> giocatores) {
         for(int i=0; i<giocatores.size();i++){
@@ -50,6 +57,9 @@ public abstract class AbstractMappa {
     }
 
 
+    /**
+     * @return
+     */
     public ArrayList<ICitta> getCitta(){
         ArrayList<ICitta> c=new ArrayList<ICitta>();
         for(int i=0; i<this.p.size();i++) {
@@ -66,6 +76,10 @@ public abstract class AbstractMappa {
     }
 
 
+    /**
+     * @param percorso
+     * @return
+     */
     public ArrayList<Percorso> getViciniPercorsoPartenza(Percorso percorso){
         ArrayList<Percorso> percorsos=new ArrayList<>();
         for (int a = 0; a < this.dammiPercorsi().size(); a++) {
@@ -82,6 +96,10 @@ public abstract class AbstractMappa {
         return percorsos;
     }
 
+    /**
+     * @param percorso
+     * @return
+     */
     public ArrayList<Percorso> getViciniPercorsoArrivo(Percorso percorso){
         ArrayList<Percorso> percorsos=new ArrayList<>();
         for (int a = 0; a < this.dammiPercorsi().size(); a++) {
@@ -98,6 +116,11 @@ public abstract class AbstractMappa {
         return percorsos;
     }
 
+    /**
+     * @param p
+     * @param c
+     * @return
+     */
     public ArrayList<Casella> getCaselleVicinePercorsi(ArrayList<Percorso> p, Casella c){
         ArrayList<Casella> casellas= new ArrayList<>();
         for(int i=0; i<p.size();i++)
@@ -107,9 +130,10 @@ public abstract class AbstractMappa {
     }
 
 
-
-
-
+    /**
+     * @param c
+     * @return
+     */
     public Percorso getPercorsoByCasella(Casella c){
         ArrayList<Percorso> percorsi = this.dammiPercorsi();
         boolean esci=false;
@@ -128,6 +152,10 @@ public abstract class AbstractMappa {
 
     }
 
+    /**
+     * @param percorsi
+     * @return
+     */
     public ArrayList<Percorso> rimuoviDuplicati(ArrayList<Percorso> percorsi) {
         ArrayList<Percorso> percorso_no_s = percorsi;
         for (int i = 0; i < percorsi.size(); i++) {
@@ -159,6 +187,10 @@ public abstract class AbstractMappa {
         return percorso_no_s;
 
     }
+
+    /**
+     * @return
+     */
     public LatLong calcolaCentro(){
         ArrayList<ICitta> cittas=new ArrayList<ICitta>();
         cittas=this.getCitta();
@@ -180,6 +212,9 @@ public abstract class AbstractMappa {
         return l;
     }
 
+    /**
+     * @return
+     */
     public ArrayList<ICitta> creaMappa(){
         ArrayList<ICitta> c1 = new ArrayList<ICitta>();
         try{

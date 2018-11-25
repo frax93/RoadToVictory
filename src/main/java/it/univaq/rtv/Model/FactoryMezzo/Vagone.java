@@ -6,15 +6,26 @@ import it.univaq.rtv.Model.Giocatore;
 public class Vagone implements IMezzo {
 		private int id;
 		private Giocatore g;
-        public Vagone(Giocatore g) {
+
+	/**
+	 * @param g
+	 */
+	public Vagone(Giocatore g) {
 			this.g=g;
-        }
+	}
 
-		public void creaMezzo() {
+	/**
+	 *
+	 */
+	public void creaMezzo() {
 
-		}
+	}
 
-		public void dammiMezzo() {
-		}
+	/**
+	 *
+	 */
+	public void dammiMezzo() {
+
+	}
 
 }

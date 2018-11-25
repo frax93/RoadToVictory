@@ -14,6 +14,14 @@ public class Generale extends Thread implements IState_Turno {
 	private Giocatore giocatore;
 
 
+	/**
+	 * @param g
+	 * @param NomeMappa
+	 * @param t
+	 * @param gioca
+	 * @return
+	 * @throws Exception
+	 */
 	@Override
 	public ArrayList<Giocatore> inizioTurno(ArrayList<Giocatore> g, String NomeMappa, Turno t, IStato_Giocatore gioca) throws Exception {
 		g.get(0).setState(gioca);
@@ -22,17 +30,27 @@ public class Generale extends Thread implements IState_Turno {
 		return g;
 	}
 
+	/**
+	 * @param g
+	 */
 	@Override
 	public void fineTurno(Giocatore g) {
 	 	Attesa attesa=new Attesa();
 	 	g.setState(attesa);
 	}
 
+	/**
+	 * @param g
+	 * @return
+	 */
 	@Override
 	public  ArrayList<Giocatore> ordinaGiocatori(ArrayList<Giocatore> g){
 		return g;
 	}
 
+	/**
+	 *
+	 */
 	public void interrupt(){
 		this.interrupt();
 	}

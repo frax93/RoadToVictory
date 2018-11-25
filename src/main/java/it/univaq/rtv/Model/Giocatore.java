@@ -19,23 +19,42 @@ public class Giocatore implements Comparable<Giocatore>,Runnable {
 	private boolean obiettivo =false;
 	private boolean arrivo =false;
 
+	/**
+	 * @param state
+	 */
 	public void setState(IStato_Giocatore state){
 		this.IStato_giocatore = state;
 	}
 
+	/**
+	 * @return
+	 */
 	public IStato_Giocatore getState(){
 		return this.IStato_giocatore;
 	}
+
+	/**
+	 * @param g
+	 * @return
+	 */
 	@Override
 	public int compareTo(Giocatore g){
 		int compare=g.getId();
 		return this.id-compare;
 	}
 
+	/**
+	 *
+	 */
 	@Override
 	public void run(){
 	}
 
+	/**
+	 * @param id
+	 * @param u
+	 * @param color1
+	 */
 	public Giocatore(int id, String u,String color1){
 		this.color=color1;
 		this.id=id;
@@ -44,39 +63,73 @@ public class Giocatore implements Comparable<Giocatore>,Runnable {
 		attesa.ruolo(this);
 
 	}
+
+	/**
+	 * @return
+	 */
 	public String getColor(){
 		return this.color;
 	}
+
+	/**
+	 * @return
+	 */
 	public int getId(){
 		return this.id;
 	}
 
+	/**
+	 * @return
+	 */
 	public ArrayList<IMezzo> getMezzi(){
 		return this.IMezzo;
 	}
 
+	/**
+	 * @return
+	 */
 	public String getUsername(){
 		return this.username;
 	}
 
+	/**
+	 * @param mossa
+	 */
 	public void setMossa(Casella mossa) {
 		this.mosse.add(mossa);
 	}
+
+	/**
+	 * @param mosse
+	 */
 	public void setMosse(ArrayList<Casella> mosse) {
 		this.mosse.addAll(mosse);
 	}
+
+	/**
+	 * @param mossa
+	 */
 	public void removeMossa(Casella mossa) {
 		this.mosse.remove(mossa);
 	}
 
+	/**
+	 * @return
+	 */
 	public ArrayList<Casella> getMosse() {
 		return this.mosse;
 	}
 
+	/**
+	 * @return
+	 */
 	public int lanciaDado() {
 		return SingletonDado.getIstance().lancia();
 	}
 
+	/**
+	 * @param taglia
+	 */
 	public void setMezzo(int taglia){
 		this.IMezzo =new ArrayList<IMezzo>();
 		FactorMezzo factorymezzo=new FactorMezzo();
@@ -87,10 +140,16 @@ public class Giocatore implements Comparable<Giocatore>,Runnable {
 
 	}
 
+	/**
+	 * @return
+	 */
 	public ArrayList<IMezzo> getMezzo() {
 		return IMezzo;
 	}
 
+	/**
+	 *
+	 */
 	public void pescaDueCarte() {
 		SingletonMazzoObiettivo m= new SingletonMazzoObiettivo();
 		m=m.getIstance1();
@@ -101,6 +160,9 @@ public class Giocatore implements Comparable<Giocatore>,Runnable {
 
 	}
 
+	/**
+	 *
+	 */
 	public void restituisciCarte(){
 		SingletonMazzoObiettivo mo= new SingletonMazzoObiettivo();
 		mo=mo.getIstance1();
@@ -111,15 +173,24 @@ public class Giocatore implements Comparable<Giocatore>,Runnable {
 	}
 
 
+	/**
+	 * @return
+	 */
 	public CartaPercorso chiediCartaPercorso() {
 		return this.c;
 	}
 
+	/**
+	 * @return
+	 */
 	public CartaObiettivo chiediCartaObiettivo() {
 		return this.c1;
 	}
 
 
+	/**
+	 * @param c
+	 */
 	public void posizionaMezzo(Casella c) {
 
 		int pos=this.IMezzo.size()-1;
@@ -129,15 +200,28 @@ public class Giocatore implements Comparable<Giocatore>,Runnable {
 
 	}
 
+	/**
+	 * @return
+	 */
 	public boolean getObiettivo() {
 		return this.obiettivo;
 	}
+
+	/**
+	 *
+	 */
 	public void obiettivoRaggiunto() {
 		this.obiettivo =true;
 	}
+
+	/**
+	 * @return
+	 */
 	public boolean getArrivo() {
 		return this.arrivo;
 	}
+
+
 	public void arrivoRaggiunto() {
 		this.arrivo =true;
 	}

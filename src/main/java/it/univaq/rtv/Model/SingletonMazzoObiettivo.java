@@ -11,6 +11,7 @@ public class SingletonMazzoObiettivo {
     /**
      *
      * @param Cit
+     * @return
      */
     public static SingletonMazzoObiettivo getIstance(ArrayList<ICitta> Cit){
         if(istance==null){
@@ -24,17 +25,31 @@ public class SingletonMazzoObiettivo {
         }
         return istance;
     }
+
+    /**
+     * @return
+     */
     public static SingletonMazzoObiettivo getIstance1(){
         return istance;
     }
+
+    /**
+     *
+     */
     public SingletonMazzoObiettivo(){
 
     }
 
+    /**
+     * @param c
+     */
         public void addCarta(CartaObiettivo c){
             this.Carte.add((CartaObiettivo) c);
         }
 
+    /**
+     * @return
+     */
         public CartaObiettivo pescaCarta() {
                 int num1=this.mischiaMazzo();
 		        CartaObiettivo c=this.Carte.get(num1);
@@ -43,10 +58,16 @@ public class SingletonMazzoObiettivo {
                
 	    }
 
+    /**
+     * @param c
+     */
 	    public void reinserisciCarta(CartaObiettivo c){
             this.Carte.add(c);
         }
 
+    /**
+     * @return
+     */
 	    public int mischiaMazzo() {
                Random r= new Random();
                int num=0;

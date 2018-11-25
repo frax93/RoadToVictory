@@ -16,6 +16,15 @@ import java.util.*;
 public class Iniziale implements IState_Turno {
 	private AbstractMappa mappa;
 
+	/**
+	 * @param g
+	 * @param nomeMappa
+	 * @param t
+	 * @param gioca
+	 * @return
+	 * @throws FileNotFoundException
+	 * @throws IOException
+	 */
 	@Override
 	public ArrayList<Giocatore> inizioTurno(ArrayList<Giocatore> g, String nomeMappa, Turno t, IStato_Giocatore gioca)throws FileNotFoundException,IOException{
 		this.mappa= FactorMappa.getMappa(nomeMappa);
@@ -44,17 +53,27 @@ public class Iniziale implements IState_Turno {
 
 	}
 
+	/**
+	 * @param g
+	 */
 	@Override
 	public void fineTurno(Giocatore g) {
 		return;
 	}
 
+	/**
+	 * @param g
+	 * @return
+	 */
 	@Override
 	public ArrayList<Giocatore> ordinaGiocatori(ArrayList<Giocatore> g) {
 		Collections.sort(g);
 		return g;
 	}
 
+	/**
+	 * @return
+	 */
 	public AbstractMappa getMappa() {
 		return mappa;
 	}

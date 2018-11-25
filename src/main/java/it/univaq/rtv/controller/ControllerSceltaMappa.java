@@ -18,9 +18,18 @@ public class ControllerSceltaMappa {
     private Label scrittaGiocatori;
 
 
-
-
-
+    /**
+     * @param SceltaMappa
+     * @param Europa
+     * @param USA
+     * @param Africa
+     * @param Sud_America
+     * @param Asia
+     * @param SceltaGiocatori
+     * @param InizioPartita
+     * @param menu
+     * @param ScrittaGiocatori
+     */
     public ControllerSceltaMappa(Label SceltaMappa, Button Europa, Button USA, Button Africa, Button Sud_America, Button Asia, Label SceltaGiocatori, Label InizioPartita, AnchorPane menu, Label ScrittaGiocatori){
         this.sceltaMappa =SceltaMappa;
         this.sceltaGiocatori =SceltaGiocatori;

@@ -26,18 +26,29 @@ public class FacadePartita {
     private Vincente vincente= new Vincente();
     private static FacadePartita istance = null;
 
+    /**
+     * @return
+     */
     public static FacadePartita getIstance(){
         if(istance==null){
             istance = new FacadePartita();
         }
         return istance;
     }
+
+    /**
+     *
+     */
     protected FacadePartita(){
 
     }
 
 
-
+    /**
+     * @param Nome_mappa
+     * @param giocatoriArrayList
+     * @return
+     */
     public AbstractMappa avviaPartita(String Nome_mappa, ArrayList<Giocatore> giocatoriArrayList){
         Turno t= new Turno();
         Iniziale i=new Iniziale();
@@ -62,14 +73,25 @@ public class FacadePartita {
     }
 
 
-
-
+    /**
+     * @param giocatoreArrayList
+     * @return
+     */
     public int lanciaDado(ArrayList<Giocatore> giocatoreArrayList) {
        int n = giocatoreArrayList.get(0).lanciaDado();
        giocatoreArrayList.get(0).setMezzo(n);
        return n;
     }
 
+    /**
+     * @param finalPolyline1
+     * @param polylineOptions
+     * @param finalI
+     * @param j
+     * @return
+     * @throws FileNotFoundException
+     * @throws IOException
+     */
     public boolean posizionaMezzo(Polyline finalPolyline1, PolylineOptions polylineOptions, int finalI, int j) throws FileNotFoundException,IOException {
             Casella casella = this.getMappa().dammiPercorsi().get(j).getCaselle().get(finalI);
             MVCArray path = finalPolyline1.getPath();
@@ -130,7 +152,9 @@ public class FacadePartita {
     }
 
 
-
+    /**
+     * @return
+     */
     public ArrayList<Giocatore> fineTurno() {
             try{
                 Turno t = new Turno();
@@ -151,14 +175,23 @@ public class FacadePartita {
 
     }
 
+    /**
+     * @param giocatorearraylist
+     */
     public void setGiocatori(ArrayList<Giocatore> giocatorearraylist){
         this.giocatori = giocatorearraylist;
     }
 
+    /**
+     * @return
+     */
     public ArrayList<Giocatore> getGiocatori(){
         return this.giocatori;
     }
 
+    /**
+     * @param n
+     */
     public void creaGiocatori(String n){
         for(int i = 1; i<= Utility.stringToInteger(n); i++){
             Giocatore giocatore = new Giocatore(i,"Giocatore"+i, Utility.colori());
@@ -166,16 +199,29 @@ public class FacadePartita {
         }
     }
 
+    /**
+     * @return
+     */
     public AbstractMappa getMappa(){
         return this.mappa;
     }
 
+    /**
+     * @param gioc
+     * @param j
+     * @param mezzo
+     */
     public void setIMezzoGioc(int gioc, int j,String mezzo){
         FactorMezzo factorMezzo =new FactorMezzo();
         IMezzo mezGioc1= factorMezzo.getMezzo(mezzo,FacadePartita.getIstance().getGiocatori().get(gioc));
         mappa.getCitta().get(j).setIMezzo(mezGioc1);
     }
 
+    /**
+     * @param percorso
+     * @param casella
+     * @return
+     */
     public ArrayList<Casella> caselleVicini(int percorso, int casella) {
         ArrayList<Percorso> percorsi_vicini = new ArrayList<>();
         Casella cas = this.getMappa().dammiPercorsi().get(percorso).getCaselle().get(casella);

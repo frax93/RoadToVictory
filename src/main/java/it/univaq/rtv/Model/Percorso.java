@@ -14,6 +14,11 @@ public class Percorso {
 	private double distanza;
 	ArrayList<Casella> caselle=new ArrayList<Casella>();
 
+	/**
+	 * @param num
+	 * @param Cp
+	 * @param Ca
+	 */
 	public Percorso(int num, ICitta Cp, ICitta Ca){
 		this.id=num;
 		this.cittaArrivo =Ca;
@@ -22,6 +27,10 @@ public class Percorso {
 		this.setCaselle();
 
 	}
+
+	/**
+	 *
+	 */
 	private void setCaselle(){
 		double err=0.1;
 		double spezzata =0.2;
@@ -135,9 +144,9 @@ public class Percorso {
 
 	/**
 	 *
-	 * @param CartaPercorso
-	 * @param FactorMezzo
-	 * @param Giocatore
+	 * @param c
+	 * @param mez
+	 * @param g
 	 */
 	public void trovaPercorso(CartaPercorso c, FactorMezzo mez, Giocatore g) {
 
@@ -167,23 +176,45 @@ public class Percorso {
 		else return false;
 	}
 
+	/**
+	 * @return
+	 */
 	public int getid(){
 		return this.id;
 	}
+
+	/**
+	 * @return
+	 */
 	public ICitta getCittaPartenza(){
 		return this.cittaPartenza;
 	}
+
+	/**
+	 * @return
+	 */
 	public ICitta getCittaArrivo(){
 		return this.cittaArrivo;
 	}
+
+	/**
+	 * @return
+	 */
 	public ArrayList<Casella> getCaselle(){
 		return this.caselle;
 	}
+
+	/**
+	 * @param casella
+	 */
 	public void removeCasella(Casella casella){
 		this.caselle.remove(casella);
 	}
 
 
+	/**
+	 * @return
+	 */
 	public ArrayList<Casella> getCaselleAntipodi(){
 		ArrayList<Casella> c= new ArrayList<>();
 
@@ -194,6 +225,9 @@ public class Percorso {
 
 	}
 
+	/**
+	 * @return
+	 */
 	public ArrayList<ICitta> getCittas(){
 		ArrayList<ICitta> cit= new ArrayList<>();
 		cit.add(0, getCittaPartenza());
@@ -202,6 +236,10 @@ public class Percorso {
 		return cit;
 	}
 
+	/**
+	 * @param casella
+	 * @return
+	 */
 	public Casella calcolaCasellaVicina(Casella casella){
 		if(casella.getId()==this.caselle.get(0).getId()&&(!this.caselle.get(1).checkOccupata())){
 			return this.caselle.get(1);
@@ -238,6 +276,9 @@ public class Percorso {
 
 	}
 
+	/**
+	 * @return
+	 */
 	public Casella getCasellaPartenza(){
 		double R = 6372.795477598;
 
@@ -261,6 +302,10 @@ public class Percorso {
 		return casellaPartenza;
 	}
 
+	/**
+	 * @param casella_iniziale
+	 * @return
+	 */
 	public Casella getCasellaPerVicino(Casella casella_iniziale){
 		double R = 6372.795477598;
 
@@ -285,6 +330,9 @@ public class Percorso {
 		return casella_vicina;
 	}
 
+	/**
+	 * @return
+	 */
 	public Casella getCasellaArrivo(){
 		double R = 6372.795477598;
 
@@ -312,6 +360,9 @@ public class Percorso {
 	}
 
 
+	/**
+	 *
+	 */
 	public void calcolaDistanza(){
 		double R = 6372.795477598;
 
