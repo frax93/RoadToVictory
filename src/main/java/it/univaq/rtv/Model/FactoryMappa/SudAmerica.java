@@ -1,24 +1,19 @@
 package it.univaq.rtv.Model.FactoryMappa;
 
-import com.lynden.gmapsfx.javascript.object.LatLong;
-import it.univaq.rtv.Model.FactorCitta;
 import it.univaq.rtv.Model.FactoryCitta.ICitta;
-import it.univaq.rtv.Model.FactoryCitta.NormaleDAO;
 import it.univaq.rtv.Model.Percorso;
 
-import javax.persistence.EntityManager;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.sql.SQLException;
+
 import java.util.ArrayList;
-import java.util.List;
 
 
 
-public class Sud_America extends AbstractMappa {
 
-    public Sud_America() throws IOException {
-        this.nome = "Sud_America";
+public class SudAmerica extends AbstractMappa {
+
+    public SudAmerica() throws IOException {
+        this.nome = "SudAmerica";
         ArrayList<ICitta> c = this.CreaMappa();
         Percorso p;
         p = new Percorso(1, c.get(5), c.get(17));
@@ -92,32 +87,6 @@ public class Sud_America extends AbstractMappa {
 
     }
 
-
-    @Override
-    public ArrayList<ICitta> CreaMappa() throws FileNotFoundException, IOException {
-        ArrayList<ICitta> c1 = new ArrayList<ICitta>();
-        try {
-
-            EntityManager em = ICitta.jpaConnection();
-            em.getTransaction()
-                    .begin();
-
-            List<NormaleDAO> normaleDAOList=em.createQuery("SELECT n FROM NormaleDAO n WHERE continente=:continente").setParameter("continente",this.nome).getResultList();
-            for (NormaleDAO entry : normaleDAOList) {
-                ICitta c = FactorCitta.getCitta("Normale",entry.getNome());
-                c.ImpostaCoordinate(new LatLong(entry.getLatitude(),entry.getLongitude()));
-                c1.add(c);
-            }
-
-            em.getTransaction()
-                    .commit();
-            em.close();
-            return c1;
-        } catch (Exception exc) {
-            return c1;
-        }
-
-    }
 
 
 

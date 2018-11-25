@@ -15,7 +15,7 @@ public class FactorMappa {
 		else if ( criteria.equals("Africa") )
 			return new Africa();
 		else if ( criteria.equals("Sud_America") )
-			return new Sud_America();
+			return new SudAmerica();
 		else if ( criteria.equals("Asia") )
 			return new Asia();
 		else

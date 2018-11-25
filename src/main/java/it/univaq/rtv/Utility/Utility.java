@@ -2,12 +2,19 @@ package it.univaq.rtv.Utility;
 
 
 import com.lynden.gmapsfx.javascript.object.LatLong;
+import com.sun.jersey.api.client.Client;
+import com.sun.jersey.api.client.ClientResponse;
+import com.sun.jersey.api.client.WebResource;
+import com.sun.jersey.api.client.config.ClientConfig;
+import com.sun.jersey.api.client.config.DefaultClientConfig;
+import com.sun.jersey.api.json.JSONConfiguration;
 import it.univaq.rtv.Model.Casella;
 import it.univaq.rtv.Model.FacadePartita;
 import it.univaq.rtv.Model.FactoryCitta.ICitta;
 import it.univaq.rtv.Model.Giocatore;
 import it.univaq.rtv.Model.Percorso;
 
+import javax.ws.rs.core.MediaType;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
@@ -15,6 +22,7 @@ import java.util.Random;
 
 //Classe di utilità per funzioni di supporto al gioco RTV
 public class Utility {
+
     public static ArrayList<String> colori= new ArrayList<String>() {{
         add("red");
         add("aqua");
@@ -60,6 +68,24 @@ public class Utility {
 
 
     }
+
+    public static CittaDTO[] getRestConnection(String nomeMappa){
+        CittaDTO[] cittaDTOS = null;
+        ClientConfig clientConfig = new DefaultClientConfig();
+        clientConfig.getFeatures().put(JSONConfiguration.FEATURE_POJO_MAPPING, Boolean.TRUE);
+        Client client = Client.create();
+        String URL = "http://localhost:8080/RTV_Server_war_exploded/"+nomeMappa.toLowerCase();
+        WebResource webResourceGet = client.resource(URL);
+        ClientResponse response = webResourceGet.accept(MediaType.APPLICATION_JSON).get(ClientResponse.class);
+        if (response.getStatus() != 200) {
+            throw new RuntimeException("Failed : HTTP error code : " + response.getStatus());
+        }
+        else{
+            cittaDTOS=response.getEntity(CittaDTO[].class);
+        }
+        return cittaDTOS;
+    }
+
     public static boolean IsPartenza(Giocatore giocatore, Casella casella){
         if(Math.abs(giocatore.ChiediCartaPercorso().getCittaPartenza().getCoordinate().getLatitude() - casella.getInizio().getLatitude())<0.5 && Math.abs(giocatore.ChiediCartaPercorso().getCittaPartenza().getCoordinate().getLongitude() - casella.getInizio().getLongitude())<0.5) return true;
         else return false;

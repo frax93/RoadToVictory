@@ -1,16 +1,9 @@
 package it.univaq.rtv.Model.FactoryMappa;
 
-import com.lynden.gmapsfx.javascript.object.LatLong;
-import it.univaq.rtv.Model.FactorCitta;
 import it.univaq.rtv.Model.FactoryCitta.ICitta;
-import it.univaq.rtv.Model.FactoryCitta.NormaleDAO;
 import it.univaq.rtv.Model.Percorso;
-
-import javax.persistence.EntityManager;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
 
 
 
@@ -105,7 +98,7 @@ public class USA extends AbstractMappa {
 
     }
 
-    @Override
+  /*  @Override
     public ArrayList<ICitta> CreaMappa()throws FileNotFoundException,IOException{
         ArrayList<ICitta> c1 = new ArrayList<ICitta>();
         try {
@@ -129,7 +122,7 @@ public class USA extends AbstractMappa {
             return c1;
         }
 
-    }
+    }*/
 
 
 

@@ -2,182 +2,57 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitattributes" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/imm/CarteCittà/33suword.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/imm/CarteCittà/CartaBase.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/imm/CarteCittà/Milano.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/imm/CarteCittà/Parigi.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/imm/CarteCittà/Roma.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/imm/CarteCittà/pietra-bianca-di-ostuni.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/imm/Dado/dado-1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/imm/Dado/dado-2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/imm/Dado/dado-3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/imm/Dado/dado-4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/imm/Dado/dado-5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/imm/Dado/dado-6.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/imm/vagone.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nb-configuration.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nbactions.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nbproject/private/config.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nbproject/private/private.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nbproject/private/private.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/LatLongExample/com/lynden/example/latlong/Aereo.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/LatLongExample/com/lynden/example/latlong/Carta.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/LatLongExample/com/lynden/example/latlong/CartaObiettivo.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/LatLongExample/com/lynden/example/latlong/CartaPercorso.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/LatLongExample/com/lynden/example/latlong/Casella.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/LatLongExample/com/lynden/example/latlong/Citta.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/LatLongExample/com/lynden/example/latlong/Dado/dado-1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/LatLongExample/com/lynden/example/latlong/Dado/dado-2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/LatLongExample/com/lynden/example/latlong/Dado/dado-3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/LatLongExample/com/lynden/example/latlong/Dado/dado-4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/LatLongExample/com/lynden/example/latlong/Dado/dado-5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/LatLongExample/com/lynden/example/latlong/Dado/dado-6.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/LatLongExample/com/lynden/example/latlong/FMappa.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/LatLongExample/com/lynden/example/latlong/FMezzo.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/LatLongExample/com/lynden/example/latlong/GMapsFX-2.12.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/LatLongExample/com/lynden/example/latlong/Generale.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/LatLongExample/com/lynden/example/latlong/Giocatore.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/LatLongExample/com/lynden/example/latlong/Iniziale.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/LatLongExample/com/lynden/example/latlong/LatLongFXMLController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/LatLongExample/com/lynden/example/latlong/LatLongMainApp.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/LatLongExample/com/lynden/example/latlong/Mazzo.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/LatLongExample/com/lynden/example/latlong/MazzoObiettivo.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/LatLongExample/com/lynden/example/latlong/MazzoPercorso.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/LatLongExample/com/lynden/example/latlong/Mezzo.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/LatLongExample/com/lynden/example/latlong/Nave.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/LatLongExample/com/lynden/example/latlong/Partita.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/LatLongExample/com/lynden/example/latlong/Percorso.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/LatLongExample/com/lynden/example/latlong/Rifornimento.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/LatLongExample/com/lynden/example/latlong/SDado.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/LatLongExample/com/lynden/example/latlong/Vagone.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/LatLongExample/com/lynden/example/latlong/iTurno.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/main/Immagini/2.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/main/Immagini/3.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/main/Immagini/4.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/main/Immagini/5.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/main/Immagini/6.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/main/Immagini/Dado/dado-1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/main/Immagini/Dado/dado-2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/main/Immagini/Dado/dado-3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/main/Immagini/Dado/dado-4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/main/Immagini/Dado/dado-5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/main/Immagini/Dado/dado-6.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/main/Immagini/Numeri.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/main/Immagini/mondo.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/main/Immagini/zero.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/main/Styles.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/main/it/univaq/rtv/Controller/Partita.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/main/it/univaq/rtv/Model/Carta.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/main/it/univaq/rtv/Model/CartaObiettivo.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/main/it/univaq/rtv/Model/CartaPercorso.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/main/it/univaq/rtv/Model/Casella.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/main/it/univaq/rtv/Model/FCitta.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/main/it/univaq/rtv/Model/FMappa.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/main/it/univaq/rtv/Model/FMezzo.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/main/it/univaq/rtv/Model/FactoryCitta/ICitta.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/main/it/univaq/rtv/Model/FactoryCitta/Normale.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/main/it/univaq/rtv/Model/FactoryCitta/Oscura.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/main/it/univaq/rtv/Model/FactoryCitta/Rifornimento.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/main/it/univaq/rtv/Model/FactoryMappa/America.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/main/it/univaq/rtv/Model/FactoryMappa/Europa.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/main/it/univaq/rtv/Model/FactoryMappa/IMappa.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/main/it/univaq/rtv/Model/FactoryMezzo/Aereo.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/main/it/univaq/rtv/Model/FactoryMezzo/Mezzo.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/main/it/univaq/rtv/Model/FactoryMezzo/Nave.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/main/it/univaq/rtv/Model/FactoryMezzo/Vagone.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/main/it/univaq/rtv/Model/Giocatore.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/main/it/univaq/rtv/Model/Mazzo.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/main/it/univaq/rtv/Model/MazzoObiettivo.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/main/it/univaq/rtv/Model/MazzoPercorso.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/main/it/univaq/rtv/Model/Percorso.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/main/it/univaq/rtv/Model/SDado.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/main/it/univaq/rtv/Model/StatoGiocatore/Attesa.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/main/it/univaq/rtv/Model/StatoGiocatore/Gioca.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/main/it/univaq/rtv/Model/StatoGiocatore/Stato_Giocatore.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/main/it/univaq/rtv/Model/StatoGiocatore/Vincente.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/main/it/univaq/rtv/Model/StatoTurno/Generale.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/main/it/univaq/rtv/Model/StatoTurno/Iniziale.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/main/it/univaq/rtv/Model/StatoTurno/State_Turno.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/main/it/univaq/rtv/Model/Turno.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/main/it/univaq/rtv/RoadToVictory.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/main/it/univaq/rtv/Scene.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/main/it/univaq/rtv/Utility/Utility.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/main/it/univaq/rtv/View/ViewDado.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/main/it/univaq/rtv/View/ViewMappa.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/main/it/univaq/rtv/View/ViewNumGiocatori.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/main/it/univaq/rtv/View/ViewSceltaMappa.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Immagini/2.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Immagini/3.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Immagini/4.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Immagini/5.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Immagini/6.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Immagini/Dado/dado-1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Immagini/Dado/dado-2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Immagini/Dado/dado-3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Immagini/Dado/dado-4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Immagini/Dado/dado-5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Immagini/Dado/dado-6.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Immagini/Numeri.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Immagini/mondo.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Immagini/zero.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Styles.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/rtv/Controller/Partita.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/Carta.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/CartaObiettivo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/CartaPercorso.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/Casella.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/FCitta.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/FMappa.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/FMezzo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/FactoryCitta/ICitta.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/FactoryCitta/Normale.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/FactoryCitta/Oscura.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/FactoryCitta/Rifornimento.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/FactoryMappa/America.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/FactoryMappa/Europa.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/FactoryMappa/IMappa.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/FactoryMezzo/Aereo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/FactoryMezzo/Mezzo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/FactoryMezzo/Nave.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/FactoryMezzo/Vagone.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/Giocatore.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/Mazzo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/MazzoObiettivo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/MazzoPercorso.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/Percorso.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/SDado.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/StatoGiocatore/Attesa.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/StatoGiocatore/Gioca.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/StatoGiocatore/Stato_Giocatore.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/StatoGiocatore/Vincente.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/StatoTurno/Generale.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/StatoTurno/Iniziale.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/StatoTurno/State_Turno.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/Turno.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/rtv/RoadToVictory.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/rtv/Scene.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/rtv/Utility/Utility.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/rtv/View/ViewDado.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/rtv/View/ViewMappa.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/rtv/View/ViewNumGiocatori.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/rtv/View/ViewSceltaMappa.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/main.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__antlr_antlr_2_7_7.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_classmate_1_3_4.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_9_7.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_9_7.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_9_7.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_code_gson_gson_2_8_5.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_protobuf_protobuf_java_3_6_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__javax_activation_javax_activation_api_1_2_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__javax_persistence_javax_persistence_api_2_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__javax_persistence_persistence_api_1_0_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__mysql_mysql_connector_java_8_0_13.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__net_bytebuddy_byte_buddy_1_8_17.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_dom4j_dom4j_2_1_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_common_hibernate_commons_annotations_5_0_4_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_hibernate_core_5_3_7_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_hibernate_entitymanager_5_3_7_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_javassist_javassist_3_23_1_GA.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_jboss_jandex_2_0_5_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_jboss_logging_jboss_logging_3_3_2_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_jboss_spec_javax_transaction_jboss_transaction_api_1_2_spec_1_1_1_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RoadToVictory.iml" beforeDir="false" afterPath="$PROJECT_DIR$/RoadToVictory.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/FactorMappa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/FactorMappa.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/FactoryCitta/ICitta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/FactoryCitta/ICitta.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/FactoryCitta/NormaleDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/rtv/Utility/CittaDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/FactoryMappa/AbstractMappa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/FactoryMappa/AbstractMappa.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/FactoryMappa/Africa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/FactoryMappa/Africa.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/FactoryMappa/Asia.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/FactoryMappa/Asia.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/FactoryMappa/Europa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/FactoryMappa/Europa.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/FactoryMappa/Sud_America.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/FactoryMappa/SudAmerica.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/FactoryMappa/USA.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/FactoryMappa/USA.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/univaq/rtv/Utility/Utility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/univaq/rtv/Utility/Utility.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Database/jpa_example_normale.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Database/jpa_example_normale0.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" beforeDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/out/" />
+    <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/RoadToVictory$Main.ic" NAME="Main Coverage Results" MODIFIED="1543146422502" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>sample.*</FILTER>
+    </SUITE>
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
@@ -224,9 +99,11 @@
     <session id="1997857020">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="1" />
+          <entry key="project.closed" value="2" />
           <entry key="project.open.time.0" value="1" />
-          <entry key="project.opened" value="1" />
+          <entry key="project.open.time.6" value="1" />
+          <entry key="project.open.time.7" value="1" />
+          <entry key="project.opened" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -234,25 +111,28 @@
           <entry key="css" value="1" />
           <entry key="fxml" value="1" />
           <entry key="iml" value="1" />
-          <entry key="java" value="1" />
+          <entry key="java" value="18" />
+          <entry key="xml" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CSS" value="1" />
           <entry key="IDEA_MODULE" value="1" />
-          <entry key="JAVA" value="1" />
-          <entry key="XML" value="1" />
+          <entry key="JAVA" value="18" />
+          <entry key="XML" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="3" />
+          <entry key="java" value="1844" />
+          <entry key="xml" value="56" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="3" />
+          <entry key="JAVA" value="1844" />
+          <entry key="XML" value="56" />
         </counts>
       </usages-collector>
     </session>
@@ -263,39 +143,121 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Styles.css">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/it/univaq/rtv/Scene.fxml">
+        <entry file="file://$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/FactoryMappa/AbstractMappa.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" column="17" selection-start-line="3" selection-start-column="17" selection-end-line="3" selection-end-column="17" />
+            <state relative-caret-position="419">
+              <caret line="206" column="9" selection-start-line="206" selection-start-column="9" selection-end-line="206" selection-end-column="9" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
-          <provider editor-type-id="JavaFX-Scene-Builder" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/it/univaq/rtv/Model/Carta.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/it/univaq/rtv/Utility/Utility.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" column="22" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
+            <state relative-caret-position="367">
+              <caret line="85" column="25" selection-start-line="85" selection-start-column="25" selection-end-line="85" selection-end-column="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/it/univaq/rtv/Utility/CittaDTO.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="6" selection-start-line="6" selection-end-line="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/FactoryMappa/Europa.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-903">
+              <caret line="7" column="27" selection-start-line="7" selection-start-column="27" selection-end-line="7" selection-end-column="27" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/FactoryMappa/Asia.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="312">
+              <caret line="102" column="5" selection-start-line="102" selection-start-column="5" selection-end-line="102" selection-end-column="5" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/it/univaq/rtv/controller/ControllerMappa.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="156">
+              <caret line="125" selection-start-line="125" selection-end-line="125" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/FactoryMappa/SudAmerica.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1225">
+              <caret line="88" selection-start-line="88" selection-end-line="88" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/RoadToVictory.iml">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" column="51" selection-start-line="10" selection-start-column="51" selection-end-line="10" selection-end-column="51" />
+            <state relative-caret-position="132">
+              <caret line="16" column="58" selection-start-line="16" selection-start-column="58" selection-end-line="16" selection-end-column="58" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/FactoryMappa/Africa.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="283">
+              <caret line="105" selection-start-line="105" selection-end-line="105" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/FactoryMappa/USA.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="5" column="27" selection-start-line="5" selection-start-column="27" selection-end-line="5" selection-end-column="27" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -305,9 +267,39 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/FactoryCitta/ICitta.java" />
+        <option value="$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/FactoryCitta/EuropaEntity.java" />
+        <option value="$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/FactoryMappa/Sud_America.java" />
+        <option value="$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/FactorMappa.java" />
+        <option value="$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/FactoryMappa/Africa.java" />
+        <option value="$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/FactoryCitta/NormaleDAO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/FactoryCitta/CittaDAO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/CittaDTO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/it/univaq/rtv/Utility/CittaDTO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/it/univaq/rtv/Utility/Utility.java" />
+        <option value="$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/FactoryMappa/AbstractMappa.java" />
+        <option value="$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/FactoryMappa/USA.java" />
+        <option value="$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/FactoryMappa/Europa.java" />
+        <option value="$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/FactoryMappa/Asia.java" />
+        <option value="$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/FactoryMappa/SudAmerica.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="y" value="22" />
+    <option name="x" value="18" />
+    <option name="y" value="24" />
     <option name="width" value="1440" />
     <option name="height" value="828" />
   </component>
@@ -320,7 +312,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView" />
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -337,14 +330,42 @@
               <item name="RoadToVictory" type="b2602c69:ProjectViewProjectNode" />
               <item name="RoadToVictory" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="RoadToVictory" type="b2602c69:ProjectViewProjectNode" />
+              <item name="RoadToVictory" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="RoadToVictory" type="b2602c69:ProjectViewProjectNode" />
+              <item name="RoadToVictory" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="rtv" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="RoadToVictory" type="b2602c69:ProjectViewProjectNode" />
+              <item name="RoadToVictory" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="RoadToVictory" type="b2602c69:ProjectViewProjectNode" />
+              <item name="RoadToVictory" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="view" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -359,9 +380,9 @@
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1542830630776" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543163697064" />
     <property name="dynamic.classpath" value="false" />
-    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.52474105" />
     <property name="recentsLimit" value="5" />
@@ -466,21 +487,20 @@
     <option name="totallyTimeSpent" value="1302000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="22" width="1440" height="826" extended-state="6" />
+    <frame x="18" y="24" width="1440" height="828" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info id="Designer" />
-      <window_info id="Image Layers" />
-      <window_info id="UI Designer" />
-      <window_info id="Capture Tool" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.2532189" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.26180258" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" />
-      <window_info anchor="bottom" id="Terminal" />
-      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
+      <window_info id="Designer" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="Image Layers" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32833788" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32744566" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39945653" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -490,10 +510,10 @@
       <window_info anchor="bottom" id="Changes" order="10" />
       <window_info anchor="bottom" id="Profiler" order="11" />
       <window_info anchor="bottom" id="Event Log" order="12" />
-      <window_info anchor="bottom" id="Messages" order="13" weight="0.32970026" />
-      <window_info anchor="right" id="Capture Analysis" />
-      <window_info anchor="right" id="Palette&#9;" />
-      <window_info anchor="right" id="Theme Preview" />
+      <window_info anchor="bottom" id="Messages" order="13" weight="0.32880434" />
+      <window_info anchor="bottom" id="Terminal" order="14" />
+      <window_info anchor="bottom" id="Docker" order="15" show_stripe_button="false" />
+      <window_info anchor="right" id="Coverage" side_tool="true" weight="0.3297568" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -501,7 +521,45 @@
       <window_info anchor="right" id="Database" order="4" />
       <window_info anchor="right" id="Palette" order="5" />
       <window_info anchor="right" id="Maven Projects" order="6" />
+      <window_info anchor="right" id="Capture Analysis" order="7" />
+      <window_info anchor="right" id="Palette&#9;" order="8" />
+      <window_info anchor="right" id="Theme Preview" order="9" />
     </layout>
+    <layout-to-restore>
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.26180258" />
+      <window_info id="Structure" order="1" weight="0.25" />
+      <window_info id="Favorites" order="2" />
+      <window_info id="Designer" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="Image Layers" order="6" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32744566" />
+      <window_info anchor="bottom" id="Debug" order="3" visible="true" weight="0.39945653" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Application Servers" order="7" />
+      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="bottom" id="Problems" order="9" />
+      <window_info anchor="bottom" id="Changes" order="10" />
+      <window_info anchor="bottom" id="Profiler" order="11" />
+      <window_info anchor="bottom" id="Event Log" order="12" />
+      <window_info anchor="bottom" id="Messages" order="13" weight="0.32880434" />
+      <window_info anchor="bottom" id="Terminal" order="14" />
+      <window_info anchor="bottom" id="Docker" order="15" show_stripe_button="false" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="JetGradle" order="3" />
+      <window_info anchor="right" id="Database" order="4" />
+      <window_info anchor="right" id="Palette" order="5" />
+      <window_info anchor="right" id="Maven Projects" order="6" />
+      <window_info anchor="right" id="Capture Analysis" order="7" />
+      <window_info anchor="right" id="Palette&#9;" order="8" />
+      <window_info anchor="right" id="Theme Preview" order="9" />
+    </layout-to-restore>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
@@ -514,32 +572,231 @@
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
     <option name="FILTER_TARGETS" value="false" />
   </component>
+  <component name="debuggerHistoryManager">
+    <expressions id="evaluateCodeFragment">
+      <expression>
+        <expression-string>response.getEntity(NormaleDAO[].class)</expression-string>
+        <language-id>JAVA</language-id>
+        <custom-info>it.univaq.rtv.Model.FactoryCitta.NormaleDAO</custom-info>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>response.getEntity(NormaleDAO[].class);</expression-string>
+        <language-id>JAVA</language-id>
+        <custom-info>it.univaq.rtv.Model.FactoryCitta.NormaleDAO</custom-info>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>NormaleDAO[] normaleDAOS=response.getEntity(NormaleDAO[].class)</expression-string>
+        <language-id>JAVA</language-id>
+        <custom-info>it.univaq.rtv.Model.FactoryCitta.NormaleDAO</custom-info>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>response.getEntity(EuropaEntity.class)</expression-string>
+        <language-id>JAVA</language-id>
+        <custom-info>it.univaq.rtv.Model.FactoryCitta.EuropaEntity</custom-info>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>response.getEntity(E)</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>response.getEntity(EuropaEntity.class)</expression-string>
+        <language-id>JAVA</language-id>
+        <custom-info>it.univaq.rtv.Model.FactoryCitta.NormaleDAO,it.univaq.rtv.Model.FactoryCitta.EuropaEntity</custom-info>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>response.getEntity(NormaleDAO.class)</expression-string>
+        <language-id>JAVA</language-id>
+        <custom-info>it.univaq.rtv.Model.FactoryCitta.NormaleDAO</custom-info>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>response.getEntity(NormaleDAO.class)</expression-string>
+        <language-id>JAVA</language-id>
+        <custom-info>it.univaq.rtv.Model.FactoryCitta.EuropaEntity,it.univaq.rtv.Model.FactoryCitta.NormaleDAO</custom-info>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>for (NormaleDAO entry: response.getEntity(NormaleDAO.class)
+     ) {
+    
+}</expression-string>
+        <language-id>JAVA</language-id>
+        <custom-info>it.univaq.rtv.Model.FactoryCitta.NormaleDAO</custom-info>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+    </expressions>
+  </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/sample/Main.java" />
     <entry file="file://$PROJECT_DIR$/src/sample/sample.fxml" />
     <entry file="file://$PROJECT_DIR$/src/sample/Controller.java" />
-    <entry file="file://$PROJECT_DIR$/src/Styles.css">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/it/univaq/rtv/Scene.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="17" selection-start-line="3" selection-start-column="17" selection-end-line="3" selection-end-column="17" />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/it/univaq/rtv/Model/Carta.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="22" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Styles.css" />
+    <entry file="file://$PROJECT_DIR$/src/it/univaq/rtv/Scene.fxml" />
+    <entry file="file://$PROJECT_DIR$/src/it/univaq/rtv/Model/Carta.java" />
     <entry file="file://$PROJECT_DIR$/RoadToVictory.iml">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="51" selection-start-line="14" selection-start-column="51" selection-end-line="14" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/FactoryCitta/Normale.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="46" column="56" selection-start-line="46" selection-start-column="56" selection-end-line="46" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
-          <caret line="10" column="51" selection-start-line="10" selection-start-column="51" selection-end-line="10" selection-end-column="51" />
+          <caret line="10" column="92" selection-start-line="10" selection-start-column="92" selection-end-line="10" selection-end-column="92" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/Percorso.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="23" selection-start-line="23" selection-end-line="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/FacadePartita.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="72" selection-start-line="72" selection-end-line="72" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/univaq/rtv/FrontController/ControllerRoadToVictory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2474">
+          <caret line="133" selection-start-line="133" selection-end-line="133" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/FactoryCitta/ICitta.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="27" selection-start-line="27" selection-end-line="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/FactorMappa.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="17" column="26" selection-start-line="17" selection-start-column="26" selection-end-line="17" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/FactoryCitta/EuropaEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="15" selection-start-line="8" selection-start-column="15" selection-end-line="8" selection-end-column="15" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#223#224#0" expanded="true" />
+            <element signature="e#260#261#0" expanded="true" />
+            <element signature="e#330#331#0" expanded="true" />
+            <element signature="e#382#383#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/FactoryMappa/Africa.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="283">
+          <caret line="105" selection-start-line="105" selection-end-line="105" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/univaq/rtv/controller/ControllerMappa.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="156">
+          <caret line="125" selection-start-line="125" selection-end-line="125" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/univaq/rtv/Utility/CittaDTO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" selection-start-line="6" selection-end-line="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/univaq/rtv/Utility/Utility.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="367">
+          <caret line="85" column="25" selection-start-line="85" selection-start-column="25" selection-end-line="85" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/FactoryMappa/AbstractMappa.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="419">
+          <caret line="206" column="9" selection-start-line="206" selection-start-column="9" selection-end-line="206" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/FactoryMappa/USA.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="27" selection-start-line="5" selection-start-column="27" selection-end-line="5" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/FactoryMappa/Asia.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="102" column="5" selection-start-line="102" selection-start-column="5" selection-end-line="102" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/FactoryMappa/Europa.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-903">
+          <caret line="7" column="27" selection-start-line="7" selection-start-column="27" selection-end-line="7" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/univaq/rtv/Model/FactoryMappa/SudAmerica.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1225">
+          <caret line="88" selection-start-line="88" selection-end-line="88" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="16" column="58" selection-start-line="16" selection-start-column="58" selection-end-line="16" selection-end-column="58" />
         </state>
       </provider>
     </entry>
@@ -554,7 +811,6 @@
             <option name="proportions">
               <list>
                 <option value="0.2" />
-                <option value="0.5" />
               </list>
             </option>
           </splitter-proportions>
@@ -577,7 +833,7 @@
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.2" />
+                <option value="0.52474105" />
               </list>
             </option>
           </splitter-proportions>
@@ -589,7 +845,7 @@
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.2" />
+                <option value="0.52474105" />
               </list>
             </option>
           </splitter-proportions>

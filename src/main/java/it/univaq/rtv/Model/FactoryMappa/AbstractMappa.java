@@ -1,21 +1,30 @@
 package it.univaq.rtv.Model.FactoryMappa;
 
 
+import com.sun.jersey.api.client.Client;
+import com.sun.jersey.api.client.ClientResponse;
+import com.sun.jersey.api.client.WebResource;
+import com.sun.jersey.api.client.config.ClientConfig;
+import com.sun.jersey.api.client.config.DefaultClientConfig;
+import com.sun.jersey.api.json.JSONConfiguration;
 import it.univaq.rtv.Model.*;
+import it.univaq.rtv.Utility.CittaDTO;
 import it.univaq.rtv.Model.FactoryCitta.ICitta;
 import com.lynden.gmapsfx.javascript.object.LatLong;
+
 import it.univaq.rtv.Model.FactoryMezzo.Vagone;
 import it.univaq.rtv.Utility.Utility;
 
+import javax.ws.rs.core.MediaType;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 
 
 public abstract class AbstractMappa {
     protected String nome;
     protected ArrayList<Percorso> p=new ArrayList<Percorso>();
-    protected abstract ArrayList<ICitta> CreaMappa() throws IOException;
 
 
     public String getNome() {
@@ -182,6 +191,27 @@ public abstract class AbstractMappa {
         longi=(long_max+long_min)/2;
         l=new LatLong(lat,longi);
         return l;
+    }
+
+    public ArrayList<ICitta> CreaMappa(){
+        ArrayList<ICitta> c1 = new ArrayList<ICitta>();
+        try{
+            CittaDTO[] cittaDTOS =Utility.getRestConnection(this.nome);
+                for(CittaDTO entry: cittaDTOS){
+                    ICitta citta = FactorCitta.getCitta("Normale",entry.getNome());
+                    citta.ImpostaCoordinate(new LatLong(entry.getLatitude(),entry.getLongitude()));
+                    c1.add(citta);
+                }
+            }
+         catch (Exception e) {
+            System.out.println("Serverck Again and enter a number");
+        }
+        finally {
+            return c1;
+        }
+
+
+
     }
 
 

@@ -1,15 +1,11 @@
 package it.univaq.rtv.Model.FactoryMappa;
 
-import com.lynden.gmapsfx.javascript.object.LatLong;
-import it.univaq.rtv.Model.FactorCitta;
 import it.univaq.rtv.Model.FactoryCitta.ICitta;
-import it.univaq.rtv.Model.FactoryCitta.NormaleDAO;
 import it.univaq.rtv.Model.Percorso;
 
-import javax.persistence.EntityManager;
+
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
 
 
 public class Europa extends AbstractMappa {
@@ -82,34 +78,11 @@ public class Europa extends AbstractMappa {
         this.AddPercorso(p);
         p=new Percorso(39,c.get(16),c.get(15));
         this.AddPercorso(p);
+        p=new Percorso(40,c.get(7),c.get(9));
+        this.AddPercorso(p);
 
     }
 
-
-    @Override
-    public ArrayList<ICitta> CreaMappa(){
-        ArrayList<ICitta> c1 = new ArrayList<>();
-        try {
-            EntityManager em = ICitta.jpaConnection();
-                em.getTransaction()
-                    .begin();
-
-            List<NormaleDAO> normaleDAOList=em.createQuery("SELECT n FROM NormaleDAO n WHERE continente=:continente").setParameter("continente",this.nome).getResultList();
-            for (NormaleDAO entry : normaleDAOList) {
-                ICitta c = FactorCitta.getCitta("Normale",entry.getNome());
-                c.ImpostaCoordinate(new LatLong(entry.getLatitude(),entry.getLongitude()));
-                c1.add(c);
-            }
-
-            em.getTransaction()
-                    .commit();
-            em.close();
-            return c1;
-        } catch (Exception exc) {
-            return c1;
-        }
-
-    }
 
 
 
