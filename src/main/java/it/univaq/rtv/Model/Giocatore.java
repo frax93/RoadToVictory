@@ -225,4 +225,13 @@ public class Giocatore implements Comparable<Giocatore>,Runnable {
 	public void arrivoRaggiunto() {
 		this.arrivo =true;
 	}
+
+	public void removeAllMezzi(int taglia, String mezzo){
+		this.IMezzo = new ArrayList<IMezzo>();
+		FactorMezzo factorMezzo = new FactorMezzo();
+		for(int i=taglia;i>=0;i--){
+			this.IMezzo.remove(factorMezzo.getMezzo(mezzo, this));
+		}
+	}
+
 }

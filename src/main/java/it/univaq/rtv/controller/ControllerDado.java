@@ -70,4 +70,8 @@ public class ControllerDado {
     public void setDadoButton() {
         this.dadoButton.setDisable(false);
     }
+
+    public void setImageDado(boolean visible) {
+        this.dadoImage.setVisible(visible);
+    }
 }

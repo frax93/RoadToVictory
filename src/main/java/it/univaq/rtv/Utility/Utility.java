@@ -10,8 +10,11 @@ import com.sun.jersey.api.json.JSONConfiguration;
 import it.univaq.rtv.Model.Casella;
 import it.univaq.rtv.Model.Giocatore;
 import it.univaq.rtv.Model.Percorso;
+import javafx.scene.control.Alert;
 
+import javax.swing.*;
 import javax.ws.rs.core.MediaType;
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -171,5 +174,13 @@ public class Utility {
         if((Math.abs(p1.getCasellaArrivo().getInizio().getLatitude() - p2.getCasellaArrivo().getInizio().getLatitude()) < 0.0005
                 && Math.abs(p1.getCasellaArrivo().getInizio().getLongitude() - p2.getCasellaArrivo().getInizio().getLongitude()) < 0.005)) return true;
         else return false;
+    }
+
+    public static void setAlertMsg(String title, String text, Alert.AlertType type){
+        Alert alert=new Alert(type);
+        alert.setTitle(title);
+       // alert.setHeaderText("Result :");
+        alert.setContentText(text);
+        alert.show();
     }
 }

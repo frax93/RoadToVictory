@@ -33,6 +33,15 @@
 
 }
 
+#clock{
+    -fx-padding: 5;
+    -fx-border-color: transparent;
+    -fx-min-height: 50;
+    -fx-min-width: 50;
+    -fx-background-color: transparent;
+
+}
+
 #NumeroMezzo{
     -fx-background-color: white;
     -fx-weight: 1000;
