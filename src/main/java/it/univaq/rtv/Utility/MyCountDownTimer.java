@@ -10,6 +10,9 @@ public class MyCountDownTimer extends TimerTask{
     private Integer timeSeconds =STARTTIME;
 
 
+    /**
+     * @param clock
+     */
     public MyCountDownTimer(Label clock) {
         this.clock = clock;
     }

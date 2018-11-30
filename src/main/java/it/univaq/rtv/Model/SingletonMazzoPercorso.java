@@ -31,8 +31,6 @@ public class SingletonMazzoPercorso {
      * @return
      */
     public static SingletonMazzoPercorso getIstance1(){
-        if(istance==null){
-        }
         return istance;
     }
 

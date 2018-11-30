@@ -10,7 +10,7 @@ public class Percorso {
 	private int id;
 	private ICitta cittaPartenza;
 	private ICitta cittaArrivo;
-	public static int identificativo=0;
+	public static int identCas=0;
 	private double distanza;
 	ArrayList<Casella> caselle=new ArrayList<Casella>();
 
@@ -55,10 +55,10 @@ public class Percorso {
 				resultold=new LatLong(i,j);
 				i=i+passo;
 				j=j-passo1;
-				Casella c=new Casella(identificativo);
+				Casella c=new Casella(identCas);
 				c.impostaCoordinate(resultold,l1);
 				this.caselle.add(c);
-				identificativo++;
+				identCas++;
 
 			}
 		}
@@ -79,10 +79,10 @@ public class Percorso {
 				resultold=new LatLong(i,j);
 				i=i+passo;
 				j=j-passo1;
-				Casella c=new Casella(identificativo);
+				Casella c=new Casella(identCas);
 				c.impostaCoordinate(resultold,l1);
 				this.caselle.add(c);
-				identificativo++;
+				identCas++;
 
 			}
 		}
@@ -103,10 +103,10 @@ public class Percorso {
 				resultold=new LatLong(i,j);
 				i=i+passo;
 				j=j-passo1;
-				Casella c=new Casella(identificativo);
+				Casella c=new Casella(identCas);
 				c.impostaCoordinate(resultold,l1);
 				this.caselle.add(c);
-				identificativo++;
+				identCas++;
 
 
 			}
@@ -128,10 +128,10 @@ public class Percorso {
 				resultold=new LatLong(i,j);
 				i=i+passo;
 				j=j-passo1;
-				Casella c=new Casella(identificativo);
+				Casella c=new Casella(identCas);
 				c.impostaCoordinate(resultold,l1);
 				this.caselle.add(c);
-				identificativo++;
+				identCas++;
 
 
 			}
@@ -154,27 +154,6 @@ public class Percorso {
 			this.cittaPartenza.posizionaGiocatore(mez,g);
 	}
 
-
-
-	public boolean CheckSuiVicini(Casella c) {
-		int pos=1;
-		for(int i = 0; i<caselle.size(); i++){
-
-			if(c.getId()==caselle.get(i).getId()){
-				pos = i;
-
-			}
-		}
-		if(caselle.get(1).checkOccupata()&&(caselle.get(1).getId()-1==c.getId()||caselle.get(1).getId()+1==c.getId())){
-			return true;
-		}
-		else if((caselle.get(pos-1).checkOccupata()||caselle.get(pos+1).checkOccupata())
-				&&((caselle.get(pos-1).getId()+1==c.getId()||caselle.get(pos+1).getId()-1==c.getId())||
-				(caselle.get(pos-1).getId()-1==c.getId()||caselle.get(pos+1).getId()+1==c.getId()))){
-			return  true;
-		}
-		else return false;
-	}
 
 	/**
 	 * @return
@@ -211,30 +190,7 @@ public class Percorso {
 		this.caselle.remove(casella);
 	}
 
-
-	/**
-	 * @return
-	 */
-	public ArrayList<Casella> getCaselleAntipodi(){
-		ArrayList<Casella> c= new ArrayList<>();
-
-		c.add(0,this.getCaselle().get(0));
-		c.add(1,this.getCaselle().get(this.getCaselle().size()-1));
-
-		return c;
-
-	}
-
-	/**
-	 * @return
-	 */
-	public ArrayList<ICitta> getCittas(){
-		ArrayList<ICitta> cit= new ArrayList<>();
-		cit.add(0, getCittaPartenza());
-		cit.add(1,getCittaArrivo());
-
-		return cit;
-	}
+	
 
 	/**
 	 * @param casella

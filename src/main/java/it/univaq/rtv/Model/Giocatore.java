@@ -10,8 +10,8 @@ import java.util.ArrayList;
 public class Giocatore implements Comparable<Giocatore>,Runnable {
 	private int id;
 	private String username;
-	private CartaPercorso c=null;
-	private CartaObiettivo c1=null;
+	private CartaPercorso cartaP =null;
+	private CartaObiettivo cartaO =null;
 	private ArrayList<IMezzo> IMezzo =null;
 	private IStato_Giocatore IStato_giocatore;
 	private String color;
@@ -153,10 +153,10 @@ public class Giocatore implements Comparable<Giocatore>,Runnable {
 	public void pescaDueCarte() {
 		SingletonMazzoObiettivo m= new SingletonMazzoObiettivo();
 		m=m.getIstance1();
-		this.c1=m.pescaCarta();
+		this.cartaO =m.pescaCarta();
 		SingletonMazzoPercorso m1= new SingletonMazzoPercorso();
 		m1=m1.getIstance1();
-		this.c=m1.pescaCarta();
+		this.cartaP =m1.pescaCarta();
 
 	}
 
@@ -177,14 +177,14 @@ public class Giocatore implements Comparable<Giocatore>,Runnable {
 	 * @return
 	 */
 	public CartaPercorso chiediCartaPercorso() {
-		return this.c;
+		return this.cartaP;
 	}
 
 	/**
 	 * @return
 	 */
 	public CartaObiettivo chiediCartaObiettivo() {
-		return this.c1;
+		return this.cartaO;
 	}
 
 
@@ -222,10 +222,17 @@ public class Giocatore implements Comparable<Giocatore>,Runnable {
 	}
 
 
+	/**
+	 *
+	 */
 	public void arrivoRaggiunto() {
 		this.arrivo =true;
 	}
 
+	/**
+	 * @param taglia
+	 * @param mezzo
+	 */
 	public void removeAllMezzi(int taglia, String mezzo){
 		this.IMezzo = new ArrayList<IMezzo>();
 		FactorMezzo factorMezzo = new FactorMezzo();

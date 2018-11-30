@@ -222,7 +222,7 @@ public class FacadePartita {
      * @param casella
      * @return
      */
-    public ArrayList<Casella> caselleVicini(int percorso, int casella) {
+    public ArrayList<Casella> casellePercorsiVicini(int percorso, int casella) {
         ArrayList<Percorso> percorsi_vicini = new ArrayList<>();
         Casella cas = this.getMappa().dammiPercorsi().get(percorso).getCaselle().get(casella);
         if (Utility.equalsIdCasella(cas, this.getMappa().getPercorsoByCasella(cas).getCasellaPartenza())) {

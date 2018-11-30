@@ -176,6 +176,11 @@ public class Utility {
         else return false;
     }
 
+    /**
+     * @param title
+     * @param text
+     * @param type
+     */
     public static void setAlertMsg(String title, String text, Alert.AlertType type){
         Alert alert=new Alert(type);
         alert.setTitle(title);

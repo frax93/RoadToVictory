@@ -8,7 +8,7 @@ import it.univaq.rtv.Model.FacadePartita;
 
 public class ControllerDado {
     private Button dadoButton;
-    boolean Primo = true;
+    private boolean primo = true;
     public ImageView dadoImage;
     private int numDado;
 
@@ -27,7 +27,7 @@ public class ControllerDado {
      */
     public void lancia(int n){
 
-        if(Primo==true) {
+        if(primo ==true) {
             if(n==1) {
                 Image dado= new Image("http://oi64.tinypic.com/2dluf4p.jpg");
                 this.dadoImage.setImage(dado);
@@ -52,7 +52,7 @@ public class ControllerDado {
                 Image dado= new Image("http://oi63.tinypic.com/2ccphzb.jpg");
                 this.dadoImage.setImage(dado);
             }
-            Primo=false;
+            primo =false;
         }
         this.dadoButton.setDisable(true);
     }
@@ -71,6 +71,9 @@ public class ControllerDado {
         this.dadoButton.setDisable(false);
     }
 
+    /**
+     * @param visible
+     */
     public void setImageDado(boolean visible) {
         this.dadoImage.setVisible(visible);
     }

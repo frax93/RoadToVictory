@@ -6,6 +6,9 @@ import java.net.URLConnection;
 public class Connection {
     private static boolean connect;
 
+    /**
+     * @return
+     */
     public static boolean checkConnection()
     {
         try {

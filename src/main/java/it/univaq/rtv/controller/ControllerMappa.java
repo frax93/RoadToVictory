@@ -259,7 +259,7 @@ public class ControllerMappa {
      * @param casella
      */
     public void setMosseGioc(int gioc,int percorso, int casella){
-        this.getPartita().getGiocatori().get(gioc).setMosse(this.getPartita().caselleVicini(percorso,casella));
+        this.getPartita().getGiocatori().get(gioc).setMosse(this.getPartita().casellePercorsiVicini(percorso,casella));
     }
 
     /**

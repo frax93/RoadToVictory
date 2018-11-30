@@ -23,6 +23,17 @@ public class MyTimerTask extends TimerTask{
     private ControllerDado controllerDado;
     private FacadePartita facadePartita;
 
+    /**
+     * @param giocatoreName
+     * @param cartaPercorsoArrivo
+     * @param cartaPercorsoPartenza
+     * @param cartaObiettivo
+     * @param numeroMezzo
+     * @param turnoButton
+     * @param controllerMappa
+     * @param controllerDado
+     * @param facadePartita
+     */
     public MyTimerTask(Label giocatoreName, Label cartaPercorsoArrivo, Label cartaPercorsoPartenza, Label cartaObiettivo, Label numeroMezzo, Button turnoButton, ControllerMappa controllerMappa, ControllerDado controllerDado, FacadePartita facadePartita) {
         this.giocatoreName = giocatoreName;
         this.cartaPercorsoArrivo = cartaPercorsoArrivo;

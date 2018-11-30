@@ -3,7 +3,7 @@ import java.util.Random;
 
 public class SingletonDado {
     private static SingletonDado istance = null;
-	private Random Numero;
+	private Random numero;
     private int lati;
 
     /**
@@ -12,7 +12,7 @@ public class SingletonDado {
     public static SingletonDado getIstance(){
         if(istance==null){
             istance = new SingletonDado();
-            istance.Numero= new Random();
+            istance.numero = new Random();
             istance.lati=6;
         }
         return istance;
@@ -29,7 +29,7 @@ public class SingletonDado {
      * @return
      */
 	public int lancia() {
-            int n=1+this.Numero.nextInt(this.lati);
+            int n=1+this.numero.nextInt(this.lati);
             return n;
 	}
 
